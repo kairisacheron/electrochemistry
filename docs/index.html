@@ -3,23 +3,40 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Electrochemistry Mobile Question Picker</title>
+  <title>Electrochemistry Master Mobile Question Bank</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  
+  <!-- MathJax for rendering publication-grade math and LaTeX directly in mobile browser -->
+  <script>
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$', '$'], ['\\(', '\\)']],
+        displayMath: [['$$', '$$'], ['\\[', '\\]']],
+        processEscapes: true
+      },
+      options: {
+        skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre']
+      }
+    };
+  </script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
 
   <style>
     :root {
-      --bg: #090d16;
-      --surface: #111726;
-      --surface-border: #1e293d;
-      --card-bg: #151d30;
-      --card-border: #22304d;
+      --bg: #0b0f19;
+      --surface: #121827;
+      --surface-border: #1f2a3f;
+      --card-bg: #151e32;
+      --card-border: #23324f;
       --primary: #10b981;
+      --primary-hover: #059669;
       --accent: #38bdf8;
       --text: #f8fafc;
       --text-muted: #94a3b8;
       --tag-bg: #1e293b;
+      --card-highlight: rgba(16, 185, 129, 0.08);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -31,11 +48,11 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      padding-bottom: 90px; /* space for sticky footer */
+      padding-bottom: 95px;
     }
 
     header {
-      background: rgba(17, 23, 38, 0.95);
+      background: rgba(18, 24, 39, 0.95);
       backdrop-filter: blur(12px);
       border-bottom: 1px solid var(--surface-border);
       padding: 0.85rem 1.25rem;
@@ -65,12 +82,12 @@
       border: 1px solid rgba(16, 185, 129, 0.4);
       color: #34d399;
       font-weight: 600;
-      padding: 0.25rem 0.65rem;
+      padding: 0.3rem 0.75rem;
       border-radius: 9999px;
       font-size: 0.8rem;
     }
 
-    /* Filters drawer / bar */
+    /* Filters */
     .filter-section {
       background: var(--surface);
       border-bottom: 1px solid var(--surface-border);
@@ -85,10 +102,14 @@
       background: var(--card-bg);
       border: 1px solid var(--card-border);
       color: var(--text);
-      padding: 0.6rem 0.8rem;
+      padding: 0.65rem 0.85rem;
       border-radius: 8px;
       font-size: 0.9rem;
       outline: none;
+    }
+
+    .search-input:focus, .select-input:focus {
+      border-color: var(--accent);
     }
 
     .filter-row {
@@ -102,25 +123,26 @@
 
     /* Cards */
     .content-area {
-      padding: 0.75rem 1rem;
+      padding: 0.85rem 1rem;
       display: flex;
       flex-direction: column;
-      gap: 0.75rem;
+      gap: 0.85rem;
     }
 
     .card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 10px;
-      padding: 1rem;
+      border-radius: 12px;
+      padding: 1.1rem;
       display: flex;
-      gap: 0.85rem;
-      transition: border-color 0.15s;
+      gap: 0.9rem;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
     .card.selected {
       border-color: var(--primary);
-      background: rgba(16, 185, 129, 0.05);
+      background: var(--card-highlight);
+      box-shadow: 0 0 0 1px var(--primary);
     }
 
     .card-checkbox {
@@ -136,7 +158,8 @@
       flex: 1;
       display: flex;
       flex-direction: column;
-      gap: 0.4rem;
+      gap: 0.6rem;
+      overflow-x: auto;
     }
 
     .card-header {
@@ -144,30 +167,57 @@
       justify-content: space-between;
       align-items: flex-start;
       gap: 0.5rem;
+      border-bottom: 1px dashed rgba(255, 255, 255, 0.08);
+      padding-bottom: 0.4rem;
     }
 
     .card-topic {
       color: var(--accent);
       font-size: 0.75rem;
-      font-weight: 600;
-      text-transform: uppercase;
+      font-weight: 700;
+      letter-spacing: 0.03em;
     }
 
     .card-source {
       background: var(--tag-bg);
       color: var(--text-muted);
       font-family: 'JetBrains Mono', monospace;
-      font-size: 0.7rem;
-      padding: 2px 6px;
+      font-size: 0.72rem;
+      padding: 2px 7px;
       border-radius: 4px;
+      white-space: nowrap;
     }
 
     .card-body {
-      font-size: 0.9rem;
-      line-height: 1.5;
-      color: #e2e8f0;
-      white-space: pre-wrap;
-      word-break: break-word;
+      font-size: 0.95rem;
+      line-height: 1.65;
+      color: #f1f5f9;
+    }
+
+    .card-body ol, .card-body ul {
+      margin-left: 1.3rem;
+      margin-top: 0.4rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .card-body li {
+      margin-bottom: 0.25rem;
+    }
+
+    .card-variants {
+      margin-top: 0.6rem;
+      padding: 0.7rem;
+      background: rgba(11, 15, 25, 0.6);
+      border-left: 3px solid #f59e0b;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      color: #cbd5e1;
+    }
+
+    /* MathJax font sizing */
+    .mjx-chtml {
+      font-size: 105% !important;
+      color: #38bdf8 !important;
     }
 
     /* Sticky Bottom Actions */
@@ -176,10 +226,10 @@
       bottom: 0;
       left: 0;
       right: 0;
-      background: rgba(17, 23, 38, 0.96);
+      background: rgba(18, 24, 39, 0.96);
       backdrop-filter: blur(12px);
       border-top: 1px solid var(--surface-border);
-      padding: 0.75rem 1.25rem;
+      padding: 0.85rem 1.25rem;
       display: flex;
       gap: 0.75rem;
       align-items: center;
@@ -187,8 +237,8 @@
     }
 
     .btn {
-      padding: 0.7rem 1.2rem;
-      border-radius: 8px;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
       font-size: 0.95rem;
       font-weight: 600;
       border: none;
@@ -196,7 +246,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      gap: 0.4rem;
+      gap: 0.5rem;
       transition: all 0.2s;
     }
 
@@ -204,7 +254,7 @@
       flex: 1;
       background: linear-gradient(135deg, #10b981 0%, #059669 100%);
       color: white;
-      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.35);
     }
 
     .btn-secondary {
@@ -223,19 +273,19 @@
       z-index: 200;
       justify-content: center;
       align-items: center;
-      padding: 1rem;
+      padding: 1.25rem;
     }
 
     .modal {
       background: var(--surface);
       border: 1px solid var(--surface-border);
-      border-radius: 12px;
+      border-radius: 14px;
       width: 100%;
       max-width: 500px;
-      padding: 1.5rem;
+      padding: 1.6rem;
       display: flex;
       flex-direction: column;
-      gap: 1rem;
+      gap: 1.1rem;
     }
   </style>
   <script src="questions_data.js"></script>
@@ -244,23 +294,23 @@
 
   <header>
     <div>
-      <div class="brand-title">Electrochem Mobile</div>
-      <div class="brand-sub">On-The-Road Question Picker</div>
+      <div class="brand-title">Electrochemistry Master</div>
+      <div class="brand-sub">Typeset Mobile Problem Selector</div>
     </div>
     <div class="badge-count" id="count-badge">0 Selected</div>
   </header>
 
   <div class="filter-section">
-    <input type="text" id="search-box" class="search-input" placeholder="🔍 Search formula, topic, keyword...">
+    <input type="text" id="search-box" class="search-input" placeholder="🔍 Search e.g. Kohlrausch, Nernst, overpotential...">
     <div class="filter-row">
       <select id="source-filter" class="select-input">
-        <option value="ALL">All Books & Sources</option>
+        <option value="ALL">All Sources & Books</option>
         <option value="Topic Clusters">Core Topic Clusters</option>
-        <option value="Standard Modules">Standard Modules</option>
+        <option value="Standard Modules">Standard Exercise Modules</option>
         <option value="Neeraj Kumar">Neeraj Kumar</option>
         <option value="Narendra Avasthi">Narendra Avasthi</option>
         <option value="GRB">GRB (O.P. Tandon)</option>
-        <option value="Cengage">Cengage</option>
+        <option value="Cengage">Cengage (Theory & DPP)</option>
         <option value="Pearson">Pearson</option>
         <option value="Essential">Essential Physical Chemistry</option>
       </select>
@@ -271,7 +321,7 @@
   </div>
 
   <div class="content-area" id="cards-container">
-    <div style="text-align: center; color: var(--text-muted); padding: 2rem;">Loading questions...</div>
+    <div style="text-align: center; color: var(--text-muted); padding: 2rem;">Loading and formatting questions...</div>
   </div>
 
   <div class="mobile-footer">
@@ -285,7 +335,7 @@
   <!-- Export Dialog -->
   <div class="modal-overlay" id="export-modal">
     <div class="modal">
-      <h3 style="font-size: 1.15rem;">Export Custom Selection</h3>
+      <h3 style="font-size: 1.2rem; font-weight: 700;">Export Custom Worksheet</h3>
       <p style="font-size: 0.85rem; color: var(--text-muted);">
         You selected <strong id="modal-sel-count" style="color:var(--primary);">0</strong> questions.
       </p>
@@ -301,18 +351,60 @@
       </div>
 
       <div style="display:flex; flex-direction:column; gap:0.6rem; margin-top:0.5rem;">
-        <button class="btn btn-primary" id="trigger-github-btn">⚡ Build PDF via GitHub Actions</button>
-        <button class="btn btn-secondary" id="download-tex-btn">📥 Download Standalone .tex File</button>
-        <button class="btn btn-secondary" id="copy-ids-btn">📋 Copy Selection Summary</button>
+        <button class="btn btn-primary" id="download-tex-btn">📥 Download LaTeX .tex Worksheet</button>
+        <button class="btn btn-secondary" id="copy-ids-btn">📋 Copy Selected Question IDs</button>
       </div>
 
-      <button class="btn btn-secondary" id="close-modal-btn" style="margin-top:0.5rem;">Cancel</button>
+      <button class="btn btn-secondary" id="close-modal-btn" style="margin-top:0.5rem;">Close</button>
     </div>
   </div>
 
   <script>
     const questions = window.QUESTIONS_DATA || [];
     let selectedSet = new Set(JSON.parse(localStorage.getItem('mobile_selected_ids') || '[]'));
+
+    // Converter from raw LaTeX strings to clean HTML with MathJax math preserved
+    function cleanLatexToHtml(raw) {
+      if (!raw) return '';
+
+      // Replace \ce{...} with \text{...} or chemistry formulas
+      let s = raw.replace(/\\ce\{([^}]+)\}/g, (match, formula) => {
+        return formula;
+      });
+
+      // Split cross-book redundant variants if present
+      let variantsHtml = '';
+      if (s.includes('\\tcbline') || s.includes('Cross-Book Redundant')) {
+        const parts = s.split(/\\tcbline/);
+        s = parts[0];
+        if (parts[1]) {
+          let varText = parts[1].replace(/\\textbf\{[^\}]+\}/g, '').replace(/\\begin\{itemize\}[^\]]*\]?|\\end\{itemize\}/g, '');
+          varText = varText.replace(/\\item\s*\\textbf\{([^}]+)\}/g, '<div style="margin-top:4px;"><strong>$1</strong>');
+          varText = varText.replace(/\\textit\{([^}]+)\}/g, '<em>$1</em>');
+          variantsHtml = `<div class="card-variants"><strong style="color:#f59e0b;">📚 Co-located Variants:</strong>${varText}</div>`;
+        }
+      }
+
+      // Convert multicols and enumerations
+      s = s.replace(/\\begin\{multicols\}\{\d+\}/g, '');
+      s = s.replace(/\\end\{multicols\}/g, '');
+
+      // Handle enumerate options: \begin{enumerate}[label=(\alph*)] ... \item ... \end{enumerate}
+      s = s.replace(/\\begin\{enumerate\}[^\]]*\]?/g, '<ol type="a">');
+      s = s.replace(/\\end\{enumerate\}/g, '</ol>');
+      s = s.replace(/\\begin\{itemize\}[^\]]*\]?/g, '<ul>');
+      s = s.replace(/\\end\{itemize\}/g, '</ul>');
+      s = s.replace(/\\item\s+/g, '<li>');
+
+      // Strip unneeded commands like \vspace{...}
+      s = s.replace(/\\vspace\{[^}]+\}/g, ' ');
+      s = s.replace(/\\hspace\{[^}]+\}/g, ' ');
+
+      // Convert linebreaks
+      s = s.replace(/\n\n+/g, '<br><br>');
+
+      return s + variantsHtml;
+    }
 
     // Populate topics
     const topics = [...new Set(questions.map(q => q.topic))].sort();
@@ -355,7 +447,7 @@
         return true;
       });
 
-      const displayList = filtered.slice(0, 100);
+      const displayList = filtered.slice(0, 50);
 
       displayList.forEach(q => {
         const isSel = selectedSet.has(q.id);
@@ -369,7 +461,7 @@
               <span class="card-topic">${q.topic}</span>
               <span class="card-source">${q.source || q.title}</span>
             </div>
-            <div class="card-body">${q.body.length > 300 ? q.body.substring(0, 300) + '...' : q.body}</div>
+            <div class="card-body">${cleanLatexToHtml(q.body)}</div>
           </div>
         `;
 
@@ -388,13 +480,18 @@
         container.appendChild(card);
       });
 
-      if (filtered.length > 100) {
+      if (filtered.length > 50) {
         const note = document.createElement('div');
         note.style.textAlign = 'center';
         note.style.color = 'var(--text-muted)';
         note.style.fontSize = '0.85rem';
-        note.textContent = `Showing first 100 of ${filtered.length} matches. Search to refine.`;
+        note.textContent = `Showing 50 of ${filtered.length} matches. Search to refine results.`;
         container.appendChild(note);
+      }
+
+      // Re-run MathJax rendering on new DOM elements
+      if (window.MathJax && window.MathJax.typesetPromise) {
+        window.MathJax.typesetPromise([container]).catch((err) => console.log('MathJax error:', err));
       }
     }
 
@@ -431,13 +528,14 @@
       const title = document.getElementById('test-title').value;
       const inclSol = document.getElementById('include-sol').checked;
 
-      let tex = `\\documentclass[11pt,a4paper,oneside]{article}\n\\usepackage{amsmath,amssymb,geometry,tcolorbox}\n\\geometry{margin=1in}\n\\begin{document}\n\\begin{center}\n{\\Huge\\bfseries ${title}\\par}\n\\vspace{0.4cm}\n{\\large Selected Problem Set: ${sel.length} Questions\\par}\n\\hrule\n\\vspace{0.5cm}\n\\end{center}\n\n`;
+      let tex = `\\documentclass[11pt,a4paper,oneside]{article}\n\\input{preamble.tex}\n\\usepackage[margin=1in]{geometry}\n\\begin{document}\n\\begin{center}\n{\\Huge\\bfseries\\color{primarynavy} ${title}\\par}\n\\vspace{0.4cm}\n{\\large Selected Problem Set: ${sel.length} Questions\\par}\n\\hrule\n\\vspace{0.5cm}\n\\end{center}\n\n`;
 
       sel.forEach((q, idx) => {
-        tex += `\\subsection*{Question ${idx + 1} [${q.source || q.title}]}\n${q.body}\n\\vspace{0.3cm}\n`;
+        tex += `\\begin{problembox}\n\\textbf{Question ${idx + 1}} \\hfill \\textbf{${q.source || q.title}}\n\\vspace{0.2cm}\n${q.body}\n\\end{problembox}\n`;
         if (inclSol && q.solution) {
-          tex += `\\textbf{Solution:}\n${q.solution}\n\\vspace{0.3cm}\n`;
+          tex += `\\begin{solution}\n${q.solution}\n\\end{solution}\n`;
         }
+        tex += `\\vspace{0.4cm}\n`;
       });
       tex += `\\end{document}`;
 
@@ -449,9 +547,9 @@
     });
 
     document.getElementById('copy-ids-btn').addEventListener('click', () => {
-      const text = `Selected Question IDs: [${Array.from(selectedSet).join(', ')}]`;
+      const text = `${Array.from(selectedSet).join(', ')}`;
       navigator.clipboard.writeText(text).then(() => {
-        alert('Copied question IDs to clipboard!');
+        alert('Copied question IDs to clipboard: ' + text);
       });
     });
 
