@@ -1,0 +1,158 @@
+# -*- coding: utf-8 -*-
+"""Update main.tex and main_solutions.tex with all chapters and global exercise bank."""
+
+main_tex_content = r"""\documentclass[11pt,a4paper,oneside]{report}
+
+\input{preamble.tex}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge\bfseries\color{primarynavy} MASTER PHYSICAL CHEMISTRY\par}
+    \vspace{0.8cm}
+    {\Huge\bfseries\color{cengagegreen} ELECTROCHEMISTRY\par}
+    \vspace{0.5cm}
+    {\large\scshape Comprehensive Master Textbook \& Problem Compendium\par}
+    \vspace{0.3cm}
+    {\normalsize\color{accentamber}\textbf{JEE Main $\bullet$ JEE Advanced $\bullet$ Chemistry Olympiad (INChO/IChO)}\par}
+    
+    \vspace{2cm}
+    \rule{0.8\textwidth}{1.5pt}
+    \vspace{1.5cm}
+    
+    \begin{minipage}{0.8\textwidth}
+        \small\centering
+        \textit{Synthesized from 8 Definitive Classical Authorities:}\\
+        Peter Atkins $\bullet$ Cengage $\bullet$ GRB (O.P. Tandon) $\bullet$ Narendra Avasthi $\bullet$ Neeraj Kumar $\bullet$ Pearson $\bullet$ Essential Physical Chemistry
+    \end{minipage}
+    
+    \vfill
+    {\large\bfseries Publication Edition --- Clean Textbook \& Exercise Workbook\par}
+    \vspace{0.5cm}
+    {\small \today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% Theory Chapters & Chapter Exercises
+\input{chapters/ch01_electrolytic_conduction.tex}
+\input{chapters/exercises_ch01.tex}
+
+\input{chapters/ch02_galvanic_cells.tex}
+\input{chapters/exercises_ch02.tex}
+
+\input{chapters/ch03_thermodynamics_nernst.tex}
+\input{chapters/exercises_ch03.tex}
+
+\input{chapters/ch04_concentration_cells_ljp.tex}
+\input{chapters/exercises_ch04.tex}
+
+\input{chapters/ch05_equilibrium_applications.tex}
+\input{chapters/exercises_ch05.tex}
+
+\input{chapters/ch06_electrolysis_faraday.tex}
+\input{chapters/exercises_ch06.tex}
+
+\input{chapters/ch07_commercial_cells_corrosion.tex}
+\input{chapters/exercises_ch07.tex}
+
+% Master Problem Bank
+\part*{Master Problem Bank}
+\addcontentsline{toc}{part}{Master Problem Bank}
+
+\input{exercises/subjective.tex}
+\input{exercises/single_correct.tex}
+\input{exercises/multiple_correct.tex}
+\input{exercises/assertion_reason.tex}
+\input{exercises/comprehension.tex}
+\input{exercises/matrix_match.tex}
+\input{exercises/numerical_value.tex}
+\input{exercises/archives.tex}
+
+\end{document}
+"""
+
+main_solutions_content = r"""\documentclass[11pt,a4paper,oneside]{report}
+
+\input{preamble.tex}
+\showsolutionstrue
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{2cm}
+    {\Huge\bfseries\color{primarynavy} MASTER PHYSICAL CHEMISTRY\par}
+    \vspace{0.8cm}
+    {\Huge\bfseries\color{cengagegreen} ELECTROCHEMISTRY\par}
+    \vspace{0.5cm}
+    {\large\scshape Complete Master Solutions Edition\par}
+    \vspace{0.3cm}
+    {\normalsize\color{accentamber}\textbf{JEE Main $\bullet$ JEE Advanced $\bullet$ Chemistry Olympiad (INChO/IChO)}\par}
+    
+    \vspace{2cm}
+    \rule{0.8\textwidth}{1.5pt}
+    \vspace{1.5cm}
+    
+    \begin{minipage}{0.8\textwidth}
+        \small\centering
+        \textit{Complete Step-by-Step Mathematical \& Mechanistic Solutions Edition}\\
+        Featuring exhaustive solutions embedded beneath every single exercise and numerical problem.
+    \end{minipage}
+    
+    \vfill
+    {\large\bfseries Master Complete Solutions Manual\par}
+    \vspace{0.5cm}
+    {\small \today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% Theory Chapters & Chapter Exercises
+\input{chapters/ch01_electrolytic_conduction.tex}
+\input{chapters/exercises_ch01.tex}
+
+\input{chapters/ch02_galvanic_cells.tex}
+\input{chapters/exercises_ch02.tex}
+
+\input{chapters/ch03_thermodynamics_nernst.tex}
+\input{chapters/exercises_ch03.tex}
+
+\input{chapters/ch04_concentration_cells_ljp.tex}
+\input{chapters/exercises_ch04.tex}
+
+\input{chapters/ch05_equilibrium_applications.tex}
+\input{chapters/exercises_ch05.tex}
+
+\input{chapters/ch06_electrolysis_faraday.tex}
+\input{chapters/exercises_ch06.tex}
+
+\input{chapters/ch07_commercial_cells_corrosion.tex}
+\input{chapters/exercises_ch07.tex}
+
+% Master Problem Bank
+\part*{Master Problem Bank}
+\addcontentsline{toc}{part}{Master Problem Bank}
+
+\input{exercises/subjective.tex}
+\input{exercises/single_correct.tex}
+\input{exercises/multiple_correct.tex}
+\input{exercises/assertion_reason.tex}
+\input{exercises/comprehension.tex}
+\input{exercises/matrix_match.tex}
+\input{exercises/numerical_value.tex}
+\input{exercises/archives.tex}
+
+\end{document}
+"""
+
+with open("main.tex", "w", encoding="utf-8") as f:
+    f.write(main_tex_content)
+with open("main_solutions.tex", "w", encoding="utf-8") as f:
+    f.write(main_solutions_content)
+
+print("Updated main.tex and main_solutions.tex successfully")

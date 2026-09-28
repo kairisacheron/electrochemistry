@@ -1,0 +1,91 @@
+name: Build Custom PDF Worksheet on Demand
+
+on:
+  workflow_dispatch:
+    inputs:
+      selected_ids:
+        description: 'Comma-separated Question IDs (e.g. 1, 4, 15, 82)'
+        required: true
+        default: '1, 2, 3'
+      title:
+        description: 'Worksheet Title'
+        required: false
+        default: 'Electrochemistry Mobile Selected Test'
+      include_solutions:
+        description: 'Include Step-by-Step Solutions (true/false)'
+        required: false
+        default: 'false'
+
+jobs:
+  build-worksheet:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Install TeX Live
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y texlive-latex-base texlive-latex-extra texlive-fonts-recommended texlive-science
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+
+      - name: Generate Custom TeX from Selected IDs
+        run: |
+          python -c "
+          import json, sys
+
+          selected_ids = [int(x.strip()) for x in '${{ github.event.inputs.selected_ids }}'.split(',') if x.strip().isdigit()]
+          title = '${{ github.event.inputs.title }}'
+          incl_sol = '${{ github.event.inputs.include_solutions }}'.lower() == 'true'
+
+          with open('questions_index.json', 'r', encoding='utf-8') as f:
+              all_q = json.load(f)
+          q_map = {q['id']: q for q in all_q}
+
+          sel = [q_map[qid] for qid in selected_ids if qid in q_map]
+
+          tex = []
+          tex.append(r'\documentclass[11pt,a4paper,oneside]{article}')
+          tex.append(r'\input{preamble.tex}')
+          tex.append(r'\usepackage[margin=1in]{geometry}')
+          tex.append(r'\begin{document}')
+          tex.append(r'\begin{center}')
+          tex.append(rf'{{\Huge\bfseries\color{{primarynavy}} {title}\par}}')
+          tex.append(rf'{{\large\bfseries Selected Problem Set: {len(sel)} Questions\par}}')
+          tex.append(r'{\small Generated on: \today\par}')
+          tex.append(r'\vspace{0.4cm}\hrule\vspace{0.6cm}')
+          tex.append(r'\end{center}')
+
+          for i, q in enumerate(sel, 1):
+              tex.append(r'\begin{problembox}')
+              head = rf'\textbf{{Question {i}}} \hfill \textbf{{{q[\"source\"] or q[\"title\"]}}}'
+              tex.append(head)
+              tex.append(r'\vspace{0.2cm}')
+              tex.append(q['body'])
+              tex.append(r'\end{problembox}')
+              if incl_sol and q.get('solution'):
+                  tex.append(r'\begin{solution}')
+                  tex.append(q['solution'])
+                  tex.append(r'\end{solution}')
+              tex.append(r'\vspace{0.4cm}')
+
+          tex.append(r'\end{document}')
+
+          with open('mobile_custom_test.tex', 'w', encoding='utf-8') as f:
+              f.write('\n'.join(tex))
+          "
+
+      - name: Compile PDF with pdflatex
+        run: |
+          pdflatex -interaction=nonstopmode mobile_custom_test.tex || true
+          pdflatex -interaction=nonstopmode mobile_custom_test.tex || true
+
+      - name: Upload Generated PDF as Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: mobile_custom_test.pdf
+          path: mobile_custom_test.pdf

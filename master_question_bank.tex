@@ -1,0 +1,61 @@
+\documentclass[11pt,a4paper,oneside]{report}
+
+\input{preamble.tex}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    \vspace*{1.5cm}
+    {\Huge\bfseries\color{primarynavy} MASTER QUESTION COMPENDIUM\par}
+    \vspace{0.6cm}
+    {\Huge\bfseries\color{cengagegreen} ELECTROCHEMISTRY\par}
+    \vspace{0.4cm}
+    {\large\scshape Exhaustive Problem Corpus \& Complete Unified Question Bank\par}
+    \vspace{0.3cm}
+    {\normalsize\color{accentamber}\textbf{JEE Main $\bullet$ JEE Advanced $\bullet$ Chemistry Olympiad (INChO/IChO)}\par}
+    
+    \vspace{1.5cm}
+    \rule{0.85\textwidth}{1.5pt}
+    \vspace{1.2cm}
+    
+    \begin{minipage}{0.85\textwidth}
+        \small\centering
+        \textbf{Complete Cross-Book Problem Bank Synthesizing All 8 Classical Authorities:}\\
+        Neeraj Kumar $\bullet$ Narendra Avasthi $\bullet$ GRB (O.P. Tandon) $\bullet$ Pearson $\bullet$ Cengage Theory $\bullet$ Cengage DPP $\bullet$ Essential Physical Chemistry $\bullet$ Peter Atkins
+        \vspace{0.5cm}
+        
+        \textit{Features full categorization into Core Subtopics with co-located redundant variants, followed by the exhaustive book-by-book exercise question modules (over 1,750+ individual questions).}
+    \end{minipage}
+    
+    \vfill
+    {\large\bfseries Exhaustive Master Problem Edition\par}
+    \vspace{0.4cm}
+    {\small \today\par}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% PART A: Categorized Topic-Wise Core Clusters with Co-located Variants
+\part{Core Topic Clusters with Co-Located Variants}
+\input{question_bank/part01_conduction.tex}
+\input{question_bank/part02_galvanic_cells.tex}
+\input{question_bank/part03_thermodynamics.tex}
+\input{question_bank/part04_concentration_cells.tex}
+\input{question_bank/part05_equilibrium.tex}
+\input{question_bank/part06_electrolysis.tex}
+\input{question_bank/part07_batteries_corrosion.tex}
+
+\newpage
+% PART B: Complete Book-by-Book Exhaustive Question Banks
+\part{Exhaustive Source Book Question Banks}
+\input{question_bank/extracted/nrj_all_questions.tex}
+\input{question_bank/extracted/grb_all_questions.tex}
+\input{question_bank/extracted/narendra_avasthi_all_questions.tex}
+\input{question_bank/extracted/pearson_all_questions.tex}
+\input{question_bank/extracted/cng_dpp_all_questions.tex}
+\input{question_bank/extracted/cng_theory_all_questions.tex}
+\input{question_bank/extracted/essential_all_questions.tex}
+
+\end{document}

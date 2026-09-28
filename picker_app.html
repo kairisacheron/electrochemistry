@@ -1,0 +1,630 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Electrochemistry Master Question Selector & Worksheet Builder</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <!-- KaTeX for rendering math -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.css">
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.8/dist/contrib/auto-render.min.js"></script>
+
+  <style>
+    :root {
+      --bg: #0b0f19;
+      --surface: #121826;
+      --surface-border: #1f293d;
+      --card-bg: #161e31;
+      --card-border: #23304c;
+      --primary: #10b981;
+      --primary-hover: #059669;
+      --accent: #38bdf8;
+      --accent-glow: rgba(56, 189, 248, 0.15);
+      --text: #f1f5f9;
+      --text-muted: #94a3b8;
+      --tag-bg: #1e293b;
+      --danger: #ef4444;
+      --warning: #f59e0b;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Outfit', -apple-system, BlinkMacSystemFont, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      background: linear-gradient(180deg, #131b2e 0%, var(--surface) 100%);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 1.25rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(10px);
+    }
+
+    .brand-title {
+      font-size: 1.4rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-subtitle {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-top: 2px;
+    }
+
+    .stats-bar {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      background: var(--tag-bg);
+      border: 1px solid var(--surface-border);
+      padding: 0.35rem 0.8rem;
+      border-radius: 9999px;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+
+    .badge-primary {
+      background: rgba(16, 185, 129, 0.15);
+      border-color: rgba(16, 185, 129, 0.3);
+      color: #34d399;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.55rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      border: none;
+      transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      box-shadow: 0 4px 14px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 6px 20px rgba(16, 185, 129, 0.4);
+    }
+
+    .btn-secondary {
+      background: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--surface-border);
+    }
+
+    .btn-secondary:hover {
+      background: var(--card-bg);
+      border-color: var(--accent);
+    }
+
+    .container {
+      display: flex;
+      flex: 1;
+      height: calc(100vh - 78px);
+      overflow: hidden;
+    }
+
+    /* Sidebar controls */
+    .sidebar {
+      width: 320px;
+      background: var(--surface);
+      border-right: 1px solid var(--surface-border);
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      overflow-y: auto;
+    }
+
+    .sidebar h3 {
+      font-size: 0.95rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+    }
+
+    .control-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .control-label {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    .search-input, .select-input {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 0.6rem 0.8rem;
+      border-radius: 6px;
+      font-size: 0.9rem;
+      outline: none;
+      transition: border 0.15s;
+    }
+
+    .search-input:focus, .select-input:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 3px var(--accent-glow);
+    }
+
+    /* Main Question View */
+    .main-content {
+      flex: 1;
+      overflow-y: auto;
+      padding: 1.5rem 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .action-strip {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      padding: 0.75rem 1.25rem;
+      border-radius: 8px;
+    }
+
+    .q-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1.25rem;
+      display: flex;
+      gap: 1.25rem;
+      transition: all 0.15s ease-out;
+      position: relative;
+    }
+
+    .q-card:hover {
+      border-color: #3b4d75;
+      background: #182238;
+    }
+
+    .q-card.selected {
+      border-color: var(--primary);
+      background: rgba(16, 185, 129, 0.04);
+      box-shadow: 0 0 0 1px var(--primary);
+    }
+
+    .q-checkbox {
+      width: 22px;
+      height: 22px;
+      margin-top: 4px;
+      cursor: pointer;
+      accent-color: var(--primary);
+    }
+
+    .q-details {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .q-meta {
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      font-size: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .q-topic {
+      color: var(--accent);
+      font-weight: 600;
+    }
+
+    .q-source {
+      background: var(--tag-bg);
+      color: var(--text-muted);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+    }
+
+    .q-body {
+      font-size: 0.95rem;
+      line-height: 1.6;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+    }
+
+    .q-sol-preview {
+      margin-top: 0.5rem;
+      padding: 0.75rem;
+      background: rgba(15, 23, 42, 0.6);
+      border-left: 3px solid var(--primary);
+      border-radius: 4px;
+      font-size: 0.85rem;
+      color: #94a3b8;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75);
+      backdrop-filter: blur(4px);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      width: 540px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1.25rem;
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    }
+
+    .modal-header {
+      font-size: 1.25rem;
+      font-weight: 700;
+    }
+
+    .modal-footer {
+      display: flex;
+      justify-content: flex-end;
+      gap: 0.75rem;
+      margin-top: 0.5rem;
+    }
+
+    #loading-indicator {
+      display: none;
+      color: var(--accent);
+      font-weight: 500;
+      text-align: center;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div>
+      <div class="brand-title">Electrochemistry Worksheet & PDF Generator</div>
+      <div class="brand-subtitle">Interactive Question Selector (1,684 Total Indexed Problems)</div>
+    </div>
+    <div class="stats-bar">
+      <div class="badge">Total Pool: <strong id="total-count">0</strong></div>
+      <div class="badge badge-primary">Selected: <strong id="selected-count">0</strong></div>
+      <button class="btn btn-primary" id="open-generate-btn">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+        Generate Custom PDF
+      </button>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="sidebar">
+      <div>
+        <h3>Filter & Search</h3>
+        <p style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">Refine questions by keyword, topic, or book origin</p>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Search Content</label>
+        <input type="text" id="search-box" class="search-input" placeholder="e.g. Kohlrausch, Nernst, overpotential...">
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Source / Book</label>
+        <select id="source-filter" class="select-input">
+          <option value="ALL">All Sources & Banks</option>
+          <option value="Topic Clusters">Core Topic Clusters (Co-located Variants)</option>
+          <option value="Standard Modules">Standard Exercise Modules</option>
+          <option value="Neeraj Kumar">Neeraj Kumar</option>
+          <option value="Narendra Avasthi">Narendra Avasthi</option>
+          <option value="GRB">GRB / O.P. Tandon</option>
+          <option value="Cengage">Cengage (Theory & DPP)</option>
+          <option value="Pearson">Pearson</option>
+          <option value="Essential">Essential Physical Chemistry</option>
+        </select>
+      </div>
+
+      <div class="control-group">
+        <label class="control-label">Category / Chapter</label>
+        <select id="topic-filter" class="select-input">
+          <option value="ALL">All Categories</option>
+        </select>
+      </div>
+
+      <div class="control-group" style="margin-top: 1rem;">
+        <button class="btn btn-secondary" id="select-all-visible" style="width: 100%; justify-content: center;">Select All Visible</button>
+        <button class="btn btn-secondary" id="clear-selected" style="width: 100%; justify-content: center; margin-top: 0.5rem; color: #f87171;">Clear Selection</button>
+      </div>
+    </div>
+
+    <div class="main-content">
+      <div class="action-strip">
+        <span id="filtered-status" style="font-size: 0.9rem; color: var(--text-muted);">Loading problem corpus...</span>
+        <div>
+          <label style="font-size: 0.85rem; color: var(--text-muted); cursor: pointer;">
+            <input type="checkbox" id="show-solutions-toggle" style="margin-right: 6px; accent-color: var(--primary);"> Show Solution Previews
+          </label>
+        </div>
+      </div>
+
+      <div id="questions-list" style="display: flex; flex-direction: column; gap: 0.85rem;"></div>
+      <div id="loading-indicator">Searching & rendering questions...</div>
+    </div>
+  </div>
+
+  <!-- Generate Modal -->
+  <div class="modal-overlay" id="generate-modal">
+    <div class="modal">
+      <div class="modal-header">Compile Custom PDF Worksheet</div>
+      <div class="control-group">
+        <label class="control-label">Document Title</label>
+        <input type="text" id="doc-title" class="search-input" value="Electrochemistry Mastery Test">
+      </div>
+      <div class="control-group">
+        <label class="control-label">Output Filename (without .pdf)</label>
+        <input type="text" id="doc-filename" class="search-input" value="custom_electrochem_test">
+      </div>
+      <div class="control-group" style="flex-direction: row; align-items: center; gap: 0.6rem; margin-top: 0.5rem;">
+        <input type="checkbox" id="include-solutions" style="width: 18px; height: 18px; accent-color: var(--primary);">
+        <label for="include-solutions" style="font-size: 0.9rem; cursor: pointer;">Include step-by-step solutions beneath questions</label>
+      </div>
+      <div id="compile-status" style="font-size: 0.85rem; min-height: 24px; color: var(--accent);"></div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" id="cancel-generate-btn">Cancel</button>
+        <button class="btn btn-primary" id="confirm-generate-btn">Compile with LaTeX</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let allQuestions = [];
+    let selectedSet = new Set();
+    let showSolutions = false;
+
+    // Fetch questions from Python server
+    async function loadQuestions() {
+      try {
+        const res = await fetch('/api/questions');
+        allQuestions = await res.json();
+        document.getElementById('total-count').textContent = allQuestions.length.toLocaleString();
+        
+        // Populate topics dropdown
+        const topics = [...new Set(allQuestions.map(q => q.topic))].sort();
+        const topicSelect = document.getElementById('topic-filter');
+        topics.forEach(t => {
+          const opt = document.createElement('option');
+          opt.value = t;
+          opt.textContent = t;
+          topicSelect.appendChild(opt);
+        });
+
+        renderQuestions();
+      } catch (err) {
+        document.getElementById('filtered-status').textContent = 'Failed to load question corpus from server.';
+      }
+    }
+
+    function renderQuestions() {
+      const qList = document.getElementById('questions-list');
+      qList.innerHTML = '';
+
+      const query = document.getElementById('search-box').value.toLowerCase();
+      const sourceVal = document.getElementById('source-filter').value;
+      const topicVal = document.getElementById('topic-filter').value;
+
+      const filtered = allQuestions.filter(q => {
+        if (query && !q.body.toLowerCase().includes(query) && !q.title.toLowerCase().includes(query) && !q.source.toLowerCase().includes(query)) {
+          return false;
+        }
+        if (sourceVal !== 'ALL') {
+          if (sourceVal === 'Topic Clusters' && q.category !== 'Topic Clusters') return false;
+          if (sourceVal === 'Standard Modules' && q.category !== 'Standard Modules') return false;
+          if (sourceVal === 'Neeraj Kumar' && !q.file.includes('nrj') && !q.source.includes('Neeraj')) return false;
+          if (sourceVal === 'Narendra Avasthi' && !q.file.includes('narendra') && !q.source.includes('NA') && !q.source.includes('Avasthi')) return false;
+          if (sourceVal === 'GRB' && !q.file.includes('grb') && !q.source.includes('GRB')) return false;
+          if (sourceVal === 'Cengage' && !q.file.includes('cng') && !q.source.includes('CNG')) return false;
+          if (sourceVal === 'Pearson' && !q.file.includes('pearson') && !q.source.includes('Pearson')) return false;
+          if (sourceVal === 'Essential' && !q.file.includes('essential') && !q.source.includes('ESS')) return false;
+        }
+        if (topicVal !== 'ALL' && q.topic !== topicVal) {
+          return false;
+        }
+        return true;
+      });
+
+      document.getElementById('filtered-status').textContent = `Showing ${filtered.length.toLocaleString()} matching questions`;
+
+      // Render top 150 for fluid performance
+      const pageItems = filtered.slice(0, 150);
+
+      pageItems.forEach(q => {
+        const isSelected = selectedSet.has(q.id);
+        const card = document.createElement('div');
+        card.className = `q-card ${isSelected ? 'selected' : ''}`;
+        card.id = `q-${q.id}`;
+
+        const chk = document.createElement('input');
+        chk.type = 'checkbox';
+        chk.className = 'q-checkbox';
+        chk.checked = isSelected;
+        chk.addEventListener('change', (e) => {
+          if (e.target.checked) {
+            selectedSet.add(q.id);
+            card.classList.add('selected');
+          } else {
+            selectedSet.delete(q.id);
+            card.classList.remove('selected');
+          }
+          updateSelectedCount();
+        });
+
+        const details = document.createElement('div');
+        details.className = 'q-details';
+
+        const meta = document.createElement('div');
+        meta.className = 'q-meta';
+        meta.innerHTML = `
+          <span class="q-topic">${q.topic}</span>
+          <span class="q-source">${q.source || q.title}</span>
+          <span style="color: #64748b;">ID #${q.id}</span>
+        `;
+
+        const body = document.createElement('div');
+        body.className = 'q-body';
+        body.textContent = q.body;
+
+        details.appendChild(meta);
+        details.appendChild(body);
+
+        if (showSolutions && q.solution) {
+          const sol = document.createElement('div');
+          sol.className = 'q-sol-preview';
+          sol.innerHTML = `<strong>Solution:</strong> ${q.solution}`;
+          details.appendChild(sol);
+        }
+
+        card.appendChild(chk);
+        card.appendChild(details);
+        qList.appendChild(card);
+      });
+
+      if (filtered.length > 150) {
+        const note = document.createElement('div');
+        note.style.textAlign = 'center';
+        note.style.color = '#64748b';
+        note.style.padding = '1rem';
+        note.textContent = `Showing first 150 of ${filtered.length} results. Use filters or search to narrow down.`;
+        qList.appendChild(note);
+      }
+    }
+
+    function updateSelectedCount() {
+      document.getElementById('selected-count').textContent = selectedSet.size;
+    }
+
+    // Event listeners
+    document.getElementById('search-box').addEventListener('input', renderQuestions);
+    document.getElementById('source-filter').addEventListener('change', renderQuestions);
+    document.getElementById('topic-filter').addEventListener('change', renderQuestions);
+    
+    document.getElementById('show-solutions-toggle').addEventListener('change', (e) => {
+      showSolutions = e.target.checked;
+      renderQuestions();
+    });
+
+    document.getElementById('select-all-visible').addEventListener('click', () => {
+      document.querySelectorAll('.q-checkbox').forEach(chk => {
+        if (!chk.checked) {
+          chk.checked = true;
+          chk.dispatchEvent(new Event('change'));
+        }
+      });
+    });
+
+    document.getElementById('clear-selected').addEventListener('click', () => {
+      selectedSet.clear();
+      updateSelectedCount();
+      renderQuestions();
+    });
+
+    // Modal logic
+    const modal = document.getElementById('generate-modal');
+    document.getElementById('open-generate-btn').addEventListener('click', () => {
+      if (selectedSet.size === 0) {
+        alert('Please select at least 1 question first!');
+        return;
+      }
+      modal.style.display = 'flex';
+      document.getElementById('compile-status').textContent = '';
+    });
+
+    document.getElementById('cancel-generate-btn').addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    document.getElementById('confirm-generate-btn').addEventListener('click', async () => {
+      const btn = document.getElementById('confirm-generate-btn');
+      const status = document.getElementById('compile-status');
+      btn.disabled = true;
+      btn.textContent = 'Compiling LaTeX PDF...';
+      status.textContent = 'Running pdflatex compilation...';
+
+      try {
+        const payload = {
+          selected_ids: Array.from(selectedSet),
+          title: document.getElementById('doc-title').value,
+          filename: document.getElementById('doc-filename').value,
+          include_solutions: document.getElementById('include-solutions').checked
+        };
+
+        const res = await fetch('/api/generate', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        const data = await res.json();
+        if (data.success) {
+          status.innerHTML = `<span style="color:#10b981; font-weight:600;">Success! Generated <a href="/${data.pdf_file}" target="_blank" style="color:#38bdf8; text-decoration:underline;">${data.pdf_file}</a> (${data.total_questions} questions)</span>`;
+          btn.textContent = 'Compiled!';
+        } else {
+          status.innerHTML = `<span style="color:#ef4444;">Compilation failed. See terminal log.</span>`;
+          btn.textContent = 'Retry Compilation';
+          btn.disabled = false;
+        }
+      } catch (err) {
+        status.innerHTML = `<span style="color:#ef4444;">Network error: ${err.message}</span>`;
+        btn.disabled = false;
+        btn.textContent = 'Compile with LaTeX';
+      }
+    });
+
+    window.onload = loadQuestions;
+  </script>
+</body>
+</html>

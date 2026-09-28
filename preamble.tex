@@ -1,0 +1,150 @@
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[margin=0.75in,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage[version=4]{mhchem}
+\usepackage{booktabs}
+\usepackage{tabularx}
+\usepackage{multicol}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta,calc,decorations.pathmorphing,patterns,positioning}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage[skins,breakable]{tcolorbox}
+\usepackage{microtype}
+\usepackage{hyperref}
+
+% Color Definitions
+\definecolor{cengagegreen}{RGB}{0, 110, 80}
+\definecolor{primarynavy}{RGB}{12, 35, 75}
+\definecolor{subtleblue}{RGB}{240, 245, 252}
+\definecolor{subtlegreen}{RGB}{242, 248, 245}
+\definecolor{subtleamber}{RGB}{254, 249, 238}
+\definecolor{subtlegold}{RGB}{254, 249, 238}
+\definecolor{accentamber}{RGB}{190, 95, 10}
+\definecolor{crimsonred}{RGB}{160, 25, 35}
+\definecolor{bordergray}{RGB}{205, 215, 225}
+\definecolor{textdark}{RGB}{20, 25, 30}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primarynavy,
+    citecolor=cengagegreen,
+    urlcolor=cengagegreen,
+    pdfauthor={Master IIT-JEE Chemistry Series},
+    pdftitle={Electrochemistry: Theory, Advanced Illustrations and Exhaustive Question Bank}
+}
+
+% Page Header/Footer Styling
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small\color{primarynavy}\textbf{Master Physical Chemistry: Electrochemistry}}
+\fancyhead[R]{\small\color{cengagegreen}\nouppercase{\leftmark}}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.6pt}
+\renewcommand{\footrulewidth}{0pt}
+
+% Section Titles Styling
+\titleformat{\chapter}[display]
+  {\normalfont\huge\bfseries\color{primarynavy}}{\chaptertitlename\ \thechapter}{15pt}{\Huge\color{cengagegreen}}
+\titleformat{\section}
+  {\normalfont\Large\bfseries\color{primarynavy}}{\thesection}{1em}{}
+\titleformat{\subsection}
+  {\normalfont\large\bfseries\color{cengagegreen}}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}
+  {\normalfont\normalsize\bfseries\color{primarynavy}}{\thesubsubsection}{1em}{}
+
+% Custom TColorBoxes
+% Concept Box
+\newtcolorbox{conceptbox}[1][]{
+    enhanced,
+    colback=subtlegreen,
+    colframe=cengagegreen,
+    arc=3mm,
+    boxrule=1.2pt,
+    title=\textbf{\large\color{white} #1},
+    coltitle=white,
+    colbacktitle=cengagegreen,
+    attach boxed title to top left={xshift=5mm,yshift=-2mm},
+    boxed title style={arc=2mm,boxrule=0pt,colback=cengagegreen},
+    top=10pt,bottom=8pt,left=10pt,right=10pt,
+    before skip=12pt,after skip=12pt
+}
+
+% Advanced Olympiad / Atkins Deep Dive Box
+\newtcolorbox{atkinsbox}[1][]{
+    enhanced,
+    colback=subtleblue,
+    colframe=primarynavy,
+    arc=3mm,
+    boxrule=1.2pt,
+    title=\textbf{\large\color{white} #1},
+    coltitle=white,
+    colbacktitle=primarynavy,
+    attach boxed title to top left={xshift=5mm,yshift=-2mm},
+    boxed title style={arc=2mm,boxrule=0pt,colback=primarynavy},
+    top=10pt,bottom=8pt,left=10pt,right=10pt,
+    before skip=12pt,after skip=12pt
+}
+
+% Solved Illustration / Example Box
+\newcounter{masterexample}[chapter]
+\renewcommand{\themasterexample}{\thechapter.\arabic{masterexample}}
+\newtcolorbox{examplebox}[1][]{
+    enhanced,
+    colback=white,
+    colframe=cengagegreen!80!black,
+    arc=2mm,
+    boxrule=0.9pt,
+    title=\textbf{Illustration \refstepcounter{masterexample}\themasterexample \ifstrempty{#1}{}{: #1}},
+    coltitle=cengagegreen!90!black,
+    colbacktitle=subtlegreen,
+    attach boxed title to top left={xshift=4mm,yshift=-2.5mm},
+    boxed title style={arc=1.5mm,boxrule=0.6pt,colframe=cengagegreen!80!black},
+    top=8pt,bottom=8pt,left=8pt,right=8pt,
+    before skip=10pt,after skip=10pt
+}
+
+% Problem & Exercise Box
+\newcounter{exercisenum}[chapter]
+\renewcommand{\theexercisenum}{\arabic{exercisenum}}
+\newtcolorbox{problembox}[1][]{
+    enhanced,
+    colback=white,
+    colframe=bordergray,
+    arc=1.5mm,
+    boxrule=0.7pt,
+    left=8pt,right=8pt,top=6pt,bottom=6pt,
+    before skip=8pt,after skip=8pt
+}
+
+% Solution Environment Toggle
+\newif\ifshowsolutions
+\showsolutionsfalse
+
+\newtcolorbox{solutionbox}{
+    enhanced,
+    colback=subtleamber,
+    colframe=accentamber!90!black,
+    arc=2mm,
+    boxrule=0.8pt,
+    title=\textbf{\color{accentamber!90!black}Detailed Step-by-Step Solution},
+    coltitle=accentamber!90!black,
+    colbacktitle=subtleamber!70!white,
+    attach boxed title to top left={xshift=4mm,yshift=-2.5mm},
+    boxed title style={arc=1.5mm,boxrule=0.5pt,colframe=accentamber!80!black},
+    top=8pt,bottom=8pt,left=8pt,right=8pt,
+    before skip=8pt,after skip=8pt
+}
+
+\usepackage{environ}
+\NewEnviron{solution}{%
+    \ifshowsolutions
+        \begin{solutionbox}
+            \BODY
+        \end{solutionbox}
+    \fi
+}

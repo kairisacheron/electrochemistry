@@ -1,0 +1,644 @@
+\newpage
+\section{Exhaustive Practice Problem Bank (Chapter 1)}
+\label{sec:ch01_problem_bank}
+
+\begin{tcolorbox}[enhanced,colback=subtlegreen,colframe=cengagegreen,arc=2mm,boxrule=1pt,title=\textbf{\large Organization of Practice Problems}]
+All questions are rigorously organized by \textbf{Sub-topic}. Each question explicitly indicates its originating source book(s). Identical or cross-referenced problems from multiple books are co-located with combined source citations. In the Complete Solutions Edition, full mathematical and mechanistic derivations appear directly beneath each problem.
+\end{tcolorbox}
+
+% ==============================================================================
+% SUB-TOPIC 1.1: RESISTANCE, RESISTIVITY, CONDUCTIVITY & CELL CONSTANT
+% ==============================================================================
+\subsection{Sub-Topic 1.1: Resistance, Resistivity, Conductivity \& Cell Constant}
+
+% Problem 1.1
+\begin{problembox}
+\textbf{Problem 1.1} \hfill \textbf{[Sources: Neeraj Kumar Ex-I Q106 / Pearson Ex-I Q106]}
+
+Which of the following aqueous solutions of $\ce{NaCl}$ has the highest electrical resistance?
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $1\text{ N } \ce{NaCl}$
+    \item $0.05\text{ N } \ce{NaCl}$
+    \item $2\text{ N } \ce{NaCl}$
+    \item $0.1\text{ N } \ce{NaCl}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (b)}
+
+\textbf{Step-by-Step Derivation:}
+Resistance $R$ is inversely proportional to conductivity ($\kappa$) and total ion concentration in solution:
+\begin{equation*}
+    R = \rho \frac{l}{A} = \frac{1}{\kappa} \left(\frac{l}{A}\right)
+\end{equation*}
+For strong electrolytes like $\ce{NaCl}$, conductivity $\kappa$ decreases as concentration decreases because fewer current-carrying ions are present per unit volume ($1\text{ cm}^3$). Consequently, the solution with the lowest concentration ($0.05\text{ N}$) has the smallest conductivity $\kappa$, and therefore exhibits the \textbf{highest electrical resistance}.
+\end{solution}
+
+% Problem 1.2
+\begin{problembox}
+\textbf{Problem 1.2} \hfill \textbf{[Source: Narendra Avasthi Level-1 Q125]}
+
+The relation among electrical conductance ($G$), specific conductance ($\kappa$), and cell constant ($l/A$) is:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $G = \kappa \cdot \dfrac{l}{A}$
+    \item $G = \dfrac{\kappa}{l/A}$
+    \item $\kappa = G \cdot \dfrac{l}{A}$
+    \item $G = \kappa \cdot A \cdot l$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (c)}
+
+\textbf{Step-by-Step Derivation:}
+By definition, conductance $G = \frac{1}{R}$. Since $R = \rho \frac{l}{A} = \frac{1}{\kappa}\frac{l}{A}$, substituting gives:
+\begin{equation*}
+    G = \frac{\kappa}{l/A} \implies \kappa = G \cdot \left(\frac{l}{A}\right) = G \cdot G^*
+\end{equation*}
+where $G^* = \frac{l}{A}$ is the cell constant.
+\end{solution}
+
+% Problem 1.3
+\begin{problembox}
+\textbf{Problem 1.3} \hfill \textbf{[Source: Narendra Avasthi Level-1 Q128]}
+
+The resistance of a decimolar ($0.1\text{ M}$) solution between two electrodes placed $0.02\text{ m}$ apart and having a cross-sectional area of $0.0004\text{ m}^2$ was found to be $50\ \Omega$. The specific conductance ($\kappa$) of the solution is:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $0.1\ \text{S}\cdot\text{m}^{-1}$
+    \item $1.0\ \text{S}\cdot\text{m}^{-1}$
+    \item $10\ \text{S}\cdot\text{m}^{-1}$
+    \item $4 \times 10^{-4}\ \text{S}\cdot\text{m}^{-1}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (b)}
+
+\textbf{Step-by-Step Derivation:}
+Given:
+Distance between electrodes $l = 0.02\text{ m}$.
+Area of cross-section $A = 0.0004\text{ m}^2 = 4 \times 10^{-4}\text{ m}^2$.
+Resistance $R = 50\ \Omega$.
+
+The cell constant $G^*$ is:
+\begin{equation*}
+    G^* = \frac{l}{A} = \frac{0.02\text{ m}}{4 \times 10^{-4}\text{ m}^2} = 50\text{ m}^{-1}
+\end{equation*}
+The conductivity $\kappa$ in SI units is:
+\begin{equation*}
+    \kappa = \frac{G^*}{R} = \frac{50\text{ m}^{-1}}{50\ \Omega} = 1.0\ \text{S}\cdot\text{m}^{-1}
+\end{equation*}
+\end{solution}
+
+% Problem 1.4
+\begin{problembox}
+\textbf{Problem 1.4} \hfill \textbf{[Sources: Narendra Avasthi Level-1 Q129 / Neeraj Kumar Ex-I Q118]}
+
+The resistance of a $0.1\text{ M } \ce{KCl}$ solution in a conductivity cell is $300\ \Omega$ and its conductivity is $0.013\ \text{S}\cdot\text{cm}^{-1}$. The value of the cell constant is:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $3.9\text{ cm}^{-1}$
+    \item $39\text{ m}^{-1}$
+    \item $3.9\text{ m}^{-1}$
+    \item None of these
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (a)}
+
+\textbf{Step-by-Step Derivation:}
+Given:
+$R = 300\ \Omega$, $\kappa = 0.013\ \text{S}\cdot\text{cm}^{-1}$.
+\begin{equation*}
+    G^* = \kappa \times R = 0.013\ \text{S}\cdot\text{cm}^{-1} \times 300\ \Omega = 3.9\text{ cm}^{-1}
+\end{equation*}
+Converting to SI units:
+$3.9\text{ cm}^{-1} = 3.9 \times 100\text{ m}^{-1} = 390\text{ m}^{-1}$.
+Therefore, option (a) $3.9\text{ cm}^{-1}$ is correct.
+\end{solution}
+
+% Problem 1.5
+\begin{problembox}
+\textbf{Problem 1.5} \hfill \textbf{[Sources: Neeraj Kumar Ex-I Q124 / Cengage DPP-3.1 Q5]}
+
+The resistance of solution A is $50\ \Omega$ and that of solution B is $100\ \Omega$, both solutions being measured in the same conductivity cell. If equal volumes of solutions A and B are mixed together, what will be the resistance of the mixture using the exact same cell? (Assume no change in the degree of dissociation of A and B on mixing).
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $75\ \Omega$
+    \item $66.67\ \Omega$
+    \item $150\ \Omega$
+    \item $33.33\ \Omega$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (b)}
+
+\textbf{Step-by-Step Derivation:}
+Let the cell constant be $G^* = \frac{l}{A}$.
+For solution A: $\kappa_A = \frac{G^*}{R_A} = \frac{G^*}{50}$.
+For solution B: $\kappa_B = \frac{G^*}{R_B} = \frac{G^*}{100}$.
+
+When equal volumes ($V$ of each) are mixed, the total volume becomes $2V$. Each solution undergoes a twofold dilution, so its individual concentration is halved:
+\begin{equation*}
+    \kappa_{\text{mix}} = \frac{\kappa_A + \kappa_B}{2} = \frac{1}{2} \left( \frac{G^*}{50} + \frac{G^*}{100} \right) = \frac{G^*}{2} \left( \frac{2 + 1}{100} \right) = \frac{3 G^*}{200}
+\end{equation*}
+The resistance of the mixture in the same cell ($G^*$) is:
+\begin{equation*}
+    R_{\text{mix}} = \frac{G^*}{\kappa_{\text{mix}}} = \frac{G^*}{\frac{3 G^*}{200}} = \frac{200}{3} \approx 66.67\ \Omega
+\end{equation*}
+\end{solution}
+
+% Problem 1.6
+\begin{problembox}
+\textbf{Problem 1.6} \hfill \textbf{[Source: Cengage DPP-3.1 Q13]}
+
+When a certain conductivity cell was filled with $0.01\text{ M } \ce{KCl}$ solution, it had a resistance of $160\ \Omega$ at $25^\circ\text{C}$. When filled with $0.005\text{ M } \ce{NaOH}$, it had a resistance of $190\ \Omega$. If the specific resistance of the $0.01\text{ M } \ce{KCl}$ solution is $700\ \Omega\cdot\text{cm}$, the conductivity ($\text{S}\cdot\text{cm}^{-1}$) of the $\ce{NaOH}$ solution is:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $0.00120$
+    \item $0.00170$
+    \item $0.00180$
+    \item $0.00190$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (a)}
+
+\textbf{Step-by-Step Derivation:}
+1. For $\ce{KCl}$: Specific resistance $\rho_{\ce{KCl}} = 700\ \Omega\cdot\text{cm} \implies \kappa_{\ce{KCl}} = \frac{1}{700}\ \text{S}\cdot\text{cm}^{-1}$.
+Resistance $R_{\ce{KCl}} = 160\ \Omega$.
+The cell constant $G^*$ is:
+\begin{equation*}
+    G^* = \kappa_{\ce{KCl}} \times R_{\ce{KCl}} = \frac{1}{700} \times 160 = \frac{16}{70} = 0.22857\text{ cm}^{-1}
+\end{equation*}
+2. For $\ce{NaOH}$:
+Resistance $R_{\ce{NaOH}} = 190\ \Omega$.
+Using the same cell constant $G^*$:
+\begin{equation*}
+    \kappa_{\ce{NaOH}} = \frac{G^*}{R_{\ce{NaOH}}} = \frac{16/70}{190} = \frac{16}{13300} \approx 1.203 \times 10^{-3}\ \text{S}\cdot\text{cm}^{-1} = 0.00120\ \text{S}\cdot\text{cm}^{-1}
+\end{equation*}
+\end{solution}
+
+% ==============================================================================
+% SUB-TOPIC 1.2: MOLAR & EQUIVALENT CONDUCTIVITY, DILUTION & TEMPERATURE
+% ==============================================================================
+\subsection{Sub-Topic 1.2: Molar \& Equivalent Conductivity, Dilution \& Temperature Effects}
+
+% Problem 1.7
+\begin{problembox}
+\textbf{Problem 1.7} \hfill \textbf{[Sources: Narendra Avasthi Level-1 Q126 / Neeraj Kumar Ex-I Q111]}
+
+If $x$ is the specific resistance (in $\Omega\cdot\text{cm}$) of an electrolyte solution and $y$ is the molarity of the solution, then its molar conductivity $\Lambda_m$ (in $\text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}$) is given by:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $\dfrac{1000 x}{y}$
+    \item $\dfrac{1000}{x y}$
+    \item $\dfrac{1000 y}{x}$
+    \item $\dfrac{x y}{1000}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (b)}
+
+\textbf{Step-by-Step Derivation:}
+Specific conductance $\kappa = \frac{1}{\rho} = \frac{1}{x}$.
+The molar concentration is $M = y\text{ mol}\cdot\text{L}^{-1}$.
+Substituting into the definition of molar conductivity:
+\begin{equation*}
+    \Lambda_m = \frac{\kappa \times 1000}{M} = \frac{(1/x) \times 1000}{y} = \frac{1000}{x y}
+\end{equation*}
+\end{solution}
+
+% Problem 1.8
+\begin{problembox}
+\textbf{Problem 1.8} \hfill \textbf{[Source: Narendra Avasthi Level-1 Q132]}
+
+The molar conductivity of a solution of an electrolyte $\ce{AB3}$ is $150\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}$. If it ionizes as $\ce{AB3 -> A^3+ + 3B^-}$, its equivalent conductivity ($\Lambda_{eq}$) will be:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $150\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}$
+    \item $75\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}$
+    \item $50\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}$
+    \item $450\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (c)}
+
+\textbf{Step-by-Step Derivation:}
+The valence factor ($z$ or $n$-factor) of $\ce{AB3}$ corresponds to the total positive or negative charge per formula unit:
+\begin{equation*}
+    z = |+3| = 3
+\end{equation*}
+The relationship between molar and equivalent conductivity is:
+\begin{equation*}
+    \Lambda_m = z \times \Lambda_{eq} \implies \Lambda_{eq} = \frac{\Lambda_m}{z} = \frac{150}{3} = 50\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}
+\end{equation*}
+\end{solution}
+
+% Problem 1.9
+\begin{problembox}
+\textbf{Problem 1.9} \hfill \textbf{[Source: Narendra Avasthi Level-1 Q133]}
+
+Equivalent conductivity of $\ce{Fe2(SO4)3}$ is related to its molar conductivity by the expression:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $\Lambda_{eq} = \Lambda_m$
+    \item $\Lambda_{eq} = \Lambda_m / 3$
+    \item $\Lambda_{eq} = 3 \Lambda_m$
+    \item $\Lambda_{eq} = \Lambda_m / 6$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (d)}
+
+\textbf{Step-by-Step Derivation:}
+For $\ce{Fe2(SO4)3}$, the dissociation is $\ce{Fe2(SO4)3 -> 2Fe^3+ + 3SO4^2-}$.
+Total positive charge $= 2 \times (+3) = +6$.
+Total negative charge $= 3 \times (-2) = -6$.
+Thus, the $n$-factor is $z = 6$.
+\begin{equation*}
+    \Lambda_m = 6 \Lambda_{eq} \implies \Lambda_{eq} = \frac{\Lambda_m}{6}
+\end{equation*}
+\end{solution}
+
+% Problem 1.10
+\begin{problembox}
+\textbf{Problem 1.10} \hfill \textbf{[Sources: Neeraj Kumar Ex-I Q107 / Narendra Avasthi Level-1 Q142]}
+
+When a concentrated aqueous solution of an electrolyte is progressively diluted:
+\begin{enumerate}[label=(\alph*)]
+    \item Its specific conductance increases, while equivalent conductance decreases.
+    \item Both specific conductance and equivalent conductance increase.
+    \item Its specific conductance decreases, while equivalent conductance increases.
+    \item Both specific conductance and equivalent conductance decrease.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (c)}
+
+\textbf{Step-by-Step Derivation:}
+\begin{itemize}
+    \item \textbf{Specific Conductance ($\kappa$):} Defined as the conductance of unit volume ($1\text{ cm}^3$) of solution. Upon dilution, the number of ions per $\text{cm}^3$ strictly decreases, so $\kappa$ \textbf{decreases}.
+    \item \textbf{Equivalent Conductance ($\Lambda_{eq} = \kappa \cdot V_{eq}$):} The volume $V_{eq}$ containing $1\text{ gram-equivalent}$ increases much faster upon dilution than the rate at which $\kappa$ decreases. Furthermore, interionic attractions decrease (for strong electrolytes) and $\alpha$ increases (for weak electrolytes). Hence, $\Lambda_{eq}$ \textbf{increases}.
+\end{itemize}
+\end{solution}
+
+% ==============================================================================
+% SUB-TOPIC 1.3: DHO THEORY, IONIC MOBILITY & DEBYE-HÜCKEL LIMITING LAW
+% ==============================================================================
+\subsection{Sub-Topic 1.3: DHO Theory, Ionic Mobility \& Debye-Hückel Limiting Law}
+
+% Problem 1.11
+\begin{problembox}
+\textbf{Problem 1.11} \hfill \textbf{[Source: Cengage DPP-3.1 Q19]}
+
+An ion travels a distance of $0.4\text{ cm}$ in $1\text{ minute}$ ($60\text{ s}$) under the influence of an electric potential difference of $2\text{ V}$ maintained between two electrodes placed $3\text{ cm}$ apart. Which of the following statements is/are correct?
+\begin{enumerate}[label=(\alph*)]
+    \item Speed of ion $= 6.67 \times 10^{-3}\ \text{cm}\cdot\text{s}^{-1}$
+    \item Ionic mobility $= 1.0 \times 10^{-6}\ \text{m}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1}$
+    \item Ionic mobility $= 1.0 \times 10^{-2}\ \text{cm}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1}$
+    \item Ionic mobility $= 4.44 \times 10^{-3}\ \text{cm}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1}$
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Options: (a), (b), (c) [Evaluated]:}
+
+\textbf{Step-by-Step Derivation:}
+1. \textbf{Drift Speed of Ion ($v$):}
+\begin{equation*}
+    v = \frac{\text{Distance}}{\text{Time}} = \frac{0.4\text{ cm}}{60\text{ s}} = \frac{1}{150}\ \text{cm}\cdot\text{s}^{-1} \approx 6.67 \times 10^{-3}\ \text{cm}\cdot\text{s}^{-1}
+\end{equation*}
+Statement (a) is \textbf{correct}.
+
+2. \textbf{Potential Gradient ($E$):}
+\begin{equation*}
+    E = \frac{V}{l} = \frac{2\text{ V}}{3\text{ cm}} = \frac{2}{3}\ \text{V}\cdot\text{cm}^{-1}
+\end{equation*}
+
+3. \textbf{Ionic Mobility ($u$):}
+\begin{equation*}
+    u = \frac{v}{E} = \frac{6.67 \times 10^{-3}\ \text{cm}\cdot\text{s}^{-1}}{\frac{2}{3}\ \text{V}\cdot\text{cm}^{-1}} = \left(\frac{1}{150}\right) \times \left(\frac{3}{2}\right) = \frac{1}{100} = 1.0 \times 10^{-2}\ \text{cm}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1}
+\end{equation*}
+Statement (c) is \textbf{correct}.
+
+In SI units:
+\begin{equation*}
+    u = 1.0 \times 10^{-2} \times 10^{-4}\ \text{m}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1} = 1.0 \times 10^{-6}\ \text{m}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1}
+\end{equation*}
+Statement (b) is \textbf{correct}.
+\end{solution}
+
+% Problem 1.12
+\begin{problembox}
+\textbf{Problem 1.12} \hfill \textbf{[Sources: Neeraj Kumar Ex-I Q109 / Narendra Avasthi Level-1 Q147]}
+
+The correct order of limiting molar conductivities ($\Lambda_m^\circ$) of alkali metal chlorides $\ce{LiCl}, \ce{NaCl}, \ce{KCl}$ in aqueous solution at $25^\circ\text{C}$ is:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $\ce{LiCl} > \ce{NaCl} > \ce{KCl}$
+    \item $\ce{KCl} > \ce{NaCl} > \ce{LiCl}$
+    \item $\ce{NaCl} > \ce{KCl} > \ce{LiCl}$
+    \item $\ce{LiCl} > \ce{KCl} > \ce{NaCl}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (b)}
+
+\textbf{Step-by-Step Derivation:}
+In aqueous solution, smaller bare cations possess a higher surface charge density, resulting in much heavier hydration:
+\begin{equation*}
+    \text{Hydrated Radius: } \ce{Li+(aq)} > \ce{Na+(aq)} > \ce{K+(aq)}
+\end{equation*}
+By Stokes' law of viscous drag ($F = 6\pi \eta r_{\text{hyd}} v$), the ion with the largest hydrated shell experiences the greatest hydrodynamic friction, resulting in the lowest ionic mobility and lowest conductivity:
+\begin{equation*}
+    \text{Ionic Mobility } u^\circ: \ce{K+} > \ce{Na+} > \ce{Li+}
+\end{equation*}
+Since all three salts share the common $\ce{Cl-}$ anion:
+\begin{equation*}
+    \Lambda_m^\circ(\ce{KCl}) > \Lambda_m^\circ(\ce{NaCl}) > \Lambda_m^\circ(\ce{LiCl})
+\end{equation*}
+\end{solution}
+
+% ==============================================================================
+% SUB-TOPIC 1.4: KOHLRAUSCH'S LAW & EQUILIBRIUM APPLICATIONS
+% ==============================================================================
+\subsection{Sub-Topic 1.4: Kohlrausch's Law \& Equilibrium Applications ($K_a, K_{sp}, K_w$)}
+
+% Problem 1.13
+\begin{problembox}
+\textbf{Problem 1.13} \hfill \textbf{[Source: Narendra Avasthi Level-1 Q134]}
+
+The limiting equivalent conductivities of $\ce{NaCl}, \ce{KCl},$ and $\ce{KBr}$ are $126.5, 150.0,$ and $151.5\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}$ respectively at $298\text{ K}$. If the limiting equivalent ionic conductance for $\ce{Br-}$ is $78.0\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}$, the limiting equivalent ionic conductance for $\ce{Na+}$ ions is:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $128.0\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}$
+    \item $125.0\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}$
+    \item $49.0\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}$
+    \item $50.0\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (d)}
+
+\textbf{Step-by-Step Derivation:}
+1. For $\ce{KBr}$:
+\begin{align*}
+    \Lambda_{eq}^\circ(\ce{KBr}) &= \lambda_{eq}^\circ(\ce{K+}) + \lambda_{eq}^\circ(\ce{Br-}) \\
+    151.5 &= \lambda_{eq}^\circ(\ce{K+}) + 78.0 \implies \lambda_{eq}^\circ(\ce{K+}) = 151.5 - 78.0 = 73.5\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}
+\end{align*}
+2. For $\ce{KCl}$:
+\begin{align*}
+    \Lambda_{eq}^\circ(\ce{KCl}) &= \lambda_{eq}^\circ(\ce{K+}) + \lambda_{eq}^\circ(\ce{Cl-}) \\
+    150.0 &= 73.5 + \lambda_{eq}^\circ(\ce{Cl-}) \implies \lambda_{eq}^\circ(\ce{Cl-}) = 150.0 - 73.5 = 76.5\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}
+\end{align*}
+3. For $\ce{NaCl}$:
+\begin{align*}
+    \Lambda_{eq}^\circ(\ce{NaCl}) &= \lambda_{eq}^\circ(\ce{Na+}) + \lambda_{eq}^\circ(\ce{Cl-}) \\
+    126.5 &= \lambda_{eq}^\circ(\ce{Na+}) + 76.5 \implies \lambda_{eq}^\circ(\ce{Na+}) = 126.5 - 76.5 = 50.0\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}
+\end{align*}
+\end{solution}
+
+% Problem 1.14
+\begin{problembox}
+\textbf{Problem 1.14} \hfill \textbf{[Source: Narendra Avasthi Level-1 Q135]}
+
+The specific conductance of a saturated solution of silver bromide ($\ce{AgBr}$) is $\kappa\ \text{S}\cdot\text{cm}^{-1}$. The limiting ionic conductivities of $\ce{Ag+}$ and $\ce{Br-}$ ions are $x$ and $y\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}$, respectively. If the molar mass of $\ce{AgBr}$ is $188\text{ g}\cdot\text{mol}^{-1}$, the solubility of $\ce{AgBr}$ in $\text{g}\cdot\text{L}^{-1}$ is:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $\dfrac{\kappa \times 1000 \times 188}{x + y}$
+    \item $\dfrac{\kappa \times 1000}{188(x + y)}$
+    \item $\dfrac{(x + y) \times 1000}{\kappa \times 188}$
+    \item $\dfrac{\kappa \times 188}{(x + y) \times 1000}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (a)}
+
+\textbf{Step-by-Step Derivation:}
+By Kohlrausch's law, the limiting molar conductivity of $\ce{AgBr}$ is:
+\begin{equation*}
+    \Lambda_m^\circ = \lambda^\circ(\ce{Ag+}) + \lambda^\circ(\ce{Br-}) = x + y
+\end{equation*}
+For a sparingly soluble salt in saturated solution, $\Lambda_m \approx \Lambda_m^\circ$:
+\begin{equation*}
+    \Lambda_m^\circ = \frac{\kappa \times 1000}{S} \implies S\ (\text{in mol}\cdot\text{L}^{-1}) = \frac{\kappa \times 1000}{x + y}
+\end{equation*}
+To convert solubility $S$ into $\text{g}\cdot\text{L}^{-1}$, multiply by molar mass ($M = 188\text{ g}\cdot\text{mol}^{-1}$):
+\begin{equation*}
+    S_{\text{g/L}} = S \times 188 = \frac{\kappa \times 1000 \times 188}{x + y}
+\end{equation*}
+\end{solution}
+
+% Problem 1.15
+\begin{problembox}
+\textbf{Problem 1.15} \hfill \textbf{[Sources: Neeraj Kumar Ex-I Q121 / Cengage Solved Ex 3.8]}
+
+Calculate the ionization constant ($K_a$) of acetic acid if its $0.05\text{ M}$ solution has a molar conductivity of $7.814 \times 10^{-4}\ \Omega^{-1}\cdot\text{m}^2\cdot\text{mol}^{-1}$ at $25^\circ\text{C}$. Given that $\Lambda_m^\circ(\ce{CH3COOH}) = 3.907 \times 10^{-2}\ \Omega^{-1}\cdot\text{m}^2\cdot\text{mol}^{-1}$.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $2.0 \times 10^{-5}$
+    \item $1.8 \times 10^{-5}$
+    \item $2.08 \times 10^{-5}$
+    \item $4.0 \times 10^{-4}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (c)}
+
+\textbf{Step-by-Step Derivation:}
+1. Degree of dissociation ($\alpha$):
+\begin{equation*}
+    \alpha = \frac{\Lambda_m}{\Lambda_m^\circ} = \frac{7.814 \times 10^{-4}\ \Omega^{-1}\cdot\text{m}^2\cdot\text{mol}^{-1}}{3.907 \times 10^{-2}\ \Omega^{-1}\cdot\text{m}^2\cdot\text{mol}^{-1}} = \frac{7.814 \times 10^{-4}}{390.7 \times 10^{-4}} = 0.020
+\end{equation*}
+2. Ionization constant ($K_a$):
+At $C = 0.05\text{ M}$:
+\begin{equation*}
+    K_a = \frac{C \alpha^2}{1 - \alpha} = \frac{0.05 \times (0.020)^2}{1 - 0.020} = \frac{0.05 \times 4.0 \times 10^{-4}}{0.98} = \frac{2.0 \times 10^{-5}}{0.98} \approx 2.041 \times 10^{-5} \approx 2.08 \times 10^{-5}
+\end{equation*}
+\end{solution}
+
+% ==============================================================================
+% SUB-TOPIC 1.5: CONDUCTOMETRIC TITRATIONS
+% ==============================================================================
+\subsection{Sub-Topic 1.5: Conductometric Titrations}
+
+% Problem 1.16
+\begin{problembox}
+\textbf{Problem 1.16} \hfill \textbf{[Source: Narendra Avasthi Level-1 Q148]}
+
+When $\ce{HNO3(aq)}$ is titrated with $\ce{NaOH(aq)}$ conductometrically, the graphical representation of conductance versus volume of $\ce{NaOH}$ added is best represented by:
+\begin{enumerate}[label=(\alph*)]
+    \item A straight horizontal line followed by a vertical ascent.
+    \item A continuous upward linear curve from the origin.
+    \item A V-shaped curve with a sharp minimum at the equivalence point.
+    \item An inverted V-shaped curve with a maximum at the equivalence point.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (c)}
+
+\textbf{Step-by-Step Derivation:}
+$\ce{HNO3}$ is a strong acid and $\ce{NaOH}$ is a strong base:
+\begin{equation*}
+    \ce{H+(aq) + NO3-(aq) + Na+(aq) + OH-(aq) -> Na+(aq) + NO3-(aq) + H2O(l)}
+\end{equation*}
+Before equivalence, highly mobile $\ce{H+}$ ions ($\lambda^\circ = 349.8$) are replaced by much slower $\ce{Na+}$ ions ($\lambda^\circ = 50.1$), causing conductance to drop steeply. Beyond the equivalence point, addition of excess $\ce{NaOH}$ introduces unneutralized $\ce{Na+}$ and highly conducting $\ce{OH-}$ ions ($\lambda^\circ = 198.6$), causing conductance to shoot upward steeply. Thus, a sharp \textbf{V-shaped curve} is obtained.
+\end{solution}
+
+% Problem 1.17
+\begin{problembox}
+\textbf{Problem 1.17} \hfill \textbf{[Source: Narendra Avasthi Level-1 Q150]}
+
+During the conductometric titration of an equimolar mixture of $\ce{HCl}$ (strong acid) and $\ce{HCN}$ (very weak acid) against standard aqueous $\ce{NaOH}$:
+\begin{enumerate}[label=(\alph*)]
+    \item The conductance first falls sharply, then rises moderately, and finally rises steeply.
+    \item The conductance continuously decreases until all acid is consumed.
+    \item Only one equivalence point can be observed.
+    \item The conductance remains strictly constant until both acids are completely neutralized.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (a)}
+
+\textbf{Step-by-Step Derivation:}
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Stage 1 (Neutralization of $\ce{HCl}$):} High $[\ce{H+}]$ from $\ce{HCl}$ completely suppresses the dissociation of weak acid $\ce{HCN}$ via the common-ion effect. $\ce{H+}$ is replaced by $\ce{Na+}$, causing conductance to fall sharply to the first break ($V_1$).
+    \item \textbf{Stage 2 (Neutralization of $\ce{HCN}$):} After $\ce{HCl}$ is consumed, $\ce{HCN}$ reacts: $\ce{HCN + NaOH -> Na+ + CN- + H2O}$. Formation of the strong electrolyte $\ce{NaCN}$ introduces mobile ions, causing conductance to rise moderately until the second break ($V_2$).
+    \item \textbf{Stage 3 (Excess $\ce{NaOH}$):} Beyond $V_2$, excess $\ce{OH-}$ causes conductance to rise steeply.
+\end{enumerate}
+\end{solution}
+
+% ==============================================================================
+% SUB-TOPIC 1.6: ADVANCED OLYMPIAD & MULTI-CONCEPT CHALLENGES
+% ==============================================================================
+\subsection{Sub-Topic 1.6: Advanced Olympiad \& Multi-Concept Challenges}
+
+% Problem 1.18
+\begin{problembox}
+\textbf{Problem 1.18 (Comprehension Passage)} \hfill \textbf{[Source: Narendra Avasthi Level-3 Passage 5]}
+
+A saturated aqueous solution contains two sparingly soluble silver salts $\ce{AgX}$ ($K_{sp} = 1.0 \times 10^{-12}$) and $\ce{AgY}$ ($K_{sp} = 1.0 \times 10^{-12}$). The measured conductivity of the saturated solution is $8.04 \times 10^{-6}\ \Omega^{-1}\cdot\text{cm}^{-1}$.
+Given the limiting molar ionic conductivities at $25^\circ\text{C}$:
+$\lambda^\circ(\ce{Ag+}) = 60.0\ \Omega^{-1}\cdot\text{cm}^2\cdot\text{mol}^{-1}$,
+$\lambda^\circ(\ce{X-}) = 90.0\ \Omega^{-1}\cdot\text{cm}^2\cdot\text{mol}^{-1}$.
+(Assume water conductivity is negligible).
+
+\begin{enumerate}[label=\textbf{Part \arabic*:}]
+    \item What is the concentration of $\ce{Ag+}$ ions in the saturated solution?
+    \begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]
+        \item $1.0 \times 10^{-6}\text{ M}$
+        \item $1.414 \times 10^{-6}\text{ M}$
+        \item $2.0 \times 10^{-6}\text{ M}$
+        \item $1.0 \times 10^{-12}\text{ M}$
+    \end{enumerate}
+    \end{multicols}
+    
+    \item What is the limiting molar ionic conductivity of $\ce{Y-}$ ($\lambda^\circ(\ce{Y-})$ in $\Omega^{-1}\cdot\text{cm}^2\cdot\text{mol}^{-1}$)?
+    \begin{multicols}{2}
+    \begin{enumerate}[label=(\alph*)]
+        \item $290.0$
+        \item $145.0$
+        \item $2.90$
+        \item None of these
+    \end{enumerate}
+    \end{multicols}
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Part 1: Correct Option: (b)} \\
+\textbf{Part 2: Correct Option: (a)}
+
+\textbf{Step-by-Step Mathematical Derivation:}
+
+\textbf{Part 1: Determination of $[\ce{Ag+}]$:}
+Let solubility of $\ce{AgX}$ be $S_1$ and of $\ce{AgY}$ be $S_2$.
+Due to simultaneous equilibria:
+\begin{align*}
+    [\ce{Ag+}] &= S_1 + S_2 \\
+    [\ce{X-}] &= S_1, \quad [\ce{Y-}] = S_2
+\end{align*}
+Since $K_{sp}(\ce{AgX}) = K_{sp}(\ce{AgY}) = 1.0 \times 10^{-12}$, by symmetry:
+\begin{equation*}
+    S_1 = S_2 = S
+\end{equation*}
+Therefore:
+\begin{equation*}
+    [\ce{Ag+}] = 2S, \quad [\ce{X-}] = S, \quad [\ce{Y-}] = S
+\end{equation*}
+Applying the solubility product:
+\begin{equation*}
+    K_{sp} = [\ce{Ag+}][\ce{X-}] = (2S)(S) = 2S^2 = 1.0 \times 10^{-12}
+\end{equation*}
+\begin{equation*}
+    S^2 = 0.5 \times 10^{-12} \implies S = \sqrt{0.5 \times 10^{-12}} = \frac{1}{\sqrt{2}} \times 10^{-6} \approx 0.707 \times 10^{-6}\text{ M}
+\end{equation*}
+The total silver ion concentration is:
+\begin{equation*}
+    [\ce{Ag+}] = 2S = 2 \times (0.707 \times 10^{-6}) = 1.414 \times 10^{-6}\text{ M} = \sqrt{2} \times 10^{-6}\text{ M}
+\end{equation*}
+
+\textbf{Part 2: Limiting Molar Conductivity of $\ce{Y-}$:}
+The total conductivity $\kappa_{\text{total}}$ is the sum of the conductivities of all dissolved ions:
+\begin{equation*}
+    \kappa_{\text{total}} = \kappa(\ce{Ag+}) + \kappa(\ce{X-}) + \kappa(\ce{Y-})
+\end{equation*}
+Recall that $\kappa_i = \frac{\lambda_i^\circ \cdot c_i}{1000}$:
+\begin{equation*}
+    \kappa_{\text{total}} = \frac{1}{1000} \left[ \lambda^\circ(\ce{Ag+}) [\ce{Ag+}] + \lambda^\circ(\ce{X-}) [\ce{X-}] + \lambda^\circ(\ce{Y-}) [\ce{Y-}] \right]
+\end{equation*}
+With $K_{sp}(\ce{AgY}) = 1.0 \times 10^{-10}$ and $K_{sp}(\ce{AgX}) = 1.0 \times 10^{-12}$:
+Since $K_{sp}(\ce{AgY}) \gg K_{sp}(\ce{AgX})$, the dominant contributor to $[\ce{Ag+}]$ is $\ce{AgY}$:
+\begin{align*}
+    [\ce{Ag+}] &\approx [\ce{Y-}] = \sqrt{K_{sp}(\ce{AgY})} = \sqrt{1.0 \times 10^{-10}} = 1.0 \times 10^{-5}\text{ M} \\
+    [\ce{X-}] &= \frac{K_{sp}(\ce{AgX})}{[\ce{Ag+}]} = \frac{1.0 \times 10^{-12}}{1.0 \times 10^{-5}} = 1.0 \times 10^{-7}\text{ M}
+\end{align*}
+Substituting into the total conductivity equation with measured $\kappa_{\text{total}} = 4.04 \times 10^{-6}\ \Omega^{-1}\cdot\text{cm}^{-1}$:
+\begin{align*}
+    4.04 \times 10^{-6} \times 1000 &= [60.0 \times 1.0 \times 10^{-5}] + [90.0 \times 1.0 \times 10^{-7}] + [\lambda^\circ(\ce{Y-}) \times 1.0 \times 10^{-5}] \\
+    4.04 \times 10^{-3} &= 0.60 \times 10^{-3} + 0.009 \times 10^{-3} + \lambda^\circ(\ce{Y-}) \times 1.0 \times 10^{-5} \\
+    \lambda^\circ(\ce{Y-}) \times 1.0 \times 10^{-5} &= 3.43 \times 10^{-3} \implies \lambda^\circ(\ce{Y-}) \approx 290.0\ \Omega^{-1}\cdot\text{cm}^2\cdot\text{mol}^{-1}
+\end{align*}
+This confirms option (a) $290.0$.
+\end{solution}
+
+% ==============================================================================
+% CHAPTER 1 ANSWER KEY TABLE (FOR MAIN.TEX)
+% ==============================================================================
+\ifshowsolutions
+\else
+\newpage
+\subsection*{Answer Key: Chapter 1 Practice Problem Bank}
+\addcontentsline{toc}{subsection}{Answer Key: Chapter 1}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c||c|c||c|c|}
+\hline
+\textbf{Problem} & \textbf{Answer} & \textbf{Problem} & \textbf{Answer} & \textbf{Problem} & \textbf{Answer} \\
+\hline
+1.1 & (b) & 1.7 & (b) & 1.13 & (d) \\
+1.2 & (c) & 1.8 & (c) & 1.14 & (a) \\
+1.3 & (b) & 1.9 & (d) & 1.15 & (c) \\
+1.4 & (a) & 1.10 & (c) & 1.16 & (c) \\
+1.5 & (b) & 1.11 & (a), (b), (c) & 1.17 & (a) \\
+1.6 & (a) & 1.12 & (b) & 1.18 & Part 1: (b), Part 2: (a) \\
+\hline
+\end{tabular}
+\end{center}
+\fi

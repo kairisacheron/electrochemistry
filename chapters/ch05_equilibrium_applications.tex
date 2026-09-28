@@ -1,0 +1,310 @@
+\chapter{Advanced Equilibrium Applications of EMF}
+\label{chap:equilibrium_applications}
+
+\section{Determination of Solubility Product ($K_{sp}$) of Sparingly Soluble Salts}
+
+Potentiometry provides the most accurate and sensitive experimental method for determining the solubility product constants ($K_{sp}$) of sparingly soluble salts ($\ce{AgCl}, \ce{AgBr}, \ce{AgI}, \ce{PbSO4}, \ce{Hg2Cl2}$), because ordinary gravimetric or analytical methods are severely limited by the extraordinarily low concentrations of dissolved ions ($< 10^{-5}\text{ M}$).
+
+\subsection{Thermodynamic Derivation}
+Consider a sparingly soluble salt $\ce{MX}$ of a univalent metal $\ce{M+}$ and anion $\ce{X-}$ (such as $\ce{AgCl}$). A galvanic cell is constructed combining the metal--metal ion electrode and the corresponding metal--insoluble salt--anion electrode:
+\begin{equation}
+    \ce{M(s) | M+(aq, } a_{\ce{M+}}\ce{)} \parallel \ce{X-(aq, } a_{\ce{X-}}\ce{) | MX(s) | M(s)}
+\end{equation}
+The electrode processes are:
+\begin{align}
+    \text{Anode (Oxidation):} \quad & \ce{M(s) -> M+(aq) + e^-} \quad & E^\circ_{\text{anode}} = E^\circ_{\ce{M+/M}} \\
+    \text{Cathode (Reduction):} \quad & \ce{MX(s) + e^- -> M(s) + X-(aq)} \quad & E^\circ_{\text{cathode}} = E^\circ_{\ce{X- | MX | M}} \\
+    \hline
+    \text{Net Cell Reaction:} \quad & \ce{MX(s) <=> M+(aq) + X-(aq)} &
+\end{align}
+Notice that the net cell reaction is precisely the \textbf{heterogeneous dissolution equilibrium} of the sparingly soluble salt $\ce{MX(s)}$!
+The standard cell potential is:
+\begin{equation}
+    E^\circ_{\text{cell}} = E^\circ_{\text{cathode}} - E^\circ_{\text{anode}} = E^\circ_{\ce{X- | MX | M}} - E^\circ_{\ce{M+/M}}
+\end{equation}
+At dynamic dissolution equilibrium, the standard free energy change relates directly to $K_{sp}$:
+\begin{equation}
+    \Delta G^\circ = -n F E^\circ_{\text{cell}} = -RT \ln K_{sp}
+\end{equation}
+Equating both expressions ($n = 1$):
+\begin{equation}
+    \boxed{\log_{10} K_{sp} = \frac{n \left( E^\circ_{\ce{X- | MX | M}} - E^\circ_{\ce{M+/M}} \right)}{0.0591}} \quad (\text{at } 298\text{ K})
+\end{equation}
+Conversely, the standard reduction potential of any metal--insoluble salt electrode can be calculated theoretically if $K_{sp}$ and $E^\circ_{\ce{M+/M}}$ are known:
+\begin{equation}
+    \boxed{E^\circ_{\ce{X- | MX | M}} = E^\circ_{\ce{M+/M}} + 0.0591 \log_{10} K_{sp} = E^\circ_{\ce{M+/M}} - 0.0591\, \text{p}K_{sp}}
+\end{equation}
+
+---
+
+\section{Potentiometric Determination of $\text{pH}$}
+
+The hydrogen ion activity ($\text{pH} = -\log_{10} a_{\ce{H+}}$) can be determined with extreme precision by measuring the EMF of an electrochemical cell containing a hydrogen-responsive indicator electrode paired with a standard reference electrode:
+
+\subsection{1. The Hydrogen Electrode Method}
+An indicator hydrogen electrode dipping into the test solution of unknown $\text{pH}$ is coupled with a Saturated Calomel Electrode (SCE):
+\begin{equation}
+    \ce{Pt, H2(1 bar) | H+(unknown pH)} \parallel \text{SCE} \quad (E_{\text{SCE}} = +0.2415\text{ V})
+\end{equation}
+The cell potential is:
+\begin{equation}
+    E_{\text{cell}} = E_{\text{cathode}} - E_{\text{anode}} = E_{\text{SCE}} - E_{\ce{H+/H2}}
+\end{equation}
+From the Nernst equation for the hydrogen electrode at $P_{\ce{H2}} = 1\text{ bar}$:
+\begin{equation}
+    E_{\ce{H+/H2}} = -0.0591\,\text{pH}
+\end{equation}
+Substituting into the cell EMF:
+\begin{equation}
+    E_{\text{cell}} = E_{\text{SCE}} - (-0.0591\,\text{pH}) = E_{\text{SCE}} + 0.0591\,\text{pH}
+\end{equation}
+Rearranging for $\text{pH}$:
+\begin{equation}
+    \boxed{\text{pH} = \frac{E_{\text{cell}} - E_{\text{SCE}}}{0.0591} = \frac{E_{\text{cell}} - 0.2415}{0.0591}} \quad (\text{at } 298\text{ K})
+\end{equation}
+
+\subsection{2. The Quinhydrone Electrode Method}
+Quinhydrone is an equimolar, stoichiometric $1:1$ molecular addition complex of quinone ($\ce{C6H4O2}$, $\ce{Q}$) and hydroquinone ($\ce{C6H4(OH)2}$, $\ce{H2Q}$), linked by intermolecular hydrogen bonding and charge-transfer interactions:
+\begin{equation}
+    \ce{Q \cdot H2Q(s) <=> Q(aq) + H2Q(aq)}
+\end{equation}
+When a pinch of quinhydrone powder is dissolved in the test solution and an inert platinum wire is immersed, the reversible organic redox equilibrium is established:
+\begin{equation}
+    \ce{Q(aq) + 2H+(aq) + 2e^- <=> H2Q(aq)} \quad (E^\circ_{\ce{Q/H2Q}} = +0.6996\text{ V at } 298\text{ K})
+\end{equation}
+Applying the Nernst equation ($n = 2$):
+\begin{equation}
+    E_{\ce{Q}} = E^\circ_{\ce{Q/H2Q}} - \frac{2.303 RT}{2F} \log_{10} \left( \frac{[\ce{H2Q}]}{[\ce{Q}][\ce{H+}]^2} \right)
+\end{equation}
+Because quinhydrone yields strictly equimolar quantities of quinone and hydroquinone on dissolution, $[\ce{Q}] = [\ce{H2Q}]$:
+\begin{equation}
+    \frac{[\ce{H2Q}]}{[\ce{Q}]} = 1
+\end{equation}
+The expression simplifies to:
+\begin{equation}
+    E_{\ce{Q}} = E^\circ_{\ce{Q/H2Q}} - \frac{0.0591}{2} \log_{10} \left( \frac{1}{[\ce{H+}]^2} \right) = E^\circ_{\ce{Q/H2Q}} + 0.0591 \log_{10} [\ce{H+}]
+\end{equation}
+\begin{equation}
+    \boxed{E_{\ce{Q}} = E^\circ_{\ce{Q/H2Q}} - 0.0591\,\text{pH} = 0.6996 - 0.0591\,\text{pH}}
+\end{equation}
+
+When the quinhydrone electrode is coupled with a Saturated Calomel Electrode:
+\begin{equation}
+    \text{SCE} \parallel \ce{H+(unknown), Q, H2Q | Pt}
+\end{equation}
+The cell EMF is:
+\begin{equation}
+    E_{\text{cell}} = E_{\ce{Q}} - E_{\text{SCE}} = (E^\circ_{\ce{Q/H2Q}} - 0.0591\,\text{pH}) - E_{\text{SCE}}
+\end{equation}
+Solving for $\text{pH}$:
+\begin{equation}
+    \boxed{\text{pH} = \frac{E^\circ_{\ce{Q/H2Q}} - E_{\text{SCE}} - E_{\text{cell}}}{0.0591} = \frac{0.6996 - 0.2415 - E_{\text{cell}}}{0.0591} = \frac{0.4581 - E_{\text{cell}}}{0.0591}}
+\end{equation}
+
+\begin{conceptbox}[Critical Limitations of the Quinhydrone Electrode]
+The quinhydrone electrode cannot be used in solutions with $\mathbf{\text{pH} > 8.5}$ due to two breakdown mechanisms:
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Acidic Ionization of Hydroquinone:}
+    Hydroquinone is a weak diprotic acid ($K_{a1} \approx 10^{-10}, K_{a2} \approx 10^{-12}$). In alkaline media ($\text{pH} > 8.5$), hydroquinone ionizes into $\ce{HQ-}$ and $\ce{Q^2-}$:
+    \begin{equation*}
+        \ce{H2Q <=> H+ + HQ- <=> 2H+ + Q^2-}
+    \end{equation*}
+    Consequently, the concentration of unionized $[\ce{H2Q}]$ falls below $[\ce{Q}]$, violating the fundamental identity $[\ce{Q}] = [\ce{H2Q}]$.
+    \item \textbf{Atmospheric Oxidation of Hydroquinone:}
+    In alkaline solution, hydroquinone is rapidly and irreversibly oxidized to quinone and tarry polymers by dissolved atmospheric oxygen ($\ce{O2}$), permanently destroying the redox equilibrium.
+\end{enumerate}
+\end{conceptbox}
+
+---
+
+\section{Determination of Complex Formation Constants (Stability Constants, $\beta_n$)}
+
+The stability constant ($\beta_n$ or $K_f$) of a metal complex ion (e.g., $[\ce{Ag(NH3)2}]^+$) is determined by monitoring the dramatic decrease in free metal cation concentration upon adding the complexing ligand.
+
+Consider the formation of the diamminesilver(I) complex:
+\begin{equation}
+    \ce{Ag+(aq) + 2NH3(aq) <=> [Ag(NH3)2]+(aq)} \qquad \beta_2 = \frac{[[\ce{Ag(NH3)2}]^+]}{[\ce{Ag+}][\ce{NH3}]^2}
+\end{equation}
+A concentration cell is assembled:
+\begin{equation}
+    \ce{Ag | Ag+(c_{\text{free}}), NH3(c_{\text{ligand}}) \parallel Ag+(c_0) | Ag}
+\end{equation}
+The right half-cell contains known $[\ce{Ag+}] = c_0$ (e.g., $0.10\text{ M}$).
+The left half-cell contains total silver $c_{\text{total}}$ mixed with a large excess of ammonia. Virtually all silver is bound as complex:
+\begin{equation}
+    [[\ce{Ag(NH3)2}]^+] \approx c_{\text{total}}
+\end{equation}
+The cell EMF is:
+\begin{equation}
+    E_{\text{cell}} = 0.0591 \log_{10} \frac{c_0}{[\ce{Ag+}]_{\text{free}}}
+\end{equation}
+Solving for the residual free silver ion concentration:
+\begin{equation}
+    \log_{10}[\ce{Ag+}]_{\text{free}} = \log_{10} c_0 - \frac{E_{\text{cell}}}{0.0591}
+\end{equation}
+Substituting $[\ce{Ag+}]_{\text{free}}$ into the mass-action equilibrium directly yields the formation constant $\beta_2$.
+
+---
+
+\section{Latimer Diagrams and Frost Diagrams}
+
+Latimer and Frost diagrams are the two premier graphical frameworks used in advanced inorganic and physical electrochemistry to survey multiple oxidation states, calculate non-adjacent standard potentials, and predict disproportionation versus comproportionation spontaneity.
+
+\subsection{1. Latimer Diagrams}
+A Latimer diagram presents the standard reduction potentials connecting consecutive oxidation states of an element, arranged with the highest oxidation state on the far left and the lowest (elemental or negative) on the far right.
+
+For chlorine in acidic solution ($\text{pH} = 0$):
+\begin{center}
+\begin{tikzpicture}[scale=0.95]
+    \node (ClO4) at (0,0) {$\ce{ClO4-}$};
+    \node (ClO3) at (2.5,0) {$\ce{ClO3-}$};
+    \node (HClO2) at (5.0,0) {$\ce{HClO2}$};
+    \node (HClO) at (7.5,0) {$\ce{HClO}$};
+    \node (Cl2) at (10.0,0) {$\ce{Cl2}$};
+    \node (Clm) at (12.5,0) {$\ce{Cl-}$};
+    
+    % Oxidation states
+    \node[above=0.2cm of ClO4] {\small $(+7)$};
+    \node[above=0.2cm of ClO3] {\small $(+5)$};
+    \node[above=0.2cm of HClO2] {\small $(+3)$};
+    \node[above=0.2cm of HClO] {\small $(+1)$};
+    \node[above=0.2cm of Cl2] {\small $(0)$};
+    \node[above=0.2cm of Clm] {\small $(-1)$};
+
+    % Arrows with potentials
+    \draw[->, thick] (ClO4) -- node[above] {\small $+1.20\text{ V}$} (ClO3);
+    \draw[->, thick] (ClO3) -- node[above] {\small $+1.18\text{ V}$} (HClO2);
+    \draw[->, thick] (HClO2) -- node[above] {\small $+1.67\text{ V}$} (HClO);
+    \draw[->, thick] (HClO) -- node[above] {\small $+1.63\text{ V}$} (Cl2);
+    \draw[->, thick] (Cl2) -- node[above] {\small $+1.36\text{ V}$} (Clm);
+\end{tikzpicture}
+\end{center}
+
+\subsubsection{Calculating Non-Adjacent Standard Potentials}
+Because $E^\circ$ is an intensive property, electrode potentials cannot be added directly ($E^\circ_{\text{total}} \neq E^\circ_1 + E^\circ_2$). Instead, one must add the extensive free energy changes ($\Delta G^\circ = -nFE^\circ$):
+\begin{equation}
+    \Delta G^\circ_{\text{total}} = \Delta G^\circ_1 + \Delta G^\circ_2 + \dots + \Delta G^\circ_k
+\end{equation}
+\begin{equation}
+    -n_{\text{total}} F E^\circ_{\text{total}} = -(n_1 F E^\circ_1 + n_2 F E^\circ_2 + \dots + n_k F E^\circ_k)
+\end{equation}
+Cancelling $-F$ gives the master formula:
+\begin{equation}
+    \boxed{E^\circ_{\text{total}} = \frac{\sum_{i=1}^k n_i E^\circ_i}{\sum_{i=1}^k n_i} = \frac{n_1 E^\circ_1 + n_2 E^\circ_2 + \dots + n_k E^\circ_k}{n_{\text{total}}}}
+\end{equation}
+
+\subsubsection{Disproportionation Criterion on a Latimer Diagram}
+Consider an intermediate oxidation state $\ce{M_{int}}$ situated between a higher state $\ce{M_{high}}$ on its left and a lower state $\ce{M_{low}}$ on its right:
+\begin{center}
+$\ce{M_{high}} \xrightarrow{E^\circ_L} \ce{M_{int}} \xrightarrow{E^\circ_R} \ce{M_{low}}$
+\end{center}
+The disproportionation reaction of $\ce{M_{int}}$ is:
+\begin{equation}
+    \ce{2M_{int} -> M_{high} + M_{low}}
+\end{equation}
+The cell EMF for this disproportionation is:
+\begin{equation}
+    E^\circ_{\text{disp}} = E^\circ_{\text{cathode}} - E^\circ_{\text{anode}} = E^\circ_R - E^\circ_L
+\end{equation}
+\begin{conceptbox}[The Latimer Disproportionation Rule]
+\begin{itemize}[leftmargin=*]
+    \item If the potential to the \textbf{RIGHT} is greater than the potential to the \textbf{LEFT}:
+    \begin{equation}
+        \boxed{E^\circ_R > E^\circ_L \implies E^\circ_{\text{disp}} > 0 \implies \text{Species undergoes Spontaneous Disproportionation!}}
+    \end{equation}
+    \item If $E^\circ_R < E^\circ_L$, the intermediate species is thermodynamically stable against disproportionation; instead, $\ce{M_{high}}$ and $\ce{M_{low}}$ will spontaneously \textbf{comproportionate} into $\ce{M_{int}}$.
+\end{itemize}
+\end{conceptbox}
+
+\subsection{2. Frost Diagrams}
+A Frost diagram plots the relative free energy of oxidation states against the oxidation number $N$:
+\begin{equation}
+    y\text{-axis: } \frac{\Delta G^\circ}{F} = -n E^\circ \quad \text{relative to the pure element (where } N = 0, \Delta G^\circ = 0\text{)}
+\end{equation}
+\begin{equation}
+    x\text{-axis: Oxidation Number } N
+\end{equation}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.1]
+    \draw[->, thick] (-1.5,0) -- (5.5,0) node[right] {Oxidation Number $N$};
+    \draw[->, thick] (0,-2.5) -- (0,5.5) node[above] {$n E^\circ \ (\text{Volts})$};
+
+    % Points
+    \coordinate (O0) at (0,0);
+    \coordinate (O1) at (1,1.5);
+    \coordinate (O2) at (2,0.8);
+    \coordinate (O3) at (3,3.5);
+    \coordinate (O4) at (4,2.2);
+
+    \draw[thick, primarynavy, mark=*] plot coordinates {(O0) (O1) (O2) (O3) (O4)};
+    \filldraw[crimsonred] (O1) circle (2.5pt) node[above] {Peak (Unstable, Disproportionates)};
+    \filldraw[cengagegreen] (O2) circle (2.5pt) node[below right] {Trough (Most Stable)};
+    \filldraw[crimsonred] (O3) circle (2.5pt) node[above left] {Peak};
+    \filldraw[primarynavy] (O0) circle (2pt) node[below left] {Element (0)};
+
+    \draw[dashed, red] (O0) -- (O2);
+\end{tikzpicture}
+\caption{Schematic Frost Diagram illustrating stability against disproportionation and comproportionation.}
+\label{fig:frost_diagram}
+\end{figure}
+
+\begin{conceptbox}[Reading a Frost Diagram]
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Slope of Line:} The slope of the straight line joining any two points on a Frost diagram equals the standard reduction potential ($E^\circ$) connecting those two species:
+    \begin{equation}
+        \text{Slope} = \frac{\Delta(nE^\circ)}{\Delta N} = E^\circ
+    \end{equation}
+    Steeper upward slopes indicate stronger oxidizing couples.
+    \item \textbf{Thermodynamic Stability (Troughs):} The species that lies at the lowest absolute point (deepest trough) on the Frost diagram is the thermodynamically most stable species of that element in the medium.
+    \item \textbf{Disproportionation (Convex Peaks):} Any species that lies \textbf{above} the straight chord connecting its two adjacent oxidation states is thermodynamically unstable and will spontaneously \textbf{disproportionate} into those flanking states.
+    \item \textbf{Comproportionation (Concave Wells):} Any species that lies \textbf{below} the chord connecting two flanking states is stable against disproportionation; the two flanking states will spontaneously react together to \textbf{comproportionate} into that intermediate species.
+\end{enumerate}
+\end{conceptbox}
+
+---
+
+\section{Comprehensive Master Solved Illustrations}
+
+\begin{examplebox}[Determination of Complex Formation Constant via Concentration Cell]
+A galvanic cell is set up at $298\text{ K}$ as:
+\begin{equation*}
+    \ce{Ag(s) | Ag+(0.01 M), NH3(1.0 M) \parallel Ag+(0.05 M) | Ag(s)}
+\end{equation*}
+The measured cell EMF is $0.444\text{ V}$. Assuming that virtually all silver in the left compartment is sequestered as the diamminesilver(I) complex $[\ce{Ag(NH3)2}]^+$, and that the concentration of uncomplexed ammonia is essentially unchanged ($[\ce{NH3}] \approx 1.0\text{ M}$), calculate:
+\begin{enumerate}[label=(\alph*)]
+    \item The concentration of free uncomplexed silver ions ($[\ce{Ag+}]_{\text{free}}$) in the left compartment.
+    \item The overall formation constant ($\beta_2$ or $K_f$) of $[\ce{Ag(NH3)2}]^+$.
+\end{enumerate}
+\tcblower
+\textbf{Part (a): Free Silver Ion Concentration ($[\ce{Ag+}]_{\text{free}}$):}
+The cell is a concentration cell reversible with respect to $\ce{Ag+}$:
+\begin{equation*}
+    E_{\text{cell}} = 0.0591 \log_{10} \left( \frac{[\ce{Ag+}]_{\text{cathode}}}{[\ce{Ag+}]_{\text{anode}}} \right)
+\end{equation*}
+Given: $E_{\text{cell}} = 0.444\text{ V}$ and $[\ce{Ag+}]_{\text{cathode}} = 0.05\text{ M}$.
+\begin{equation*}
+    0.444 = 0.0591 \log_{10} \left( \frac{0.05}{[\ce{Ag+}]_{\text{free}}} \right)
+\end{equation*}
+\begin{equation*}
+    \log_{10} \left( \frac{0.05}{[\ce{Ag+}]_{\text{free}}} \right) = \frac{0.444}{0.0591} \approx 7.5127
+\end{equation*}
+\begin{equation*}
+    \frac{0.05}{[\ce{Ag+}]_{\text{free}}} = 10^{7.5127} = 10^{0.5127} \times 10^7 \approx 3.256 \times 10^7
+\end{equation*}
+\begin{equation*}
+    [\ce{Ag+}]_{\text{free}} = \frac{0.05}{3.256 \times 10^7} \approx 1.536 \times 10^{-9}\text{ M}
+\end{equation*}
+
+\textbf{Part (b): Formation Constant ($\beta_2$):}
+Since the total silver added was $0.01\text{ M}$ and $[\ce{Ag+}]_{\text{free}} = 1.54 \times 10^{-9}\text{ M} \ll 0.01\text{ M}$:
+\begin{equation*}
+    [[\ce{Ag(NH3)2}]^+] \approx 0.01\text{ M}
+\end{equation*}
+Applying the equilibrium expression:
+\begin{align*}
+    \beta_2 &= \frac{[[\ce{Ag(NH3)2}]^+]}{[\ce{Ag+}]_{\text{free}} [\ce{NH3}]^2} = \frac{0.01}{(1.536 \times 10^{-9}) \times (1.0)^2} \\
+    &= \frac{10^{-2}}{1.536 \times 10^{-9}} \approx 6.51 \times 10^6\ \text{M}^{-2}
+\end{align*}
+\end{examplebox}

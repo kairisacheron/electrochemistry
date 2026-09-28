@@ -1,0 +1,122 @@
+\chapter*{Global Exercise Bank --- Subjective Problems}
+\addcontentsline{toc}{chapter}{Global Exercise Bank: Subjective Problems}
+\label{chap:subjective}
+
+\begin{tcolorbox}[enhanced,colback=subtleblue,colframe=primarynavy,arc=2mm,boxrule=1pt,
+    title=\textbf{\large Subjective / Descriptive Problems (All Chapters)}]
+Deep derivations, multi-step quantitative problems and open-ended questions.
+Sources: \textbf{[ATK]}, \textbf{[NRJ]} Ex-II Subjective, \textbf{[PRSN]} Ex-II.
+\end{tcolorbox}
+
+\section*{S-1. Conductance and Transport}
+
+\begin{problembox}
+\textbf{S.1} \hfill \textbf{[ATK Topic 6D / NRJ Subjective Q3]}
+
+Derive the Debye--H\"{u}ckel--Onsager (DHO) equation $\Lambda_m = \Lambda_m^\circ - b\sqrt{C}$, identifying the physical origin of the two contributions to the slope $b$. State all assumptions made in the derivation and their range of validity.
+\end{problembox}
+\begin{solution}
+The DHO equation arises because at finite concentration, a central ion experiences two retarding effects on its migration:
+
+\textbf{1. Relaxation (Asymmetry) Effect:} Each central ion is surrounded by an ionic atmosphere of opposite charge. In the absence of an applied field, this atmosphere is perfectly spherical. When a field is applied and the central ion migrates, the atmosphere cannot instantly rearrange --- it lags behind. The net effect is a backward electrical force on the migrating ion, reducing its velocity.
+
+The contribution to the slope: $b_1 = \frac{z^3 e^3 \kappa}{6\pi\varepsilon_0\varepsilon_r k_B T}$ (where $\kappa \propto \sqrt{c}$ is the Debye screening parameter).
+
+\textbf{2. Electrophoretic Effect:} The ionic atmosphere itself also migrates in the applied field --- in the \textit{opposite} direction to the central ion. The central ion must move through this countercurrent of solvent/ions, increasing the effective viscous drag.
+
+Contribution: $b_2 \propto \sqrt{c}$ via the electrophoretic velocity $v_{\text{eph}} = \frac{ze\kappa}{6\pi\eta}$.
+
+\textbf{Combined:}
+\begin{equation*}
+    \Lambda_m = \Lambda_m^\circ - (A\Lambda_m^\circ + B)\sqrt{c}
+\end{equation*}
+where $A$ captures the relaxation effect and $B$ captures the electrophoretic effect, both $\propto \sqrt{c}$.
+
+\textbf{Assumptions:}
+\begin{itemize}
+    \item Point charges (ions have no excluded volume)
+    \item Dilute solution ($I < 0.01\,\text{mol\,L}^{-1}$)
+    \item Linear response: applied field $\ll$ thermal forces
+    \item Primitive model (solvent = dielectric continuum)
+\end{itemize}
+\end{solution}
+
+\begin{problembox}
+\textbf{S.2} \hfill \textbf{[NRJ Ex-II Subjective Q5 / PRSN Ex-II Q14]}
+
+A conductometric titration is performed: $25\,\text{mL}$ of $0.1\,\text{M}$ acetic acid (\ce{CH3COOH}) is titrated with $0.1\,\text{M}$ \ce{NaOH}. Sketch the conductance-vs-volume curve, indicate the equivalence point, and explain the trend in each region. Which ionic species cause the conductance to change in each region?
+\end{problembox}
+\begin{solution}
+\textbf{Regions of the conductometric titration (weak acid vs.\ strong base):}
+
+\textbf{Region 1 (Before equivalence point):} Adding \ce{NaOH} to \ce{CH3COOH}:
+\begin{equation*}
+    \ce{CH3COOH + NaOH -> CH3COONa + H2O}
+\end{equation*}
+\ce{CH3COOH} (weak, poorly conducting) is replaced by \ce{CH3COO-Na+} (strong electrolyte, well-conducting). Conductance \textbf{increases gradually} (not steeply, because \ce{CH3COONa} is a moderate conductor and the buffer formed partially suppresses further dissociation).
+
+\textbf{At the equivalence point (25~mL added):} All acetic acid is converted to sodium acetate. Conductance is at a local minimum before the steep rise.
+
+\textbf{Region 2 (After equivalence point):} Excess \ce{NaOH} is added. \ce{Na+} and \ce{OH-} accumulate. \ce{OH-} has extremely high molar ionic conductivity ($\lambda^\circ_{\ce{OH-}} = 198\,\text{S\,cm}^2\,\text{mol}^{-1}$), so conductance \textbf{rises steeply}.
+
+The \textbf{V-shape with a gentle initial rise and steep post-equivalence rise} is the characteristic curve.
+\end{solution}
+
+\section*{S-2. Cell Thermodynamics}
+
+\begin{problembox}
+\textbf{S.3} \hfill \textbf{[ATK Topic 6C.4 / NRJ Subjective Q8]}
+
+For the cell $\ce{Pt | H2(g, 1 bar) | HCl(aq) | AgCl(s) | Ag(s)}$, the EMF varies with temperature as $E = 0.2224 - 6.4\times10^{-4}(T-298)\,\text{V}$. At $298\,\text{K}$: calculate (a) $\Delta G$, (b) $\Delta S$, (c) $\Delta H$, (d) $q_{rev}$ (heat reversibly exchanged with surroundings). [$F = 96500$, $n=1$]
+\end{problembox}
+\begin{solution}
+At $T = 298\,\text{K}$, $E = 0.2224\,\text{V}$ and $\left(\frac{\partial E}{\partial T}\right)_P = -6.4\times10^{-4}\,\text{V\,K}^{-1}$.
+
+(a) $\Delta G = -nFE = -1\times96500\times0.2224 = \mathbf{-21462\,\text{J\,mol}^{-1} = -21.46\,\text{kJ\,mol}^{-1}}$
+
+(b) $\Delta S = nF\left(\frac{\partial E}{\partial T}\right)_P = 1\times96500\times(-6.4\times10^{-4}) = \mathbf{-61.76\,\text{J\,mol}^{-1}\text{K}^{-1}}$
+
+(c) $\Delta H = \Delta G + T\Delta S = -21462 + 298\times(-61.76) = -21462 - 18404 = \mathbf{-39866\,\text{J\,mol}^{-1} = -39.87\,\text{kJ\,mol}^{-1}}$
+
+(d) $q_{rev} = T\Delta S = 298\times(-61.76) = \mathbf{-18404\,\text{J\,mol}^{-1} = -18.4\,\text{kJ\,mol}^{-1}}$
+
+The negative $q_{rev}$ means the cell \textit{releases} heat to the surroundings when operating reversibly at $298\,\text{K}$ --- consistent with $\Delta S < 0$ (entropy decreases).
+\end{solution}
+
+\begin{problembox}
+\textbf{S.4} \hfill \textbf{[NRJ Subjective Q10 / PRSN Advanced]}
+
+A concentration cell (without transference) is constructed:
+\[\ce{Ag(s) | AgNO3(c_1) || AgNO3(c_2) | Ag(s)}, \quad c_1 = 0.01\,\text{M},\; c_2 = 0.1\,\text{M}\]
+(a) Write the cell reaction and identify which side is the anode.
+(b) Calculate $E_{\text{cell}}$ at $298\,\text{K}$.
+(c) Show that the cell will spontaneously drive silver from the dilute side to the concentrated side.
+\end{problembox}
+\begin{solution}
+(a) Anode (oxidation): $\ce{Ag(s) -> Ag+(c_1) + e-}$ (dilute side, lower $E$).\\
+Cathode (reduction): $\ce{Ag+(c_2) + e- -> Ag(s)}$ (concentrated side, higher $E$).\\
+Net: $\ce{Ag+(c_2) -> Ag+(c_1)}$ (transfer of silver ions from concentrated to dilute).
+
+(b) $E = -\frac{RT}{F}\ln\frac{c_1}{c_2} = -\frac{0.0591}{1}\log\frac{0.01}{0.1} = -0.0591\times(-1) = \mathbf{+0.0591\,\text{V}}$
+
+(c) Since $E > 0$, $\Delta G = -nFE < 0$: the process is spontaneous. Ag is oxidized at the dilute anode and deposited at the concentrated cathode --- net, Ag is ``transferred'' from the low-concentration side to the high-concentration side (ions in solution). The system drives towards concentration equilibration.
+\end{solution}
+
+\section*{S-3. Faraday's Laws and Industrial Electrolysis}
+
+\begin{problembox}
+\textbf{S.5} \hfill \textbf{[NRJ Subjective Q14 / PRSN Ex-II Q20]}
+
+In the Hall--H\'{e}roult process, a cell operates at $5\,\text{V}$ and $100\,\text{kA}$ to produce aluminium. (a) Calculate the mass of Al produced per hour. (b) Calculate the electrical energy consumed per kg of Al. (c) If electricity costs \$0.05/kWh, what is the electricity cost per tonne of Al? [$M_{\ce{Al}} = 27$, $n=3$, $F = 96500$]
+\end{problembox}
+\begin{solution}
+(a) $Q = 100000\,\text{A} \times 3600\,\text{s} = 3.6\times10^8\,\text{C}$\\
+$m = \frac{M\cdot Q}{n\cdot F} = \frac{27\times3.6\times10^8}{3\times96500} = \frac{9.72\times10^9}{289500} = \mathbf{33574\,\text{g} \approx 33.6\,\text{kg\,h}^{-1}}$
+
+(b) Power $= V\times I = 5\times100000 = 500\,\text{kW}$.\\
+Energy per hour $= 500\,\text{kWh}$.\\
+Energy per kg $= 500/33.6 = \mathbf{14.9\,\text{kWh\,kg}^{-1}}$.
+
+(c) Energy per tonne $= 14.9\times1000 = 14900\,\text{kWh}$.\\
+Cost per tonne $= 14900\times0.05 = \$\mathbf{745}$ per tonne of Al.
+\end{solution}

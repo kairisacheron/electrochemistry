@@ -1,0 +1,219 @@
+\newpage
+\section{Exhaustive Practice Problem Bank (Chapter 3)}
+\label{sec:ch03_problem_bank}
+
+\begin{tcolorbox}[enhanced,colback=subtlegreen,colframe=cengagegreen,arc=2mm,boxrule=1pt,title=\textbf{\large Organization of Practice Problems}]
+All questions are categorized by \textbf{Sub-topic} with full origin book citations. In the Complete Solutions Edition, full mathematical and chemical derivations are provided directly beneath each problem.
+\end{tcolorbox}
+
+% ==============================================================================
+% SUB-TOPIC 3.1: NERNST EQUATION CALCULATIONS (FULL & HALF CELLS)
+% ==============================================================================
+\subsection{Sub-Topic 3.1: Nernst Equation Calculations (Full \& Half Cells)}
+
+% Problem 3.1
+\begin{problembox}
+\textbf{Problem 3.1} \hfill \textbf{[Source: Pearson Ex-II Section A Q6]}
+
+For the half-cell reduction process: $\ce{Cu^2+(aq) + 2e^- -> Cu(s)}$, a plot of $E_{\text{red}}$ versus $\log_{10}[\ce{Cu^2+}]$ is a straight line having an intercept on the potential axis equal to $+0.34\text{ V}$. What is the reduction potential of the half-cell containing $0.1\text{ M } \ce{Cu^2+}$ ions at $298\text{ K}$? (Take $\frac{2.303 RT}{F} = 0.06\text{ V}$)
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $-0.31\text{ V}$
+    \item $+0.31\text{ V}$
+    \item $-0.37\text{ V}$
+    \item $+0.37\text{ V}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (b)}
+
+\textbf{Step-by-Step Derivation:}
+The Nernst equation for the $\ce{Cu^2+/Cu}$ couple is:
+\begin{equation*}
+    E_{\text{red}} = E^\circ_{\ce{Cu^2+/Cu}} - \frac{2.303 RT}{2F} \log_{10} \frac{1}{[\ce{Cu^2+}]} = E^\circ_{\ce{Cu^2+/Cu}} + \frac{0.06}{2} \log_{10}[\ce{Cu^2+}]
+\end{equation*}
+\begin{equation*}
+    E_{\text{red}} = 0.34 + 0.03 \log_{10}[\ce{Cu^2+}]
+\end{equation*}
+For $[\ce{Cu^2+}] = 0.1\text{ M} = 10^{-1}\text{ M}$:
+\begin{equation*}
+    E_{\text{red}} = 0.34 + 0.03 \log_{10}(10^{-1}) = 0.34 + 0.03(-1) = 0.34 - 0.03 = +0.31\text{ V}
+\end{equation*}
+\end{solution}
+
+% Problem 3.2
+\begin{problembox}
+\textbf{Problem 3.2} \hfill \textbf{[Source: Pearson Ex-II Section A Q3]}
+
+We have an oxidation-reduction system: $\ce{M^4+(aq) + e^- <=> M^3+(aq)}$ with standard reduction potential $E^\circ = +0.36\text{ V}$. The ratio of concentrations of oxidized form to reduced form ($[\ce{M^4+}] / [\ce{M^3+}]$) at which the reduction potential of the system becomes $+0.24\text{ V}$ at $298\text{ K}$ is: [Given: $\frac{2.303 RT}{F} = 0.06\text{ V}$]
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $1 : 10$
+    \item $1 : 20$
+    \item $1 : 50$
+    \item $1 : 100$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (d)}
+
+\textbf{Step-by-Step Derivation:}
+Applying the Nernst equation for $n = 1$:
+\begin{equation*}
+    E = E^\circ - \frac{0.06}{1} \log_{10} \frac{[\ce{M^3+}]}{[\ce{M^4+}]}
+\end{equation*}
+Substitute $E = 0.24\text{ V}$ and $E^\circ = 0.36\text{ V}$:
+\begin{equation*}
+    0.24 = 0.36 - 0.06 \log_{10} \frac{[\ce{M^3+}]}{[\ce{M^4+}]}
+\end{equation*}
+\begin{equation*}
+    -0.12 = -0.06 \log_{10} \frac{[\ce{M^3+}]}{[\ce{M^4+}]} \implies \log_{10} \frac{[\ce{M^3+}]}{[\ce{M^4+}]} = \frac{0.12}{0.06} = 2
+\end{equation*}
+\begin{equation*}
+    \frac{[\ce{M^3+}]}{[\ce{M^4+}]} = 10^2 = 100 \implies \frac{[\ce{M^4+}]}{[\ce{M^3+}]} = \frac{1}{100}
+\end{equation*}
+Hence, the ratio of oxidized to reduced form is $1 : 100$.
+\end{solution}
+
+% ==============================================================================
+% SUB-TOPIC 3.2: EQUILIBRIUM CONSTANT FROM CELL EMF
+% ==============================================================================
+\subsection{Sub-Topic 3.2: Equilibrium Constant ($K_{eq}$) from Cell EMF}
+
+% Problem 3.3
+\begin{problembox}
+\textbf{Problem 3.3} \hfill \textbf{[Source: Narendra Avasthi Level-2 Q6]}
+
+If the equilibrium constant for the self-ionization of water $\ce{H+(aq) + OH-(aq) <=> H2O(l)}$ is $10^{13}$ at a certain non-standard temperature, what is the standard reduction potential $E^\circ$ for the half-reaction:
+\begin{equation*}
+    \ce{2H2O(l) + 2e^- <=> H2(g) + 2OH-(aq)}
+\end{equation*}
+Given that $\frac{2.303 RT}{F} = 0.066\text{ V}$ at this temperature.
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $+1.230\text{ V}$
+    \item $-0.858\text{ V}$
+    \item $-0.800\text{ V}$
+    \item $-0.827\text{ V}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (b)}
+
+\textbf{Step-by-Step Derivation:}
+The equilibrium constant for neutralization is $K = 10^{13} \implies K_w = \frac{1}{K} = 10^{-13}$.
+The desired half-reaction can be formed by combining the standard hydrogen electrode reduction with the water dissociation:
+\begin{align*}
+    \ce{2H+(aq) + 2e^- <=> H2(g)} \quad & E^\circ = 0.00\text{ V} \\
+    \ce{2H2O(l) <=> 2H+(aq) + 2OH-(aq)} \quad & K = K_w^2 = (10^{-13})^2 = 10^{-26}
+\end{align*}
+Adding the two equations yields:
+\begin{equation*}
+    \ce{2H2O(l) + 2e^- <=> H2(g) + 2OH-(aq)}
+\end{equation*}
+For this combined equilibrium:
+\begin{equation*}
+    E^\circ = E^\circ_{\ce{H+/H2}} + \frac{2.303 RT}{2F} \log_{10} K_w^2 = 0.00 + \frac{0.066}{2} \times (-26) = 0.033 \times (-26) = -0.858\text{ V}
+\end{equation*}
+\end{solution}
+
+% ==============================================================================
+% SUB-TOPIC 3.3: CELL THERMODYNAMICS: DELTA S, DELTA H, & EFFICIENCY
+% ==============================================================================
+\subsection{Sub-Topic 3.3: Cell Thermodynamics: $\Delta S, \Delta H$, \& Efficiency $\eta$}
+
+% Problem 3.4
+\begin{problembox}
+\textbf{Problem 3.4} \hfill \textbf{[Source: Narendra Avasthi Level-2 Q7]}
+
+A fuel cell develops an electrical potential from the combustion of butane gas at $1\text{ bar}$ and $298\text{ K}$:
+\begin{equation*}
+    \ce{C4H10(g) + \frac{13}{2} O2(g) -> 4CO2(g) + 5H2O(l)} \qquad \Delta_r G^\circ = -2746\text{ kJ}\cdot\text{mol}^{-1}
+\end{equation*}
+What is the standard cell potential ($E^\circ_{\text{cell}}$) of this fuel cell?
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $4.74\text{ V}$
+    \item $0.547\text{ V}$
+    \item $4.37\text{ V}$
+    \item $1.094\text{ V}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (d)}
+
+\textbf{Step-by-Step Derivation:}
+1. Determine the total number of electrons transferred ($n$):
+In the complete combustion of butane, the oxidation state of oxygen changes from $0$ in $\ce{O2}$ to $-2$ in $\ce{CO2}$ and $\ce{H2O}$.
+Total moles of $\ce{O}$ atoms $= \frac{13}{2} \times 2 = 13\text{ moles of O}$.
+Each oxygen atom gains $2$ electrons:
+\begin{equation*}
+    n = 13 \times 2 = 26\text{ moles of } e^-
+\end{equation*}
+2. Calculate standard cell potential ($E^\circ_{\text{cell}}$):
+\begin{equation*}
+    \Delta_r G^\circ = -n F E^\circ_{\text{cell}} \implies E^\circ_{\text{cell}} = \frac{-\Delta_r G^\circ}{n F}
+\end{equation*}
+\begin{equation*}
+    E^\circ_{\text{cell}} = \frac{-(-2746 \times 10^3\text{ J}\cdot\text{mol}^{-1})}{26 \times 96485\text{ C}\cdot\text{mol}^{-1}} = \frac{2746000}{2508610} \approx 1.0946\text{ V} \approx 1.094\text{ V}
+\end{equation*}
+\end{solution}
+
+% Problem 3.5
+\begin{problembox}
+\textbf{Problem 3.5} \hfill \textbf{[Source: Neeraj Kumar Ex-II Subjective Q5]}
+
+The EMF of the cell $\ce{Pt | H2(1 bar) | HCl(0.1 M) | AgCl(s) | Ag}$ is $0.2699\text{ V}$ at $293\text{ K}$ and $0.2660\text{ V}$ at $303\text{ K}$.
+\begin{enumerate}[label=(\alph*)]
+    \item What is the temperature coefficient of EMF, $\left(\frac{\partial E}{\partial T}\right)_p$?
+    \item Calculate the entropy change ($\Delta S^\circ$) and enthalpy change ($\Delta H^\circ$) of the cell reaction at $298\text{ K}$.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Step-by-Step Derivation:}
+
+\textbf{Part (a): Temperature Coefficient of EMF:}
+\begin{equation*}
+    \left(\frac{\partial E}{\partial T}\right)_p \approx \frac{\Delta E}{\Delta T} = \frac{0.2660 - 0.2699}{303 - 293} = \frac{-0.0039\text{ V}}{10\text{ K}} = -3.90 \times 10^{-4}\ \text{V}\cdot\text{K}^{-1}
+\end{equation*}
+
+\textbf{Part (b): Calculation of $\Delta S^\circ$ and $\Delta H^\circ$ ($n = 1$):}
+\begin{equation*}
+    \Delta S^\circ = n F \left(\frac{\partial E}{\partial T}\right)_p = 1 \times 96485 \times (-3.90 \times 10^{-4}) = -37.63\ \text{J}\cdot\text{mol}^{-1}\cdot\text{K}^{-1}
+\end{equation*}
+At $298\text{ K}$, the average EMF is:
+\begin{equation*}
+    E_{298} = \frac{0.2699 + 0.2660}{2} = 0.26795\text{ V}
+\end{equation*}
+\begin{align*}
+    \Delta G^\circ &= -n F E = -1 \times 96485 \times 0.26795 = -25853\ \text{J}\cdot\text{mol}^{-1} = -25.85\ \text{kJ}\cdot\text{mol}^{-1} \\
+    \Delta H^\circ &= \Delta G^\circ + T \Delta S^\circ = -25853 + [298.15 \times (-37.63)] \\
+    &= -25853 - 11220 = -37073\ \text{J}\cdot\text{mol}^{-1} = -37.07\ \text{kJ}\cdot\text{mol}^{-1}
+\end{align*}
+\end{solution}
+
+% ==============================================================================
+% CHAPTER 3 ANSWER KEY TABLE (FOR MAIN.TEX)
+% ==============================================================================
+\ifshowsolutions
+\else
+\newpage
+\subsection*{Answer Key: Chapter 3 Practice Problem Bank}
+\addcontentsline{toc}{subsection}{Answer Key: Chapter 3}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c||c|c||c|c|}
+\hline
+\textbf{Problem} & \textbf{Answer} & \textbf{Problem} & \textbf{Answer} & \textbf{Problem} & \textbf{Answer} \\
+\hline
+3.1 & (b) & 3.3 & (b) & 3.5 & (a) $-3.90 \times 10^{-4}\ \text{V}\cdot\text{K}^{-1}$ \\
+3.2 & (d) & 3.4 & (d) & 3.5 & (b) $\Delta S^\circ = -37.63\ \text{J}\cdot\text{K}^{-1}$, $\Delta H^\circ = -37.07\ \text{kJ}$ \\
+\hline
+\end{tabular}
+\end{center}
+\fi

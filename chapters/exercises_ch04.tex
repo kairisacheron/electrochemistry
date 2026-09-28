@@ -1,0 +1,164 @@
+\newpage
+\section{Exhaustive Practice Problem Bank (Chapter 4)}
+\label{sec:ch04_problem_bank}
+
+\begin{tcolorbox}[enhanced,colback=subtlegreen,colframe=cengagegreen,arc=2mm,boxrule=1pt,title=\textbf{\large Organization of Practice Problems}]
+All questions are categorized by \textbf{Sub-topic} with origin citations. Complete solutions appear directly beneath each problem in the Complete Solutions Edition.
+\end{tcolorbox}
+
+% ==============================================================================
+% SUB-TOPIC 4.1: ELECTRODE & ELECTROLYTE CONCENTRATION CELLS
+% ==============================================================================
+\subsection{Sub-Topic 4.1: Electrode \& Electrolyte Concentration Cells}
+
+% Problem 4.1
+\begin{problembox}
+\textbf{Problem 4.1} \hfill \textbf{[Source: Narendra Avasthi Level-1 Q45]}
+
+Consider the concentration cell:
+\begin{equation*}
+    \ce{Pt, H2(1 atm) | H+(10^{-4} M)} \parallel \ce{H+(10^{-2} M) | H2(1 atm), Pt}
+\end{equation*}
+The electromotive force ($E_{\text{cell}}$) of the cell at $298\text{ K}$ is:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $+0.0591\text{ V}$
+    \item $+0.1182\text{ V}$
+    \item $-0.1182\text{ V}$
+    \item $0.000\text{ V}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (b)}
+
+\textbf{Step-by-Step Derivation:}
+This is an electrolyte concentration cell reversible with respect to cations ($\ce{H+}$).
+At the anode: $\ce{H2(1 atm) -> 2H+(10^{-4} M) + 2e^-}$.
+At the cathode: $\ce{2H+(10^{-2} M) + 2e^- -> H2(1 atm)}$.
+The net cell reaction is:
+\begin{equation*}
+    \ce{H+(10^{-2} M) <=> H+(10^{-4} M)}
+\end{equation*}
+Since $E^\circ_{\text{cell}} = 0$:
+\begin{equation*}
+    E_{\text{cell}} = 0.0591 \log_{10} \frac{[\ce{H+}]_{\text{cathode}}}{[\ce{H+}]_{\text{anode}}} = 0.0591 \log_{10} \left(\frac{10^{-2}}{10^{-4}}\right) = 0.0591 \log_{10}(10^2) = 0.0591 \times 2 = +0.1182\text{ V}
+\end{equation*}
+\end{solution}
+
+% Problem 4.2
+\begin{problembox}
+\textbf{Problem 4.2} \hfill \textbf{[Source: Neeraj Kumar Ex-I Q55]}
+
+For the gas concentration cell:
+\begin{equation*}
+    \ce{Pt, H2(P_1 bar) | H+(1 M) | H2(P_2 bar), Pt}
+\end{equation*}
+the cell reaction is thermodynamically spontaneous when:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $P_1 = P_2$
+    \item $P_1 > P_2$
+    \item $P_1 < P_2$
+    \item Independent of $P_1$ and $P_2$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (b)}
+
+\textbf{Step-by-Step Derivation:}
+The half-cell reactions are:
+Anode (Oxidation): $\ce{H2(P_1) -> 2H+ + 2e^-}$.
+Cathode (Reduction): $\ce{2H+ + 2e^- -> H2(P_2)}$.
+Net Reaction: $\ce{H2(P_1) <=> H2(P_2)}$.
+The EMF of the cell is:
+\begin{equation*}
+    E_{\text{cell}} = \frac{0.0591}{2} \log_{10} \left(\frac{P_1}{P_2}\right)
+\end{equation*}
+For spontaneity, $E_{\text{cell}} > 0 \implies \log_{10}(P_1 / P_2) > 0 \implies P_1 > P_2$.
+\end{solution}
+
+% Problem 4.3
+\begin{problembox}
+\textbf{Problem 4.3} \hfill \textbf{[Source: Cengage Solved Ex 3.12]}
+
+An amalgam concentration cell is constructed as:
+\begin{equation*}
+    \ce{Zn(Hg, } a_1 = 0.05\text{) | ZnSO4(0.1 M) | Zn(Hg, } a_2 = 0.005\text{)}
+\end{equation*}
+The cell potential at $298\text{ K}$ is:
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $+0.0591\text{ V}$
+    \item $+0.0296\text{ V}$
+    \item $-0.0296\text{ V}$
+    \item $+0.0148\text{ V}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{Correct Option: (b)}
+
+\textbf{Step-by-Step Derivation:}
+For an amalgam concentration cell, $n = 2$:
+The net process is: $\ce{Zn(Hg, } a_1\ce{) <=> Zn(Hg, } a_2\ce{)}$.
+\begin{equation*}
+    E_{\text{cell}} = \frac{0.0591}{2} \log_{10} \frac{a_1}{a_2} = \frac{0.0591}{2} \log_{10}\left(\frac{0.05}{0.005}\right) = \frac{0.0591}{2} \log_{10}(10) = \frac{0.0591}{2} = +0.02955\text{ V} \approx +0.0296\text{ V}
+\end{equation*}
+\end{solution}
+
+% ==============================================================================
+% SUB-TOPIC 4.2: CELLS WITH TRANSFERENCE & LIQUID JUNCTION POTENTIAL
+% ==============================================================================
+\subsection{Sub-Topic 4.2: Cells With Transference \& Liquid Junction Potential ($E_{lj}$)}
+
+% Problem 4.4
+\begin{problembox}
+\textbf{Problem 4.4} \hfill \textbf{[Source: Atkins Topic 6C / Physical Chemistry Olympiad]}
+
+The EMF of the concentration cell with transference:
+\begin{equation*}
+    \ce{Pt, H2(1 bar) | HCl(a_1 = 0.01) \ \vdots \ HCl(a_2 = 0.05) | H2(1 bar), Pt}
+\end{equation*}
+is $+0.0680\text{ V}$ at $298\text{ K}$. Given that for $\ce{HCl}$, the transport number of $\ce{H+}$ is $t_+ = 0.83$ and of $\ce{Cl-}$ is $t_- = 0.17$.
+Calculate the liquid junction potential ($E_{lj}$) established at the $\ce{HCl}(a_1) \ \vdots \ \ce{HCl}(a_2)$ interface.
+\end{problembox}
+\begin{solution}
+\textbf{Step-by-Step Derivation:}
+1. The EMF of the cell without transference ($E_{\text{wot}}$) is:
+\begin{equation*}
+    E_{\text{wot}} = \frac{2.303 RT}{F} \log_{10} \frac{a_2}{a_1} = 0.0591 \log_{10} \left(\frac{0.05}{0.01}\right) = 0.0591 \log_{10}(5) = 0.0591 \times 0.6990 \approx 0.0413\text{ V}
+\end{equation*}
+2. The EMF with transference for cation-reversible electrodes is:
+\begin{equation*}
+    E_{\text{wt}} = 2 t_- \frac{RT}{F} \ln \frac{a_2}{a_1} = 2 t_- E_{\text{wot}} = 2 \times 0.17 \times 0.0413\text{ V} = 0.0140\text{ V}
+\end{equation*}
+3. The liquid junction potential is:
+\begin{equation*}
+    E_{lj} = (t_- - t_+) \frac{RT}{F} \ln \frac{a_2}{a_1} = (0.17 - 0.83) \times 0.0413\text{ V} = -0.66 \times 0.0413\text{ V} \approx -0.0273\text{ V} = -27.3\text{ mV}
+\end{equation*}
+The negative sign indicates that the more dilute compartment ($a_1$) is positively charged relative to the concentrated compartment ($a_2$) due to the rapid diffusion of hydronium ions ($\ce{H+}$).
+\end{solution}
+
+% ==============================================================================
+% CHAPTER 4 ANSWER KEY TABLE (FOR MAIN.TEX)
+% ==============================================================================
+\ifshowsolutions
+\else
+\newpage
+\subsection*{Answer Key: Chapter 4 Practice Problem Bank}
+\addcontentsline{toc}{subsection}{Answer Key: Chapter 4}
+
+\begin{center}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{|c|c||c|c||c|c|}
+\hline
+\textbf{Problem} & \textbf{Answer} & \textbf{Problem} & \textbf{Answer} & \textbf{Problem} & \textbf{Answer} \\
+\hline
+4.1 & (b) & 4.3 & (b) & & \\
+4.2 & (b) & 4.4 & $-27.3\text{ mV}$ & & \\
+\hline
+\end{tabular}
+\end{center}
+\fi

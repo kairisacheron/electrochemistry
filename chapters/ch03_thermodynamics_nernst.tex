@@ -1,0 +1,249 @@
+\chapter{Thermodynamics of Cells \& The Nernst Equation}
+\label{chap:thermodynamics_nernst}
+
+\section{Fundamental Thermodynamic Relations of Electrochemical Cells}
+
+Electrochemical cells operate under conditions of constant temperature and constant pressure. When a cell discharges reversibly (by opposing its electromotive force $E$ by an infinitesimal counter-potential from an external potentiometer so that current flow $I \to 0$), the electrical work performed by the system equals the decrease in Gibbs free energy ($-\Delta G$) of the chemical reaction.
+
+\subsection{Electrical Work and Free Energy Change}
+When $n$ moles of electrons pass through the external circuit under a reversible cell potential $E_{\text{cell}}$, the total quantity of electric charge transported is:
+\begin{equation}
+    Q = n F
+\end{equation}
+where $F = 96485.3\ \text{C}\cdot\text{mol}^{-1}$ is Faraday's constant.
+The electrical work performed by the system ($W_{\text{elec}}$) is:
+\begin{equation}
+    W_{\text{elec}} = \text{Charge} \times \text{Potential Difference} = n F E_{\text{cell}}
+\end{equation}
+According to the fundamental laws of classical thermodynamics, the non-expansion (useful) work done by a closed system under reversible isothermal-isobaric conditions is strictly equal to the decrease in Gibbs free energy:
+\begin{equation}
+    W_{\text{rev, non-PV}} = -\Delta G
+\end{equation}
+Therefore:
+\begin{equation}
+    \boxed{\Delta G = -n F E_{\text{cell}}}
+\end{equation}
+Under standard thermodynamic states ($T = 298.15\text{ K}$, all activities $a_i = 1\text{ M}$, partial pressures $P_i = 1\text{ bar}$):
+\begin{equation}
+    \boxed{\Delta G^\circ = -n F E^\circ_{\text{cell}}}
+\end{equation}
+
+\begin{conceptbox}[Criteria of Thermodynamic Spontaneity and Directionality]
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Spontaneous Process (Forward Galvanic Cell Discharge):}
+    \begin{equation}
+        \Delta G < 0 \iff E_{\text{cell}} > 0
+    \end{equation}
+    \item \textbf{Non-Spontaneous Process (Requires External Electrolytic Work):}
+    \begin{equation}
+        \Delta G > 0 \iff E_{\text{cell}} < 0
+    \end{equation}
+    \item \textbf{Thermodynamic Equilibrium (Dead Cell):}
+    \begin{equation}
+        \Delta G = 0 \iff E_{\text{cell}} = 0
+    \end{equation}
+\end{itemize}
+\textbf{Intensive vs. Extensive Property:}
+Free energy change $\Delta G$ is an \textbf{extensive property} (measured in $\text{kJ}$ or $\text{kJ}\cdot\text{mol}^{-1}$), directly proportional to the stoichiometric coefficients ($n$). Cell potential $E_{\text{cell}}$ is an \textbf{intensive property} (measured in $\text{V} = \text{J}\cdot\text{C}^{-1}$), completely independent of multiplying the reaction equation by any arbitrary stoichiometric multiplier.
+\end{conceptbox}
+
+---
+
+\section{Rigorous Derivation of the Nernst Equation}
+
+Consider a general reversible redox cell reaction:
+\begin{equation}
+    a\ce{A} + b\ce{B} \ce{<=>} c\ce{C} + d\ce{D}
+\end{equation}
+The thermodynamic relationship between the Gibbs free energy change ($\Delta G$) under arbitrary concentrations and the standard free energy change ($\Delta G^\circ$) is given by the \textbf{Van 't Hoff reaction isotherm}:
+\begin{equation}
+    \Delta G = \Delta G^\circ + RT \ln Q
+\end{equation}
+where $R = 8.314\ \text{J}\cdot\text{mol}^{-1}\cdot\text{K}^{-1}$ is the universal gas constant, $T$ is the absolute temperature in Kelvin, and $Q$ is the \textbf{Reaction Quotient}:
+\begin{equation}
+    Q = \frac{a_{\ce{C}}^c \cdot a_{\ce{D}}^d}{a_{\ce{A}}^a \cdot a_{\ce{B}}^b} \approx \frac{[\ce{C}]^c [\ce{D}]^d}{[\ce{A}]^a [\ce{B}]^b}
+\end{equation}
+Substituting $\Delta G = -nFE_{\text{cell}}$ and $\Delta G^\circ = -nFE^\circ_{\text{cell}}$ into the isotherm:
+\begin{equation}
+    -n F E_{\text{cell}} = -n F E^\circ_{\text{cell}} + RT \ln Q
+\end{equation}
+Dividing the entire equation by $-nF$:
+\begin{equation}
+    \boxed{E_{\text{cell}} = E^\circ_{\text{cell}} - \frac{RT}{nF} \ln Q = E^\circ_{\text{cell}} - \frac{2.303 RT}{nF} \log_{10} Q}
+\end{equation}
+
+\subsection{Numerical Values of the Nernst Factor ($\frac{2.303 RT}{F}$)}
+At standard reference temperature $T = 298.15\text{ K}$ ($25^\circ\text{C}$):
+\begin{equation}
+    \frac{2.303 \times 8.3145 \times 298.15}{96485.3} = 0.05916\text{ V} \approx 0.0591\text{ V}
+\end{equation}
+The Nernst equation at $298\text{ K}$ is therefore:
+\begin{equation}
+    \boxed{E_{\text{cell}} = E^\circ_{\text{cell}} - \frac{0.0591}{n} \log_{10} Q = E^\circ_{\text{cell}} - \frac{0.0591}{n} \log_{10} \left( \frac{[\ce{C}]^c [\ce{D}]^d}{[\ce{A}]^a [\ce{B}]^b} \right)}
+\end{equation}
+\begin{conceptbox}[Variation of the Nernst Factor across Temperatures]
+For advanced thermodynamic and Olympiad problems where temperatures deviate from $298\text{ K}$:
+\begin{align*}
+    T = 273.15\text{ K } (0^\circ\text{C}): \quad & \frac{2.303 RT}{F} = 0.0542\text{ V} \\
+    T = 298.15\text{ K } (25^\circ\text{C}): \quad & \frac{2.303 RT}{F} = 0.05916\text{ V} \approx 0.0591\text{ V} \\
+    T = 300.00\text{ K } (26.85^\circ\text{C}): \quad & \frac{2.303 RT}{F} = 0.0595\text{ V} \\
+    T = 310.15\text{ K } (37^\circ\text{C, Body Temp}): \quad & \frac{2.303 RT}{F} = 0.0615\text{ V} \\
+    T = 373.15\text{ K } (100^\circ\text{C}): \quad & \frac{2.303 RT}{F} = 0.0740\text{ V}
+\end{align*}
+\end{conceptbox}
+
+---
+
+\section{Determination of Equilibrium Constant ($K_{eq}$) from Cell EMF}
+
+As a galvanic cell operates, reactants are progressively consumed and products accumulate. Consequently, the reaction quotient $Q$ continuously increases, causing the cell potential $E_{\text{cell}}$ to decrease steadily according to the Nernst equation.
+
+Eventually, the system reaches chemical equilibrium:
+\begin{equation}
+    E_{\text{cell}} = 0 \quad \text{and} \quad Q = K_{eq} = K_c
+\end{equation}
+Substituting these equilibrium conditions into the Nernst equation:
+\begin{equation}
+    0 = E^\circ_{\text{cell}} - \frac{2.303 RT}{nF} \log_{10} K_{eq}
+\end{equation}
+\begin{equation}
+    \boxed{E^\circ_{\text{cell}} = \frac{2.303 RT}{nF} \log_{10} K_{eq}}
+\end{equation}
+Rearranging for $\log_{10} K_{eq}$ at $298\text{ K}$:
+\begin{equation}
+    \boxed{\log_{10} K_{eq} = \frac{n E^\circ_{\text{cell}}}{0.0591}} \iff \boxed{K_{eq} = 10^{\frac{n E^\circ_{\text{cell}}}{0.0591}}}
+\end{equation}
+
+\begin{conceptbox}[Thermodynamic Significance of $K_{eq} \leftrightarrow E^\circ_{\text{cell}}$ Mapping]
+\begin{itemize}[leftmargin=*]
+    \item Even a modest positive standard EMF produces an extraordinarily large equilibrium constant due to the exponential mapping. For instance, if $n = 2$ and $E^\circ_{\text{cell}} = +1.10\text{ V}$ (Daniell Cell):
+    \begin{equation*}
+        \log_{10} K_c = \frac{2 \times 1.10}{0.0591} = 37.22 \implies K_c = 1.68 \times 10^{37}
+    \end{equation*}
+    This massive value demonstrates that the Daniell cell reaction proceeds to quantitative completion ($> 99.9999\%$).
+    \item Direct chemical determination of $K_c > 10^{10}$ or $K_c < 10^{-10}$ by analytical titration is virtually impossible due to imperceptible trace concentrations at equilibrium. Potentiometric measurement of $E^\circ_{\text{cell}}$ provides the \textbf{most precise experimental route} to evaluate extreme equilibrium constants.
+\end{itemize}
+\end{conceptbox}
+
+---
+
+\section{Comprehensive Cell Thermodynamics: $\Delta S, \Delta H, q_{rev}$, \& Efficiency $\eta$}
+
+\subsection{1. Entropy Change ($\Delta S$) and Temperature Coefficient of EMF}
+From the fundamental thermodynamic identity for Gibbs free energy at constant pressure:
+\begin{equation}
+    dG = V dp - S dT \implies \left(\frac{\partial \Delta G}{\partial T}\right)_p = -\Delta S
+\end{equation}
+Substituting $\Delta G = -n F E_{\text{cell}}$:
+\begin{equation}
+    \left(\frac{\partial (-nFE)}{\partial T}\right)_p = -nF \left(\frac{\partial E}{\partial T}\right)_p = -\Delta S
+\end{equation}
+Cancelling the negative signs gives the celebrated formula:
+\begin{equation}
+    \boxed{\Delta S = n F \left(\frac{\partial E}{\partial T}\right)_p}
+\end{equation}
+where $\left(\frac{\partial E}{\partial T}\right)_p$ is the \textbf{Temperature Coefficient of EMF} (in $\text{V}\cdot\text{K}^{-1}$).
+
+\begin{atkinsbox}[Physical Interpretation of the Temperature Coefficient $\left(\frac{\partial E}{\partial T}\right)_p$]
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Case 1: $\left(\frac{\partial E}{\partial T}\right)_p > 0$ (Positive Coefficient):}
+    $\Delta S > 0$. The cell reaction results in an increase in entropy.
+    The electrical work output ($nFE$) actually \textbf{exceeds} the decrease in enthalpy ($|\Delta G| > |\Delta H|$). The cell absorbs heat reversibly from the surrounding thermal reservoir ($q_{\text{rev}} = T\Delta S > 0$) to supplement the reaction enthalpy.
+    \item \textbf{Case 2: $\left(\frac{\partial E}{\partial T}\right)_p < 0$ (Negative Coefficient):}
+    $\Delta S < 0$. The cell reaction proceeds with a decrease in entropy.
+    The electrical work output is less than the enthalpy change ($|\Delta G| < |\Delta H|$). A fraction of the reaction enthalpy is released as reversible heat to the surroundings ($q_{\text{rev}} = T\Delta S < 0$), causing the cell to warm up during reversible discharge.
+    \item \textbf{Case 3: $\left(\frac{\partial E}{\partial T}\right)_p = 0$ (Zero Coefficient):}
+    $\Delta S = 0$. In this rare scenario, $\Delta G = \Delta H$, and no heat is absorbed or released under reversible conditions ($q_{\text{rev}} = 0$).
+\end{enumerate}
+\end{atkinsbox}
+
+\subsection{2. Enthalpy Change of Cell Reaction ($\Delta H$)}
+Recall the fundamental definition of Gibbs free energy:
+\begin{equation}
+    \Delta G = \Delta H - T \Delta S \implies \Delta H = \Delta G + T \Delta S
+\end{equation}
+Substituting $\Delta G = -nFE$ and $\Delta S = nF \left(\frac{\partial E}{\partial T}\right)_p$:
+\begin{equation}
+    \boxed{\Delta H = -n F E + n F T \left(\frac{\partial E}{\partial T}\right)_p = -n F \left[ E - T \left(\frac{\partial E}{\partial T}\right)_p \right]}
+\end{equation}
+This is the electrochemical form of the \textbf{Gibbs-Helmholtz Equation}.
+
+\subsection{3. Reversible Heat Transferred ($q_{rev}$)}
+For a reversible process:
+\begin{equation}
+    \boxed{q_{\text{rev}} = T \Delta S = n F T \left(\frac{\partial E}{\partial T}\right)_p}
+\end{equation}
+
+\subsection{4. Thermodynamic Efficiency of Electrochemical Energy Conversion ($\eta$)}
+In an internal combustion engine or thermal power plant, chemical fuel is first converted to heat, which is then converted into mechanical or electrical work subject to the strict upper limit of the \textbf{Carnot Efficiency}:
+\begin{equation}
+    \eta_{\text{Carnot}} = \frac{T_H - T_C}{T_H} = 1 - \frac{T_C}{T_H} \quad (\text{typically } 35\%-45\%)
+\end{equation}
+In stark contrast, an electrochemical cell or fuel cell converts the chemical free energy of the fuel \textbf{directly into electrical energy} without passing through heat as an intermediate:
+\begin{equation}
+    \boxed{\eta_{\text{thermo}} = \frac{\text{Maximum Useful Electrical Work}}{\text{Total Enthalpy of Combustion}} = \frac{|\Delta G|}{|\Delta H|} = \frac{nFE}{|\Delta H|}}
+\end{equation}
+Substituting $\Delta G = \Delta H - T\Delta S$:
+\begin{equation}
+    \boxed{\eta = 1 - \frac{T\Delta S}{\Delta H}}
+\end{equation}
+For fuel cells like the $\ce{H2-O2}$ cell, $\eta$ can exceed $80\%-90\%$, far surpassing all heat engines.
+
+---
+
+\section{Comprehensive Master Solved Illustrations}
+
+\begin{examplebox}[Determination of Thermodynamic Functions from Temperature-Dependent EMF]
+The electromotive force of a reversible galvanic cell as a function of temperature (in Kelvin) in the vicinity of $298\text{ K}$ is given by the empirical polynomial:
+\begin{equation*}
+    E(T) = 1.01845 - 4.05 \times 10^{-5} (T - 293.15) - 9.50 \times 10^{-7} (T - 293.15)^2 \quad (\text{in Volts})
+\end{equation*}
+The cell reaction involves the transfer of $n = 2$ moles of electrons. At $T = 298.15\text{ K}$, calculate:
+\begin{enumerate}[label=(\alph*)]
+    \item The cell potential ($E$).
+    \item The temperature coefficient of EMF, $\left(\frac{\partial E}{\partial T}\right)_p$.
+    \item The Gibbs free energy change ($\Delta G$).
+    \item The entropy change ($\Delta S$).
+    \item The enthalpy change of the reaction ($\Delta H$).
+    \item The reversible heat exchange with the surroundings ($q_{\text{rev}}$).
+\end{enumerate}
+\tcblower
+\textbf{Part (a): Cell Potential at $298.15\text{ K}$:}
+$\Delta T = 298.15 - 293.15 = 5.0\text{ K}$.
+\begin{align*}
+    E(298.15) &= 1.01845 - (4.05 \times 10^{-5} \times 5.0) - [9.50 \times 10^{-7} \times (5.0)^2] \\
+    &= 1.01845 - 0.0002025 - 0.00002375 = 1.01822\text{ V}
+\end{align*}
+
+\textbf{Part (b): Temperature Coefficient of EMF:}
+Differentiating $E(T)$ with respect to $T$:
+\begin{equation*}
+    \left(\frac{\partial E}{\partial T}\right)_p = -4.05 \times 10^{-5} - 2 \times 9.50 \times 10^{-7} (T - 293.15)
+\end{equation*}
+At $T = 298.15\text{ K}$ ($\Delta T = 5.0\text{ K}$):
+\begin{equation*}
+    \left(\frac{\partial E}{\partial T}\right)_p = -4.05 \times 10^{-5} - (1.90 \times 10^{-6} \times 5.0) = -4.05 \times 10^{-5} - 0.95 \times 10^{-5} = -5.00 \times 10^{-5}\ \text{V}\cdot\text{K}^{-1}
+\end{equation*}
+
+\textbf{Part (c): Free Energy Change ($\Delta G$):}
+\begin{align*}
+    \Delta G &= -nFE = -2 \times 96485 \times 1.01822 = -196486\ \text{J}\cdot\text{mol}^{-1} = -196.49\ \text{kJ}\cdot\text{mol}^{-1}
+\end{align*}
+
+\textbf{Part (d): Entropy Change ($\Delta S$):}
+\begin{align*}
+    \Delta S &= n F \left(\frac{\partial E}{\partial T}\right)_p = 2 \times 96485 \times (-5.00 \times 10^{-5}) = -9.6485\ \text{J}\cdot\text{mol}^{-1}\cdot\text{K}^{-1} \approx -9.65\ \text{J}\cdot\text{K}^{-1}
+\end{align*}
+
+\textbf{Part (e): Enthalpy Change ($\Delta H$):}
+\begin{align*}
+    \Delta H &= \Delta G + T \Delta S = -196486 + [298.15 \times (-9.6485)] \\
+    &= -196486 - 2876.7 = -199363\ \text{J}\cdot\text{mol}^{-1} = -199.36\ \text{kJ}\cdot\text{mol}^{-1}
+\end{align*}
+
+\textbf{Part (f): Reversible Heat Exchange ($q_{\text{rev}}$):}
+\begin{equation*}
+    q_{\text{rev}} = T \Delta S = -2876.7\ \text{J}\cdot\text{mol}^{-1} = -2.88\ \text{kJ}\cdot\text{mol}^{-1}
+\end{equation*}
+Because $q_{\text{rev}} < 0$, exactly $2.88\text{ kJ}$ of heat is \textbf{released} to the surroundings when the cell operates reversibly.
+\end{examplebox}

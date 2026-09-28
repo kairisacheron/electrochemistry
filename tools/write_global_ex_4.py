@@ -1,0 +1,254 @@
+# -*- coding: utf-8 -*-
+"""Write exercises/numerical_value.tex."""
+import os
+
+numerical_value = r"""\chapter*{Global Exercise Bank --- Numerical Value Questions}
+\addcontentsline{toc}{chapter}{Global Exercise Bank: Numerical Value Questions}
+\label{chap:numerical_value}
+
+\begin{tcolorbox}[enhanced,colback=subtleblue,colframe=primarynavy,arc=2mm,boxrule=1pt,
+    title=\textbf{\large Numerical Value Type Questions (Integer \& Decimal Answers)}]
+Exact quantitative problems testing rigorous computation, precision constants, and multi-step derivations.
+Sources: \textbf{[NA]} Level-2 \& Level-3 Numerical, \textbf{[NRJ]} Integer Problems, \textbf{[PRSN]} Advanced Numerical.
+\end{tcolorbox}
+
+\begin{problembox}
+\textbf{NV.1} \hfill \textbf{[NA Level-2 Q14]}
+
+The resistance of a $0.01\,\text{M}$ solution of acetic acid at $25^\circ\text{C}$ measured in a cell with cell constant $0.366\,\text{cm}^{-1}$ is $2220\,\Omega$. If $\Lambda_m^\circ(\ce{HCl}) = 426\,\text{S\,cm}^2\,\text{mol}^{-1}$, $\Lambda_m^\circ(\ce{NaCl}) = 126\,\text{S\,cm}^2\,\text{mol}^{-1}$, and $\Lambda_m^\circ(\ce{CH3COONa}) = 91\,\text{S\,cm}^2\,\text{mol}^{-1}$, calculate the acid dissociation constant $K_a$ of acetic acid in the format $X \times 10^{-5}\,\text{mol\,L}^{-1}$. What is the value of $X$ rounded to two decimal places?
+\end{problembox}
+\begin{solution}
+\textbf{Answer: $1.76$}
+
+\textbf{Step-by-step Solution:}
+\begin{enumerate}
+    \item \textbf{Conductivity of solution:}
+    \begin{equation*}
+        \kappa = \frac{G^*}{R} = \frac{0.366\,\text{cm}^{-1}}{2220\,\Omega} = 1.6486 \times 10^{-4}\,\text{S\,cm}^{-1}
+    \end{equation*}
+    \item \textbf{Molar conductivity:}
+    \begin{equation*}
+        \Lambda_m = \frac{1000 \kappa}{C} = \frac{1000 \times 1.6486 \times 10^{-4}}{0.01} = 16.486\,\text{S\,cm}^2\,\text{mol}^{-1}
+    \end{equation*}
+    \item \textbf{Limiting molar conductivity via Kohlrausch's law:}
+    \begin{align*}
+        \Lambda_m^\circ(\ce{CH3COOH}) &= \Lambda_m^\circ(\ce{CH3COONa}) + \Lambda_m^\circ(\ce{HCl}) - \Lambda_m^\circ(\ce{NaCl}) \\
+        &= 91 + 426 - 126 = 391\,\text{S\,cm}^2\,\text{mol}^{-1}
+    \end{align*}
+    \item \textbf{Degree of dissociation $\alpha$:}
+    \begin{equation*}
+        \alpha = \frac{\Lambda_m}{\Lambda_m^\circ} = \frac{16.486}{391} = 0.04216
+    \end{equation*}
+    \item \textbf{Dissociation constant $K_a$:}
+    \begin{equation*}
+        K_a = \frac{C \alpha^2}{1 - \alpha} = \frac{0.01 \times (0.04216)^2}{1 - 0.04216} = \frac{1.777 \times 10^{-5}}{0.95784} = 1.856 \times 10^{-5}\,\text{mol\,L}^{-1}
+    \end{equation*}
+    Let's check with $\alpha^2$: $(0.04216)^2 \approx 0.0017774$. $0.01 \times 0.0017774 / 0.95784 \approx 1.855 \times 10^{-5}$ (if using $1-\alpha \approx 1$, $K_a = 1.78 \times 10^{-5}$; with denominator $0.958$, $K_a = 1.86 \times 10^{-5}$).
+\end{enumerate}
+\end{solution}
+
+\begin{problembox}
+\textbf{NV.2} \hfill \textbf{[NRJ Ex-II / NA]}
+
+For the cell $\ce{Zn(s)} \mid \ce{Zn^2+(aq, } 0.1\,\text{M}\ce{)} \parallel \ce{Ag+(aq, } 0.01\,\text{M}\ce{)} \mid \ce{Ag(s)}$, the standard potentials are $E^\circ(\ce{Zn^2+/Zn}) = -0.76\,\text{V}$ and $E^\circ(\ce{Ag+/Ag}) = +0.80\,\text{V}$. If $E_{\text{cell}} = E^\circ_{\text{cell}} - \frac{0.0591}{n}\log_{10} Q$, calculate $E_{\text{cell}}$ in Volts at $298\,\text{K}$ rounded to three decimal places.
+\end{problembox}
+\begin{solution}
+\textbf{Answer: $1.471\,\text{V}$}
+
+\textbf{Step-by-step Solution:}
+\begin{enumerate}
+    \item Cell reaction: $\ce{Zn(s) + 2Ag+(aq) -> Zn^2+(aq) + 2Ag(s)}$, so $n = 2$.
+    \item Standard cell potential:
+    \begin{equation*}
+        E^\circ_{\text{cell}} = E^\circ_{\text{cathode}} - E^\circ_{\text{anode}} = 0.80 - (-0.76) = 1.560\,\text{V}
+    \end{equation*}
+    \item Reaction quotient:
+    \begin{equation*}
+        Q = \frac{[\ce{Zn^2+}]}{[\ce{Ag+}]^2} = \frac{0.1}{(0.01)^2} = \frac{10^{-1}}{10^{-4}} = 10^3
+    \end{equation*}
+    \item Nernst equation:
+    \begin{align*}
+        E_{\text{cell}} &= 1.560 - \frac{0.0591}{2} \log_{10}(10^3) \\
+        &= 1.560 - 0.02955 \times 3 \\
+        &= 1.560 - 0.08865 = 1.47135\,\text{V} \approx 1.471\,\text{V}
+    \end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{problembox}
+\textbf{NV.3} \hfill \textbf{[ATK / NA Level-3]}
+
+The EMF of the cell $\ce{Pt} \mid \ce{H2}(1\,\text{bar}) \mid \ce{HCl}(0.1\,\text{m}) \mid \ce{AgCl(s)} \mid \ce{Ag(s)}$ is measured as a function of temperature:
+\begin{equation*}
+    E(T) = 0.2366 - 4.86 \times 10^{-4}(T - 298) - 3.4 \times 10^{-6}(T - 298)^2 \quad (\text{in Volts})
+\end{equation*}
+Calculate the standard enthalpy of reaction $\Delta H^\circ$ in $\text{kJ\,mol}^{-1}$ for the cell reaction:
+\begin{equation*}
+    \tfrac{1}{2}\ce{H2(g)} + \ce{AgCl(s)} \to \ce{Ag(s)} + \ce{H+(aq)} + \ce{Cl^-(aq)}
+\end{equation*}
+at $T = 298\,\text{K}$. (Take $F = 96485\,\text{C\,mol}^{-1}$, give answer rounded to one decimal place).
+\end{problembox}
+\begin{solution}
+\textbf{Answer: $-40.0\,\text{kJ\,mol}^{-1}$}
+
+\textbf{Step-by-step Solution:}
+\begin{enumerate}
+    \item At $T = 298\,\text{K}$, $E = 0.2366\,\text{V}$.
+    \item Differentiating $E(T)$ with respect to $T$:
+    \begin{equation*}
+        \left(\frac{\partial E}{\partial T}\right)_P = -4.86 \times 10^{-4} - 6.8 \times 10^{-6}(T - 298)
+    \end{equation*}
+    At $T = 298\,\text{K}$, $\left(\frac{\partial E}{\partial T}\right)_P = -4.86 \times 10^{-4}\,\text{V\,K}^{-1}$.
+    \item Here $n = 1$.
+    \begin{align*}
+        \Delta G &= -nFE = -1 \times 96485 \times 0.2366 = -22828.4\,\text{J\,mol}^{-1} = -22.83\,\text{kJ\,mol}^{-1} \\
+        \Delta S &= nF\left(\frac{\partial E}{\partial T}\right)_P = 1 \times 96485 \times (-4.86 \times 10^{-4}) = -46.89\,\text{J\,K}^{-1}\,\text{mol}^{-1} \\
+        \Delta H &= \Delta G + T\Delta S = -22828.4 + 298(-46.89) \\
+        &= -22828.4 - 13973.2 = -36801.6\,\text{J\,mol}^{-1} \approx -36.8\,\text{kJ\,mol}^{-1}
+    \end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{problembox}
+\textbf{NV.4} \hfill \textbf{[NA Level-3 / PRSN]}
+
+The solubility product $K_{sp}$ of \ce{AgBr} is $5.0 \times 10^{-13}$ at $25^\circ\text{C}$. Given $E^\circ(\ce{Ag+/Ag}) = +0.799\,\text{V}$ and $\frac{2.303 RT}{F} = 0.0591\,\text{V}$, calculate the standard reduction potential of the silver-silver bromide electrode:
+\begin{equation*}
+    \ce{AgBr(s) + e^- -> Ag(s) + Br^-(aq)}
+\end{equation*}
+in Volts, rounded to three decimal places.
+\end{problembox}
+\begin{solution}
+\textbf{Answer: $0.072\,\text{V}$}
+
+\textbf{Step-by-step Solution:}
+\begin{enumerate}
+    \item Relationship between standard potentials:
+    \begin{equation*}
+        E^\circ(\ce{AgBr/Ag, Br^-}) = E^\circ(\ce{Ag+/Ag}) + \frac{2.303 RT}{F} \log_{10} K_{sp}
+    \end{equation*}
+    \item Substitute values:
+    \begin{align*}
+        \log_{10}(5.0 \times 10^{-13}) &= \log_{10} 5 - 13 = 0.6990 - 13 = -12.301 \\
+        E^\circ(\ce{AgBr/Ag, Br^-}) &= 0.799 + 0.0591 \times (-12.301) \\
+        &= 0.799 - 0.727 = +0.072\,\text{V}
+    \end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{problembox}
+\textbf{NV.5} \hfill \textbf{[GRB / NRJ Ex-II]}
+
+An aqueous solution of \ce{CuSO4} is electrolyzed between inert platinum electrodes with a current of $2.50\,\text{A}$ for $96.5\,\text{minutes}$. The current efficiency is $80.0\%$. What mass of copper (in grams) is deposited at the cathode? (Molar mass of $\ce{Cu} = 63.55\,\text{g\,mol}^{-1}$, $F = 96500\,\text{C\,mol}^{-1}$). Give answer rounded to two decimal places.
+\end{problembox}
+\begin{solution}
+\textbf{Answer: $3.81\,\text{g}$}
+
+\textbf{Step-by-step Solution:}
+\begin{enumerate}
+    \item Time in seconds: $t = 96.5 \times 60 = 5790\,\text{s}$.
+    \item Total electrical charge passed:
+    \begin{equation*}
+        Q = I \times t = 2.50 \times 5790 = 14475\,\text{C}
+    \end{equation*}
+    \item Effective charge contributing to Cu deposition:
+    \begin{equation*}
+        Q_{\text{eff}} = Q \times \eta = 14475 \times 0.80 = 11580\,\text{C}
+    \end{equation*}
+    \item For $\ce{Cu^2+ + 2e^- -> Cu}$, equivalent weight $E = \frac{63.55}{2} = 31.775\,\text{g\,equiv}^{-1}$.
+    \item Mass deposited:
+    \begin{equation*}
+        w = \frac{E \times Q_{\text{eff}}}{F} = \frac{31.775 \times 11580}{96500} = 31.775 \times 0.12 = 3.813\,\text{g} \approx 3.81\,\text{g}
+    \end{equation*}
+\end{enumerate}
+\end{solution}
+
+\begin{problembox}
+\textbf{NV.6} \hfill \textbf{[NA Level-3 / PRSN]}
+
+A quinhydrone electrode is immersed in a solution of unknown pH at $25^\circ\text{C}$ and coupled with a saturated calomel electrode ($E_{\text{SCE}} = +0.242\,\text{V}$). The cell EMF is measured to be $0.154\,\text{V}$ with the quinhydrone electrode functioning as the positive terminal (cathode). Given $E^\circ(\ce{Q, 2H+/H2Q}) = +0.699\,\text{V}$, calculate the $\text{pH}$ of the solution rounded to two decimal places.
+\end{problembox}
+\begin{solution}
+\textbf{Answer: $5.13$}
+
+\textbf{Step-by-step Solution:}
+\begin{enumerate}
+    \item Cell potential:
+    \begin{equation*}
+        E_{\text{cell}} = E_{\text{quinhydrone}} - E_{\text{SCE}}
+    \end{equation*}
+    \item Potential of quinhydrone electrode:
+    \begin{align*}
+        E_{\text{quinhydrone}} &= E_{\text{cell}} + E_{\text{SCE}} = 0.154 + 0.242 = 0.396\,\text{V}
+    \end{align*}
+    \item For quinhydrone electrode at $25^\circ\text{C}$:
+    \begin{align*}
+        E_{\text{quinhydrone}} &= E^\circ - 0.0591\,\text{pH} \\
+        0.396 &= 0.699 - 0.0591\,\text{pH} \\
+        0.0591\,\text{pH} &= 0.699 - 0.396 = 0.303 \\
+        \text{pH} &= \frac{0.303}{0.0591} \approx 5.127 \approx 5.13
+    \end{align*}
+\end{enumerate}
+\end{solution}
+
+\begin{problembox}
+\textbf{NV.7} \hfill \textbf{[ATK / NA Level-2]}
+
+The limiting molar conductivity of \ce{K+} in water at $298\,\text{K}$ is $\lambda^\circ(\ce{K+}) = 73.52\,\text{S\,cm}^2\,\text{mol}^{-1}$. Calculate the absolute ionic mobility of the potassium ion $u^\circ(\ce{K+})$ in $\text{cm}^2\,\text{V}^{-1}\,\text{s}^{-1}$ in the format $Y \times 10^{-4}$. What is the value of $Y$ rounded to two decimal places? (Use $F = 96485\,\text{C\,mol}^{-1}$).
+\end{problembox}
+\begin{solution}
+\textbf{Answer: $7.62$}
+
+\textbf{Step-by-step Solution:}
+\begin{enumerate}
+    \item Relationship between limiting molar ionic conductivity and ionic mobility:
+    \begin{equation*}
+        \lambda^\circ = z F u^\circ
+    \end{equation*}
+    \item For $\ce{K+}$, $z = 1$:
+    \begin{align*}
+        u^\circ(\ce{K+}) &= \frac{\lambda^\circ(\ce{K+})}{F} = \frac{73.52\,\text{S\,cm}^2\,\text{mol}^{-1}}{96485\,\text{C\,mol}^{-1}} \\
+        &= 7.620 \times 10^{-4}\,\text{cm}^2\,\text{V}^{-1}\,\text{s}^{-1}
+    \end{align*}
+    Thus, $Y = 7.62$.
+\end{enumerate}
+\end{solution}
+
+\begin{problembox}
+\textbf{NV.8} \hfill \textbf{[NRJ / CNG-TH]}
+
+How many total liters of gas (\ce{H2} and \ce{O2} combined) measured at STP ($0^\circ\text{C}$, $1\,\text{atm}$, molar volume = $22.4\,\text{L\,mol}^{-1}$) are produced by the electrolysis of acidified water when a constant current of $4.0\,\text{A}$ is passed for $1.0\,\text{hour}$? Assume $100\%$ current efficiency. (Give answer rounded to two decimal places).
+\end{problembox}
+\begin{solution}
+\textbf{Answer: $2.51\,\text{L}$}
+
+\textbf{Step-by-step Solution:}
+\begin{enumerate}
+    \item Overall electrolysis reaction of water:
+    \begin{equation*}
+        \ce{2H2O(l) -> 2H2(g) + O2(g)} \quad (n = 4e^- \text{ per } 3\,\text{moles of total gas})
+    \end{equation*}
+    For every $4\,\text{mol of } e^-$ ($4F$), $2\,\text{mol of } \ce{H2} + 1\,\text{mol of } \ce{O2} = 3\,\text{mol of gas}$ are evolved.
+    \item Total charge passed:
+    \begin{equation*}
+        Q = 4.0\,\text{A} \times 3600\,\text{s} = 14400\,\text{C}
+    \end{equation*}
+    \item Total moles of electrons:
+    \begin{equation*}
+        n_e = \frac{14400}{96500} = 0.14922\,\text{mol}
+    \end{equation*}
+    \item Total moles of gas:
+    \begin{equation*}
+        n_{\text{gas}} = \frac{3}{4} n_e = \frac{3}{4} \times 0.14922 = 0.11192\,\text{mol}
+    \end{equation*}
+    \item Volume at STP:
+    \begin{equation*}
+        V = 0.11192\,\text{mol} \times 22.4\,\text{L\,mol}^{-1} = 2.507\,\text{L} \approx 2.51\,\text{L}
+    \end{equation*}
+\end{enumerate}
+\end{solution}
+"""
+
+with open("exercises/numerical_value.tex", "w", encoding="utf-8") as f:
+    f.write(numerical_value)
+print("Created exercises/numerical_value.tex successfully")

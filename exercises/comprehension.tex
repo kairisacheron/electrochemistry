@@ -1,0 +1,329 @@
+\chapter*{Global Exercise Bank --- Linked Comprehension Passages}
+\addcontentsline{toc}{chapter}{Global Exercise Bank: Linked Comprehension Passages}
+\label{chap:comprehension}
+
+\begin{tcolorbox}[enhanced,colback=subtleblue,colframe=primarynavy,arc=2mm,boxrule=1pt,
+    title=\textbf{\large Linked Comprehension / Case-Study Questions (All Chapters)}]
+Paragraph-based and scenario-linked problem sets with multi-step analytical reasoning.
+Sources: \textbf{[NA]} Level-3 Comprehensions, \textbf{[NRJ]} Ex-II Comprehension, \textbf{[PRSN]} Advanced Passages.
+\end{tcolorbox}
+
+\section*{Passage 1: Debye--H\"{u}ckel--Onsager Theory and High-Field Effects}
+
+The Debye--H\"{u}ckel--Onsager (DHO) equation for a $1:1$ univalent electrolyte in dilute aqueous solution at $25^\circ\text{C}$ is given by:
+\begin{equation*}
+    \Lambda_m = \Lambda_m^\circ - (A + B\Lambda_m^\circ)\sqrt{c}
+\end{equation*}
+where $A$ accounts for the electrophoretic drag of the solvent countercurrent and $B$ accounts for the relaxation (asymmetry) field retardance caused by the finite relaxation time $\tau$ of the ionic atmosphere. Under ordinary conditions, the external electric field is small ($E \sim 1\text{--}10\,\text{V\,cm}^{-1}$), so the velocity of ion migration is small compared to the thermal motion, allowing the ionic atmosphere to be treated as perturbed linearly.
+
+However, when an extremely high potential gradient is applied ($E > 10^5\,\text{V\,cm}^{-1}$), an ion moves so rapidly that it travels a distance greater than the thickness of the ionic cloud ($1/\kappa$) within the relaxation time $\tau$. Consequently, the ion escapes its retarding counter-ion cloud, and both asymmetry and electrophoretic effects diminish to zero (the \textbf{Wien effect}). Furthermore, at very high alternating frequencies ($\nu > 10^6\,\text{Hz}$), the direction of the field alternates faster than the relaxation time $\tau$, so the ionic atmosphere remains essentially spherically symmetric, yielding an increased conductivity (the \textbf{Debye--Falkenhagen effect}).
+
+\begin{problembox}
+\textbf{CP.1.1} \hfill \textbf{[NA Level-3 / ATK]}
+
+Which of the following statements correctly explains the Wien effect?
+\begin{enumerate}[label=(\alph*)]
+    \item High electric field increases the thermal ionization energy of solvent molecules.
+    \item Under high electric field gradient, an ion traverses a distance greater than the radius of its ionic atmosphere within the relaxation time, stripping off the cloud.
+    \item High voltage destroys the hydration shell of the ions permanently.
+    \item Viscosity of water drops to zero at high electric potential gradients.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{(b)} In very high electric fields ($> 10^4\text{--}10^5\,\text{V\,cm}^{-1}$), the ion velocity $v = uE$ becomes so great that the ion migrates out of its ionic atmosphere before the atmosphere can reform behind it. The asymmetric retarding force and electrophoretic drag vanish, causing $\Lambda_m$ to approach its limiting value $\Lambda_m^\circ$ even at finite concentration.
+\end{solution}
+
+\begin{problembox}
+\textbf{CP.1.2} \hfill \textbf{[ATK / PRSN]}
+
+The Debye--Falkenhagen effect predicts that when the frequency of the alternating current is increased beyond $\sim 10\,\text{MHz}$, the molar conductance of a strong electrolyte solution:
+\begin{enumerate}[label=(\alph*)]
+    \item Decreases to zero because ions cannot follow the field oscillations.
+    \item Remains unchanged because relaxation time is independent of frequency.
+    \item Increases because the ionic atmosphere has no time to form an asymmetric retardance behind the oscillating ion.
+    \item First decreases and then approaches infinity.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{(c)} At radio frequencies ($\sim 10^7\,\text{Hz}$), the period of oscillation is shorter than the relaxation time of the ionic atmosphere ($\tau \approx 10^{-8}\text{--}10^{-10}\,\text{s}$). As a result, the ionic atmosphere never has time to become asymmetric with respect to the central ion; it remains spherically symmetric, and the relaxation retarding force vanishes, leading to an increase in conductance.
+\end{solution}
+
+\begin{problembox}
+\textbf{CP.1.3} \hfill \textbf{[NRJ Ex-II / NA]}
+
+For a $0.0004\,\text{M}$ solution of \ce{KCl} at $25^\circ\text{C}$, $\Lambda_m = 148.2\,\text{S\,cm}^2\,\text{mol}^{-1}$ and $\Lambda_m^\circ = 149.8\,\text{S\,cm}^2\,\text{mol}^{-1}$. The experimental Onsager slope $b_{\text{obs}}$ in $\text{S\,cm}^2\,\text{mol}^{-1}\,(\text{mol\,L}^{-1})^{-1/2}$ is:
+\begin{multicols}{4}
+\begin{enumerate}[label=(\alph*)]
+    \item $80$
+    \item $40$
+    \item $160$
+    \item $0.80$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{(a)}
+Using the Onsager equation $\Lambda_m = \Lambda_m^\circ - b\sqrt{c}$:
+\begin{align*}
+    148.2 &= 149.8 - b\sqrt{0.0004} = 149.8 - b(0.02) \\
+    0.02 b &= 149.8 - 148.2 = 1.6 \\
+    b &= \frac{1.6}{0.02} = 80\,\text{S\,cm}^2\,\text{mol}^{-1/2}\,\text{L}^{1/2}
+\end{align*}
+Hence option (a) is correct.
+\end{solution}
+
+\vspace{0.5cm}
+\section*{Passage 2: Concentration Cells and Liquid Junction Potential}
+
+A concentration cell consists of two half-cells with identical electrodes and electrolytes but differing electrolyte activities or electrode pressures. Concentration cells can be classified into:
+\begin{itemize}
+    \item \textbf{Electrode concentration cells:} Differing gas pressures or amalgam activities with uniform solution.
+    \item \textbf{Electrolyte concentration cells:} Identical electrodes dipping into solutions of the same electrolyte at different mean activities $a_1$ and $a_2$ ($a_2 > a_1$).
+\end{itemize}
+
+When the two solutions of different concentrations are in direct liquid-liquid contact without a salt bridge, a liquid junction potential ($E_{lj}$) develops at the interface due to the unequal diffusion rates of cations and anions. For a $1:1$ uni-univalent electrolyte (\ce{M+A-}), the EMF with transference ($E_{wt}$) and without transference ($E_{wot}$) are given by:
+\begin{equation*}
+    E_{wt} = 2 t_- \frac{RT}{F} \ln \frac{a_2}{a_1}, \qquad E_{wot} = \frac{RT}{F} \ln \frac{a_2}{a_1}
+\end{equation*}
+where $t_-$ is the transport number of the anion. The liquid junction potential is defined as $E_{lj} = E_{wt} - E_{wot} = (2t_- - 1)\frac{RT}{F}\ln \frac{a_2}{a_1}$. A salt bridge containing \ce{KCl} or \ce{NH4NO3} in agar-agar gel is employed because $t_+ \approx t_- \approx 0.5$ for these electrolytes, practically nullifying $E_{lj}$.
+
+\begin{problembox}
+\textbf{CP.2.1} \hfill \textbf{[ATK Topic 6C / NA]}
+
+Consider the cell: $\ce{Pt} \mid \ce{H2}(1\,\text{atm}) \mid \ce{HCl}(a_1) \parallel \ce{HCl}(a_2) \mid \ce{H2}(1\,\text{atm}) \mid \ce{Pt}$, where a salt bridge eliminates the liquid junction. If $a_2 = 10\,a_1$ at $298\,\text{K}$, the cell EMF is:
+\begin{multicols}{4}
+\begin{enumerate}[label=(\alph*)]
+    \item $0.0591\,\text{V}$
+    \item $0.1182\,\text{V}$
+    \item $0.0296\,\text{V}$
+    \item $0\,\text{V}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{(a)}
+The cell without transference:
+\begin{align*}
+    \text{Anode: } & \tfrac{1}{2}\ce{H2} \to \ce{H+}(a_1) + e^- \\
+    \text{Cathode: } & \ce{H+}(a_2) + e^- \to \tfrac{1}{2}\ce{H2} \\
+    \text{Overall: } & \ce{H+}(a_2) \to \ce{H+}(a_1)
+\end{align*}
+\begin{equation*}
+    E_{\text{cell}} = 0 - \frac{RT}{F}\ln \frac{a_1}{a_2} = \frac{2.303 RT}{F} \log_{10} \frac{a_2}{a_1} = 0.0591 \times \log_{10}(10) = 0.0591\,\text{V}
+\end{equation*}
+\end{solution}
+
+\begin{problembox}
+\textbf{CP.2.2} \hfill \textbf{[PRSN / NRJ]}
+
+If the cell with direct boundary $\ce{Pt, H2}(1\,\text{atm}) \mid \ce{HCl}(a_1) : \ce{HCl}(a_2) \mid \ce{H2}(1\,\text{atm}), \ce{Pt}$ is constructed without a salt bridge, and the transport number of $\ce{H+}$ is $t_+ = 0.82$, then the liquid junction potential $E_{lj}$ for $a_2/a_1 = 10$ at $25^\circ\text{C}$ is:
+\begin{multicols}{4}
+\begin{enumerate}[label=(\alph*)]
+    \item $+0.0378\,\text{V}$
+    \item $-0.0378\,\text{V}$
+    \item $+0.0591\,\text{V}$
+    \item $-0.0189\,\text{V}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{(b)}
+Given $t_+ = 0.82$, thus $t_- = 1 - t_+ = 0.18$.
+\begin{equation*}
+    E_{lj} = (2t_- - 1)\frac{2.303 RT}{F}\log_{10} \frac{a_2}{a_1} = [2(0.18) - 1](0.0591)\log_{10}(10) = (0.36 - 1)(0.0591) = -0.64 \times 0.0591 = -0.0378\,\text{V}
+\end{equation*}
+The negative sign indicates that the more dilute solution develops a positive potential relative to the concentrated solution due to faster diffusion of $\ce{H+}$ ions across the boundary.
+\end{solution}
+
+\begin{problembox}
+\textbf{CP.2.3} \hfill \textbf{[NA Level-3 / CNG-TH]}
+
+Why is \ce{KNO3} or \ce{NH4NO3} chosen over \ce{NaCl} for salt bridges in general electrochemistry?
+\begin{enumerate}[label=(\alph*)]
+    \item \ce{Na+} reacts with most metal cations to precipitate hydroxides.
+    \item \ce{K+} and \ce{NO3-} have nearly equal ionic mobilities, so $t_+ \approx t_- \approx 0.5$, minimizing $E_{lj}$ to under $1\text{--}2\,\text{mV}$.
+    \item \ce{NaCl} is insoluble in agar-agar gel.
+    \item Nitrates undergo redox oxidation at the cathode during discharge.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{(b)} For a salt bridge electrolyte to effectively eliminate the liquid junction potential, the transport numbers of the cation and anion must be almost identical ($t_+ \approx t_- \approx 0.5$). In \ce{KNO3}, $u(\ce{K+}) \approx 7.6 \times 10^{-4}$ and $u(\ce{NO3-}) \approx 7.4 \times 10^{-4}\,\text{cm}^2\,\text{V}^{-1}\,\text{s}^{-1}$, yielding $E_{lj} \approx 0$. In contrast, for \ce{NaCl}, $u(\ce{Cl-}) \gg u(\ce{Na+})$ ($t_+ \approx 0.39, t_- \approx 0.61$), generating a substantial non-zero junction potential.
+\end{solution}
+
+\vspace{0.5cm}
+\section*{Passage 3: Thermodynamics of the Lead-Acid Accumulator}
+
+The lead-acid storage battery is the ubiquitous secondary electrochemical energy source in automobiles. Its cell representation in the fully charged state is:
+\begin{equation*}
+    \ce{Pb(s)} \mid \ce{PbSO4(s)} \mid \ce{H2SO4(aq, } 38\%\, w/w, \rho \approx 1.28\,\text{g\,cm}^{-3}\ce{)} \mid \ce{PbSO4(s)} \mid \ce{PbO2(s)} \mid \ce{Pb(s)}
+\end{equation*}
+During discharge, the electrode half-reactions and overall reversible cell process are:
+\begin{align*}
+    \text{Anode: } & \ce{Pb(s) + HSO4^-(aq) -> PbSO4(s) + H+(aq) + 2e^-} \\
+    \text{Cathode: } & \ce{PbO2(s) + 3H+(aq) + HSO4^-(aq) + 2e^- -> PbSO4(s) + 2H2O(l)} \\
+    \text{Net Cell Reaction: } & \ce{Pb(s) + PbO2(s) + 2H2SO4(aq) -> 2PbSO4(s) + 2H2O(l)}
+\end{align*}
+For this reaction, $n = 2$, $E^\circ_{\text{cell}} \approx 2.05\,\text{V}$ at $298\,\text{K}$, and $\left(\frac{\partial E}{\partial T}\right)_P \approx +1.5 \times 10^{-4}\,\text{V\,K}^{-1}$. During continuous discharge, \ce{H2SO4} is consumed and \ce{H2O} is produced, causing the electrolyte density to fall towards $\rho \approx 1.15\,\text{g\,cm}^{-3}$, providing an accurate measure of the battery's state of charge via a hydrometer.
+
+\begin{problembox}
+\textbf{CP.3.1} \hfill \textbf{[GRB / PRSN]}
+
+What is the entropy change $\Delta S$ for the discharge of the lead-acid cell per mole of \ce{Pb} consumed at $298\,\text{K}$?
+\begin{multicols}{4}
+\begin{enumerate}[label=(\alph*)]
+    \item $+28.95\,\text{J\,K}^{-1}$
+    \item $-28.95\,\text{J\,K}^{-1}$
+    \item $+14.48\,\text{J\,K}^{-1}$
+    \item $+57.90\,\text{J\,K}^{-1}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{(a)}
+From the thermodynamic relationship $\Delta S = nF \left(\frac{\partial E}{\partial T}\right)_P$:
+\begin{equation*}
+    \Delta S = 2 \times 96500\,\text{C\,mol}^{-1} \times (+1.5 \times 10^{-4}\,\text{V\,K}^{-1}) = +28.95\,\text{J\,K}^{-1}\,\text{mol}^{-1}
+\end{equation*}
+Since $\Delta S > 0$, the cell absorbs heat from the surroundings ($q_{\text{rev}} = T\Delta S > 0$) during reversible discharge at constant temperature.
+\end{solution}
+
+\begin{problembox}
+\textbf{CP.3.2} \hfill \textbf{[NA Level-3 / NRJ]}
+
+A lead-acid battery delivers a steady current of $5.0\,\text{A}$ for $10.0\,\text{hours}$. Assuming $100\%$ current efficiency, the total mass of \ce{H2SO4} consumed from the electrolyte is: ($M_{\text{H2SO4}} = 98.08\,\text{g\,mol}^{-1}$)
+\begin{multicols}{4}
+\begin{enumerate}[label=(\alph*)]
+    \item $183\,\text{g}$
+    \item $91.5\,\text{g}$
+    \item $366\,\text{g}$
+    \item $245\,\text{g}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{(a)}
+Total charge passed:
+\begin{equation*}
+    Q = I \times t = 5.0\,\text{A} \times (10 \times 3600\,\text{s}) = 180000\,\text{C}
+\end{equation*}
+Number of moles of electrons transferred:
+\begin{equation*}
+    n_e = \frac{Q}{F} = \frac{180000}{96500} \approx 1.8653\,\text{mol of } e^-
+\end{equation*}
+From the balanced net reaction, $2\,\text{mol of } e^-$ correspond to consumption of $2\,\text{mol of } \ce{H2SO4}$.
+Thus, moles of \ce{H2SO4} consumed = moles of $e^- = 1.8653\,\text{mol}$.
+Mass of \ce{H2SO4} consumed:
+\begin{equation*}
+    m = 1.8653\,\text{mol} \times 98.08\,\text{g\,mol}^{-1} \approx 182.95\,\text{g} \approx 183\,\text{g}
+\end{equation*}
+\end{solution}
+
+\begin{problembox}
+\textbf{CP.3.3} \hfill \textbf{[CNG-TH / GRB]}
+
+During the recharging process of a discharged lead storage cell, which of the following processes occurs at the anode (electrode connected to the positive terminal of the external DC source)?
+\begin{enumerate}[label=(\alph*)]
+    \item \ce{PbSO4(s)} is reduced to spongy \ce{Pb(s)}.
+    \item \ce{PbSO4(s)} is oxidized to \ce{PbO2(s)}.
+    \item \ce{H2SO4} is consumed, lowering the electrolyte density further.
+    \item Hydrogen gas is evolved briskly from the \ce{PbO2} grid.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{(b)} During recharging, the cell functions as an electrolytic cell. The positive plate (anode) undergoes oxidation:
+\begin{equation*}
+    \ce{PbSO4(s) + 2H2O(l) -> PbO2(s) + 3H+(aq) + HSO4^-(aq) + 2e^-}
+\end{equation*}
+Meanwhile, reduction occurs at the cathode (negative terminal): $\ce{PbSO4(s) + H+(aq) + 2e^- -> Pb(s) + HSO4^-(aq)}$. Sulfuric acid is regenerated, raising the density.
+\end{solution}
+
+\vspace{0.5cm}
+\section*{Passage 4: Frost and Latimer Diagrams of Chlorine}
+
+The standard reduction potentials (in Volts) for various chlorine species in acidic aqueous solution ($\text{pH} = 0$) are represented by the following Latimer diagram:
+\begin{equation*}
+    \ce{ClO4^-} \xrightarrow{+1.201\,\text{V}} \ce{ClO3^-} \xrightarrow{+1.181\,\text{V}} \ce{HClO2} \xrightarrow{+1.674\,\text{V}} \ce{HClO} \xrightarrow{+1.630\,\text{V}} \ce{Cl2} \xrightarrow{+1.358\,\text{V}} \ce{Cl^-}
+\end{equation*}
+For any half-reaction connecting oxidation state $N_1$ to $N_2$ ($\Delta N = N_1 - N_2$), the standard Gibbs energy is $\Delta G^\circ = -\Delta N \cdot F \cdot E^\circ$. On a Frost diagram, the quantity $N \cdot E^\circ$ (which is proportional to $\Delta G^\circ / F$ relative to the element in its standard state $N=0$) is plotted on the vertical axis against the oxidation number $N$ on the horizontal axis. A species is thermodynamically unstable with respect to disproportionation if it lies \textit{above} the chord connecting its two adjacent oxidation states, and stable against disproportionation if it lies \textit{below} that chord.
+
+\begin{problembox}
+\textbf{CP.4.1} \hfill \textbf{[ATK Topic 6B / NA]}
+
+What is the standard reduction potential $E^\circ$ for the direct conversion of chlorate to chlorine gas:
+\begin{equation*}
+    \ce{2ClO3^- + 12H+ + 10e^- -> Cl2 + 6H2O}?
+\end{equation*}
+\begin{multicols}{4}
+\begin{enumerate}[label=(\alph*)]
+    \item $+1.47\,\text{V}$
+    \item $+1.29\,\text{V}$
+    \item $+1.38\,\text{V}$
+    \item $+1.61\,\text{V}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{(a)}
+The steps from $\ce{ClO3^-}$ ($N = +5$) to $\ce{Cl2}$ ($N = 0$) involve $n = 5$ electrons per Cl atom:
+\begin{align*}
+    \ce{ClO3^- -> HClO2} \quad &(n_1 = 1, E_1^\circ = 1.181\,\text{V}) \implies n_1 E_1^\circ = 1.181\,\text{V} \\
+    \ce{HClO2 -> HClO} \quad &(n_2 = 1, E_2^\circ = 1.674\,\text{V}) \implies n_2 E_2^\circ = 1.674\,\text{V} \\
+    \ce{HClO -> Cl2} \quad &(n_3 = 1, E_3^\circ = 1.630\,\text{V}) \implies n_3 E_3^\circ = 1.630\,\text{V} \\
+    \ce{Cl2 -> Cl^-} \quad &\text{(not involved here)}
+\end{align*}
+Summing $\sum n_i$: $n = 1 + 1 + 1 = 3$ (wait: from $+5$ to $+3$ is $2e^-$, let's verify oxidation states: $\ce{ClO3^-} (+5)$, $\ce{HClO2} (+3)$, $\ce{HClO} (+1)$, $\ce{Cl2} (0)$).
+Ah! $\Delta N$ for $\ce{ClO3^- -> HClO2}$ is $5 - 3 = 2e^-$.
+$\Delta N$ for $\ce{HClO2 -> HClO}$ is $3 - 1 = 2e^-$.
+$\Delta N$ for $\ce{HClO -> \tfrac{1}{2}Cl2}$ is $1 - 0 = 1e^-$.
+Total electrons = $2 + 2 + 1 = 5e^-$ per Cl atom.
+\begin{align*}
+    5 \times E^\circ &= 2(1.181) + 2(1.674) + 1(1.630) \\
+    &= 2.362 + 3.348 + 1.630 = 7.340\,\text{V} \\
+    E^\circ &= \frac{7.340}{5} = 1.468\,\text{V} \approx +1.47\,\text{V}
+\end{align*}
+Hence option (a) is correct.
+\end{solution}
+
+\begin{problembox}
+\textbf{CP.4.2} \hfill \textbf{[ATK / NRJ]}
+
+From the Latimer diagram, does hypochlorous acid (\ce{HClO}) tend to undergo spontaneous disproportionation into \ce{HClO2} and \ce{Cl2} in $1\,\text{M}$ acid at $298\,\text{K}$?
+\begin{enumerate}[label=(\alph*)]
+    \item Yes, because $E^\circ_{\text{right}} (1.630\,\text{V}) < E^\circ_{\text{left}} (1.674\,\text{V})$.
+    \item No, because $E^\circ_{\text{cell}} = 1.630 - 1.674 = -0.044\,\text{V} < 0$.
+    \item Yes, because all chlorine oxyacids are universally explosive.
+    \item No, because oxidation states cannot change without a catalyst.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{(b)}
+Disproportionation of \ce{HClO}:
+\begin{align*}
+    \text{Reduction: } & \ce{2HClO + 2H+ + 2e^- -> Cl2 + 2H2O} \quad (E^\circ = +1.630\,\text{V}) \\
+    \text{Oxidation: } & \ce{HClO + H2O -> HClO2 + 2H+ + 2e^-} \quad (E^\circ = -1.674\,\text{V}) \\
+    \text{Net: } & \ce{3HClO -> Cl2 + HClO2 + H2O}
+\end{align*}
+$E^\circ_{\text{disp}} = E^\circ_{\text{red}} - E^\circ_{\text{ox}} = 1.630 - 1.674 = -0.044\,\text{V}$.
+Since $E^\circ_{\text{disp}} < 0$, $\Delta G^\circ > 0$, the reaction is \textbf{not} spontaneous under standard conditions. \ce{HClO} does not disproportionate into \ce{HClO2} and \ce{Cl2}.
+\end{solution}
+
+\begin{problembox}
+\textbf{CP.4.3} \hfill \textbf{[ATK / NA]}
+
+On a Frost diagram, the slope of the line segment joining two oxidation states represents:
+\begin{enumerate}[label=(\alph*)]
+    \item The equilibrium constant $K$ of the reaction.
+    \item The standard reduction potential $E^\circ$ of the couple connecting those two states.
+    \item The activation energy $E_a$ of the redox interconversion.
+    \item The rate of electron transfer across the electrical double layer.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{(b)}
+By definition of the Frost diagram, the vertical axis is $y = N E^\circ = -\Delta G^\circ / F$ (relative to $N=0$).
+The slope between two states $N_a$ and $N_b$ ($N_b > N_a$) is:
+\begin{equation*}
+    \text{Slope} = \frac{N_b E_b^\circ - N_a E_a^\circ}{N_b - N_a} = E^\circ(N_b / N_a)
+\end{equation*}
+Thus, the slope directly corresponds to the standard reduction potential of the redox couple. Steeper positive slope means stronger oxidizing ability.
+\end{solution}

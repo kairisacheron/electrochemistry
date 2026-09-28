@@ -1,0 +1,562 @@
+\documentclass[11pt,a4paper]{report}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{amsmath,amssymb,mathtools,bm}
+\usepackage{geometry}
+\geometry{margin=0.85in}
+\usepackage{xcolor}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\usepackage{microtype}
+\usepackage[version=4]{mhchem}
+\usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=purple!70!black,
+    citecolor=blue!70!black,
+    urlcolor=teal!70!black
+}
+
+% --- Custom Colors ---
+\definecolor{trickblue}{RGB}{15, 60, 130}
+\definecolor{trickbg}{RGB}{246, 249, 255}
+\definecolor{numgold}{RGB}{150, 95, 10}
+\definecolor{numbg}{RGB}{255, 252, 245}
+\definecolor{exampgreen}{RGB}{20, 100, 50}
+\definecolor{exampbg}{RGB}{245, 253, 247}
+
+% --- Custom tcolorbox Environments ---
+\newtcolorbox{shortcutbox}[1]{
+    colback=trickbg,
+    colframe=trickblue,
+    fonttitle=\bfseries\color{white},
+    title={Shortcut Rule / Scaling Law: #1},
+    arc=2mm,
+    boxrule=1pt,
+    enhanced,
+    breakable
+}
+
+\newtcolorbox{microbox}[1]{
+    colback=exampbg,
+    colframe=exampgreen,
+    fonttitle=\bfseries\color{white},
+    title={Dedicated Numerical Application: #1},
+    arc=2mm,
+    boxrule=0.8pt,
+    enhanced,
+    breakable
+}
+
+\newtcolorbox{databox}[1]{
+    colback=numbg,
+    colframe=numgold,
+    fonttitle=\bfseries\color{white},
+    title={Reference Constants \& Critical Parameters: #1},
+    arc=2mm,
+    boxrule=1pt,
+    enhanced,
+    breakable
+}
+
+\newcommand{\diff}{\mathrm{d}}
+\newcommand{\avg}[1]{\langle #1 \rangle}
+\newcommand{\ans}[1]{\ifmmode\bm{#1}\else\textbf{#1}\fi}
+
+\title{\Huge\textbf{The Electrochemistry \& Ionic Dynamics Formula Handbook}\\
+\Large Master Formula Index, Scaling Laws, Rapid Mental Models, and Dedicated Micro-Numerics}
+\author{\textbf{Advanced Physical Chemistry Compendium}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+\tableofcontents
+
+\chapter{Universal Electrochemical Constants and Reference Data}
+
+\begin{databox}{Electrochemical, Thermodynamic, and Transport Constants}
+\centering
+\begin{tabular}{lll}
+\toprule
+\textbf{Physical Quantity} & \textbf{Symbol} & \textbf{Standard Value (SI / Practical Units)} \\
+\midrule
+Faraday's Constant & $F$ & $96485.33\text{ C/mol } e^- \approx 96500\text{ C/mol}$ \\
+Universal Gas Constant & $R$ & $8.31446\text{ J}/(\text{mol}\cdot\text{K}) = 0.08206\text{ L}\cdot\text{atm}/(\text{mol}\cdot\text{K})$ \\
+Standard Temperature & $T_0$ & $298.15\text{ K} \approx 25^\circ\text{C}$ \\
+Nernst Natural Pre-factor & $RT/F$ & $0.025693\text{ V} \approx 25.69\text{ mV}$ (at $298\text{ K}$) \\
+Nernst Decimal Factor & $\frac{2.3026 RT}{F}$ & $\bm{0.05916\text{ V}} \approx \bm{0.059\text{ V}}$ (at $298\text{ K}$) \\
+Nernst Factor at $300\text{ K}$ & $\frac{2.3026 RT}{F}$ & $0.0595\text{ V} \approx 0.060\text{ V}$ \\
+Molar Gas Volume at STP & $V_m$ & $22.414\text{ L/mol} = 22400\text{ mL/mol}$ \\
+$\ce{H2}$ Gas STP Equivalent per Faraday & $V_{\ce{H2}}$ & $\frac{22400}{2} = \bm{11200\text{ mL}}$ \\
+$\ce{O2}$ Gas STP Equivalent per Faraday & $V_{\ce{O2}}$ & $\frac{22400}{4} = \bm{5600\text{ mL}}$ \\
+$\ce{Cl2}$ Gas STP Equivalent per Faraday & $V_{\ce{Cl2}}$ & $\frac{22400}{2} = \bm{11200\text{ mL}}$ \\
+Dielectric Constant of Water ($25^\circ\text{C}$) & $\varepsilon_r$ & $78.54$ \\
+Water Auto-ionization Constant ($25^\circ\text{C}$) & $K_w$ & $1.008 \times 10^{-14} \implies \mathrm{p}K_w = 14.00$ \\
+Elementary Charge & $e$ & $1.60218 \times 10^{-19}\text{ C}$ \\
+Avogadro's Number & $N_A$ & $6.02214 \times 10^{23}\text{ mol}^{-1}$ \\
+\bottomrule
+\end{tabular}
+\end{databox}
+
+\begin{microbox}{Rapid Charge to Faraday and Mass Conversion}
+\textbf{Problem:} A steady direct current of $4.825\text{ A}$ is passed through an aqueous $\ce{CuSO4}$ bath for $40\text{ minutes}$. Calculate the moles of electrons passed and the mass of copper metal deposited ($M_{\ce{Cu}} = 63.5\text{ g/mol}$).\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+Q &= I \times t = (4.825\text{ A})(40 \times 60\text{ s}) = 11580\text{ C} \\
+n_e &= \frac{Q}{F} = \frac{11580\text{ C}}{96500\text{ C/mol}} = \ans{0.120\text{ mol } e^-} \\
+n_{\ce{Cu}} &= \frac{n_e}{z} = \frac{0.120}{2} = 0.060\text{ mol} \\
+m_{\ce{Cu}} &= n_{\ce{Cu}} M = 0.060 \times 63.5\text{ g} = \ans{3.81\text{ g}}
+\end{align*}
+\end{microbox}
+
+\begin{databox}{Electrochemical Series Hierarchy (Standard Reduction Potentials at $25^\circ\text{C}$)}
+\centering
+\begin{tabular}{llc}
+\toprule
+\textbf{Reduction Half-Reaction} & \textbf{Couple} & $E^\circ\text{ (V vs SHE)}$ \\
+\midrule
+$\ce{F2(g) + 2e^- -> 2F^-}$ & $\ce{F2 / F^-}$ & $+2.87$ \\
+$\ce{S2O8^{2-} + 2e^- -> 2SO4^{2-}}$ & $\ce{S2O8^{2-} / SO4^{2-}}$ & $+2.01$ \\
+$\ce{MnO4^- + 8H^+ + 5e^- -> Mn^{2+} + 4H2O}$ & $\ce{MnO4^- / Mn^{2+}}$ & $+1.51$ \\
+$\ce{Au^{3+} + 3e^- -> Au(s)}$ & $\ce{Au^{3+} / Au}$ & $+1.40$ \\
+$\ce{Cl2(g) + 2e^- -> 2Cl^-}$ & $\ce{Cl2 / Cl^-}$ & $+1.36$ \\
+$\ce{Cr2O7^{2-} + 14H^+ + 6e^- -> 2Cr^{3+} + 7H2O}$ & $\ce{Cr2O7^{2-} / Cr^{3+}}$ & $+1.33$ \\
+$\ce{O2(g) + 4H^+ + 4e^- -> 2H2O}$ & $\ce{O2 / H2O}$ & $+1.229$ \\
+$\ce{Br2(l) + 2e^- -> 2Br^-}$ & $\ce{Br2 / Br^-}$ & $+1.07$ \\
+$\ce{Ag^+ + e^- -> Ag(s)}$ & $\ce{Ag^+ / Ag}$ & $+0.80$ \\
+$\ce{Fe^{3+} + e^- -> Fe^{2+}}$ & $\ce{Fe^{3+} / Fe^{2+}}$ & $+0.77$ \\
+$\ce{I2(s) + 2e^- -> 2I^-}$ & $\ce{I2 / I^-}$ & $+0.54$ \\
+$\ce{Cu^{2+} + 2e^- -> Cu(s)}$ & $\ce{Cu^{2+} / Cu}$ & $+0.34$ \\
+$\ce{Cu^{2+} + e^- -> Cu^+}$ & $\ce{Cu^{2+} / Cu^+}$ & $+0.153$ \\
+$\ce{Sn^{4+} + 2e^- -> Sn^{2+}}$ & $\ce{Sn^{4+} / Sn^{2+}}$ & $+0.15$ \\
+$\ce{2H^+ + 2e^- -> H2(g)}$ & $\ce{H^+ / H2}$ & $\bm{0.000\text{ (Reference)}}$ \\
+$\ce{Pb^{2+} + 2e^- -> Pb(s)}$ & $\ce{Pb^{2+} / Pb}$ & $-0.126$ \\
+$\ce{Sn^{2+} + 2e^- -> Sn(s)}$ & $\ce{Sn^{2+} / Sn}$ & $-0.14$ \\
+$\ce{Ni^{2+} + 2e^- -> Ni(s)}$ & $\ce{Ni^{2+} / Ni}$ & $-0.25$ \\
+$\ce{Fe^{2+} + 2e^- -> Fe(s)}$ & $\ce{Fe^{2+} / Fe}$ & $-0.44$ \\
+$\ce{Cr^{3+} + 3e^- -> Cr(s)}$ & $\ce{Cr^{3+} / Cr}$ & $-0.74$ \\
+$\ce{Zn^{2+} + 2e^- -> Zn(s)}$ & $\ce{Zn^{2+} / Zn}$ & $-0.763$ \\
+$\ce{2H2O + 2e^- -> H2(g) + 2OH^-}$ & $\ce{H2O / H2, OH^-}$ & $-0.828$ \\
+$\ce{Al^{3+} + 3e^- -> Al(s)}$ & $\ce{Al^{3+} / Al}$ & $-1.66$ \\
+$\ce{Mg^{2+} + 2e^- -> Mg(s)}$ & $\ce{Mg^{2+} / Mg}$ & $-2.37$ \\
+$\ce{Na^+ + e^- -> Na(s)}$ & $\ce{Na^+ / Na}$ & $-2.71$ \\
+$\ce{Ca^{2+} + 2e^- -> Ca(s)}$ & $\ce{Ca^{2+} / Ca}$ & $-2.87$ \\
+$\ce{K^+ + e^- -> K(s)}$ & $\ce{K^+ / K}$ & $-2.93$ \\
+$\ce{Li^+ + e^- -> Li(s)}$ & $\ce{Li^+ / Li}$ & $-3.04$ \\
+\bottomrule
+\end{tabular}
+\end{databox}
+
+\chapter{Proportionality Scaling Laws and Rapid Mental Shortcuts}
+
+\begin{shortcutbox}{Nernst Slope Scaling with Electron Transfer ($n$)}
+For any redox half-cell or full-cell reaction at $298\text{ K}$, the change in cell potential per decade change ($10\times$) in the reaction quotient $Q$ scales inversely with $n$:
+\begin{equation}
+\boxed{
+\left|\frac{\Delta E}{\Delta \log_{10} Q}\right| = \frac{0.05916}{n}\text{ V} \approx \frac{59.16}{n}\text{ mV/decade}
+}
+\end{equation}
+\textbf{Standard Decade Shifts ($Q \to 10 Q$):}
+\begin{itemize}
+    \item For $n = 1$: Potential changes by $\bm{59.2\text{ mV}}$ (or $0.059\text{ V}$).
+    \item For $n = 2$: Potential changes by $\bm{29.6\text{ mV}}$ (or $0.0296\text{ V}$).
+    \item For $n = 3$: Potential changes by $\bm{19.7\text{ mV}}$ (or $0.0197\text{ V}$).
+    \item For $n = 6$: Potential changes by $\bm{9.86\text{ mV}}$ (or $0.0099\text{ V}$).
+\end{itemize}
+\end{shortcutbox}
+
+\begin{microbox}{Instantaneous Shift in Daniell Cell Potential on Dilution}
+\textbf{Problem:} In a Daniell cell $\ce{Zn | Zn^{2+}(c_1) || Cu^{2+}(c_2) | Cu}$, the zinc compartment is diluted by a factor of 100 while copper concentration is held constant. By how much does the cell EMF shift?\\
+\textbf{Shortcut Calculation:}
+The reaction quotient is $Q = [\ce{Zn^{2+}}]/[\ce{Cu^{2+}}]$. When $[\ce{Zn^{2+}}]$ is diluted by $100\times$, $Q$ decreases by $10^2$ ($\Delta \log_{10} Q = -2$).
+Since $n = 2$:
+$$\Delta E = -\frac{0.05916}{2}\log_{10}\left(\frac{1}{100}\right) = +0.02958 \times 2 = \ans{+0.0592\text{ V} = +59.2\text{ mV}}$$
+The cell EMF increases by exactly $59.2\text{ mV}$.
+\end{microbox}
+
+\begin{shortcutbox}{Hydrogen Electrode Potential Scaling with pH}
+For the hydrogen half-cell $\ce{2H+(aq) + 2e^- -> H2(g, p)}$ at $298\text{ K}$:
+\begin{equation}
+\boxed{
+E_{\ce{H+/H2}} = -0.05916 \times \mathrm{pH} - \frac{0.05916}{2}\log_{10} p_{\ce{H2}}
+}
+\end{equation}
+When $p_{\ce{H2}} = 1\text{ bar} \approx 1\text{ atm}$:
+\begin{equation}
+\boxed{
+E_{\ce{H+/H2}} = -0.05916 \times \mathrm{pH} \implies \frac{\diff E}{\diff(\mathrm{pH})} = -59.16\text{ mV/pH unit}
+}
+\end{equation}
+\textbf{Key Milestones:}
+\begin{itemize}
+    \item At $\mathrm{pH} = 0$ ($1\text{ M }\ce{H+}$): $E = 0.000\text{ V}$.
+    \item At $\mathrm{pH} = 7$ (neutral water): $E = -0.05916 \times 7 = \bm{-0.414\text{ V}}$.
+    \item At $\mathrm{pH} = 14$ ($1\text{ M }\ce{OH-}$): $E = -0.05916 \times 14 = \bm{-0.828\text{ V}}$.
+\end{itemize}
+\end{shortcutbox}
+
+\begin{microbox}{EMF of Hydrogen Concentration Cell with Differential pH}
+\textbf{Problem:} A cell consists of two hydrogen electrodes at $1\text{ atm } \ce{H2}$. The anode compartment contains gastric juice ($\mathrm{pH} = 1.5$) and the cathode compartment contains blood serum ($\mathrm{pH} = 7.4$). Find the cell EMF at $25^\circ\text{C}$.\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+E_{\rm cell} &= E_{\rm cathode} - E_{\rm anode} = -0.05916(\mathrm{pH}_c - \mathrm{pH}_a) \\
+E_{\rm cell} &= 0.05916 \times (\mathrm{pH}_a - \mathrm{pH}_c) \quad \text{Wait: Anode is oxidation! } \ce{H2 -> 2H+(a) + 2e^-} \\
+E_{\rm cell} &= 0.05916 \times (\mathrm{pH}_{\rm anode} - \mathrm{pH}_{\rm cathode}) \text{ is negative? No: } \\
+E_{\rm cell} &= 0.05916 \times (\mathrm{pH}_{\rm cathode} - \mathrm{pH}_{\rm anode}) = 0.05916 \times (7.4 - 1.5) \\
+&= 0.05916 \times 5.9 = \ans{0.349\text{ V}}
+\end{align*}
+\end{microbox}
+
+\begin{shortcutbox}{Equilibrium Constant Shortcut from Standard EMF}
+At $298.15\text{ K}$, the equilibrium constant $K$ is related to $E^\circ_{\rm cell}$ by:
+\begin{equation}
+\boxed{
+\log_{10} K = \frac{n E^\circ_{\rm cell}}{0.05916} \approx \frac{n E^\circ_{\rm cell}}{0.0592} \approx 16.92 \times n E^\circ_{\rm cell}
+}
+\end{equation}
+\textbf{Mental Rules of Thumb:}
+\begin{itemize}
+    \item Every $\bm{+59.2\text{ mV}}$ in $E^\circ$ yields an increase in $K$ by a factor of $\bm{10^n}$.
+    \item For $n = 1$: $E^\circ = +0.592\text{ V} \implies K = 10^{10}$.
+    \item For $n = 2$: $E^\circ = +0.296\text{ V} \implies K = 10^{10}$; $E^\circ = +1.10\text{ V} \implies K \approx 10^{37.2}$.
+\end{itemize}
+\end{shortcutbox}
+
+\begin{microbox}{Equilibrium Constant of the Daniell Cell}
+\textbf{Problem:} Calculate the equilibrium constant $K$ for $\ce{Zn(s) + Cu^{2+}(aq) <=> Zn^{2+}(aq) + Cu(s)}$ where $E^\circ_{\rm cell} = 1.100\text{ V}$ at $25^\circ\text{C}$.\\
+\textbf{Shortcut Calculation:}
+Here $n = 2$:
+$$\log_{10} K = \frac{2 \times 1.100}{0.05916} = \frac{2.200}{0.05916} = 37.187$$
+$$K = 10^{0.187} \times 10^{37} = \ans{1.54 \times 10^{37}}$$
+\end{microbox}
+
+\chapter{Conductance, Kohlrausch, and Transport Number Shortcuts}
+
+\begin{shortcutbox}{Fundamental Conductance Conversion Formulas}
+For an electrolytic solution of resistance $R$ ($\Omega$) and conductance $G = 1/R$ (S):
+\begin{align}
+\text{Conductivity (Specific Conductance):} \quad \kappa &= G \left(\frac{l}{A}\right) = \frac{G^*}{R} \quad [\text{S}\cdot\text{cm}^{-1}\text{ or S}\cdot\text{m}^{-1}] \\
+\text{Molar Conductivity:} \quad \Lambda_m &= \frac{1000 \kappa}{M} \quad [\text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}] \quad (\kappa \text{ in S/cm}, M \text{ in mol/L}) \\
+\text{Equivalent Conductivity:} \quad \Lambda_{\rm eq} &= \frac{1000 \kappa}{N} = \frac{\Lambda_m}{z_+} \quad [\text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}]
+\end{align}
+\textbf{Critical Unit Conversion Invariant:}
+\begin{equation}
+\boxed{
+\Lambda_m (\text{S}\cdot\text{m}^2\cdot\text{mol}^{-1}) = \Lambda_m (\text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}) \times 10^{-4} = \frac{\kappa (\text{S}\cdot\text{m}^{-1})}{1000 \times C (\text{mol}\cdot\text{m}^{-3})}
+}
+\end{equation}
+\end{shortcutbox}
+
+\begin{microbox}{Cell Constant and Molar Conductivity Calculation}
+\textbf{Problem:} A conductivity cell filled with $0.02\text{ M }\ce{KCl}$ has resistance $R_1 = 500\ \Omega$. Its conductivity is $\kappa = 0.002768\text{ S/cm}$. When filled with $0.01\text{ M }\ce{AgNO3}$, its resistance is $R_2 = 1000\ \Omega$. Find the cell constant $G^*$ and the molar conductivity of $\ce{AgNO3}$.\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+G^* &= \kappa \times R_1 = 0.002768\text{ S/cm} \times 500\ \Omega = \ans{1.384\text{ cm}^{-1}} \\
+\kappa_{\ce{AgNO3}} &= \frac{G^*}{R_2} = \frac{1.384\text{ cm}^{-1}}{1000\ \Omega} = 1.384 \times 10^{-3}\text{ S/cm} \\
+\Lambda_m &= \frac{1000 \times \kappa_{\ce{AgNO3}}}{C} = \frac{1000 \times 1.384 \times 10^{-3}}{0.01} = \ans{138.4\text{ S}\cdot\text{cm}^2\cdot\text{mol}^{-1}}
+\end{align*}
+\end{microbox}
+
+\begin{shortcutbox}{Kohlrausch Law of Independent Migration}
+At infinite dilution:
+\begin{equation}
+\boxed{
+\Lambda_m^\circ = \nu_+ \lambda_+^\circ + \nu_- \lambda_-^\circ, \qquad \Lambda_{\rm eq}^\circ = \lambda_{\rm eq,+}^\circ + \lambda_{\rm eq,-}^\circ
+}
+\end{equation}
+\textbf{Linear Subtraction Shortcut for Weak Electrolytes ($\ce{HA}$):}
+\begin{equation}
+\boxed{
+\Lambda_m^\circ(\ce{HA}) = \Lambda_m^\circ(\ce{NaA}) + \Lambda_m^\circ(\ce{HCl}) - \Lambda_m^\circ(\ce{NaCl})
+}
+\end{equation}
+For water ($\ce{H2O}$):
+\begin{equation}
+\boxed{
+\Lambda_m^\circ(\ce{H2O}) = \Lambda_m^\circ(\ce{HCl}) + \Lambda_m^\circ(\ce{NaOH}) - \Lambda_m^\circ(\ce{NaCl})
+}
+\end{equation}
+\end{shortcutbox}
+
+\begin{microbox}{Limiting Molar Conductivity of Acetic Acid}
+\textbf{Problem:} Given $\Lambda_m^\circ(\ce{CH3COONa}) = 91.0$, $\Lambda_m^\circ(\ce{HCl}) = 426.0$, and $\Lambda_m^\circ(\ce{NaCl}) = 126.0\text{ S}\cdot\text{cm}^2\cdot\text{mol}^{-1}$. Determine $\Lambda_m^\circ(\ce{CH3COOH})$.\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+\Lambda_m^\circ(\ce{CH3COOH}) &= \Lambda_m^\circ(\ce{CH3COONa}) + \Lambda_m^\circ(\ce{HCl}) - \Lambda_m^\circ(\ce{NaCl}) \\
+&= 91.0 + 426.0 - 126.0 = \ans{391.0\text{ S}\cdot\text{cm}^2\cdot\text{mol}^{-1}}
+\end{align*}
+\end{microbox}
+
+\begin{shortcutbox}{Degree of Dissociation, Ostwald Dilution, and $K_{sp}$ Shortcuts}
+For a weak monobasic acid/base of concentration $c$:
+\begin{equation}
+\boxed{
+\alpha = \frac{\Lambda_m}{\Lambda_m^\circ}, \qquad K_a = \frac{c \alpha^2}{1 - \alpha} \approx c \alpha^2 \implies \alpha \approx \sqrt{\frac{K_a}{c}}
+}
+\end{equation}
+\textbf{Sparingly Soluble Salt Solubility ($S$) and $K_{sp}$ Shortcut:}
+\begin{equation}
+\boxed{
+S = \frac{1000 (\kappa_{\rm solution} - \kappa_{\ce{H2O}})}{\Lambda_m^\circ(\text{salt})}\text{ mol/L}
+}
+\end{equation}
+\end{shortcutbox}
+
+\begin{microbox}{Solubility and $K_{sp}$ of $\ce{BaSO4}$ from Conductance}
+\textbf{Problem:} The conductivity of a saturated $\ce{BaSO4}$ solution at $25^\circ\text{C}$ is $4.58 \times 10^{-6}\text{ S/cm}$. The conductivity of pure water is $1.52 \times 10^{-6}\text{ S/cm}$. Given $\lambda^\circ(\ce{Ba^{2+}}) = 127.2$ and $\lambda^\circ(\ce{SO4^{2-}}) = 160.0\text{ S}\cdot\text{cm}^2\cdot\text{mol}^{-1}$. Find the solubility $S$ and $K_{sp}$ of $\ce{BaSO4}$.\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+\kappa_{\rm salt} &= (4.58 - 1.52) \times 10^{-6} = 3.06 \times 10^{-6}\text{ S/cm} \\
+\Lambda_m^\circ &= 127.2 + 160.0 = 287.2\text{ S}\cdot\text{cm}^2\cdot\text{mol}^{-1} \\
+S &= \frac{1000 \times 3.06 \times 10^{-6}}{287.2} = \frac{3.06 \times 10^{-3}}{287.2} = \ans{1.065 \times 10^{-5}\text{ mol/L}} \\
+K_{sp} &= S^2 = (1.065 \times 10^{-5})^2 = \ans{1.135 \times 10^{-10}\text{ mol}^2/\text{L}^2}
+\end{align*}
+\end{microbox}
+
+\begin{shortcutbox}{Transport Numbers and Hittorf Invariant}
+For cations ($+$) and anions ($-$) with ionic mobilities $u_+, u_-$:
+\begin{equation}
+\boxed{
+t_+ = \frac{u_+}{u_+ + u_-} = \frac{\lambda_+^\circ}{\Lambda_m^\circ}, \qquad t_- = \frac{u_-}{u_+ + u_-} = \frac{\lambda_-^\circ}{\Lambda_m^\circ}, \qquad t_+ + t_- = 1
+}
+\end{equation}
+\textbf{Moving Boundary Method Shortcut:}
+\begin{equation}
+\boxed{
+t_+ = \frac{z_+ c V F}{Q} = \frac{z_+ c (A \cdot x) F}{I \cdot t}
+}
+\end{equation}
+where $A$ is the tube cross-section, $x$ is the boundary displacement distance, and $c$ is concentration in $\text{mol/cm}^3$.
+\end{shortcutbox}
+
+\begin{microbox}{Transport Number from Moving Boundary Displacement}
+\textbf{Problem:} In a moving boundary experiment with $0.01\text{ M }\ce{HCl}$, a current of $2.0\text{ mA}$ passed for $20\text{ minutes}$ caused the boundary to move through a distance of $8.0\text{ cm}$ in a tube of cross-sectional area $0.10\text{ cm}^2$. Determine the transport number of $\ce{H^+}$.\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+V &= A \cdot x = 0.10\text{ cm}^2 \times 8.0\text{ cm} = 0.80\text{ cm}^3 = 0.80 \times 10^{-3}\text{ L} \\
+n_{\ce{H+}} &= c \times V = (0.01\text{ mol/L})(0.80 \times 10^{-3}\text{ L}) = 8.0 \times 10^{-6}\text{ mol} \\
+Q &= I \cdot t = (2.0 \times 10^{-3}\text{ A})(20 \times 60\text{ s}) = 2.40\text{ C} \\
+t_+ &= \frac{n_{\ce{H+}} \times F}{Q} = \frac{(8.0 \times 10^{-6}\text{ mol})(96500\text{ C/mol})}{2.40\text{ C}} = \frac{0.772}{2.40} = \ans{0.804}
+\end{align*}
+\end{microbox}
+
+\chapter{Cell Potential, Nernst Dynamics, and Thermodynamics Shortcuts}
+
+\begin{shortcutbox}{General Multi-Electron Nernst Formula}
+For the general cell reaction $a\ce{A} + b\ce{B} \rightleftharpoons c\ce{C} + d\ce{D}$:
+\begin{equation}
+\boxed{
+E_{\rm cell} = E^\circ_{\rm cell} - \frac{RT}{nF}\ln Q = E^\circ_{\rm cell} - \frac{0.05916}{n}\log_{10}\left(\frac{a_{\ce{C}}^c a_{\ce{D}}^d}{a_{\ce{A}}^a a_{\ce{B}}^b}\right)
+}
+\end{equation}
+\textbf{Spontaneity Criteria:}
+\begin{itemize}
+    \item $E_{\rm cell} > 0 \iff \Delta G < 0$ (Galvanic / spontaneous discharge).
+    \item $E_{\rm cell} = 0 \iff \Delta G = 0$ (Equilibrium / completely dead cell, $Q = K$).
+    \item $E_{\rm cell} < 0 \iff \Delta G > 0$ (Non-spontaneous / requires external power / electrolytic).
+\end{itemize}
+\end{shortcutbox}
+
+\begin{microbox}{EMF of a Galvanic Cell with Complex Stoichiometry}
+\textbf{Problem:} Calculate the EMF at $25^\circ\text{C}$ for the cell:\\
+$\ce{Fe(s) | Fe^{2+}(0.01 M) || H+(0.1 M) | O2(0.2 atm) | Pt}$\\
+given $E^\circ(\ce{Fe^{2+}/Fe}) = -0.44\text{ V}$ and $E^\circ(\ce{O2/H2O}) = +1.23\text{ V}$.\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+\text{Reaction:} \quad & 2\ce{Fe(s)} + \ce{O2(g)} + 4\ce{H+} \rightleftharpoons 2\ce{Fe^{2+}} + 2\ce{H2O} \quad (n = 4) \\
+E^\circ_{\rm cell} &= 1.23 - (-0.44) = 1.67\text{ V} \\
+Q &= \frac{[\ce{Fe^{2+}}]^2}{p_{\ce{O2}} [\ce{H+}]^4} = \frac{(10^{-2})^2}{(0.2)(10^{-1})^4} = \frac{10^{-4}}{0.2 \times 10^{-4}} = \frac{1}{0.2} = 5 \\
+E_{\rm cell} &= 1.67 - \frac{0.05916}{4}\log_{10}(5) = 1.67 - 0.01479 \times 0.699 = 1.67 - 0.0103 = \ans{1.660\text{ V}}
+\end{align*}
+\end{microbox}
+
+\begin{shortcutbox}{Cell Thermodynamics Triple Formula Matrix}
+From fundamental electrochemical thermodynamics:
+\begin{align}
+\text{Free Energy:} \quad &\boxed{\Delta G = -n F E_{\rm cell}, \qquad \Delta G^\circ = -n F E^\circ_{\rm cell}} \\
+\text{Entropy:} \quad &\boxed{\Delta S = n F \left(\frac{\partial E}{\partial T}\right)_P} \\
+\text{Enthalpy:} \quad &\boxed{\Delta H = \Delta G + T \Delta S = -n F E + n F T \left(\frac{\partial E}{\partial T}\right)_P = -n F \left[ E - T\left(\frac{\partial E}{\partial T}\right)_P \right]}
+\end{align}
+\textbf{Sign of Temperature Coefficient $(\partial E/\partial T)_P$:}
+\begin{itemize}
+    \item If $\left(\frac{\partial E}{\partial T}\right)_P > 0$: $\Delta S > 0$, cell absorbs heat from surroundings during reversible discharge ($q_{\rm rev} > 0$).
+    \item If $\left(\frac{\partial E}{\partial T}\right)_P < 0$: $\Delta S < 0$, cell releases heat to surroundings during reversible discharge ($q_{\rm rev} < 0$).
+    \item If $\left(\frac{\partial E}{\partial T}\right)_P = 0$: $\Delta H = \Delta G = -n F E$, cell EMF is temperature invariant.
+\end{itemize}
+\end{shortcutbox}
+
+\begin{microbox}{Enthalpy and Entropy from Temperature Coefficient}
+\textbf{Problem:} A reversible cell has $E = 1.018\text{ V}$ at $298\text{ K}$ and temperature coefficient $\left(\frac{\partial E}{\partial T}\right)_P = -5.0 \times 10^{-5}\text{ V/K}$ with $n = 2$. Find $\Delta G, \Delta S,$ and $\Delta H$ at $298\text{ K}$.\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+\Delta G &= -2 \times 96500 \times 1.018 = \ans{-196.47\text{ kJ/mol}} \\
+\Delta S &= 2 \times 96500 \times (-5.0 \times 10^{-5}) = \ans{-9.65\text{ J}/(\text{mol}\cdot\text{K})} \\
+\Delta H &= \Delta G + T \Delta S = -196474 + 298(-9.65) = -196474 - 2876 = \ans{-199.35\text{ kJ/mol}}
+\end{align*}
+\end{microbox}
+
+\chapter{Concentration Cells and Liquid Junction Potentials}
+
+\begin{shortcutbox}{Electrode-Concentration vs Electrolyte-Concentration Cells}
+\textbf{1. Electrode Concentration Cell (Amalgams / Gas Pressure):}
+\begin{equation}
+\boxed{
+\ce{H2(p_1) | H+(c) | H2(p_2)} \implies E = \frac{RT}{2F}\ln\left(\frac{p_1}{p_2}\right) = \frac{0.05916}{2}\log_{10}\left(\frac{p_1}{p_2}\right)
+}
+\end{equation}
+Spontaneous when $p_1 > p_2$.
+
+\textbf{2. Electrolyte Concentration Cell without Transference (Salt Bridge Present):}
+\begin{equation}
+\boxed{
+\ce{M | M^{z+}(c_1) || M^{z+}(c_2) | M} \implies E = \frac{0.05916}{z}\log_{10}\left(\frac{c_2}{c_1}\right)
+}
+\end{equation}
+Spontaneous discharge requires $c_2 > c_1$ (cathode concentrated, anode dilute).
+
+\textbf{3. Electrolyte Concentration Cell WITH Transference (No Salt Bridge):}
+For a $1:1$ univalent electrolyte ($\ce{HCl}$ or $\ce{AgNO3}$):
+\begin{equation}
+\boxed{
+E_{\rm with\ transference} = 2 t_- \frac{RT}{F}\ln\left(\frac{c_2}{c_1}\right) = 2 t_- \frac{0.05916}{1}\log_{10}\left(\frac{c_2}{c_1}\right)
+}
+\end{equation}
+\textbf{Liquid Junction Potential ($E_j$) Master Shortcut:}
+\begin{equation}
+\boxed{
+E_j = E_{\rm with\ transference} - E_{\rm without\ transference} = (2 t_- - 1)\frac{RT}{F}\ln\left(\frac{c_2}{c_1}\right) = (t_- - t_+)\frac{0.05916}{z}\log_{10}\left(\frac{c_2}{c_1}\right)
+}
+\end{equation}
+When $t_+ = t_- = 0.5$ (e.g., saturated $\ce{KCl}$ salt bridge where $t_{\ce{K+}} \approx t_{\ce{Cl-}} \approx 0.49$), $E_j \to 0$.
+\end{shortcutbox}
+
+\begin{microbox}{Liquid Junction Potential Calculation}
+\textbf{Problem:} A concentration cell with transference has $0.01\text{ M}$ and $0.10\text{ M }\ce{HCl}$ solutions in direct contact. Given $t_{\ce{H+}} = 0.82$ and $t_{\ce{Cl-}} = 0.18$. Calculate $E_{\rm without}$, $E_{\rm with}$, and the liquid junction potential $E_j$ at $25^\circ\text{C}$.\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+E_{\rm without} &= 0.05916 \log_{10}\left(\frac{0.10}{0.01}\right) = 0.05916 \times 1 = \ans{0.0592\text{ V}} \\
+E_{\rm with} &= 2 t_- (0.05916) \log_{10}(10) = 2 \times 0.18 \times 0.05916 = \ans{0.0213\text{ V}} \\
+E_j &= E_{\rm with} - E_{\rm without} = 0.0213 - 0.0592 = \ans{-0.0379\text{ V} = -37.9\text{ mV}}
+\end{align*}
+\end{microbox}
+
+\chapter{Faraday's Laws, Gas Volumes, and Overpotential Shortcuts}
+
+\begin{shortcutbox}{Faraday's Unified Electrolysis Solver}
+For any substance $X$ undergoing an $n$-electron redox process:
+\begin{equation}
+\boxed{
+m = \frac{M \cdot I \cdot t \cdot \eta}{n \cdot F}, \qquad n_X = \frac{I \cdot t \cdot \eta}{n \cdot F}
+}
+\end{equation}
+where $\eta = \frac{\text{actual mass}}{\text{theoretical mass}}$ is the current efficiency.
+
+\textbf{Gas Volume at STP Rapid Mental Conversion:}
+For $1\text{ Faraday } (96500\text{ C})$ of charge:
+\begin{align}
+\ce{2H+ + 2e^- -> H2} \implies V_{\ce{H2}} &= \frac{22400}{2} = \bm{11200\text{ mL}} \\
+\ce{2H2O -> O2 + 4H+ + 4e^-} \implies V_{\ce{O2}} &= \frac{22400}{4} = \bm{5600\text{ mL}} \\
+\ce{2Cl^- -> Cl2 + 2e^-} \implies V_{\ce{Cl2}} &= \frac{22400}{2} = \bm{11200\text{ mL}}
+\end{align}
+\textbf{Combined Water Electrolysis Gas Ratio:}
+\begin{equation}
+\boxed{
+V_{\text{total gas}}(\ce{H2 + O2}) = 11200 + 5600 = \bm{16800\text{ mL/Faraday at STP}}
+}
+\end{equation}
+\end{shortcutbox}
+
+\begin{microbox}{Total Gas Evolved During Water Electrolysis}
+\textbf{Problem:} Acidulated water is electrolyzed with a constant current of $0.50\text{ A}$ for $1930\text{ seconds}$. Calculate the total volume of wet gas collected at STP ($\ce{H2 + O2}$).\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+Q &= 0.50\text{ A} \times 1930\text{ s} = 965\text{ C} \\
+\text{Number of Faradays } f &= \frac{965\text{ C}}{96500\text{ C/F}} = 0.010\text{ F} \\
+V_{\rm total} &= f \times 16800\text{ mL} = 0.010 \times 16800 = \ans{168\text{ mL at STP}} \\
+(V_{\ce{H2}} &= 112\text{ mL}, \quad V_{\ce{O2}} = 56\text{ mL})
+\end{align*}
+\end{microbox}
+
+\begin{shortcutbox}{Electrode Overpotential and Butler-Volmer Tafel Shortcut}
+\textbf{Actual Deposition Potential:}
+\begin{equation}
+\boxed{
+E_{\rm actual} = E_{\rm reversible} + \eta_{\rm overpotential}
+}
+\end{equation}
+\textbf{High-Overpotential Tafel Equation:}
+At high anodic/cathodic polarization ($|\eta| > 0.1\text{ V}$):
+\begin{equation}
+\boxed{
+\eta = a + b \log_{10} I = \frac{2.303 RT}{\alpha n F} \log_{10}\left(\frac{I}{I_0}\right)
+}
+\end{equation}
+The Tafel slope $b \approx \frac{59.2}{\alpha n}\text{ mV/decade}$ at $25^\circ\text{C}$.
+\end{shortcutbox}
+
+\begin{microbox}{Current Shift from Overpotential Shift}
+\textbf{Problem:} An electrochemical cathode reaction follows the Tafel relationship with slope $b = 0.118\text{ V/decade}$. By what factor does the net current density increase if the cathodic overpotential $\eta$ is increased from $0.20\text{ V}$ to $0.436\text{ V}$?\\
+\textbf{Shortcut Calculation:}
+$$\Delta \eta = 0.436 - 0.200 = 0.236\text{ V}$$
+$$\Delta \log_{10} I = \frac{\Delta \eta}{b} = \frac{0.236\text{ V}}{0.118\text{ V/decade}} = 2.0$$
+$$\frac{I_2}{I_1} = 10^{\Delta \log_{10} I} = 10^2 = \ans{100\times}$$
+\end{microbox}
+
+\chapter{Batteries, Fuel Cells, and Corrosion Kinetics}
+
+\begin{shortcutbox}{Commercial Cell Energy Density and Capacity Shortcuts}
+\begin{align}
+\text{Theoretical Capacity:} \quad & C_{\rm th} = \frac{n F}{M} \quad [\text{C/g or A}\cdot\text{h/g}] \quad (1\text{ A}\cdot\text{h} = 3600\text{ C}) \\
+\text{Theoretical Specific Energy:} \quad & \mathcal{E} = C_{\rm th} \times E_{\rm cell} \quad [\text{W}\cdot\text{h/kg}] \\
+\text{Fuel Cell Thermodynamic Efficiency:} \quad & \eta_{\rm th} = \frac{\Delta G^\circ}{\Delta H^\circ} = \frac{-n F E^\circ}{\Delta H^\circ}
+\end{align}
+\textbf{$\ce{H2-O2}$ Fuel Cell Benchmarks at $298\text{ K}$:}
+$\Delta G^\circ = -237.2\text{ kJ/mol}, \Delta H^\circ = -285.8\text{ kJ/mol}, n = 2$:
+\begin{equation}
+\boxed{
+E^\circ = \frac{237200}{2 \times 96485} = 1.229\text{ V}, \qquad \eta_{\rm th} = \frac{-237.2}{-285.8} = \bm{83.0\%}
+}
+\end{equation}
+\end{shortcutbox}
+
+\begin{microbox}{Theoretical Specific Capacity of Lithium Anode}
+\textbf{Problem:} Calculate the theoretical specific capacity of pure metallic lithium ($M = 6.94\text{ g/mol}, z = 1$) in $\text{A}\cdot\text{h/g}$ and $\text{mA}\cdot\text{h/g}$, and compare it with zinc ($M = 65.4\text{ g/mol}, z = 2$).\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+C_{\rm th}(\ce{Li}) &= \frac{1 \times 96500\text{ C/mol}}{6.94\text{ g/mol} \times 3600\text{ s/h}} = \frac{96500}{24984} = \ans{3.863\text{ A}\cdot\text{h/g} = 3863\text{ mA}\cdot\text{h/g}} \\
+C_{\rm th}(\ce{Zn}) &= \frac{2 \times 96500\text{ C/mol}}{65.4\text{ g/mol} \times 3600\text{ s/h}} = \frac{193000}{235440} = \ans{0.820\text{ A}\cdot\text{h/g} = 820\text{ mA}\cdot\text{h/g}} \\
+\text{Capacity ratio } \frac{\ce{Li}}{\ce{Zn}} &= \frac{3863}{820} \approx \ans{4.71\times}
+\end{align*}
+\end{microbox}
+
+\begin{shortcutbox}{Corrosion Rate and Penetration Thickness Shortcut}
+By Faraday's law, a uniform corrosion current density $i_{\rm corr}$ ($\text{A/cm}^2$) corrodes a metal surface at a penetration depth rate:
+\begin{equation}
+\boxed{
+\text{Corrosion Rate (CR)} = \frac{i_{\rm corr} \cdot M}{z \cdot F \cdot \rho} \quad [\text{cm/s}]
+}
+\end{equation}
+In practical engineering units ($\text{mm/year}$):
+\begin{equation}
+\boxed{
+\text{CR (mm/year)} = 3.27 \times 10^{-3} \times \frac{i_{\rm corr}(\mu\text{A/cm}^2) \cdot M(\text{g/mol})}{z \cdot \rho(\text{g/cm}^3)}
+}
+\end{equation}
+\end{shortcutbox}
+
+\begin{microbox}{Annual Steel Tank Corrosion Depth}
+\textbf{Problem:} A steel storage tank ($M_{\ce{Fe}} = 55.85\text{ g/mol}, z = 2, \rho = 7.87\text{ g/cm}^3$) is exposed to sea water. Electrochemical polarization measurements reveal a corrosion current density of $i_{\rm corr} = 15.0\ \mu\text{A/cm}^2$. What thickness of steel is lost per year?\\
+\textbf{Shortcut Calculation:}
+\begin{align*}
+\text{CR} &= 3.27 \times 10^{-3} \times \frac{15.0 \times 55.85}{2 \times 7.87} \\
+&= 3.27 \times 10^{-3} \times \frac{837.75}{15.74} = 3.27 \times 10^{-3} \times 53.22 = \ans{0.174\text{ mm/year}}
+\end{align*}
+\end{microbox}
+
+\end{document}

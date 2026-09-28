@@ -1,0 +1,258 @@
+# -*- coding: utf-8 -*-
+"""Generate question_bank/part01_conduction.tex."""
+import os
+
+part01 = r"""\chapter{Master Problem Bank: Electrolytic Conduction & Ionic Migration}
+\label{chap:qb_conduction}
+
+\begin{tcolorbox}[enhanced,colback=subtlegreen,colframe=cengagegreen,arc=2mm,boxrule=1pt,
+    title=\textbf{\large Part I Organization: Electrolytic Conduction, Kohlrausch & Transport Numbers}]
+This part compiles all questions and quantitative problems on electrolytic conduction, resistance, conductivity, molar conductivity, Kohlrausch's law, transport numbers, and conductometric titrations from all 8 books. Identical and redundant variants from other books are co-located beneath each primary problem with full source citations.
+\end{tcolorbox}
+
+\section{Subtopic 1.1: Resistance, Resistivity, Conductivity ($\kappa$) \& Cell Constant ($G^*$)}
+
+\begin{problembox}
+\textbf{Q.1.1} \hfill \textbf{[Primary Source: Neeraj Kumar Part 2 Ex-I Q1 / Pearson Ex-I Q106]}
+\label{q:qb-c1-01}
+
+Which of the following aqueous solutions of \ce{NaCl} exhibits the highest electrical resistance?
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $1\,\text{N } \ce{NaCl}$
+    \item $0.05\,\text{N } \ce{NaCl}$
+    \item $2\,\text{N } \ce{NaCl}$
+    \item $0.1\,\text{N } \ce{NaCl}$
+\end{enumerate}
+\end{multicols}
+
+\tcbline
+\textbf{\color{accentamber}Cross-Book Redundant / Identical Variants:}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{[Variant v1: GRB Objective Set-1 Q8, p. 66]} Which of the following solutions of \ce{KCl} has the lowest electrical conductance? (a) $0.1\,\text{M}$ (b) $1.0\,\text{M}$ (c) $0.01\,\text{M}$ (d) $0.001\,\text{M}$. \textit{[Identical concept testing inverse relation $R \propto 1/\kappa$]}.
+    \item \textbf{[Variant v2: Narendra Avasthi Level-1 Q12, p. 8]} Resistance of an electrolyte solution increases when: (a) concentration increases (b) concentration decreases (c) temperature increases (d) electrodes are moved closer.
+    \item \textbf{[Variant v3: Cengage DPP 3.1 Q2, p. 1]} The resistance of a $0.05\,\text{M}$ solution of an electrolyte is $100\,\Omega$. The conductivity of the solution is $0.5\,\text{S\,m}^{-1}$. The cell constant of the conductivity cell is: (a) $50\,\text{m}^{-1}$ (b) $20\,\text{m}^{-1}$ (c) $5\,\text{m}^{-1}$ (d) $200\,\text{m}^{-1}$.
+\end{itemize}
+\end{problembox}
+
+\begin{problembox}
+\textbf{Q.1.2} \hfill \textbf{[Primary Source: GRB Practice Problem 1, p. 46 / Essential §24.7]}
+\label{q:qb-c1-02}
+
+The resistance of a $0.1\,\text{M}$ solution of an electrolyte is $100\,\Omega$. If the electrodes of the conductivity cell are $2.0\,\text{cm}$ apart and each has an area of cross-section $4.0\,\text{cm}^2$, calculate:
+\begin{enumerate}[label=(\alph*)]
+    \item Cell constant $G^*$ (in $\text{cm}^{-1}$)
+    \item Specific conductivity $\kappa$ (in $\text{S\,cm}^{-1}$)
+    \item Molar conductivity $\Lambda_m$ (in $\text{S\,cm}^2\,\text{mol}^{-1}$)
+\end{enumerate}
+
+\tcbline
+\textbf{\color{accentamber}Cross-Book Redundant / Identical Variants:}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{[Variant v1: Neeraj Kumar Part 2 Ex-I Q4, p. 35]} A conductivity cell has two platinum electrodes separated by $1.5\,\text{cm}$ with plate area $4.5\,\text{cm}^2$. The cell constant is: (a) $0.33\,\text{cm}^{-1}$ (b) $3.0\,\text{cm}^{-1}$ (c) $0.5\,\text{cm}^{-1}$ (d) $2.0\,\text{cm}^{-1}$.
+    \item \textbf{[Variant v2: Essential Physical Chemistry Solved Ex 2, p. 864]} A conductance cell whose electrodes are $1.25\,\text{cm}$ apart and have area $2.5\,\text{cm}^2$ was filled with a $0.05\,\text{M}$ solution of a salt. The resistance was found to be $52.5\,\Omega$. Calculate the cell constant and specific conductance.
+    \item \textbf{[Variant v3: Pearson Ex-I Q4, p. 2]} If the distance between two planar electrodes is doubled and their surface area is halved, the cell constant becomes: (a) unchanged (b) doubled (c) four times (d) one-fourth.
+\end{itemize}
+\end{problembox}
+
+\begin{problembox}
+\textbf{Q.1.3} \hfill \textbf{[Primary Source: Narendra Avasthi Level-1 Q15, p. 8 / CNG-TH p. 51]}
+\label{q:qb-c1-03}
+
+The resistance of a conductivity cell filled with $0.02\,\text{M}$ \ce{KCl} solution at $25^\circ\text{C}$ is $175\,\Omega$. The specific conductivity of $0.02\,\text{M}$ \ce{KCl} is $0.002768\,\text{S\,cm}^{-1}$. When the same cell is filled with $0.001\,\text{M}$ \ce{AgNO3} solution, the resistance is $1050\,\Omega$. The cell constant and the specific conductivity of the \ce{AgNO3} solution are:
+\begin{enumerate}[label=(\alph*)]
+    \item $G^* = 0.4844\,\text{cm}^{-1}, \kappa = 4.613 \times 10^{-4}\,\text{S\,cm}^{-1}$
+    \item $G^* = 0.2422\,\text{cm}^{-1}, \kappa = 2.306 \times 10^{-4}\,\text{S\,cm}^{-1}$
+    \item $G^* = 0.9688\,\text{cm}^{-1}, \kappa = 9.226 \times 10^{-4}\,\text{S\,cm}^{-1}$
+    \item $G^* = 0.4844\,\text{cm}^{-1}, \kappa = 9.226 \times 10^{-4}\,\text{S\,cm}^{-1}$
+\end{enumerate}
+
+\tcbline
+\textbf{\color{accentamber}Cross-Book Redundant / Identical Variants:}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{[Variant v1: GRB Solved Example 4, p. 13]} A conductivity cell with $0.01\,\text{M}$ \ce{KCl} gives $R = 150\,\Omega$ ($\kappa = 1.41 \times 10^{-3}\,\text{S\,cm}^{-1}$). When filled with $0.01\,\text{M}$ \ce{HCl}, resistance is $40\,\Omega$. Determine the cell constant and molar conductivity of \ce{HCl}.
+    \item \textbf{[Variant v2: Neeraj Kumar Part 2 Ex-I Q8, p. 35]} Specific conductance of $0.1\,\text{M}$ \ce{KCl} is $0.0129\,\text{S\,cm}^{-1}$. Resistance with this solution is $100\,\Omega$. What is the cell constant?
+    \item \textbf{[Variant v3: Essential §24.8 Solved Ex 5, p. 865]} The specific conductivity of $N/50$ \ce{KCl} solution at $25^\circ\text{C}$ is $0.002765\,\text{mho\,cm}^{-1}$. If the resistance of a cell containing this solution is $400\,\Omega$, what is the cell constant?
+\end{itemize}
+\end{problembox}
+
+\section{Subtopic 1.2: Molar Conductivity ($\Lambda_m$) \& Equivalent Conductivity ($\Lambda_{eq}$)}
+
+\begin{problembox}
+\textbf{Q.1.4} \hfill \textbf{[Primary Source: Neeraj Kumar Part 2 Ex-I Q18 / NA Level-1 Q24]}
+\label{q:qb-c1-04}
+
+For an electrolyte of the general stoichiometric formula \ce{A_x B_y}, what is the exact algebraic relationship between its molar conductivity $\Lambda_m$ and its equivalent conductivity $\Lambda_{eq}$?
+\begin{multicols}{2}
+\begin{enumerate}[label=(\alph*)]
+    \item $\Lambda_{eq} = (x+y)\Lambda_m$
+    \item $\Lambda_m = (x z_+)\Lambda_{eq} = (y z_-)\Lambda_{eq}$
+    \item $\Lambda_m = \frac{\Lambda_{eq}}{x z_+}$
+    \item $\Lambda_{eq} = (x z_+ \cdot y z_-)\Lambda_m$
+\end{enumerate}
+\end{multicols}
+
+\tcbline
+\textbf{\color{accentamber}Cross-Book Redundant / Identical Variants:}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{[Variant v1: GRB Objective Set-1 Q22, p. 67]} For aluminium sulphate \ce{Al2(SO4)3}, the ratio $\Lambda_m / \Lambda_{eq}$ is: (a) $6$ (b) $1/6$ (c) $5$ (d) $3$.
+    \item \textbf{[Variant v2: Pearson Ex-I Q22, p. 3]} If $\Lambda_m$ of \ce{Al2(SO4)3} is $x\,\text{S\,cm}^2\,\text{mol}^{-1}$, then $\Lambda_{eq}$ is: (a) $x/6$ (b) $6x$ (c) $x/3$ (d) $x/2$.
+    \item \textbf{[Variant v3: Cengage DPP 3.1 Q8, p. 1]} The molar conductivity of a $0.05\,\text{M}$ \ce{BaCl2} solution is $240\,\text{S\,cm}^2\,\text{mol}^{-1}$. The equivalent conductivity is: (a) $480$ (b) $120$ (c) $240$ (d) $60\,\text{S\,cm}^2\,\text{equiv}^{-1}$.
+\end{itemize}
+\end{problembox}
+
+\begin{problembox}
+\textbf{Q.1.5} \hfill \textbf{[Primary Source: GRB Practice Problem 18, p. 48 / Essential §24.11]}
+\label{q:qb-c1-05}
+
+The conductivity of a $0.01\,\text{M}$ solution of magnesium sulphate (\ce{MgSO4}) is $1.26 \times 10^{-3}\,\text{S\,cm}^{-1}$. Calculate:
+\begin{enumerate}[label=(\alph*)]
+    \item Molar conductivity $\Lambda_m$
+    \item Equivalent conductivity $\Lambda_{eq}$
+\end{enumerate}
+
+\tcbline
+\textbf{\color{accentamber}Cross-Book Redundant / Identical Variants:}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{[Variant v1: Narendra Avasthi Level-1 Q28, p. 9]} If the conductivity of $0.001\,\text{M}$ \ce{CaCl2} is $2.6 \times 10^{-4}\,\text{S\,cm}^{-1}$, find $\Lambda_m$ and $\Lambda_{eq}$.
+    \item \textbf{[Variant v2: Essential §24.11 Ex 9, p. 868]} The specific conductance of $0.01\,\text{N}$ solution of potassium chloride is $0.00141\,\Omega^{-1}\,\text{cm}^{-1}$. What is its equivalent conductivity?
+\end{itemize}
+\end{problembox}
+
+\section{Subtopic 1.3: Debye--H\"{u}ckel--Onsager (DHO) Theory & High-Field Effects}
+
+\begin{problembox}
+\textbf{Q.1.6} \hfill \textbf{[Primary Source: Atkins Topic 6C / Neeraj Kumar Part 2 Ex-II Sec F Q3]}
+\label{q:qb-c1-06}
+
+Derive the Debye--H\"{u}ckel--Onsager equation for a univalent electrolyte in solution:
+\begin{equation*}
+    \Lambda_m = \Lambda_m^\circ - (A + B\Lambda_m^\circ)\sqrt{c}
+\end{equation*}
+Differentiate physically between:
+\begin{enumerate}[label=(\alph*)]
+    \item The relaxation (asymmetry) retarding force
+    \item The electrophoretic retarding drag
+\end{enumerate}
+Under what conditions do the Wien effect and the Debye--Falkenhagen effect occur?
+
+\tcbline
+\textbf{\color{accentamber}Cross-Book Redundant / Identical Variants:}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{[Variant v1: Narendra Avasthi Level-3 Passage 1, p. 37]} In high alternating frequency ($> 10^7\,\text{Hz}$), the Debye--Falkenhagen effect increases molar conductivity because: (a) solvent viscosity drops (b) ionic atmosphere remains spherically symmetric (c) ion pairs dissociate completely (d) temperature rises.
+    \item \textbf{[Variant v2: Pearson Ex-II Sec A Q42, p. 19]} At electric fields $> 10^5\,\text{V\,cm}^{-1}$, the Wien effect causes $\Lambda_m$ of strong electrolytes to approach $\Lambda_m^\circ$ because the ion speed exceeds the relaxation time of the atmosphere.
+    \item \textbf{[Variant v3: Cengage Theory p. 58]} For a $1:1$ strong electrolyte, the slope of $\Lambda_m$ vs $\sqrt{c}$ depends on solvent dielectric constant $\varepsilon_r$, absolute temperature $T$, and viscosity $\eta$.
+\end{itemize}
+\end{problembox}
+
+\section{Subtopic 1.4: Ostwald Dilution Law & Degree of Dissociation ($\alpha$)}
+
+\begin{problembox}
+\textbf{Q.1.7} \hfill \textbf{[Primary Source: GRB Practice Problem 32, p. 49 / Essential §24.14]}
+\label{q:qb-c1-07}
+
+The molar conductivity of a $0.01\,\text{M}$ solution of acetic acid is $16.5\,\text{S\,cm}^2\,\text{mol}^{-1}$ at $25^\circ\text{C}$. If $\Lambda_m^\circ(\ce{CH3COOH}) = 390.5\,\text{S\,cm}^2\,\text{mol}^{-1}$, calculate:
+\begin{enumerate}[label=(\alph*)]
+    \item Degree of dissociation $\alpha$
+    \item Dissociation constant $K_a$ of acetic acid
+\end{enumerate}
+
+\tcbline
+\textbf{\color{accentamber}Cross-Book Redundant / Identical Variants:}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{[Variant v1: Neeraj Kumar Part 2 Ex-I Q35, p. 37]} The molar conductivity of $0.025\,\text{M}$ methanoic acid is $46.1\,\text{S\,cm}^2\,\text{mol}^{-1}$. Given $\Lambda_m^\circ(\ce{HCOOH}) = 405.5\,\text{S\,cm}^2\,\text{mol}^{-1}$, calculate its degree of dissociation $\alpha$ and $K_a$.
+    \item \textbf{[Variant v2: Narendra Avasthi Level-1 Q40, p. 10]} For a weak monoprotic acid \ce{HA}, $\Lambda_m = 20\,\text{S\,cm}^2\,\text{mol}^{-1}$ at $0.04\,\text{M}$. If $\Lambda_m^\circ = 400\,\text{S\,cm}^2\,\text{mol}^{-1}$, the dissociation constant $K_a$ is: (a) $1.05 \times 10^{-4}$ (b) $2.10 \times 10^{-4}$ (c) $4.20 \times 10^{-5}$ (d) $1.05 \times 10^{-5}$.
+    \item \textbf{[Variant v3: Cengage DPP 3.1 Q16, p. 2]} According to Ostwald's dilution law, a plot of $1/\Lambda_m$ versus $C \Lambda_m$ gives: (a) slope $= 1/(K_a (\Lambda_m^\circ)^2)$ and intercept $= 1/\Lambda_m^\circ$ (b) slope $= K_a$ and intercept $= \Lambda_m^\circ$ (c) a parabolic curve (d) horizontal line.
+\end{itemize}
+\end{problembox}
+
+\section{Subtopic 1.5: Kohlrausch's Law of Independent Migration of Ions}
+
+\begin{problembox}
+\textbf{Q.1.8} \hfill \textbf{[Primary Source: Neeraj Kumar Part 2 Ex-I Q45 / NA Level-1 Q52]}
+\label{q:qb-c1-08}
+
+The limiting molar conductivities at $25^\circ\text{C}$ are:
+$\Lambda_m^\circ(\ce{NaCl}) = 126.4\,\text{S\,cm}^2\,\text{mol}^{-1}$,
+$\Lambda_m^\circ(\ce{HCl}) = 426.2\,\text{S\,cm}^2\,\text{mol}^{-1}$,
+$\Lambda_m^\circ(\ce{CH3COONa}) = 91.0\,\text{S\,cm}^2\,\text{mol}^{-1}$.
+Calculate the limiting molar conductivity of acetic acid $\Lambda_m^\circ(\ce{CH3COOH})$.
+
+\tcbline
+\textbf{\color{accentamber}Cross-Book Redundant / Identical Variants:}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{[Variant v1: GRB Solved Example 18, p. 17]} Calculate $\Lambda_m^\circ$ for acetic acid given $\Lambda_m^\circ(\ce{HCl}) = 425.9$, $\Lambda_m^\circ(\ce{NaCl}) = 126.4$, $\Lambda_m^\circ(\ce{CH3COONa}) = 91.0\,\text{S\,cm}^2\,\text{mol}^{-1}$.
+    \item \textbf{[Variant v2: Essential §24.15 Solved Ex 14, p. 875]} From the following molar conductivities at infinite dilution: $\Lambda_m^\circ(\ce{Ba(OH)2}) = 457.6$, $\Lambda_m^\circ(\ce{BaCl2}) = 240.6$, $\Lambda_m^\circ(\ce{NH4Cl}) = 129.8\,\Omega^{-1}\,\text{cm}^2\,\text{mol}^{-1}$, calculate $\Lambda_m^\circ$ for ammonium hydroxide (\ce{NH4OH}).
+    \item \textbf{[Variant v3: Pearson Ex-I Q55, p. 5]} The limiting equivalent conductance of \ce{K2SO4}, \ce{Al2(SO4)3}, and \ce{KCl} are $x, y, z$. The limiting equivalent conductance of alum $\ce{K2SO4.Al2(SO4)3.24H2O}$ is: (a) $x+y$ (b) $(x+y)/2$ (c) $x+y+z$ (d) $2x+2y$.
+\end{itemize}
+\end{problembox}
+
+\begin{problembox}
+\textbf{Q.1.9} \hfill \textbf{[Primary Source: GRB Practice Problem 45, p. 50 / NA Level-2 Q14]}
+\label{q:qb-c1-09}
+
+The specific conductivity of a saturated aqueous solution of silver chloride (\ce{AgCl}) at $25^\circ\text{C}$ is $3.41 \times 10^{-6}\,\text{S\,cm}^{-1}$ and that of water used is $1.60 \times 10^{-6}\,\text{S\,cm}^{-1}$. If $\lambda^\circ(\ce{Ag+}) = 61.9\,\text{S\,cm}^2\,\text{mol}^{-1}$ and $\lambda^\circ(\ce{Cl-}) = 76.3\,\text{S\,cm}^2\,\text{mol}^{-1}$, calculate:
+\begin{enumerate}[label=(\alph*)]
+    \item Solubility of \ce{AgCl} in $\text{mol\,L}^{-1}$ and in $\text{g\,L}^{-1}$
+    \item Solubility product $K_{sp}$ of \ce{AgCl} at $25^\circ\text{C}$
+\end{enumerate}
+
+\tcbline
+\textbf{\color{accentamber}Cross-Book Redundant / Identical Variants:}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{[Variant v1: Neeraj Kumar Part 2 Ex-II Sec A Q12, p. 41]} Specific conductance of saturated \ce{BaSO4} is $4.58 \times 10^{-6}\,\text{S\,cm}^{-1}$ and that of pure water is $1.52 \times 10^{-6}\,\text{S\,cm}^{-1}$. If $\Lambda_m^\circ(\ce{BaSO4}) = 286\,\text{S\,cm}^2\,\text{mol}^{-1}$, find $K_{sp}$ of \ce{BaSO4}.
+    \item \textbf{[Variant v2: Essential §24.15 Solved Ex 18, p. 877]} The specific conductivity of a saturated solution of \ce{PbSO4} is $4.2 \times 10^{-5}\,\text{S\,cm}^{-1}$ and that of water is $1.5 \times 10^{-6}\,\text{S\,cm}^{-1}$. Given $\Lambda_m^\circ(\ce{PbSO4}) = 152\,\text{S\,cm}^2\,\text{mol}^{-1}$, calculate the solubility and $K_{sp}$.
+\end{itemize}
+\end{problembox}
+
+\section{Subtopic 1.6: Ionic Mobility, Hittorf Rule & Moving Boundary Method}
+
+\begin{problembox}
+\textbf{Q.1.10} \hfill \textbf{[Primary Source: Atkins Topic 6D / GRB §12.9 Solved Ex 25, p. 18]}
+\label{q:qb-c1-10}
+
+The limiting molar ionic conductivities of $\ce{K+}$ and $\ce{Cl-}$ at $25^\circ\text{C}$ are $73.5\,\text{S\,cm}^2\,\text{mol}^{-1}$ and $76.3\,\text{S\,cm}^2\,\text{mol}^{-1}$ respectively. Calculate:
+\begin{enumerate}[label=(\alph*)]
+    \item The absolute ionic mobility of $\ce{K+}$ and $\ce{Cl-}$ in $\text{cm}^2\,\text{V}^{-1}\,\text{s}^{-1}$
+    \item The drift velocity of $\ce{K+}$ ion in a potential gradient of $5.0\,\text{V\,cm}^{-1}$
+    \item The transport numbers $t_{\ce{K+}}$ and $t_{\ce{Cl-}}$ in infinitely dilute \ce{KCl} solution
+\end{enumerate}
+
+\tcbline
+\textbf{\color{accentamber}Cross-Book Redundant / Identical Variants:}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{[Variant v1: Essential §24.18 Solved Ex 20, p. 881]} In a Hittorf cell with \ce{AgNO3} solution and silver electrodes, before electrolysis the cathode compartment contained $0.227\,\text{g}$ of \ce{AgNO3}. After passing a current, the cathode compartment contained $0.205\,\text{g}$ of \ce{AgNO3} while $0.032\,\text{g}$ of silver was deposited in a silver coulometer. Calculate the transport number of $\ce{Ag+}$ and $\ce{NO3-}$.
+    \item \textbf{[Variant v2: Neeraj Kumar Part 2 Ex-II Sec F Q4, p. 51]} In a moving boundary experiment using $0.1\,\text{M}$ \ce{HCl} with \ce{CdCl2} as follower electrolyte, a current of $11.5\,\text{mA}$ moved the boundary through $7.5\,\text{cm}$ in $18.2\,\text{min}$ in a tube of diameter $0.4\,\text{cm}$. Calculate $t_{\ce{H+}}$.
+    \item \textbf{[Variant v3: Narendra Avasthi Level-2 Q24, p. 26]} Explain why the transport number of an ion is not an invariant property of the ion, but depends on the co-ion and concentration.
+\end{itemize}
+\end{problembox}
+
+\section{Subtopic 1.7: Conductometric Titrations}
+
+\begin{problembox}
+\textbf{Q.1.11} \hfill \textbf{[Primary Source: Neeraj Kumar Part 2 Ex-II Sec C Passage 2 / GRB p. 20]}
+\label{q:qb-c1-11}
+
+Sketch and explain the exact shape of the conductometric titration curve for each of the following systems (titrant added from burette to analyte in beaker):
+\begin{enumerate}[label=(\alph*)]
+    \item Strong acid vs.\ strong base: $25\,\text{mL } 0.1\,\text{M } \ce{HCl}$ titrated with $0.1\,\text{M } \ce{NaOH}$
+    \item Weak acid vs.\ strong base: $25\,\text{mL } 0.1\,\text{M } \ce{CH3COOH}$ titrated with $0.1\,\text{M } \ce{NaOH}$
+    \item Strong acid vs.\ weak base: $25\,\text{mL } 0.1\,\text{M } \ce{HCl}$ titrated with $0.1\,\text{M } \ce{NH4OH}$
+    \item Mixture of strong and weak acid vs.\ strong base: $(\ce{HCl} + \ce{CH3COOH})$ titrated with \ce{NaOH}
+    \item Precipitation titration: $25\,\text{mL } 0.1\,\text{M } \ce{AgNO3}$ titrated with $0.1\,\text{M } \ce{KCl}$
+\end{enumerate}
+
+\tcbline
+\textbf{\color{accentamber}Cross-Book Redundant / Identical Variants:}
+\begin{itemize}[leftmargin=*,itemsep=2pt]
+    \item \textbf{[Variant v1: Pearson Ex-II Sec A Q48, p. 20]} In the titration of a mixture of \ce{HCl} and \ce{CH3COOH} with \ce{NaOH}, how many distinct breaks are observed in the conductance curve? (a) 1 (b) 2 (c) 3 (d) no sharp break.
+    \item \textbf{[Variant v2: Narendra Avasthi Level-3 Passage 4, p. 38]} During the conductometric titration of \ce{CH3COOH} with \ce{NaOH}, why does conductance initially decrease slightly before rising steadily?
+    \item \textbf{[Variant v3: Cengage Theory p. 74]} In which conductometric titration is the equivalence point characterized by a sharp minimum?
+\end{itemize}
+\end{problembox}
+"""
+
+with open("question_bank/part01_conduction.tex", "w", encoding="utf-8") as f:
+    f.write(part01)
+
+print("Generated question_bank/part01_conduction.tex successfully")

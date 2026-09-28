@@ -1,0 +1,23 @@
+# Auxiliary LaTeX compilation files
+*.aux
+*.log
+*.out
+*.toc
+*.synctex.gz
+*.fls
+*.fdb_latexmk
+
+# Large source textbook PDFs (keep repo lightweight and fast to push/pull)
+ElectroChemistryTheory(Cng).pdf
+ElectroChemistry(GRB).pdf
+ElectroChemistryDPP(cng).pdf
+ElectroChemistryProblems(nrj).pdf
+ElectroChemistry(Nrndr).pdf
+ElectroChemistryTheory(Ptr Atkns).pdf
+ElectroChemistryTheory(essential).pdf
+ElectroChemistryProblems(Prsn).pdf
+
+# Python cache & logs
+__pycache__/
+*.pyc
+task-*.log

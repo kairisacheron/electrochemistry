@@ -1,0 +1,725 @@
+\chapter{Electrolytic Conduction \& Ionic Migration}
+\label{chap:electrolytic_conduction}
+
+\section{Mechanisms of Electrical Conduction}
+
+Electrical conduction represents the net directional transfer of electric charge under the influence of an applied electric potential gradient ($-\nabla \phi$). All conductors are classified into two fundamental categories based on their charge carriers and the thermodynamic nature of the transport process:
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{p{3.2cm}X X}
+\toprule
+\textbf{Property} & \textbf{Metallic (Electronic) Conduction} & \textbf{Electrolytic (Ionic) Conduction} \\
+\midrule
+\textbf{Charge Carriers} & Delocalized valence electrons moving through a fixed positive lattice (electron gas model). & Solvated cations and anions migrating toward electrodes of opposite polarity. \\
+\textbf{Chemical Change} & No chemical decomposition occurs; purely physical phenomenon. & Accompanied by chemical redox reactions at the electrode-electrolyte interfaces (electrolysis). \\
+\textbf{Matter Transport} & No macroscopic transport of matter. & Direct stoichiometric transport of matter in the form of ions toward the electrodes. \\
+\textbf{Effect of Temperature} & Resistance \textbf{increases} with temperature ($\frac{dR}{dT} > 0$) due to increased thermal vibrations (phonon scattering) of lattice ions. & Resistance \textbf{decreases} (conductance increases) with temperature ($\frac{dG}{dT} > 0$) due to: (i) decrease in solvent viscosity ($\eta$), (ii) increase in degree of dissociation ($\alpha$) for weak electrolytes, and (iii) enhanced ionic thermal velocity. \\
+\textbf{Ohm's Law Compliance} & Strictly obeys Ohm's law ($V = IR$) under all ordinary electric fields. & Obeys Ohm's law ($V = IR$) at moderate field strengths and frequencies; deviations occur at extremely high electric fields (Wien effect) or high frequencies (Debye-Falkenhagen effect). \\
+\textbf{Resistance Magnitude} & Extremely low resistivity ($\rho \approx 10^{-8}\text{ to } 10^{-6}\ \Omega\cdot\text{m}$). & Moderate to high resistivity ($\rho \approx 10^{-2}\text{ to } 10^{2}\ \Omega\cdot\text{m}$). \\
+\bottomrule
+\end{tabularx}
+\caption{Comprehensive comparison of Metallic and Electrolytic Conduction.}
+\label{tab:metallic_vs_electrolytic}
+\end{table}
+
+\begin{conceptbox}[Arrhenius Theory of Electrolytic Dissociation]
+According to Svante Arrhenius (1887):
+\begin{enumerate}[leftmargin=*]
+    \item When an electrolyte is dissolved in water, it spontaneously dissociates into positively charged ions (cations) and negatively charged ions (anions).
+    \item The total positive charge carried by the cations exactly equals the total negative charge carried by the anions, preserving macroscopic electrical neutrality:
+    \begin{equation}
+        \sum_{i} c_i z_i = 0
+    \end{equation}
+    \item For weak electrolytes, an equilibrium exists between the un-ionized molecules and the liberated ions:
+    \begin{equation}
+        \ce{AB <=> A+ + B-} \quad \implies \quad K_{eq} = \frac{[\ce{A+}][\ce{B-}]}{[\ce{AB}]}
+    \end{equation}
+    \item The fraction of total electrolyte molecules that dissociate into ions is defined as the \textbf{degree of dissociation} ($\alpha$):
+    \begin{equation}
+        \alpha = \frac{\text{Number of dissociated molecules}}{\text{Total number of molecules taken}}
+    \end{equation}
+\end{enumerate}
+\end{conceptbox}
+
+---
+
+\section{Fundamental Quantities and Definitions}
+
+\subsection{Resistance and Resistivity}
+When a uniform direct or alternating potential difference $V$ (in volts) is applied across an electrolytic solution contained between two parallel electrodes of cross-sectional area $A$ (in $\text{cm}^2$) placed at a distance $l$ (in $\text{cm}$) apart, the resistance $R$ (in ohms, $\Omega$) of the electrolyte column obeys Ohm's law:
+\begin{equation}
+    R = \rho \cdot \frac{l}{A}
+\end{equation}
+where $\rho$ is the \textbf{resistivity} (or specific resistance) of the electrolytic solution (in $\Omega\cdot\text{cm}$ or $\Omega\cdot\text{m}$).
+
+\subsection{Conductance and Conductivity (Specific Conductance)}
+1. \textbf{Conductance ($G$):} The ease with which electric current flows through the conductor:
+\begin{equation}
+    G = \frac{1}{R} \quad \text{Unit: } \Omega^{-1} = \text{mho} = \text{Siemens (S)}
+\end{equation}
+2. \textbf{Conductivity or Specific Conductance ($\kappa$, kappa):} Defined as the reciprocal of resistivity ($\rho$):
+\begin{equation}
+    \kappa = \frac{1}{\rho} = \frac{1}{R} \cdot \left(\frac{l}{A}\right) = G \cdot G^*
+\end{equation}
+where $G^* = \frac{l}{A}$ is the \textbf{Cell Constant} (in $\text{cm}^{-1}$ or $\text{m}^{-1}$).
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Physical Meaning:} Conductivity $\kappa$ represents the electrical conductance of a column of electrolyte solution having a unit length ($1\text{ cm}$) and a unit cross-sectional area ($1\text{ cm}^2$), i.e., the conductance of exactly $1\text{ cm}^3$ ($1\text{ mL}$) of the solution between two parallel plates.
+    \item \textbf{SI Unit:} $\text{S}\cdot\text{m}^{-1} = \Omega^{-1}\cdot\text{m}^{-1}$.
+    \item \textbf{CGS Unit:} $\text{S}\cdot\text{cm}^{-1} = \Omega^{-1}\cdot\text{cm}^{-1}$.
+    \item \textbf{Conversion Factor:}
+    \begin{equation}
+        1\ \text{S}\cdot\text{cm}^{-1} = 100\ \text{S}\cdot\text{m}^{-1} \quad \iff \quad 1\ \text{S}\cdot\text{m}^{-1} = 10^{-2}\ \text{S}\cdot\text{cm}^{-1}
+    \end{equation}
+\end{itemize}
+
+\subsection{Cell Constant ($G^*$)}
+Since the exact geometric distance $l$ and active plate surface area $A$ of platinum electrodes in a conductivity cell cannot be measured accurately with a ruler due to non-uniform current field fringing at the plate edges, the cell constant $G^* = \frac{l}{A}$ is determined experimentally using a standard standard solution of known conductivity—typically standardized aqueous $\ce{KCl}$ at $25^\circ\text{C}$ ($298\text{ K}$):
+\begin{equation}
+    G^* = \kappa_{\text{known}} \times R_{\text{measured}}
+\end{equation}
+Once $G^*$ is calibrated for a specific cell, the conductivity of any unknown electrolyte solution placed in the same cell is evaluated as:
+\begin{equation}
+    \kappa_{\text{unknown}} = \frac{G^*}{R_{\text{measured}}}
+\end{equation}
+
+---
+
+\section{Molar Conductivity and Equivalent Conductivity}
+
+\subsection{Molar Conductivity ($\Lambda_m$)}
+\textbf{Definition:} Molar conductivity ($\Lambda_m$) is defined as the conducting power of all the ions produced by dissolving exactly $1\text{ mole}$ of an electrolyte in a given volume $V$ (in $\text{mL}$) of solution placed between two sufficiently large electrodes held $1\text{ cm}$ apart.
+
+Let $1\text{ mole}$ of electrolyte be dissolved in $V\text{ mL}$ of solution. Since the conductance of $1\text{ mL}$ ($1\text{ cm}^3$) of solution is equal to its conductivity $\kappa$, the conductance of $V\text{ mL}$ of solution containing $1\text{ mole}$ of electrolyte is:
+\begin{equation}
+    \Lambda_m = \kappa \times V_{\text{in mL/mole}}
+\end{equation}
+If the molar concentration of the solution is $M$ (molarity in $\text{mol}\cdot\text{L}^{-1}$):
+\begin{equation}
+    M\text{ moles are present in } 1000\text{ mL} \implies V = \frac{1000}{M}\ \text{mL}\cdot\text{mol}^{-1}
+\end{equation}
+Substituting $V$ into the equation gives:
+\begin{equation}
+    \boxed{\Lambda_m = \frac{\kappa \times 1000}{M}} \quad \text{where } \kappa \text{ is in } \text{S}\cdot\text{cm}^{-1} \text{ and } M \text{ is in } \text{mol}\cdot\text{L}^{-1}
+\end{equation}
+\textbf{Units of $\Lambda_m$:}
+\begin{equation}
+    [\Lambda_m] = \frac{\text{S}\cdot\text{cm}^{-1}}{\text{mol}\cdot\text{cm}^{-3}} = \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1} = \Omega^{-1}\cdot\text{cm}^2\cdot\text{mol}^{-1}
+\end{equation}
+\textbf{In SI Units:} If $\kappa$ is in $\text{S}\cdot\text{m}^{-1}$ and concentration $c$ is in $\text{mol}\cdot\text{m}^{-3}$ ($c = 1000 \times M$):
+\begin{equation}
+    \boxed{\Lambda_m = \frac{\kappa}{c} = \frac{\kappa}{1000 \times M}} \quad \left(\text{S}\cdot\text{m}^2\cdot\text{mol}^{-1}\right)
+\end{equation}
+\textbf{Unit Interconversion:}
+\begin{equation}
+    1\ \text{S}\cdot\text{m}^2\cdot\text{mol}^{-1} = 10^4\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1} \quad \iff \quad 1\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1} = 10^{-4}\ \text{S}\cdot\text{m}^2\cdot\text{mol}^{-1}
+\end{equation}
+
+\subsection{Equivalent Conductivity ($\Lambda_{eq}$)}
+\textbf{Definition:} Equivalent conductivity ($\Lambda_{eq}$) is defined as the conducting power of all the ions produced by dissolving exactly $1\text{ gram-equivalent}$ of an electrolyte in a volume $V$ of solution placed between two large electrodes spaced $1\text{ cm}$ apart.
+\begin{equation}
+    \boxed{\Lambda_{eq} = \frac{\kappa \times 1000}{N}} \quad \left(\text{in }\text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1} \text{ or } \Omega^{-1}\cdot\text{cm}^2\cdot\text{eq}^{-1}\right)
+\end{equation}
+where $N$ is the normality of the solution ($\text{eq}\cdot\text{L}^{-1}$).
+
+\subsection{Exact Relationship Between $\Lambda_m$ and $\Lambda_{eq}$}
+Recall the fundamental definition relating normality and molarity:
+\begin{equation}
+    N = M \times n\text{-factor} \quad (\text{or } z)
+\end{equation}
+where $n$-factor ($z$) is the total positive or negative valency per formula unit of the electrolyte (e.g., for $\ce{NaCl}$, $z = 1$; for $\ce{CaCl2}$, $z = 2$; for $\ce{Al2(SO4)3}$, $z = 6$). Therefore:
+\begin{equation}
+    \Lambda_{eq} = \frac{\kappa \times 1000}{M \times z} = \frac{\Lambda_m}{z} \implies \boxed{\Lambda_m = z \times \Lambda_{eq}}
+\end{equation}
+
+\begin{examplebox}[Comprehensive Interconversion of Conductivity Units]
+The resistance of a $0.05\text{ M}$ solution of an electrolyte $\ce{M2(SO4)3}$ in a conductivity cell is $240\ \Omega$. The distance between the electrodes is $1.5\text{ cm}$ and their cross-sectional area is $3.75\text{ cm}^2$. Calculate:
+\begin{enumerate}[label=(\alph*)]
+    \item The cell constant ($G^*$).
+    \item The conductivity ($\kappa$) in both $\text{S}\cdot\text{cm}^{-1}$ and $\text{S}\cdot\text{m}^{-1}$.
+    \item The molar conductivity ($\Lambda_m$) in $\text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}$ and $\text{S}\cdot\text{m}^2\cdot\text{mol}^{-1}$.
+    \item The equivalent conductivity ($\Lambda_{eq}$).
+\end{enumerate}
+\tcblower
+\textbf{Step 1: Cell Constant ($G^*$):}
+\begin{equation*}
+    G^* = \frac{l}{A} = \frac{1.5\text{ cm}}{3.75\text{ cm}^2} = 0.40\text{ cm}^{-1} = 40.0\text{ m}^{-1}
+\end{equation*}
+
+\textbf{Step 2: Conductivity ($\kappa$):}
+\begin{align*}
+    \kappa &= \frac{G^*}{R} = \frac{0.40\text{ cm}^{-1}}{240\ \Omega} = 1.667 \times 10^{-3}\ \text{S}\cdot\text{cm}^{-1} \\
+    \kappa_{\text{SI}} &= \kappa \times 100 = 0.1667\ \text{S}\cdot\text{m}^{-1}
+\end{align*}
+
+\textbf{Step 3: Molar Conductivity ($\Lambda_m$):}
+\begin{align*}
+    \Lambda_m &= \frac{\kappa \times 1000}{M} = \frac{(1.667 \times 10^{-3}\ \text{S}\cdot\text{cm}^{-1}) \times 1000}{0.05\text{ mol}\cdot\text{L}^{-1}} = 33.33\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1} \\
+    \Lambda_{m,\text{SI}} &= 33.33 \times 10^{-4}\ \text{S}\cdot\text{m}^2\cdot\text{mol}^{-1} = 3.333 \times 10^{-3}\ \text{S}\cdot\text{m}^2\cdot\text{mol}^{-1}
+\end{align*}
+
+\textbf{Step 4: Equivalent Conductivity ($\Lambda_{eq}$):}
+For the salt $\ce{M2(SO4)3}$, the total cationic charge is $2 \times (+3) = +6$, so the valence factor is $z = 6$.
+\begin{equation*}
+    \Lambda_{eq} = \frac{\Lambda_m}{z} = \frac{33.33}{6} = 5.556\ \text{S}\cdot\text{cm}^2\cdot\text{eq}^{-1}
+\end{equation*}
+\end{examplebox}
+
+---
+
+\section{Effect of Dilution on Conductance Parameters}
+
+Understanding the variation of conductance parameters with dilution (decreasing concentration $C$) is one of the most critical conceptual foundations in physical electrochemistry:
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.1]
+    \draw[->, thick] (0,0) -- (6.5,0) node[right] {Dilution ($V \to \infty$ or $C \to 0$)};
+    \draw[->, thick] (0,0) -- (0,5.5) node[above] {Conductance Value};
+
+    % Conductance G
+    \draw[line width=1.5pt, cengagegreen] (0.5,1.2) to[out=20, in=190] (5.8,4.2) node[right] {$G$ (Conductance increases)};
+
+    % Molar Conductance Lambda_m
+    \draw[line width=1.5pt, primarynavy] (0.5,2.0) to[out=15, in=185] (5.8,5.0) node[right] {$\Lambda_m, \Lambda_{eq}$ (Increases towards $\Lambda_m^\circ$)};
+
+    % Conductivity kappa
+    \draw[line width=1.5pt, crimsonred] (0.5,4.5) to[out=-25, in=170] (5.8,0.8) node[right] {$\kappa$ (Conductivity decreases)};
+\end{tikzpicture}
+\caption{Contrasting dilution behavior of $G$, $\Lambda_m$, and $\kappa$.}
+\label{fig:dilution_behavior}
+\end{figure}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Conductance ($G$):} \textbf{Increases on dilution.}
+    \begin{itemize}
+        \item For \emph{weak electrolytes}: Dilution increases the degree of dissociation $\alpha$ (Ostwald's law), generating a larger absolute count of conducting ions.
+        \item For \emph{strong electrolytes}: Dilution weakens the interionic electrostatic attractions, reducing ionic friction and enabling ions to move with greater mobility.
+    \end{itemize}
+
+    \item \textbf{Conductivity ($\kappa$):} \textbf{Decreases on dilution.}
+    \begin{itemize}
+        \item Conductivity is the conductance of exactly $1\text{ cm}^3$ ($1\text{ mL}$) of solution.
+        \item On adding solvent, although the total number of ions in the entire bulk increases or remains constant, the number of current-carrying ions per unit volume ($1\text{ mL}$) strictly decreases. Hence, $\kappa$ inevitably decreases upon dilution for both strong and weak electrolytes.
+    \end{itemize}
+
+    \item \textbf{Molar Conductivity ($\Lambda_m$) and Equivalent Conductivity ($\Lambda_{eq}$):} \textbf{Increases on dilution.}
+    \begin{equation}
+        \Lambda_m = \kappa \times V
+    \end{equation}
+    Upon dilution, while $\kappa$ decreases, the dilution volume $V$ (volume containing $1\text{ mole}$ of electrolyte) increases significantly. The dramatic increase in volume $V$ completely overwhelms the decrease in $\kappa$, resulting in a net increase in $\Lambda_m$ and $\Lambda_{eq}$.
+    At infinite dilution ($C \to 0$ or $V \to \infty$), the molar conductivity reaches a maximum limiting value termed the \textbf{limiting molar conductivity} ($\Lambda_m^\circ$ or $\Lambda_m^\infty$).
+\end{enumerate}
+
+---
+
+\section{Debye-Hückel-Onsager (DHO) Theory for Strong Electrolytes}
+
+Strong electrolytes are completely dissociated into ions even at moderate concentrations ($\alpha \approx 1$). Therefore, the increase in $\Lambda_m$ upon dilution cannot be attributed to an increase in ionization. Instead, the modern theory of electrolytes developed by Peter Debye, Erich Hückel (1923), and Lars Onsager (1927) explains this variation through interionic electrostatic interactions and the dynamics of the \textbf{ionic atmosphere}.
+
+\begin{atkinsbox}[Atkins Deep Dive: The Ionic Atmosphere and Relaxation Time]
+In an electrolytic solution, every central ion of charge $z_i e$ is surrounded on average by a spherical cloud of ions possessing a net opposite charge—the \textbf{ionic atmosphere}. 
+\begin{itemize}[leftmargin=*]
+    \item The effective radius of this ionic cloud is the \textbf{Debye screening length} ($\kappa_D^{-1}$):
+    \begin{equation}
+        \kappa_D = \left( \frac{2 e^2 N_A I}{\varepsilon_0 \varepsilon_r k_B T} \right)^{1/2} \implies \kappa_D^{-1} \propto \frac{1}{\sqrt{I}}
+    \end{equation}
+    where $I$ is the ionic strength of the medium.
+    \item Under stationary equilibrium conditions, the charge density of the ionic atmosphere is spherically symmetric around the central ion, producing zero net horizontal electrostatic force.
+\end{itemize}
+\end{atkinsbox}
+
+When an external electric field is applied, two retarding effects arise that slow down the motion of the central ion:
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{The Asymmetry or Relaxation Effect:}
+    Under the external field, the central ion moves in one direction (e.g., cation toward cathode), while its oppositely charged ionic atmosphere migrates in the opposite direction (anion cloud toward anode).
+    \begin{itemize}
+        \item The ionic atmosphere does not reform instantly ahead of the migrating ion, nor does it dissipate instantaneously behind it. A finite time is required for charge redistribution, known as the \textbf{relaxation time} ($\tau \approx 10^{-10}\text{ s}$).
+        \item Consequently, the ionic atmosphere becomes distorted and asymmetric, leaving a surplus of counter-charge behind the moving central ion. This lagging charge cloud exerts an electrostatic backward drag, retarding the ionic velocity.
+    \end{itemize}
+
+    \item \textbf{The Electrophoretic Effect:}
+    Ions in aqueous solutions are heavily solvated. When the counter-ions forming the ionic atmosphere move in the direction opposite to the central ion, they carry their solvation shells with them. 
+    \begin{itemize}
+        \item The central ion is therefore compelled to swim upstream against a counter-current flow of the viscous solvent.
+        \item This additional hydrodynamic resistance is the electrophoretic drag, analogous to electrophoresis of charged colloidal particles.
+    \end{itemize}
+
+    \item \textbf{Normal Viscous Drag:}
+    The macroscopic hydrodynamic friction governed by Stokes' Law:
+    \begin{equation}
+        F_{\text{visc}} = 6 \pi \eta r_i v_i
+    \end{equation}
+    where $\eta$ is solvent viscosity, $r_i$ is the effective hydrodynamic (solvated) radius, and $v_i$ is the ionic drift velocity.
+\end{enumerate}
+
+\subsection{The Debye-Hückel-Onsager (DHO) Equation}
+By combining the relaxation drag and the electrophoretic drag with Stokes' law, Onsager derived the rigorous mathematical relation for univalent electrolytes:
+\begin{equation}
+    \boxed{\Lambda_m = \Lambda_m^\circ - \left( A + B \Lambda_m^\circ \right) \sqrt{C}}
+\end{equation}
+where $C$ is the molar concentration, and $A$ and $B$ are constants depending solely on the temperature $T$, solvent dielectric constant $\varepsilon_r$, and viscosity $\eta$:
+\begin{align}
+    A &= \frac{z^2 e F}{3 \pi \eta} \left( \frac{2 e^2 N_A}{\varepsilon_0 \varepsilon_r k_B T} \right)^{1/2} \quad (\text{Electrophoretic term}) \\
+    B &= \frac{q z^3 e^2}{24 \pi \varepsilon_0 \varepsilon_r k_B T} \left( \frac{2 e^2 N_A}{\varepsilon_0 \varepsilon_r k_B T} \right)^{1/2} \quad (\text{Relaxation term})
+\end{align}
+For a given solvent and fixed temperature, the equation simplifies to the classic linear form:
+\begin{equation}
+    \boxed{\Lambda_m = \Lambda_m^\circ - b \sqrt{C}}
+\end{equation}
+where $b = A + B \Lambda_m^\circ$ is an empirical constant governed by electrolyte type ($1:1, 2:1, \text{etc.}$).
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=1.1]
+    \draw[->, thick] (0,0) -- (6.5,0) node[right] {$\sqrt{C} \quad (\text{mol}^{1/2}\text{L}^{-1/2})$};
+    \draw[->, thick] (0,0) -- (0,5.5) node[above] {$\Lambda_m \quad (\text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1})$};
+
+    % Strong electrolyte (KCl)
+    \draw[line width=1.5pt, primarynavy] (0,4.5) -- (5.5,3.2) node[above right] {Strong Electrolyte ($\ce{KCl}$)};
+    \draw[dashed, line width=1pt, primarynavy] (0,4.5) -- (-0.8,4.7);
+    \filldraw[primarynavy] (0,4.5) circle (2pt) node[left] {$\Lambda_m^\circ (\ce{KCl})$};
+
+    % Weak electrolyte (CH3COOH)
+    \draw[line width=1.5pt, crimsonred] (0.05,5.2) to[out=-88, in=170] (1.5,1.6) to[out=-10, in=180] (5.5,0.8) node[right] {Weak Electrolyte ($\ce{CH3COOH}$)};
+    \draw[dotted, line width=1.2pt, crimsonred] (0.05,5.2) -- (0.05,5.6);
+    \node[crimsonred, above] at (0.8, 5.0) {Asymptotic ($C \to 0$)};
+\end{tikzpicture}
+\caption{DHO plot of $\Lambda_m$ versus $\sqrt{C}$ for Strong vs. Weak Electrolytes.}
+\label{fig:dho_plot}
+\end{figure}
+
+\begin{conceptbox}[Crucial Comparison: Strong vs. Weak Electrolyte Plots]
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Strong Electrolyte ($\ce{KCl}, \ce{HCl}, \ce{NaCl}$):} The curve is a straight line with slope $-b$. At infinite dilution ($\sqrt{C} \to 0$), the plot can be extrapolated linearly to the vertical axis to accurately yield the intercept $\Lambda_m^\circ$.
+    \item \textbf{Weak Electrolyte ($\ce{CH3COOH}, \ce{NH4OH}$):} As $C \to 0$, the degree of dissociation $\alpha \to 1$, causing $\Lambda_m$ to shoot up asymptotically almost parallel to the vertical axis. Hence, $\Lambda_m^\circ$ for weak electrolytes \textbf{cannot be determined by experimental graphical extrapolation}! It must be computed indirectly via \textbf{Kohlrausch's Law}.
+\end{itemize}
+\end{conceptbox}
+
+---
+
+\section{Debye-Hückel Limiting Law (DHLL) \& Ionic Strength}
+
+In non-ideal electrolyte solutions, concentrations must be replaced by chemical activities:
+\begin{equation}
+    a_i = \gamma_i \cdot \frac{c_i}{c^\circ}
+\end{equation}
+where $\gamma_i$ is the activity coefficient. For a binary electrolyte $\ce{M_{\nu+} X_{\nu-}}$ dissociating into $\nu_+$ cations and $\nu_-$ anions ($\nu = \nu_+ + \nu_-$), the mean ionic activity coefficient $\gamma_\pm$ is defined as:
+\begin{equation}
+    \gamma_\pm = \left( \gamma_+^{\nu_+} \gamma_-^{\nu_-} \right)^{1/\nu}
+\end{equation}
+
+\subsection{Ionic Strength ($I$)}
+Introduced by Lewis and Randall (1921), the ionic strength accounts for the total electrostatic intensity of the ionic environment:
+\begin{equation}
+    \boxed{I = \frac{1}{2} \sum_{i} c_i z_i^2}
+\end{equation}
+where $c_i$ is the molar or molal concentration of ion $i$, and $z_i$ is its ionic valence (signed or absolute).
+
+\begin{examplebox}[Calculation of Ionic Strength for Electrolyte Mixtures]
+Calculate the ionic strength ($I$) of an aqueous solution containing $0.02\text{ M } \ce{Fe2(SO4)3}$ and $0.05\text{ M } \ce{CaCl2}$.
+\tcblower
+\textbf{Dissociation Stoichiometry:}
+\begin{itemize}
+    \item $0.02\text{ M } \ce{Fe2(SO4)3} \implies [\ce{Fe^3+}] = 2 \times 0.02 = 0.04\text{ M}$, $[\ce{SO4^2-}] = 3 \times 0.02 = 0.06\text{ M}$.
+    \item $0.05\text{ M } \ce{CaCl2} \implies [\ce{Ca^2+}] = 0.05\text{ M}$, $[\ce{Cl-}] = 2 \times 0.05 = 0.10\text{ M}$.
+\end{itemize}
+\textbf{Ionic Strength Formulation:}
+\begin{align*}
+    I &= \frac{1}{2} \left[ [\ce{Fe^3+}] \cdot (+3)^2 + [\ce{SO4^2-}] \cdot (-2)^2 + [\ce{Ca^2+}] \cdot (+2)^2 + [\ce{Cl-}] \cdot (-1)^2 \right] \\
+    &= \frac{1}{2} \left[ 0.04 \times 9 + 0.06 \times 4 + 0.05 \times 4 + 0.10 \times 1 \right] \\
+    &= \frac{1}{2} \left[ 0.36 + 0.24 + 0.20 + 0.10 \right] = \frac{1}{2} \times 0.90 = 0.45\text{ M}
+\end{align*}
+\end{examplebox}
+
+\subsection{Debye-Hückel Limiting Law (DHLL)}
+At very low concentrations ($I < 0.01\text{ M}$), the Debye-Hückel limiting law states:
+\begin{equation}
+    \boxed{\log_{10} \gamma_\pm = -A |z_+ z_-| \sqrt{I}}
+\end{equation}
+For water at $25^\circ\text{C}$ ($298\text{ K}$), dielectric constant $\varepsilon_r = 78.54$, the constant $A$ evaluates to:
+\begin{equation}
+    A = 0.509\ \text{mol}^{-1/2}\cdot\text{kg}^{1/2} \quad (\approx 0.51)
+\end{equation}
+
+---
+
+\section{Ostwald's Dilution Law for Weak Electrolytes}
+
+Consider a binary weak electrolyte $\ce{AB}$ (such as $\ce{CH3COOH}$) at initial analytical concentration $C$ with degree of dissociation $\alpha$:
+\begin{equation}
+    \begin{array}{lccc}
+        & \ce{AB} & \ce{<=>} & \ce{A+ + B-} \\
+        \text{Initial:} & C & & 0 \\
+        \text{At Equilibrium:} & C(1-\alpha) & & C\alpha
+    \end{array}
+\end{equation}
+The equilibrium ionization constant $K_a$ (or $K_c$) is:
+\begin{equation}
+    K_a = \frac{[\ce{A+}][\ce{B-}]}{[\ce{AB}]} = \frac{(C\alpha)(C\alpha)}{C(1-\alpha)} = \frac{C\alpha^2}{1-\alpha}
+\end{equation}
+Since for weak electrolytes $\alpha = \frac{\Lambda_m}{\Lambda_m^\circ}$:
+\begin{equation}
+    K_a = \frac{C \left( \frac{\Lambda_m}{\Lambda_m^\circ} \right)^2}{1 - \frac{\Lambda_m}{\Lambda_m^\circ}} = \frac{C \Lambda_m^2}{\Lambda_m^\circ (\Lambda_m^\circ - \Lambda_m)}
+\end{equation}
+If the electrolyte is very weak, $\alpha \ll 1 \implies 1-\alpha \approx 1$:
+\begin{equation}
+    K_a \approx C\alpha^2 \implies \alpha = \sqrt{\frac{K_a}{C}}
+\end{equation}
+Rearranging the exact equation into linear form gives the famous \textbf{Ostwald-Kraus plot}:
+\begin{equation}
+    \boxed{\frac{1}{\Lambda_m} = \frac{1}{\Lambda_m^\circ} + \frac{\Lambda_m \cdot C}{K_a (\Lambda_m^\circ)^2}}
+\end{equation}
+Plotting $\frac{1}{\Lambda_m}$ against $C \Lambda_m$ yields a straight line with intercept $\frac{1}{\Lambda_m^\circ}$ and slope $\frac{1}{K_a (\Lambda_m^\circ)^2}$, providing an experimental route to evaluate both $\Lambda_m^\circ$ and $K_a$ simultaneously.
+
+---
+
+\section{Kohlrausch's Law of Independent Migration of Ions}
+
+Friedrich Kohlrausch (1875--1879) deduced from exhaustive experimental measurements that at infinite dilution, where interionic attractions become completely negligible, every ion makes a definite, independent contribution to the total conductance of the electrolyte, regardless of the identity of the counter-ion with which it is associated.
+
+\begin{conceptbox}[Mathematical Formulations of Kohlrausch's Law]
+1. \textbf{In Terms of Molar Conductivities:}
+The limiting molar conductivity of an electrolyte is the sum of the limiting molar conductivities of its constituent ions, multiplied by their stoichiometric coefficients:
+\begin{equation}
+    \boxed{\Lambda_m^\circ = \nu_+ \lambda_+^\circ + \nu_- \lambda_-^\circ}
+\end{equation}
+where $\lambda_+^\circ$ and $\lambda_-^\circ$ are the limiting molar ionic conductivities of the cation and anion, and $\nu_+$, $\nu_-$ are the number of cations and anions released per formula unit.
+
+2. \textbf{In Terms of Equivalent Conductivities:}
+The limiting equivalent conductivity of an electrolyte is simply the direct sum of the limiting equivalent ionic conductivities:
+\begin{equation}
+    \boxed{\Lambda_{eq}^\circ = \lambda_{eq,+}^\circ + \lambda_{eq,-}^\circ}
+\end{equation}
+Note the crucial relationship:
+\begin{equation}
+    \lambda_{eq,+}^\circ = \frac{\lambda_+^\circ}{z_+} \quad \text{and} \quad \lambda_{eq,-}^\circ = \frac{\lambda_-^\circ}{z_-}
+\end{equation}
+\end{conceptbox}
+
+\subsection{Fundamental Applications of Kohlrausch's Law}
+
+\subsubsection{1. Determination of $\Lambda_m^\circ$ for Weak Electrolytes}
+Weak electrolytes like acetic acid cannot have their $\Lambda_m^\circ$ determined by direct extrapolation. However, by combining the $\Lambda_m^\circ$ values of strong electrolytes containing the same ions:
+\begin{equation}
+    \Lambda_m^\circ(\ce{CH3COOH}) = \Lambda_m^\circ(\ce{CH3COONa}) + \Lambda_m^\circ(\ce{HCl}) - \Lambda_m^\circ(\ce{NaCl})
+\end{equation}
+\textbf{Proof:}
+\begin{align*}
+    [\lambda^\circ(\ce{CH3COO-}) + \lambda^\circ(\ce{Na+})] + [\lambda^\circ(\ce{H+}) + \lambda^\circ(\ce{Cl-})] - [\lambda^\circ(\ce{Na+}) + \lambda^\circ(\ce{Cl-})] = \lambda^\circ(\ce{CH3COO-}) + \lambda^\circ(\ce{H+})
+\end{align*}
+
+\subsubsection{2. Determination of Degree of Dissociation ($\alpha$) and $K_a / K_b$}
+\begin{equation}
+    \alpha = \frac{\Lambda_m}{\Lambda_m^\circ} = \frac{\Lambda_{eq}}{\Lambda_{eq}^\circ}
+\end{equation}
+Once $\alpha$ is evaluated at concentration $C$:
+\begin{equation}
+    K_a = \frac{C \alpha^2}{1 - \alpha} = \frac{C \Lambda_m^2}{\Lambda_m^\circ (\Lambda_m^\circ - \Lambda_m)}
+\end{equation}
+
+\subsubsection{3. Determination of Solubility and $K_{sp}$ of Sparingly Soluble Salts}
+Salts such as $\ce{AgCl}, \ce{BaSO4}, \ce{PbSO4}$ are so sparingly soluble in water that their saturated solutions are extremely dilute. Hence, the solution can be treated as being at \textbf{infinite dilution}:
+\begin{equation}
+    \Lambda_m = \Lambda_m^\circ
+\end{equation}
+The experimental conductivity of the salt $\kappa_{\text{salt}}$ is obtained by subtracting the solvent (water) conductivity from the solution conductivity:
+\begin{equation}
+    \kappa_{\text{salt}} = \kappa_{\text{solution}} - \kappa_{\ce{H2O}}
+\end{equation}
+The molar solubility $S$ (in $\text{mol}\cdot\text{L}^{-1}$) is then:
+\begin{equation}
+    \Lambda_m^\circ = \frac{\kappa_{\text{salt}} \times 1000}{S} \implies \boxed{S = \frac{\kappa_{\text{salt}} \times 1000}{\Lambda_m^\circ}}
+\end{equation}
+The solubility product $K_{sp}$ is then calculated according to the dissolution stoichiometry:
+\begin{itemize}
+    \item For $1:1$ salt ($\ce{AgCl}$): $K_{sp} = S^2$.
+    \item For $1:2$ or $2:1$ salt ($\ce{PbCl2}, \ce{Ag2CrO4}$): $K_{sp} = 4S^3$.
+    \item For $1:3$ or $3:1$ salt ($\ce{Al(OH)3}$): $K_{sp} = 27S^4$.
+    \item For $2:3$ salt ($\ce{Fe2(SO4)3}$): $K_{sp} = 108S^5$.
+\end{itemize}
+
+\subsubsection{4. Determination of Ionic Product of Water ($K_w$)}
+Extremely pure water dissociates weakly: $\ce{H2O <=> H+ + OH-}$.
+The conductivity of pure water at $25^\circ\text{C}$ is $\kappa_{\ce{H2O}} = 5.5 \times 10^{-8}\ \text{S}\cdot\text{cm}^{-1}$.
+The limiting molar conductivity of water is:
+\begin{align*}
+    \Lambda_m^\circ(\ce{H2O}) &= \lambda^\circ(\ce{H+}) + \lambda^\circ(\ce{OH-}) = 349.8 + 198.6 = 548.4\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}
+\end{align*}
+The concentration of dissociated ions $[\ce{H+}] = [\ce{OH-}] = c$ is:
+\begin{equation}
+    c = \frac{\kappa_{\ce{H2O}} \times 1000}{\Lambda_m^\circ(\ce{H2O})} = \frac{5.5 \times 10^{-8} \times 1000}{548.4} \approx 1.003 \times 10^{-7}\ \text{mol}\cdot\text{L}^{-1}
+\end{equation}
+Therefore, the ionic product $K_w$ at $298\text{ K}$ is:
+\begin{equation}
+    K_w = [\ce{H+}][\ce{OH-}] = (1.003 \times 10^{-7})^2 \approx 1.0 \times 10^{-14}\ \text{mol}^2\cdot\text{L}^{-2}
+\end{equation}
+
+---
+
+\section{Ionic Mobility, Drift Speed, and Transport Numbers}
+
+\subsection{Ionic Mobility ($u$)}
+Under an applied electric field $E = \frac{V}{l}$ (potential gradient in $\text{V}\cdot\text{cm}^{-1}$), an ion attains a terminal constant drift velocity $v$ (in $\text{cm}\cdot\text{s}^{-1}$) due to balance between the electric driving force ($F_{el} = z_i e E$) and Stokes' frictional drag ($F_{drag} = 6\pi \eta r_i v$).
+
+\textbf{Definition:} The \textbf{ionic mobility} ($u$) is defined as the drift speed of an ion under a unit potential gradient ($1\text{ V}\cdot\text{cm}^{-1}$ or $1\text{ V}\cdot\text{m}^{-1}$):
+\begin{equation}
+    \boxed{u = \frac{v}{E} = \frac{\text{Drift velocity}}{\text{Potential gradient}}} \quad \left(\text{Unit: } \frac{\text{cm}\cdot\text{s}^{-1}}{\text{V}\cdot\text{cm}^{-1}} = \text{cm}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1}\right)
+\end{equation}
+In SI units: $\text{m}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1}$. Note that:
+\begin{equation}
+    1\ \text{m}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1} = 10^4\ \text{cm}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1}
+\end{equation}
+
+\subsection{Fundamental Relation Between $\lambda_m^\circ$ and Ionic Mobility $u^\circ$}
+Consider a cross-section of solution with $1\text{ mole}$ of ions of charge $z_i$ moving across an area under unit electric field. The total charge transported per second corresponds to the limiting ionic conductivity:
+\begin{equation}
+    \boxed{\lambda_m^\circ = z_i u_i^\circ F} \quad \text{and} \quad \boxed{\lambda_{eq}^\circ = u_i^\circ F}
+\end{equation}
+where $F = 96485\ \text{C}\cdot\text{mol}^{-1}$ (Faraday's constant).
+
+\subsection{Transport Number (Transference Number, $t_+$ and $t_-$)}
+\textbf{Definition:} The fraction of the total electric current carried by a particular ionic species is termed its \textbf{transport number}:
+\begin{equation}
+    t_+ = \frac{I_+}{I_{\text{total}}} = \frac{u_+}{u_+ + u_-} = \frac{\lambda_+^\circ}{\Lambda_m^\circ} \quad \text{and} \quad t_- = \frac{I_-}{I_{\text{total}}} = \frac{u_-}{u_+ + u_-} = \frac{\lambda_-^\circ}{\Lambda_m^\circ}
+\end{equation}
+\textbf{Fundamental Identity:}
+\begin{equation}
+    \boxed{t_+ + t_- = 1}
+\end{equation}
+
+\subsection{Hittorf's Rule and Experimental Methods}
+\textbf{Hittorf's Rule:} The loss of concentration around any electrode compartment during electrolysis is directly proportional to the speed (mobility) of the ion that is migrating \emph{away} from that compartment:
+\begin{equation}
+    \frac{\text{Loss of electrolyte around anode}}{\text{Loss of electrolyte around cathode}} = \frac{u_+}{u_-} = \frac{t_+}{t_-}
+\end{equation}
+\begin{equation}
+    t_+ = \frac{\text{Fall in concentration around anode}}{\text{Total fall in concentration around both compartments}} = \frac{\text{Gram-equivalents lost at anode}}{\text{Total gram-equivalents deposited at electrode}}
+\end{equation}
+
+\subsection{The Moving Boundary Method}
+The moving boundary method is the most precise absolute method for determining transport numbers. A sharp optical boundary between two electrolyte solutions having a common ion (e.g., $\ce{HCl}$ as principal electrolyte and $\ce{CdCl2}$ as indicator electrolyte) is observed in a calibrated vertical tube.
+
+If the boundary sweeps through a volume $V$ (in $\text{mL}$) across distance $x$ in a tube of cross-sectional area $S$ ($V = S \cdot x$), containing electrolyte of normality $N$, while a constant current $I$ passes for time $t$ seconds (total charge $Q = I \cdot t$ coulombs):
+\begin{equation}
+    \boxed{t_+ = \frac{V \cdot N \cdot F}{1000 \cdot Q} = \frac{V \cdot N \cdot F}{1000 \cdot I \cdot t}}
+\end{equation}
+
+\subsection{Abnormal Mobilities of $\ce{H^+}$ and $\ce{OH^-}$: The Grotthuss Mechanism}
+In aqueous solution, the limiting molar conductivity of $\ce{H^+}$ ($\approx 349.8\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}$) and $\ce{OH^-}$ ($\approx 198.6\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}$) are extraordinarily higher than all other monovalent cations and anions (e.g., $\lambda^\circ(\ce{Na+}) = 50.1$, $\lambda^\circ(\ce{K+}) = 73.5$, $\lambda^\circ(\ce{Cl-}) = 76.3$).
+
+\begin{conceptbox}[The Grotthuss Proton-Jumping Mechanism]
+Protons do not migrate through bulk water primarily by standard hydrodynamic translational diffusion as hydrated hydronium ions ($\ce{H3O+}$ or $\ce{H9O4+}$). Instead, charge transfer occurs by an ultrafast \textbf{proton-relay or proton-hopping mechanism}:
+\begin{center}
+\ce{H+ - O - H \bond{...} O - H2 \bond{...} O - H2 -> H2O \bond{...} H+ - O - H \bond{...} O - H2}
+\end{center}
+A hydrogen bond between adjacent water molecules rapidly converts into a covalent bond as a proton hops across, transferring positive charge across macroscopic distances almost instantaneously without requiring the individual oxygen atoms to undergo bodily translation. An identical reverse-hop mechanism accounts for the anomalous mobility of the hydroxide ion ($\ce{OH^-}$).
+\end{conceptbox}
+
+---
+
+\section{Conductometric Titrations}
+
+Conductometric titrations determine the equivalence point of a neutralization or precipitation reaction by monitoring the continuous variation of solution conductance as a titrant is added from a burette.
+
+\textbf{Advantages over Indicator Titrations:}
+\begin{itemize}[leftmargin=*]
+    \item Can be performed in turbid, colored, or highly fluorescent solutions where visual indicators fail.
+    \item Highly accurate for extremely weak acids and weak bases where traditional indicators do not give sharp color changes.
+    \item Eliminates subjective human error in visual endpoint detection.
+\end{itemize}
+
+\subsection{Comprehensive Analysis of Conductometric Titration Curves}
+
+\begin{figure}[htbp]
+\centering
+\begin{tikzpicture}[scale=0.95]
+    % (a) Strong Acid vs Strong Base
+    \begin{scope}[shift={(0,5)}]
+        \draw[->, thick] (0,0) -- (4,0) node[right] {\scriptsize $V_{\ce{NaOH}}$};
+        \draw[->, thick] (0,0) -- (0,3) node[above] {\scriptsize Conductance};
+        \draw[line width=1.3pt, primarynavy] (0.2,2.8) -- (1.8,0.5) -- (3.6,2.6);
+        \draw[dashed, red] (1.8,0.5) -- (1.8,0) node[below] {\scriptsize $V_{eq}$};
+        \node at (2, -0.7) {\footnotesize (a) $\ce{HCl} + \ce{NaOH}$};
+    \end{scope}
+
+    % (b) Strong Acid vs Weak Base
+    \begin{scope}[shift={(5.5,5)}]
+        \draw[->, thick] (0,0) -- (4,0) node[right] {\scriptsize $V_{\ce{NH4OH}}$};
+        \draw[->, thick] (0,0) -- (0,3) node[above] {\scriptsize Conductance};
+        \draw[line width=1.3pt, cengagegreen] (0.2,2.8) -- (1.8,0.5) -- (3.6,0.5);
+        \draw[dashed, red] (1.8,0.5) -- (1.8,0) node[below] {\scriptsize $V_{eq}$};
+        \node at (2, -0.7) {\footnotesize (b) $\ce{HCl} + \ce{NH4OH}$};
+    \end{scope}
+
+    % (c) Weak Acid vs Strong Base
+    \begin{scope}[shift={(11,5)}]
+        \draw[->, thick] (0,0) -- (4,0) node[right] {\scriptsize $V_{\ce{NaOH}}$};
+        \draw[->, thick] (0,0) -- (0,3) node[above] {\scriptsize Conductance};
+        \draw[line width=1.3pt, accentamber] (0.2,0.7) to[out=-20,in=190] (0.7,0.5) -- (1.8,1.2) -- (3.6,3.0);
+        \draw[dashed, red] (1.8,1.2) -- (1.8,0) node[below] {\scriptsize $V_{eq}$};
+        \node at (2, -0.7) {\footnotesize (c) $\ce{CH3COOH} + \ce{NaOH}$};
+    \end{scope}
+
+    % (d) Weak Acid vs Weak Base
+    \begin{scope}[shift={(0,0)}]
+        \draw[->, thick] (0,0) -- (4,0) node[right] {\scriptsize $V_{\ce{NH4OH}}$};
+        \draw[->, thick] (0,0) -- (0,3) node[above] {\scriptsize Conductance};
+        \draw[line width=1.3pt, crimsonred] (0.2,0.7) to[out=-20,in=190] (0.7,0.5) -- (1.8,1.2) -- (3.6,1.2);
+        \draw[dashed, red] (1.8,1.2) -- (1.8,0) node[below] {\scriptsize $V_{eq}$};
+        \node at (2, -0.7) {\footnotesize (d) $\ce{CH3COOH} + \ce{NH4OH}$};
+    \end{scope}
+
+    % (e) Mixture of Acids vs Strong Base
+    \begin{scope}[shift={(5.5,0)}]
+        \draw[->, thick] (0,0) -- (4,0) node[right] {\scriptsize $V_{\ce{NaOH}}$};
+        \draw[->, thick] (0,0) -- (0,3) node[above] {\scriptsize Conductance};
+        \draw[line width=1.3pt, violet] (0.2,2.8) -- (1.3,0.8) -- (2.4,1.4) -- (3.6,2.8);
+        \draw[dashed, red] (1.3,0.8) -- (1.3,0) node[below] {\scriptsize $V_1$};
+        \draw[dashed, red] (2.4,1.4) -- (2.4,0) node[below] {\scriptsize $V_2$};
+        \node at (2, -0.7) {\footnotesize (e) $\ce{HCl} + \ce{CH3COOH}$ vs $\ce{NaOH}$};
+    \end{scope}
+
+    % (f) Precipitation: Ba(OH)2 + H2SO4
+    \begin{scope}[shift={(11,0)}]
+        \draw[->, thick] (0,0) -- (4,0) node[right] {\scriptsize $V_{\ce{H2SO4}}$};
+        \draw[->, thick] (0,0) -- (0,3) node[above] {\scriptsize Conductance};
+        \draw[line width=1.3pt, teal] (0.2,2.7) -- (1.8,0.1) -- (3.6,2.7);
+        \draw[dashed, red] (1.8,0.1) -- (1.8,0) node[below] {\scriptsize $V_{eq}$};
+        \node at (2, -0.7) {\footnotesize (f) $\ce{Ba(OH)2} + \ce{H2SO4}$};
+    \end{scope}
+\end{tikzpicture}
+\caption{Master Reference: Conductometric Titration Curves across all classical reaction types.}
+\label{fig:conductometric_curves}
+\end{figure}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Strong Acid vs. Strong Base ($\ce{HCl} + \ce{NaOH}$):}
+    \begin{itemize}
+        \item \emph{Reaction:} $\ce{H+ + Cl- + Na+ + OH- -> Na+ + Cl- + H2O}$
+        \item \emph{Before Equivalence:} Highly mobile $\ce{H+}$ ions ($\lambda^\circ = 349.8$) are progressively replaced by much slower $\ce{Na+}$ ions ($\lambda^\circ = 50.1$). Conductance drops steeply.
+        \item \emph{After Equivalence:} Addition of excess $\ce{NaOH}$ introduces unneutralized $\ce{Na+}$ and fast $\ce{OH-}$ ions ($\lambda^\circ = 198.6$), causing conductance to shoot upward steeply.
+        \item \emph{Curve Shape:} Symmetrical sharp \textbf{V-shape}.
+    \end{itemize}
+
+    \item \textbf{Strong Acid vs. Weak Base ($\ce{HCl} + \ce{NH4OH}$):}
+    \begin{itemize}
+        \item \emph{Before Equivalence:} $\ce{H+}$ ions are replaced by $\ce{NH4+}$ ions ($\lambda^\circ = 73.5$), causing the conductance to drop steeply.
+        \item \emph{After Equivalence:} Excess added $\ce{NH4OH}$ is a weak electrolyte whose dissociation is suppressed by the common ion effect of $\ce{NH4Cl}$ already present. The curve becomes nearly \textbf{horizontal}.
+    \end{itemize}
+
+    \item \textbf{Weak Acid vs. Strong Base ($\ce{CH3COOH} + \ce{NaOH}$):}
+    \begin{itemize}
+        \item \emph{Initial Region:} A small initial drop occurs due to common ion suppression of $\ce{CH3COOH}$ dissociation by the newly formed $\ce{CH3COO-}$.
+        \item \emph{Buffer/Neutralization Region:} As more $\ce{NaOH}$ is added, highly conducting strong electrolyte $\ce{CH3COONa}$ accumulates, increasing the ion count and raising conductance moderately.
+        \item \emph{After Equivalence:} Excess $\ce{NaOH}$ delivers highly mobile $\ce{OH-}$ ions, resulting in a very steep upward break.
+    \end{itemize}
+
+    \item \textbf{Weak Acid vs. Weak Base ($\ce{CH3COOH} + \ce{NH4OH}$):}
+    \begin{itemize}
+        \item Conductance rises moderately up to the equivalence point due to formation of $\ce{CH3COONH4}$, and then remains virtually constant (flat line) because excess $\ce{NH4OH}$ does not dissociate appreciably.
+    \end{itemize}
+
+    \item \textbf{Mixture of Strong Acid and Weak Acid vs. Strong Base ($\ce{HCl} + \ce{CH3COOH}$ vs. $\ce{NaOH}$):}
+    \begin{itemize}
+        \item \emph{First Stage (0 to $V_1$):} $\ce{HCl}$ is neutralized preferentially because its high $[\ce{H+}]$ completely suppresses the dissociation of $\ce{CH3COOH}$. Conductance drops sharply until all $\ce{HCl}$ is consumed at $V_1$.
+        \item \emph{Second Stage ($V_1$ to $V_2$):} $\ce{CH3COOH}$ is neutralized, generating $\ce{CH3COONa}$. Conductance rises moderately until equivalence point $V_2$.
+        \item \emph{Third Stage (beyond $V_2$):} Excess $\ce{NaOH}$ is added, and conductance rises sharply due to free $\ce{OH-}$.
+        \item \emph{Key Formula:} Volume of $\ce{NaOH}$ for $\ce{HCl} = V_1$; Volume of $\ce{NaOH}$ for $\ce{CH3COOH} = V_2 - V_1$.
+    \end{itemize}
+
+    \item \textbf{Precipitation Titration: $\ce{Ba(OH)2} + \ce{H2SO4}$:}
+    \begin{equation}
+        \ce{Ba^2+ + 2OH- + 2H+ + SO4^2- -> BaSO4(s) v + 2H2O(l)}
+    \end{equation}
+    Both ions of the titrand and titrant form an insoluble precipitate ($\ce{BaSO4}$) and unionized water ($\ce{H2O}$). At the exact equivalence point, virtually all ions are removed, and conductance drops almost to \textbf{zero}! Beyond equivalence, excess $\ce{H2SO4}$ rapidly shoots the conductance upward.
+\end{enumerate}
+
+---
+
+\section{Comprehensive Master Solved Illustrations}
+
+\begin{examplebox}[Determination of Sparingly Soluble Salt Solubility \& $K_{sp}$]
+The conductivity of a saturated solution of $\ce{AgCl}$ at $298\text{ K}$ is found to be $3.40 \times 10^{-6}\ \text{S}\cdot\text{cm}^{-1}$, while that of the pure water used to prepare the solution is $1.60 \times 10^{-6}\ \text{S}\cdot\text{cm}^{-1}$. Given the limiting ionic conductivities:
+$\lambda^\circ(\ce{Ag+}) = 61.9\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}$ and $\lambda^\circ(\ce{Cl-}) = 76.3\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}$.
+Calculate:
+\begin{enumerate}[label=(\alph*)]
+    \item The net conductivity of the dissolved $\ce{AgCl}$.
+    \item The molar solubility $S$ of $\ce{AgCl}$ in $\text{mol}\cdot\text{L}^{-1}$ and in $\text{g}\cdot\text{L}^{-1}$ ($M_{\ce{AgCl}} = 143.5\text{ g}\cdot\text{mol}^{-1}$).
+    \item The solubility product constant $K_{sp}$ of $\ce{AgCl}$.
+\end{enumerate}
+\tcblower
+\textbf{Part (a): Net Conductivity of Salt:}
+\begin{align*}
+    \kappa_{\ce{AgCl}} &= \kappa_{\text{solution}} - \kappa_{\ce{H2O}} \\
+    &= 3.40 \times 10^{-6} - 1.60 \times 10^{-6} = 1.80 \times 10^{-6}\ \text{S}\cdot\text{cm}^{-1}
+\end{align*}
+
+\textbf{Part (b): Molar Solubility ($S$):}
+By Kohlrausch's law:
+\begin{equation*}
+    \Lambda_m^\circ(\ce{AgCl}) = \lambda^\circ(\ce{Ag+}) + \lambda^\circ(\ce{Cl-}) = 61.9 + 76.3 = 138.2\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}
+\end{equation*}
+Since the solution is extremely dilute:
+\begin{align*}
+    S &= \frac{\kappa_{\ce{AgCl}} \times 1000}{\Lambda_m^\circ(\ce{AgCl})} = \frac{1.80 \times 10^{-6} \times 1000}{138.2} \\
+    &= 1.302 \times 10^{-5}\ \text{mol}\cdot\text{L}^{-1}
+\end{align*}
+In grams per liter:
+\begin{equation*}
+    S_{\text{g/L}} = S \times M_{\ce{AgCl}} = 1.302 \times 10^{-5} \times 143.5 = 1.869 \times 10^{-3}\ \text{g}\cdot\text{L}^{-1}
+\end{equation*}
+
+\textbf{Part (c): Solubility Product ($K_{sp}$):}
+For the $1:1$ dissolution $\ce{AgCl(s) <=> Ag+ + Cl-}$:
+\begin{equation*}
+    K_{sp} = [\ce{Ag+}][\ce{Cl-}] = S^2 = (1.302 \times 10^{-5})^2 = 1.696 \times 10^{-10}\ \text{mol}^2\cdot\text{L}^{-2}
+\end{equation*}
+\end{examplebox}
+
+\begin{examplebox}[Moving Boundary Transport Number Calculation]
+In a moving boundary experiment to determine the transport number of $\ce{K+}$ in a $0.020\text{ M}$ solution of $\ce{KCl}$, a current of $0.0016\text{ A}$ ($1.6\text{ mA}$) was passed through a tube of internal diameter $4.0\text{ mm}$ for $45\text{ minutes}$ ($2700\text{ seconds}$). The boundary swept through a distance of $5.20\text{ cm}$. Calculate:
+\begin{enumerate}[label=(\alph*)]
+    \item The transport number of the potassium ion ($t_{\ce{K+}}$).
+    \item The transport number of the chloride ion ($t_{\ce{Cl-}}$).
+    \item The ionic mobility ($u_{\ce{K+}}$) if the limiting molar conductivity $\Lambda_m^\circ(\ce{KCl}) = 149.9\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}$.
+\end{enumerate}
+\tcblower
+\textbf{Part (a): Calculation of $t_{\ce{K+}}$:}
+1. Cross-sectional area of tube ($S$):
+Radius $r = \frac{4.0\text{ mm}}{2} = 2.0\text{ mm} = 0.20\text{ cm}$.
+\begin{equation*}
+    S = \pi r^2 = \pi \times (0.20)^2 = 0.04 \pi \approx 0.12566\text{ cm}^2
+\end{equation*}
+2. Volume swept by boundary ($V$):
+\begin{equation*}
+    V = S \times x = 0.12566\text{ cm}^2 \times 5.20\text{ cm} = 0.65345\text{ cm}^3\ (\text{mL})
+\end{equation*}
+3. Total charge passed ($Q$):
+\begin{equation*}
+    Q = I \times t = 1.6 \times 10^{-3}\text{ A} \times 2700\text{ s} = 4.32\text{ C}
+\end{equation*}
+4. Applying the moving boundary equation ($N = 0.020\text{ eq}\cdot\text{L}^{-1}$):
+\begin{align*}
+    t_{\ce{K+}} &= \frac{V \cdot N \cdot F}{1000 \cdot Q} = \frac{0.65345 \times 0.020 \times 96485}{1000 \times 4.32} \\
+    &= \frac{1260.95}{4320} \approx 0.4919 \quad (\approx 0.492)
+\end{align*}
+
+\textbf{Part (b): Transport Number of $\ce{Cl-}$:}
+\begin{equation*}
+    t_{\ce{Cl-}} = 1 - t_{\ce{K+}} = 1 - 0.4919 = 0.5081 \quad (\approx 0.508)
+\end{equation*}
+
+\textbf{Part (c): Ionic Mobility of $\ce{K+}$:}
+The limiting ionic conductivity of $\ce{K+}$ is:
+\begin{equation*}
+    \lambda^\circ(\ce{K+}) = t_{\ce{K+}} \times \Lambda_m^\circ(\ce{KCl}) = 0.4919 \times 149.9 = 73.74\ \text{S}\cdot\text{cm}^2\cdot\text{mol}^{-1}
+\end{equation*}
+Since $\lambda^\circ = u^\circ F$:
+\begin{equation*}
+    u^\circ(\ce{K+}) = \frac{\lambda^\circ(\ce{K+})}{F} = \frac{73.74}{96485} = 7.643 \times 10^{-4}\ \text{cm}^2\cdot\text{V}^{-1}\cdot\text{s}^{-1}
+\end{equation*}
+\end{examplebox}

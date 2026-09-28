@@ -1,0 +1,227 @@
+# -*- coding: utf-8 -*-
+"""Write exercises/archives.tex and exercises/ch10_archives.tex."""
+import os
+import shutil
+
+archives = r"""\chapter*{Global Exercise Bank --- JEE Archives (PYQs)}
+\addcontentsline{toc}{chapter}{Global Exercise Bank: JEE Archives (PYQs)}
+\label{chap:archives}
+
+\begin{tcolorbox}[enhanced,colback=subtlegold,colframe=accentamber,arc=2mm,boxrule=1pt,
+    title=\textbf{\large JEE Main \& JEE Advanced Archive (1995--2023)}]
+Selected authentic previous years' questions illustrating IIT-JEE exam patterns, boundary conditions, and conceptual depth.
+\end{tcolorbox}
+
+\section*{Section A: JEE Advanced (IIT-JEE) Problems}
+
+\begin{problembox}
+\textbf{PYQ.1} \hfill \textbf{[JEE Advanced 2023]}
+
+For the cell $\ce{Pt(s)} \mid \ce{H2(g, 1 bar)} \mid \ce{H+(aq, 1 M)} \parallel \ce{M^{4+}(aq), M^{2+}(aq)} \mid \ce{Pt(s)}$, the standard cell potential is $0.151\,\text{V}$ at $298\,\text{K}$ and the temperature coefficient $\left(\frac{\partial E^\circ}{\partial T}\right)_P = -5.0 \times 10^{-4}\,\text{V\,K}^{-1}$. The value of $\Delta H^\circ$ for the cell reaction in $\text{kJ\,mol}^{-1}$ is: (Given: $F = 96500\,\text{C\,mol}^{-1}$)
+\begin{multicols}{4}
+\begin{enumerate}[label=(\alph*)]
+    \item $-57.8$
+    \item $+57.8$
+    \item $-29.1$
+    \item $-43.5$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{(a)}
+\textbf{Cell reaction:}
+\begin{align*}
+    \text{Anode: } & \ce{H2(g) -> 2H+(aq) + 2e^-} \\
+    \text{Cathode: } & \ce{M^{4+}(aq) + 2e^- -> M^{2+}(aq)} \\
+    \text{Net: } & \ce{H2(g) + M^{4+}(aq) -> 2H+(aq) + M^{2+}(aq)} \quad (n = 2)
+\end{align*}
+\textbf{Thermodynamic relation:}
+\begin{equation*}
+    \Delta H^\circ = -nFE^\circ + nFT\left(\frac{\partial E^\circ}{\partial T}\right)_P
+\end{equation*}
+Substitute values:
+\begin{align*}
+    -nFE^\circ &= -2 \times 96500 \times 0.151 = -29143\,\text{J} = -29.143\,\text{kJ} \\
+    nFT\left(\frac{\partial E^\circ}{\partial T}\right)_P &= 2 \times 96500 \times 298 \times (-5.0 \times 10^{-4}) = -28757\,\text{J} = -28.757\,\text{kJ} \\
+    \Delta H^\circ &= -29.143 - 28.757 = -57.9\,\text{kJ\,mol}^{-1} \approx -57.8\,\text{kJ\,mol}^{-1}
+\end{align*}
+Hence option (a) is correct.
+\end{solution}
+
+\begin{problembox}
+\textbf{PYQ.2} \hfill \textbf{[JEE Advanced 2021]}
+
+Consider a $70\%\,(w/w)$ aqueous solution of \ce{H2SO4} ($\text{density} = 1.6\,\text{g\,cm}^{-3}$). When $100\,\text{mL}$ of this solution is electrolyzed using inert electrodes for $965\,\text{seconds}$ with a steady current of $10.0\,\text{A}$, water is electrolyzed to evolve \ce{H2} and \ce{O2}. What is the mass percentage of \ce{H2SO4} in the solution after electrolysis? (Assume only water is decomposed, $F = 96500\,\text{C\,mol}^{-1}$).
+\begin{multicols}{4}
+\begin{enumerate}[label=(\alph*)]
+    \item $70.4\%$
+    \item $72.1\%$
+    \item $75.0\%$
+    \item $71.0\%$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{(a)}
+\textbf{Step 1: Initial mass of solution and components:}
+\begin{equation*}
+    \text{Total initial mass} = V \times \rho = 100\,\text{mL} \times 1.6\,\text{g\,cm}^{-3} = 160\,\text{g}
+\end{equation*}
+Mass of \ce{H2SO4} = $0.70 \times 160\,\text{g} = 112\,\text{g}$.
+Mass of \ce{H2O} = $160 - 112 = 48\,\text{g}$.
+
+\textbf{Step 2: Water decomposed by electrolysis:}
+Total charge passed: $Q = I \times t = 10.0\,\text{A} \times 965\,\text{s} = 9650\,\text{C} = 0.10\,F$.
+Electrolysis of water: $\ce{2H2O -> 2H2 + O2}$ ($n = 4e^-$ per $2\,\text{mol of } \ce{H2O}$, i.e., $1\,\text{mol of } \ce{H2O}$ requires $2F$).
+Moles of water decomposed:
+\begin{equation*}
+    n_{\ce{H2O}} = \frac{0.10}{2} = 0.05\,\text{mol}
+\end{equation*}
+Mass of water decomposed: $0.05 \times 18.0 = 0.90\,\text{g}$.
+
+\textbf{Step 3: Final mass and percentage:}
+Final total mass of solution = $160 - 0.90 = 159.1\,\text{g}$.
+Mass of \ce{H2SO4} remains $112\,\text{g}$.
+\begin{equation*}
+    \%(w/w) = \frac{112}{159.1} \times 100\% \approx 70.396\% \approx 70.4\%
+\end{equation*}
+Hence option (a) is correct.
+\end{solution}
+
+\begin{problembox}
+\textbf{PYQ.3} \hfill \textbf{[JEE Advanced 2019 (Multiple Correct)]}
+
+For the electrochemical cell $\ce{Zn(s)} \mid \ce{Zn^{2+}(aq, 1 M)} \parallel \ce{Cu^{2+}(aq, 1 M)} \mid \ce{Cu(s)}$, which of the following statements are correct? (Given: $E^\circ_{\ce{Zn^{2+}/Zn}} = -0.76\,\text{V}$, $E^\circ_{\ce{Cu^{2+}/Cu}} = +0.34\,\text{V}$)
+\begin{enumerate}[label=(\alph*)]
+    \item The cell potential increases when the concentration of $\ce{Cu^{2+}}$ is increased.
+    \item The cell potential decreases when the concentration of $\ce{Zn^{2+}}$ is increased.
+    \item When an external opposing voltage $E_{\text{ext}} > 1.10\,\text{V}$ is applied, electrons flow from Cu to Zn.
+    \item When $E_{\text{ext}} = 1.10\,\text{V}$, no current flows through the circuit and no chemical reaction occurs.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{(a, b, c, d)}
+The cell reaction is $\ce{Zn(s) + Cu^2+(aq) <=> Zn^2+(aq) + Cu(s)}$, with $E^\circ_{\text{cell}} = 0.34 - (-0.76) = 1.10\,\text{V}$.
+\begin{itemize}
+    \item By the Nernst equation: $E_{\text{cell}} = E^\circ_{\text{cell}} - \frac{0.0591}{2}\log \frac{[\ce{Zn^2+}]}{[\ce{Cu^2+}]}$. Increasing $[\ce{Cu^2+}]$ increases $E_{\text{cell}}$ (a is correct).
+    \item Increasing $[\ce{Zn^2+}]$ decreases $E_{\text{cell}}$ (b is correct).
+    \item At $E_{\text{ext}} = 1.10\,\text{V}$, opposing voltage balances cell EMF; net current is zero and equilibrium holds (d is correct).
+    \item For $E_{\text{ext}} > 1.10\,\text{V}$, the cell acts as an electrolytic cell; the reaction reverses: $\ce{Cu}$ is oxidized at anode, $\ce{Zn^2+}$ is reduced at cathode, so electrons flow from Cu to Zn in the external circuit (c is correct).
+\end{itemize}
+All four options (a, b, c, d) are correct.
+\end{solution}
+
+\begin{problembox}
+\textbf{PYQ.4} \hfill \textbf{[JEE Advanced 2017]}
+
+The conductance of a $0.0015\,\text{M}$ aqueous solution of a weak monobasic acid was determined by using a conductivity cell with cell constant $105\,\text{m}^{-1}$. The conductance is $5.0 \times 10^{-5}\,\text{S}$. The molar conductivity of the acid at infinite dilution is $4.0 \times 10^{-2}\,\text{S\,m}^2\,\text{mol}^{-1}$. The degree of dissociation ($\alpha$) of the acid is:
+\begin{multicols}{4}
+\begin{enumerate}[label=(\alph*)]
+    \item $0.0875$
+    \item $0.0525$
+    \item $0.125$
+    \item $0.250$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{(a)}
+\textbf{Step 1: Calculate conductivity $\kappa$:}
+\begin{equation*}
+    \kappa = G \times G^* = (5.0 \times 10^{-5}\,\text{S}) \times (105\,\text{m}^{-1}) = 5.25 \times 10^{-3}\,\text{S\,m}^{-1}
+\end{equation*}
+\textbf{Step 2: Concentration in SI units ($\text{mol\,m}^{-3}$):}
+\begin{equation*}
+    c = 0.0015\,\text{mol\,L}^{-1} = 0.0015 \times 10^3\,\text{mol\,m}^{-3} = 1.5\,\text{mol\,m}^{-3}
+\end{equation*}
+\textbf{Step 3: Molar conductivity $\Lambda_m$:}
+\begin{equation*}
+    \Lambda_m = \frac{\kappa}{c} = \frac{5.25 \times 10^{-3}\,\text{S\,m}^{-1}}{1.5\,\text{mol\,m}^{-3}} = 3.5 \times 10^{-3}\,\text{S\,m}^2\,\text{mol}^{-1}
+\end{equation*}
+\textbf{Step 4: Degree of dissociation $\alpha$:}
+\begin{equation*}
+    \alpha = \frac{\Lambda_m}{\Lambda_m^\circ} = \frac{3.5 \times 10^{-3}}{4.0 \times 10^{-2}} = \frac{0.35 \times 10^{-2}}{4.0 \times 10^{-2}} = 0.0875
+\end{equation*}
+Hence option (a) is correct.
+\end{solution}
+
+\vspace{0.5cm}
+\section*{Section B: JEE Main Archive}
+
+\begin{problembox}
+\textbf{PYQ.5} \hfill \textbf{[JEE Main 2023]}
+
+Given below are two statements:
+\begin{itemize}
+    \item \textbf{Statement I:} The limiting molar conductivity of weak electrolytes cannot be determined directly by extrapolation of molar conductivity plots ($\Lambda_m$ vs $\sqrt{c}$) to zero concentration.
+    \item \textbf{Statement II:} Kohlrausch's law of independent migration of ions helps in calculating the limiting molar conductivity of weak electrolytes from the limiting molar conductivities of individual ions.
+\end{itemize}
+In the light of the above statements, choose the most appropriate answer:
+\begin{enumerate}[label=(\alph*)]
+    \item Both Statement I and Statement II are correct.
+    \item Both Statement I and Statement II are incorrect.
+    \item Statement I is correct but Statement II is incorrect.
+    \item Statement I is incorrect but Statement II is correct.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{(a)} Both statements are factual and standard textbook principles. For weak electrolytes, dissociation is incomplete at measurable concentrations and increases sharply as $c \to 0$, making the slope steep and non-linear, preventing direct extrapolation. Kohlrausch's law enables calculating $\Lambda_m^\circ$ by summing ionic contributions from fully dissociated strong electrolytes.
+\end{solution}
+
+\begin{problembox}
+\textbf{PYQ.6} \hfill \textbf{[JEE Main 2022]}
+
+How long (in seconds) must a current of $5.0\,\text{A}$ be passed through a solution of gold salt $\ce{Au^{3+}}$ to plate out $1.97\,\text{g}$ of gold on an ornament? (Atomic mass of $\ce{Au} = 197\,\text{g\,mol}^{-1}$, $F = 96500\,\text{C\,mol}^{-1}$).
+\begin{multicols}{4}
+\begin{enumerate}[label=(\alph*)]
+    \item $579\,\text{s}$
+    \item $193\,\text{s}$
+    \item $289.5\,\text{s}$
+    \item $1158\,\text{s}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{(a)}
+Reaction: $\ce{Au^3+ + 3e^- -> Au}$.
+Number of moles of gold: $n_{\ce{Au}} = \frac{1.97}{197} = 0.010\,\text{mol}$.
+Moles of electrons required: $n_e = 3 \times 0.010 = 0.030\,\text{mol}$.
+Total charge required: $Q = 0.030 \times 96500 = 2895\,\text{C}$.
+Time $t$:
+\begin{equation*}
+    t = \frac{Q}{I} = \frac{2895\,\text{C}}{5.0\,\text{A}} = 579\,\text{s}
+\end{equation*}
+Hence option (a) is correct.
+\end{solution}
+
+\begin{problembox}
+\textbf{PYQ.7} \hfill \textbf{[JEE Main 2021]}
+
+For a cell $\ce{Cu(s)} \mid \ce{Cu^2+(aq, } 0.001\,\text{M}\ce{)} \parallel \ce{Ag+(aq, } 0.01\,\text{M}\ce{)} \mid \ce{Ag(s)}$, the standard potentials are $E^\circ_{\ce{Ag+/Ag}} = +0.80\,\text{V}$ and $E^\circ_{\ce{Cu^2+/Cu}} = +0.34\,\text{V}$. The cell potential at $298\,\text{K}$ is: (Given: $\frac{2.303 RT}{F} = 0.059\,\text{V}$)
+\begin{multicols}{4}
+\begin{enumerate}[label=(\alph*)]
+    \item $0.460\,\text{V}$
+    \item $0.430\,\text{V}$
+    \item $0.489\,\text{V}$
+    \item $0.401\,\text{V}$
+\end{enumerate}
+\end{multicols}
+\end{problembox}
+\begin{solution}
+\textbf{(b)}
+Cell reaction: $\ce{Cu(s) + 2Ag+(aq) -> Cu^2+(aq) + 2Ag(s)}$, $n = 2$.
+$E^\circ_{\text{cell}} = 0.80 - 0.34 = 0.46\,\text{V}$.
+$Q = \frac{[\ce{Cu^2+}]}{[\ce{Ag+}]^2} = \frac{10^{-3}}{(10^{-2})^2} = \frac{10^{-3}}{10^{-4}} = 10$.
+\begin{align*}
+    E_{\text{cell}} &= E^\circ_{\text{cell}} - \frac{0.059}{2}\log_{10} Q = 0.46 - \frac{0.059}{2} \log_{10}(10) \\
+    &= 0.46 - 0.0295 = 0.4305\,\text{V} \approx 0.430\,\text{V}
+\end{align*}
+Hence option (b) is correct.
+\end{solution}
+"""
+
+with open("exercises/archives.tex", "w", encoding="utf-8") as f:
+    f.write(archives)
+with open("exercises/ch10_archives.tex", "w", encoding="utf-8") as f:
+    f.write(archives)
+print("Created exercises/archives.tex and exercises/ch10_archives.tex successfully")

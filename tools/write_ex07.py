@@ -1,0 +1,313 @@
+
+# -*- coding: utf-8 -*-
+ch07_ex = r"""\newpage
+\section{Exhaustive Practice Problem Bank (Chapter 7)}
+\label{sec:ch07_problem_bank}
+
+\begin{tcolorbox}[enhanced,colback=subtlegreen,colframe=cengagegreen,arc=2mm,boxrule=1pt,
+    title=\textbf{\large Chapter 7 Problem Bank}]
+All problems sourced from: \textbf{[GRB]} pp.~37--45, \textbf{[CNG-TH]} pp.~91--110, \textbf{[NA]} pp.~21--43, \textbf{[NRJ]} Ex-I \& II, \textbf{[PRSN]} Sec.~C, \textbf{[CNG-DPP]} DPP-4--5. Full solutions in Complete Solutions Edition.
+\end{tcolorbox}
+
+% ============================================================
+\subsection{7.1 Primary Batteries}
+% ============================================================
+
+\begin{problembox}
+\textbf{Problem 7.1} \hfill \textbf{[GRB Ex-I Q22 / CNG-TH Concept App]}
+
+In the dry cell (Leclanch\'{e} cell), the cathode is:
+\begin{enumerate}[label=(\alph*)]
+    \item Zinc container
+    \item Graphite rod
+    \item Ammonium chloride paste
+    \item Manganese(IV) oxide alone
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct: (b)}
+
+In the dry cell, the \textbf{graphite (carbon) rod} is the cathode, surrounded by a paste of \ce{MnO2} + \ce{NH4Cl}. The cathode reaction: $\ce{2MnO2 + 2NH4+ + 2e- -> Mn2O3 + 2NH3 + H2O}$.\\
+The zinc container is the anode. The carbon rod is the physical cathode contact.
+\end{solution}
+
+\begin{problembox}
+\textbf{Problem 7.2} \hfill \textbf{[CNG-DPP DPP-4 Q2]}
+
+In the mercury button cell, the net cell reaction is:
+\begin{enumerate}[label=(\alph*)]
+    \item \ce{Zn + HgO -> ZnO + Hg}
+    \item \ce{Hg + ZnO -> ZnHgO}
+    \item \ce{Zn + Hg -> ZnHg (amalgam)}
+    \item \ce{ZnO + Hg -> Zn + HgO}
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct: (a)}
+
+Anode: $\ce{Zn + 2OH- -> ZnO + H2O + 2e-}$\\
+Cathode: $\ce{HgO + H2O + 2e- -> Hg + 2OH-}$\\
+Net: $\ce{Zn + HgO -> ZnO + Hg}$
+
+Both electrode products (ZnO, Hg) are solids/liquids of constant activity, hence the voltage remains very stable throughout discharge --- the key advantage of this cell.
+\end{solution}
+
+\begin{problembox}
+\textbf{Problem 7.3} \hfill \textbf{[NRJ Ex-I Q18]}
+
+\textbf{[Assertion--Reason]}
+
+\textbf{Statement-1:} The alkaline battery has a longer shelf life than the Leclanch\'{e} (dry) cell.
+
+\textbf{Statement-2:} In an alkaline battery, the electrolyte is \ce{KOH}(aq), which prevents corrosion of the zinc anode by reducing the rate of local cell action at impurity sites.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Both are true; S-2 is the correct explanation.
+    \item Both are true; S-2 is NOT the correct explanation.
+    \item S-1 is true; S-2 is false.
+    \item S-1 is false; S-2 is true.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct: (a)}
+
+Both statements are true. The alkaline electrolyte (\ce{KOH}) reduces local corrosion of Zn (which occurs readily in acidic \ce{NH4Cl} environment due to local galvanic cells at impurity sites), gives more stable voltage under load, and provides greater total capacity. S-2 correctly explains the mechanism behind S-1.
+\end{solution}
+
+% ============================================================
+\subsection{7.2 Lead-Acid Battery --- Quantitative}
+% ============================================================
+
+\begin{problembox}
+\textbf{Problem 7.4} \hfill \textbf{[NA Level-2 Q22 / CNG-TH Illustration 9]}
+
+During discharge of a lead-acid battery, the density of sulfuric acid decreases from $1.28\,\text{g\,mL}^{-1}$ to $1.10\,\text{g\,mL}^{-1}$. The cell delivers $10\,\text{A}$ for $t$ hours. If the total mass of \ce{H2SO4} consumed per cycle is $29.4\,\text{g}$, find $t$.
+
+[$M_{\ce{H2SO4}} = 98$; for the cell reaction: $\ce{Pb + PbO2 + 2H2SO4 -> 2PbSO4 + 2H2O}$; $n=2$ per mole of cell reaction]
+\end{problembox}
+\begin{solution}
+Moles of \ce{H2SO4} consumed: $29.4/98 = 0.3\,\text{mol}$.
+
+From the net reaction: 2~mol \ce{H2SO4} are consumed per 2~mol $e^-$ transferred ($n=2$ per formula unit).\\
+Moles of electrons = moles of \ce{H2SO4} (1:1 ratio above):
+Actually from: $\ce{Pb + PbO2 + 2H2SO4 -> 2PbSO4 + 2H2O}$ with $n=2$:
+$0.3\,\text{mol}\,\ce{H2SO4} \to 0.3/2 = 0.15\,\text{mol}$ of cell reaction $\to 0.15 \times 2 = 0.3\,\text{mol}\,e^-$\\
+$Q = 0.3 \times 96500 = 28950\,\text{C}$\\
+$t = Q/I = 28950/(10 \times 3600) = \mathbf{0.804\,\text{h} \approx 48.3\,\text{min}}$
+\end{solution}
+
+\begin{problembox}
+\textbf{Problem 7.5} \hfill \textbf{[GRB Numerical Q8 / NRJ Ex-II Q24]}
+
+In a lead-acid battery, during charging, what happens to the density of the sulfuric acid solution? Also, write the net charging reaction.
+\end{problembox}
+\begin{solution}
+During \textbf{charging}, the reverse cell reaction occurs:
+\[\ce{2PbSO4(s) + 2H2O(l) -> Pb(s) + PbO2(s) + 2H2SO4(aq)}\]
+\ce{H2SO4} is \textbf{regenerated} $\to$ concentration increases $\to$ \textbf{density increases}.
+
+This is why measuring the density (specific gravity) with a hydrometer indicates the state of charge:
+\begin{itemize}
+    \item Fully charged: $\rho \approx 1.28\,\text{g\,mL}^{-1}$
+    \item Fully discharged: $\rho \approx 1.10\,\text{g\,mL}^{-1}$
+\end{itemize}
+\end{solution}
+
+\begin{problembox}
+\textbf{Problem 7.6} \hfill \textbf{[NA Level-3 Q15]}
+
+\textbf{[Matrix Match]} Match the cell with its electrode reaction:
+
+\begin{tabular}{ll@{\quad}ll}
+\toprule
+\textbf{Column I (Cell)} & & \textbf{Column II (Anode Reaction)} & \\
+\midrule
+(A) Dry cell & & (p) $\ce{Zn + 2OH- -> ZnO + H2O + 2e-}$ & \\
+(B) Mercury cell & & (q) $\ce{Zn -> Zn^2+ + 2e-}$ & \\
+(C) Lead-acid (discharge) & & (r) $\ce{Pb + SO4^2- -> PbSO4 + 2e-}$ & \\
+(D) Nicad (discharge) & & (s) $\ce{Cd + 2OH- -> Cd(OH)2 + 2e-}$ & \\
+\bottomrule
+\end{tabular}
+\end{problembox}
+\begin{solution}
+(A) $\to$ (q): Dry cell anode = Zn metal in \ce{NH4Cl} (mildly acidic): $\ce{Zn -> Zn^2+ + 2e-}$\\
+(B) $\to$ (p): Mercury cell anode = Zn in alkaline KOH: $\ce{Zn + 2OH- -> ZnO + H2O + 2e-}$\\
+(C) $\to$ (r): Lead-acid discharge anode: $\ce{Pb + SO4^2- -> PbSO4 + 2e-}$\\
+(D) $\to$ (s): Nicad discharge anode: $\ce{Cd + 2OH- -> Cd(OH)2 + 2e-}$
+\end{solution}
+
+% ============================================================
+\subsection{7.3 Fuel Cells and Efficiency}
+% ============================================================
+
+\begin{problembox}
+\textbf{Problem 7.7} \hfill \textbf{[ATK Topic 6C / NRJ Ex-II Q28]}
+
+For the alkaline hydrogen--oxygen fuel cell, the overall reaction is $\ce{H2(g) + \frac{1}{2}O2(g) -> H2O(l)}$ with $\Delta H^\circ = -286\,\text{kJ\,mol}^{-1}$ and $E^\circ_{\text{cell}} = 1.23\,\text{V}$. Calculate the thermodynamic efficiency of this fuel cell.
+\end{problembox}
+\begin{solution}
+$n = 2$ electrons transferred (per mol of \ce{H2}).\\
+$\Delta G^\circ = -nFE^\circ = -2 \times 96500 \times 1.23 = -237.4\,\text{kJ\,mol}^{-1}$\\
+$\eta = \frac{|\Delta G^\circ|}{|\Delta H^\circ|} = \frac{237.4}{286} = 0.830 = \mathbf{83.0\%}$
+
+Compare with a Carnot engine operating between $T_H = 1000\,\text{K}$ and $T_C = 300\,\text{K}$: $\eta_{\text{Carnot}} = 1 - 300/1000 = 70\%$.
+The fuel cell surpasses even this ideal Carnot efficiency because it is not a heat engine.
+\end{solution}
+
+\begin{problembox}
+\textbf{Problem 7.8} \hfill \textbf{[CNG-TH Advanced Q / GRB Ex-I Q29]}
+
+In a PEM fuel cell, protons travel from:
+\begin{enumerate}[label=(\alph*)]
+    \item Cathode through external circuit to anode
+    \item Anode through the Nafion membrane to cathode
+    \item Anode through the external circuit to cathode
+    \item Cathode through the Nafion membrane to anode
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct: (b)}
+
+In a PEM fuel cell:
+\begin{itemize}
+    \item At the anode: $\ce{H2 -> 2H+ + 2e-}$
+    \item \ce{H+} (protons) travel through the \textbf{Nafion polymer membrane} from anode to cathode (the membrane is a selective proton conductor).
+    \item Electrons travel through the external circuit (generating useful current).
+    \item At cathode: $\ce{O2 + 4H+ + 4e- -> 2H2O}$
+\end{itemize}
+\end{solution}
+
+% ============================================================
+\subsection{7.4 Corrosion}
+% ============================================================
+
+\begin{problembox}
+\textbf{Problem 7.9} \hfill \textbf{[GRB Ex-I Q31 / CNG-DPP DPP-5 Q3]}
+
+Rusting of iron requires the simultaneous presence of:
+\begin{enumerate}[label=(\alph*)]
+    \item Oxygen only
+    \item Water only
+    \item Both oxygen and water
+    \item Carbon dioxide only
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct: (c)}
+
+Rusting is an electrochemical process. Both water (as electrolyte/medium) and oxygen (as cathodic oxidant) are required. Pure dry oxygen or pure water alone does not cause rusting. Salt (electrolyte) accelerates rusting by increasing ionic conductivity.
+\end{solution}
+
+\begin{problembox}
+\textbf{Problem 7.10} \hfill \textbf{[NA Level-2 Q30 / NRJ Ex-I Q22]}
+
+A piece of iron is connected to a piece of copper by a wire and immersed in salt water. Which of the following is correct?
+
+\begin{enumerate}[label=(\alph*)]
+    \item Iron acts as cathode and is protected
+    \item Copper corrodes because it is less active
+    \item Iron acts as anode and corrodes preferentially
+    \item Both metals corrode at equal rates
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct: (c)}
+
+$E^\circ(\ce{Fe^2+/Fe}) = -0.44\,\text{V}$ and $E^\circ(\ce{Cu^2+/Cu}) = +0.34\,\text{V}$.\\
+Iron has more negative $E^\circ$, so it is more easily oxidized (more active). Iron acts as the \textbf{anode}: $\ce{Fe -> Fe^2+ + 2e-}$. Copper acts as the cathode: $\ce{O2 + 2H2O + 4e- -> 4OH-}$. Iron corrodes; copper is protected. This is galvanic corrosion, where the less noble metal always acts as the anode.
+\end{solution}
+
+\begin{problembox}
+\textbf{Problem 7.11} \hfill \textbf{[CNG-TH Q / GRB Ex-I Q34]}
+
+\textbf{[Multiple Correct]} Which of the following methods can prevent corrosion of iron?
+
+\begin{enumerate}[label=(\alph*)]
+    \item Coating with zinc (galvanizing)
+    \item Connecting to a copper wire
+    \item Connecting to a magnesium block
+    \item Applying cathodic protection with impressed current
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct: (a), (c), (d)}
+
+(a) Galvanizing: Zn is more active, acts as sacrificial anode. \checkmark\\
+(b) Connecting to Cu: Cu is less active; Fe acts as anode --- corrosion \textit{accelerates}. \texttimes\\
+(c) Magnesium block: Mg ($E^\circ = -2.37\,\text{V}$) is more active than Fe ($-0.44\,\text{V}$); Mg sacrifices itself. \checkmark\\
+(d) Impressed current cathodic protection: makes Fe the cathode; prevents anodic dissolution. \checkmark
+\end{solution}
+
+\begin{problembox}
+\textbf{Problem 7.12} \hfill \textbf{[NRJ Ex-II Q32 / PRSN Ex-II Q17]}
+
+Write the overall reaction for rusting of iron in neutral water and calculate the standard EMF of the corrosion cell. [$E^\circ(\ce{Fe^2+/Fe}) = -0.44\,\text{V}$; $E^\circ(\ce{O2/OH-}) = +0.40\,\text{V}$]
+\end{problembox}
+\begin{solution}
+\textbf{Anode (oxidation):} $\ce{Fe -> Fe^2+ + 2e-}$ ($\times2$)\\
+\textbf{Cathode (reduction):} $\ce{O2 + 2H2O + 4e- -> 4OH-}$\\
+\textbf{Net:} $\ce{2Fe + O2 + 2H2O -> 2Fe^2+ + 4OH- -> 2Fe(OH)2}$\\
+(followed by further oxidation to \ce{Fe(OH)3} and dehydration to \ce{Fe2O3.xH2O} --- rust)
+
+$E^\circ_{\text{cell}} = E^\circ_{\text{cathode}} - E^\circ_{\text{anode}} = +0.40 - (-0.44) = \mathbf{+0.84\,\text{V}}$
+
+Since $E^\circ > 0$, $\Delta G < 0$: corrosion is thermodynamically spontaneous.
+\end{solution}
+
+\begin{problembox}
+\textbf{Problem 7.13} \hfill \textbf{[ATK Physical Chemistry / ESS Advanced]}
+
+\textbf{[Assertion--Reason]}
+
+\textbf{Statement-1:} Aluminum resists corrosion in air, despite having a very negative standard reduction potential ($E^\circ = -1.66\,\text{V}$).
+
+\textbf{Statement-2:} Aluminum forms a thin, adherent, self-repairing oxide layer (\ce{Al2O3}) on its surface that acts as a passivating film, preventing further oxidation.
+
+\begin{enumerate}[label=(\alph*)]
+    \item Both true; S-2 is the correct explanation.
+    \item Both true; S-2 is NOT the correct explanation.
+    \item S-1 true; S-2 false.
+    \item S-1 false; S-2 true.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+\textbf{Correct: (a)}
+
+Both statements are correct, and S-2 correctly explains S-1 via passivation. The Pilling--Bedworth ratio for \ce{Al2O3} ($R \approx 1.28$) ensures the oxide film is protective, adherent, and self-sealing. This is the basis of anodizing, which artificially thickens this layer. The same principle applies to Cr in stainless steel and Ti in titanium alloys.
+\end{solution}
+
+\begin{problembox}
+\textbf{Problem 7.14} \hfill \textbf{[NA Level-3 Q18 / CNG-TH Advanced]}
+
+\textbf{[Comprehension]} A ship hull is made of iron. To prevent corrosion, zinc blocks are attached to the hull below the water line.
+
+(A) What role does the zinc block play?
+\begin{enumerate}[label=(\alph*)]
+    \item It acts as a cathodic protection using impressed current.
+    \item It acts as a sacrificial anode.
+    \item It acts as a barrier coating.
+    \item It increases the electrical resistance of the hull.
+\end{enumerate}
+
+(B) The zinc blocks need to be replaced periodically. Why?
+\begin{enumerate}[label=(\alph*)]
+    \item They become contaminated with rust from the iron.
+    \item They are gradually consumed (corrode away) while protecting the iron.
+    \item The seawater dissolves them chemically without electrochemical action.
+    \item They passivate after prolonged exposure.
+\end{enumerate}
+\end{problembox}
+\begin{solution}
+(A) \textbf{(b) Sacrificial anode.}
+
+$E^\circ(\ce{Zn^2+/Zn}) = -0.76\,\text{V} < E^\circ(\ce{Fe^2+/Fe}) = -0.44\,\text{V}$, so Zn is more active, acts as the anode of the local galvanic cell, and oxidizes preferentially, protecting Fe (the cathode).
+
+(B) \textbf{(b) They are gradually consumed.}
+
+As Zn acts as the sacrificial anode, it undergoes $\ce{Zn -> Zn^2+ + 2e-}$ and is progressively dissolved into the seawater. The zinc blocks must be replaced when significantly depleted; otherwise, the iron hull loses protection and begins to corrode.
+\end{solution}
+"""
+
+with open(r"chapters/exercises_ch07.tex", "w", encoding="utf-8") as f:
+    f.write(ch07_ex)
+print("exercises_ch07 written:", len(ch07_ex), "chars")
