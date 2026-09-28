@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Electrochemistry Mobile Question Picker</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --bg: #090d16;
+      --surface: #111726;
+      --surface-border: #1e293d;
+      --card-bg: #151d30;
+      --card-border: #22304d;
+      --primary: #10b981;
+      --accent: #38bdf8;
+      --text: #f8fafc;
+      --text-muted: #94a3b8;
+      --tag-bg: #1e293b;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', -apple-system, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      padding-bottom: 90px; /* space for sticky footer */
+    }
+
+    header {
+      background: rgba(17, 23, 38, 0.95);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 0.85rem 1.25rem;
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .brand-title {
+      font-size: 1.15rem;
+      font-weight: 700;
+      background: linear-gradient(135deg, #34d399 0%, #38bdf8 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .brand-sub {
+      font-size: 0.72rem;
+      color: var(--text-muted);
+    }
+
+    .badge-count {
+      background: rgba(16, 185, 129, 0.15);
+      border: 1px solid rgba(16, 185, 129, 0.4);
+      color: #34d399;
+      font-weight: 600;
+      padding: 0.25rem 0.65rem;
+      border-radius: 9999px;
+      font-size: 0.8rem;
+    }
+
+    /* Filters drawer / bar */
+    .filter-section {
+      background: var(--surface);
+      border-bottom: 1px solid var(--surface-border);
+      padding: 0.75rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    .search-input, .select-input {
+      width: 100%;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      color: var(--text);
+      padding: 0.6rem 0.8rem;
+      border-radius: 8px;
+      font-size: 0.9rem;
+      outline: none;
+    }
+
+    .filter-row {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .filter-row select {
+      flex: 1;
+    }
+
+    /* Cards */
+    .content-area {
+      padding: 0.75rem 1rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 10px;
+      padding: 1rem;
+      display: flex;
+      gap: 0.85rem;
+      transition: border-color 0.15s;
+    }
+
+    .card.selected {
+      border-color: var(--primary);
+      background: rgba(16, 185, 129, 0.05);
+    }
+
+    .card-checkbox {
+      width: 24px;
+      height: 24px;
+      min-width: 24px;
+      margin-top: 2px;
+      accent-color: var(--primary);
+      cursor: pointer;
+    }
+
+    .card-info {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 0.4rem;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 0.5rem;
+    }
+
+    .card-topic {
+      color: var(--accent);
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .card-source {
+      background: var(--tag-bg);
+      color: var(--text-muted);
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.7rem;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+
+    .card-body {
+      font-size: 0.9rem;
+      line-height: 1.5;
+      color: #e2e8f0;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+
+    /* Sticky Bottom Actions */
+    .mobile-footer {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: rgba(17, 23, 38, 0.96);
+      backdrop-filter: blur(12px);
+      border-top: 1px solid var(--surface-border);
+      padding: 0.75rem 1.25rem;
+      display: flex;
+      gap: 0.75rem;
+      align-items: center;
+      z-index: 100;
+    }
+
+    .btn {
+      padding: 0.7rem 1.2rem;
+      border-radius: 8px;
+      font-size: 0.95rem;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.4rem;
+      transition: all 0.2s;
+    }
+
+    .btn-primary {
+      flex: 1;
+      background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+      color: white;
+      box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+    }
+
+    .btn-secondary {
+      background: var(--card-bg);
+      color: var(--text);
+      border: 1px solid var(--card-border);
+    }
+
+    /* Modal */
+    .modal-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.8);
+      backdrop-filter: blur(5px);
+      z-index: 200;
+      justify-content: center;
+      align-items: center;
+      padding: 1rem;
+    }
+
+    .modal {
+      background: var(--surface);
+      border: 1px solid var(--surface-border);
+      border-radius: 12px;
+      width: 100%;
+      max-width: 500px;
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+  </style>
+  <script src="questions_data.js"></script>
+</head>
+<body>
+
+  <header>
+    <div>
+      <div class="brand-title">Electrochem Mobile</div>
+      <div class="brand-sub">On-The-Road Question Picker</div>
+    </div>
+    <div class="badge-count" id="count-badge">0 Selected</div>
+  </header>
+
+  <div class="filter-section">
+    <input type="text" id="search-box" class="search-input" placeholder="🔍 Search formula, topic, keyword...">
+    <div class="filter-row">
+      <select id="source-filter" class="select-input">
+        <option value="ALL">All Books & Sources</option>
+        <option value="Topic Clusters">Core Topic Clusters</option>
+        <option value="Standard Modules">Standard Modules</option>
+        <option value="Neeraj Kumar">Neeraj Kumar</option>
+        <option value="Narendra Avasthi">Narendra Avasthi</option>
+        <option value="GRB">GRB (O.P. Tandon)</option>
+        <option value="Cengage">Cengage</option>
+        <option value="Pearson">Pearson</option>
+        <option value="Essential">Essential Physical Chemistry</option>
+      </select>
+      <select id="topic-filter" class="select-input">
+        <option value="ALL">All Chapters</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="content-area" id="cards-container">
+    <div style="text-align: center; color: var(--text-muted); padding: 2rem;">Loading questions...</div>
+  </div>
+
+  <div class="mobile-footer">
+    <button class="btn btn-secondary" id="clear-btn">Clear</button>
+    <button class="btn btn-primary" id="open-export-btn">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+      Generate Worksheet
+    </button>
+  </div>
+
+  <!-- Export Dialog -->
+  <div class="modal-overlay" id="export-modal">
+    <div class="modal">
+      <h3 style="font-size: 1.15rem;">Export Custom Selection</h3>
+      <p style="font-size: 0.85rem; color: var(--text-muted);">
+        You selected <strong id="modal-sel-count" style="color:var(--primary);">0</strong> questions.
+      </p>
+
+      <div style="display:flex; flex-direction:column; gap:0.4rem;">
+        <label style="font-size:0.8rem; color:var(--text-muted);">Document Title</label>
+        <input type="text" id="test-title" class="search-input" value="Electrochemistry Practice Sheet">
+      </div>
+
+      <div style="display:flex; gap:0.5rem; align-items:center;">
+        <input type="checkbox" id="include-sol" style="width:18px; height:18px; accent-color:var(--primary);">
+        <label for="include-sol" style="font-size:0.85rem; cursor:pointer;">Include Step-by-Step Solutions</label>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.6rem; margin-top:0.5rem;">
+        <button class="btn btn-primary" id="trigger-github-btn">⚡ Build PDF via GitHub Actions</button>
+        <button class="btn btn-secondary" id="download-tex-btn">📥 Download Standalone .tex File</button>
+        <button class="btn btn-secondary" id="copy-ids-btn">📋 Copy Selection Summary</button>
+      </div>
+
+      <button class="btn btn-secondary" id="close-modal-btn" style="margin-top:0.5rem;">Cancel</button>
+    </div>
+  </div>
+
+  <script>
+    const questions = window.QUESTIONS_DATA || [];
+    let selectedSet = new Set(JSON.parse(localStorage.getItem('mobile_selected_ids') || '[]'));
+
+    // Populate topics
+    const topics = [...new Set(questions.map(q => q.topic))].sort();
+    const topicSelect = document.getElementById('topic-filter');
+    topics.forEach(t => {
+      const opt = document.createElement('option');
+      opt.value = t;
+      opt.textContent = t;
+      topicSelect.appendChild(opt);
+    });
+
+    function saveSelected() {
+      localStorage.setItem('mobile_selected_ids', JSON.stringify(Array.from(selectedSet)));
+      document.getElementById('count-badge').textContent = `${selectedSet.size} Selected`;
+    }
+
+    function render() {
+      const container = document.getElementById('cards-container');
+      container.innerHTML = '';
+
+      const query = document.getElementById('search-box').value.toLowerCase();
+      const sourceVal = document.getElementById('source-filter').value;
+      const topicVal = document.getElementById('topic-filter').value;
+
+      const filtered = questions.filter(q => {
+        if (query && !q.body.toLowerCase().includes(query) && !q.title.toLowerCase().includes(query) && !q.source.toLowerCase().includes(query)) {
+          return false;
+        }
+        if (sourceVal !== 'ALL') {
+          if (sourceVal === 'Topic Clusters' && q.category !== 'Topic Clusters') return false;
+          if (sourceVal === 'Standard Modules' && q.category !== 'Standard Modules') return false;
+          if (sourceVal === 'Neeraj Kumar' && !q.source.includes('Neeraj')) return false;
+          if (sourceVal === 'Narendra Avasthi' && !q.source.includes('NA') && !q.source.includes('Avasthi')) return false;
+          if (sourceVal === 'GRB' && !q.source.includes('GRB')) return false;
+          if (sourceVal === 'Cengage' && !q.source.includes('CNG') && !q.source.includes('Cengage')) return false;
+          if (sourceVal === 'Pearson' && !q.source.includes('Pearson')) return false;
+          if (sourceVal === 'Essential' && !q.source.includes('ESS') && !q.source.includes('Essential')) return false;
+        }
+        if (topicVal !== 'ALL' && q.topic !== topicVal) return false;
+        return true;
+      });
+
+      const displayList = filtered.slice(0, 100);
+
+      displayList.forEach(q => {
+        const isSel = selectedSet.has(q.id);
+        const card = document.createElement('div');
+        card.className = `card ${isSel ? 'selected' : ''}`;
+
+        card.innerHTML = `
+          <input type="checkbox" class="card-checkbox" ${isSel ? 'checked' : ''} data-id="${q.id}">
+          <div class="card-info">
+            <div class="card-header">
+              <span class="card-topic">${q.topic}</span>
+              <span class="card-source">${q.source || q.title}</span>
+            </div>
+            <div class="card-body">${q.body.length > 300 ? q.body.substring(0, 300) + '...' : q.body}</div>
+          </div>
+        `;
+
+        const chk = card.querySelector('.card-checkbox');
+        chk.addEventListener('change', (e) => {
+          if (e.target.checked) {
+            selectedSet.add(q.id);
+            card.classList.add('selected');
+          } else {
+            selectedSet.delete(q.id);
+            card.classList.remove('selected');
+          }
+          saveSelected();
+        });
+
+        container.appendChild(card);
+      });
+
+      if (filtered.length > 100) {
+        const note = document.createElement('div');
+        note.style.textAlign = 'center';
+        note.style.color = 'var(--text-muted)';
+        note.style.fontSize = '0.85rem';
+        note.textContent = `Showing first 100 of ${filtered.length} matches. Search to refine.`;
+        container.appendChild(note);
+      }
+    }
+
+    document.getElementById('search-box').addEventListener('input', render);
+    document.getElementById('source-filter').addEventListener('change', render);
+    document.getElementById('topic-filter').addEventListener('change', render);
+
+    document.getElementById('clear-btn').addEventListener('click', () => {
+      selectedSet.clear();
+      saveSelected();
+      render();
+    });
+
+    // Modal
+    const modal = document.getElementById('export-modal');
+    document.getElementById('open-export-btn').addEventListener('click', () => {
+      if (selectedSet.size === 0) {
+        alert('Please select at least 1 question first!');
+        return;
+      }
+      document.getElementById('modal-sel-count').textContent = selectedSet.size;
+      modal.style.display = 'flex';
+    });
+
+    document.getElementById('close-modal-btn').addEventListener('click', () => {
+      modal.style.display = 'none';
+    });
+
+    // Generate .tex file for direct download on mobile
+    document.getElementById('download-tex-btn').addEventListener('click', () => {
+      const qMap = {};
+      questions.forEach(q => qMap[q.id] = q);
+      const sel = Array.from(selectedSet).map(id => qMap[id]).filter(Boolean);
+      const title = document.getElementById('test-title').value;
+      const inclSol = document.getElementById('include-sol').checked;
+
+      let tex = `\\documentclass[11pt,a4paper,oneside]{article}\n\\usepackage{amsmath,amssymb,geometry,tcolorbox}\n\\geometry{margin=1in}\n\\begin{document}\n\\begin{center}\n{\\Huge\\bfseries ${title}\\par}\n\\vspace{0.4cm}\n{\\large Selected Problem Set: ${sel.length} Questions\\par}\n\\hrule\n\\vspace{0.5cm}\n\\end{center}\n\n`;
+
+      sel.forEach((q, idx) => {
+        tex += `\\subsection*{Question ${idx + 1} [${q.source || q.title}]}\n${q.body}\n\\vspace{0.3cm}\n`;
+        if (inclSol && q.solution) {
+          tex += `\\textbf{Solution:}\n${q.solution}\n\\vspace{0.3cm}\n`;
+        }
+      });
+      tex += `\\end{document}`;
+
+      const blob = new Blob([tex], { type: 'text/plain' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = `${title.toLowerCase().replace(/\\s+/g, '_')}.tex`;
+      a.click();
+    });
+
+    document.getElementById('copy-ids-btn').addEventListener('click', () => {
+      const text = `Selected Question IDs: [${Array.from(selectedSet).join(', ')}]`;
+      navigator.clipboard.writeText(text).then(() => {
+        alert('Copied question IDs to clipboard!');
+      });
+    });
+
+    saveSelected();
+    render();
+  </script>
+</body>
+</html>
