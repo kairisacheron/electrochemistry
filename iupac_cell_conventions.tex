@@ -1,0 +1,691 @@
+\documentclass[11pt,a4paper]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{textcomp}
+\usepackage[margin=1in,headheight=14pt]{geometry}
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{tcolorbox}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{microtype}
+\usepackage{enumitem}
+
+\definecolor{primaryblue}{RGB}{20, 50, 110}
+\definecolor{rulecolor}{RGB}{30, 90, 160}
+\definecolor{boxbg}{RGB}{245, 248, 253}
+\definecolor{boxframe}{RGB}{180, 205, 235}
+\definecolor{alertred}{RGB}{170, 30, 30}
+
+\hypersetup{
+    colorlinks=true,
+    linkcolor=primaryblue,
+    urlcolor=primaryblue,
+    citecolor=primaryblue
+}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{\textbf{IUPAC Electrochemical Cell Representation \& Conventions}}
+\rhead{\thepage}
+\renewcommand{\headrulewidth}{0.6pt}
+
+\tcolorboxenvironment{definitionbox}{
+    colback=boxbg,
+    colframe=boxframe,
+    arc=3mm,
+    boxrule=1pt,
+    left=10pt,
+    right=10pt,
+    top=8pt,
+    bottom=8pt
+}
+
+\newtcolorbox{rulebox}[1]{
+    colback=boxbg,
+    colframe=rulecolor,
+    fonttitle=\bfseries\color{white},
+    title=#1,
+    arc=2mm,
+    boxrule=1pt
+}
+
+\newtcolorbox{examplebox}[1]{
+    colback=white,
+    colframe=primaryblue,
+    fonttitle=\bfseries\color{white},
+    title=#1,
+    arc=2mm,
+    boxrule=1pt
+}
+
+\title{\textbf{\LARGE Comprehensive Treatise on IUPAC Electrochemical Cell Conventions, Notations, and Morphological Taxonomy}}
+\author{\textbf{Rigorous Chemical Nomenclature \& Physical Electrochemistry Compendium}}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+\begin{abstract}
+This monograph presents the formal IUPAC (International Union of Pure and Applied Chemistry) standards governing electrochemical cell notation, boundary typologies, and half-cell representations. Every standard, non-standard, and unconventional electrochemical system---spanning metal--ion, insoluble salt, gas, soluble redox, amalgam, insoluble oxide, concentration, membrane/ion-selective, organic redox, and solid-state/molten systems---is cataloged. Crucially, each representation is dissected via a microscopic, bit-by-bit anatomical parsing that explicitly links every vertical line, comma, phase marker, concentration term, and electrode conductor to its underlying IUPAC mandate.
+\end{abstract}
+
+\tableofcontents
+\newpage
+
+\section{Fundamental IUPAC Rules and Axioms of Cell Notation}
+
+The IUPAC Commission on Electrochemistry codified the shorthand representation of galvanic and electrolytic cells to ensure unambiguous reporting of thermodynamic quantities ($\Delta G$, $E_{\text{cell}}$) and interface phenomena.
+
+\begin{rulebox}{Axiom 1: Vector of Electron Flow and Spatial Orientation}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Left-Hand Electrode (Anode / Oxidation site):} The electrode where oxidation occurs spontaneously under standard galvanic discharge is drawn on the \textbf{LEFT}.
+    \item \textbf{Right-Hand Electrode (Cathode / Reduction site):} The electrode where reduction occurs spontaneously is drawn on the \textbf{RIGHT}.
+    \item \textbf{External Electron Transit:} Electrons flow spontaneously through the external measurement circuit from \textbf{Left to Right} ($\text{Anode} \xrightarrow{e^-} \text{Cathode}$).
+    \item \textbf{Sign Convention for Cell Potential:} The cell potential $E_{\text{cell}}$ is defined by IUPAC as:
+    \begin{equation}
+        E_{\text{cell}} = E_{\text{right}} - E_{\text{left}} = E_{\text{cathode}} - E_{\text{anode}}
+    \end{equation}
+    where both $E_{\text{right}}$ and $E_{\text{left}}$ are standard reduction potentials. A positive $E_{\text{cell}}$ denotes thermodynamic spontaneity ($\Delta G = -nFE_{\text{cell}} < 0$) in the direction written from left to right.
+\end{itemize}
+\end{rulebox}
+
+\begin{rulebox}{Axiom 2: Boundary and Interface Typology}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Single Vertical Line ($\mid$):} Denotes a \textit{phase boundary} across which an interfacial potential difference develops (e.g., solid-liquid, solid-solid, liquid-gas).
+    \item \textbf{Double Vertical Line ($\parallel$):} Denotes a \textit{salt bridge} or electrolyte junction where the liquid junction potential ($E_j$) has been experimentally eliminated or made thermodynamically negligible ($E_j \approx 0$).
+    \item \textbf{Dotted/Dashed Line or Colon ($:$ or \textbrokenbar):} Denotes a \textit{liquid-liquid boundary} where two miscible electrolyte solutions are in direct physical contact, with a non-zero, measurable liquid junction potential ($E_j \neq 0$).
+    \item \textbf{Comma ($,$):} Denotes species that exist within the \textit{same continuous phase} (e.g., two soluble redox ions in an aqueous solution, or multiple gaseous species at a common interface).
+\end{itemize}
+\end{rulebox}
+
+\begin{rulebox}{Axiom 3: Sequence of Species Within Half-Cells}
+\begin{itemize}[leftmargin=*]
+    \item \textbf{Outward-Inward Progression:} The external electrical terminal contacts (metallic current collectors or inert conductors) must occupy the absolute extremities of the diagram (the far left for the anode, the far right for the cathode).
+    \item Moving from the far left inward toward the center corresponds to traversing the anode half-cell from solid conductor $\rightarrow$ intermediate phases $\rightarrow$ electrolyte phase.
+    \item Traversing from the center outward toward the far right corresponds to moving from electrolyte phase $\rightarrow$ intermediate phases $\rightarrow$ solid conductor of the cathode.
+\end{itemize}
+\end{rulebox}
+
+\begin{rulebox}{Axiom 4: Phase and State Specification}
+\begin{itemize}[leftmargin=*]
+    \item Every constituent species must be accompanied by its state of aggregation in parentheses: $(s)$ for solid, $(l)$ for liquid, $(g)$ for gas, $(aq)$ for aqueous solution, and $(\text{amalgam})$ or $(\text{Hg})$ for metal amalgams.
+    \item For thermodynamic exactness, the activity $a_i$, molality $m_i$, molarity $c_i$, or partial pressure $p_i$ must be explicitly denoted within the parentheses, e.g., $\text{Zn}^{2+}(aq,\, a=0.05)$ or $\text{H}_2(g,\, 1.0\text{ bar})$.
+\end{itemize}
+\end{rulebox}
+
+\begin{rulebox}{Axiom 5: Role of Inert Electron Collectors}
+\begin{itemize}[leftmargin=*]
+    \item When a redox half-reaction involves exclusively non-conductive phases (such as dissolved ions, gases, or non-conductive liquids/organics), an inert electronic conductor ($\text{Pt}$, $\text{Au}$, or $\text{C}(\text{graphite})$) must be physically positioned as the terminal phase to provide an electron source/sink.
+\end{itemize}
+\end{rulebox}
+
+\newpage
+\section{Exhaustive Typology \& Bit-by-Bit Analytical Parsing}
+
+Below, every conceivable electrochemical cell type is subjected to a microscopic anatomical deconstruction. For each system, we provide:
+\begin{enumerate}[label=(\alph*)]
+    \item The full IUPAC symbolic notation.
+    \item The half-cell and net cell reaction equations.
+    \item A segment-by-segment lexical dissection indicating exactly which IUPAC rule mandates each symbol.
+\end{enumerate}
+
+% -------------------------------------------------------------
+\subsection{Category 1: Metal--Metal Ion Electrodes (The Classical Daniell Cell)}
+\begin{examplebox}{System 1.1: Standard Daniell Galvanic Cell}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Zn}(s) \mid \text{Zn}^{2+}(aq,\, a_{\text{Zn}^{2+}}) \parallel \text{Cu}^{2+}(aq,\, a_{\text{Cu}^{2+}}) \mid \text{Cu}(s)
+\end{equation*}
+
+\textbf{Half-Cell and Overall Reactions:}
+\begin{align*}
+    \text{Anode (Oxidation):} \quad & \text{Zn}(s) \longrightarrow \text{Zn}^{2+}(aq) + 2e^- \\
+    \text{Cathode (Reduction):} \quad & \text{Cu}^{2+}(aq) + 2e^- \longrightarrow \text{Cu}(s) \\
+    \text{Net Cell Reaction:} \quad & \text{Zn}(s) + \text{Cu}^{2+}(aq) \longrightarrow \text{Zn}^{2+}(aq) + \text{Cu}(s)
+\end{align*}
+
+\textbf{Bit-by-Bit IUPAC Rule Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Zn(s)}$: \textit{Terminal electronic conductor of the anode}. Placed at the extreme left per \textbf{Axiom 1} (anode convention) and \textbf{Axiom 3} (terminal contact at extremity). State $(s)$ specifies solid state per \textbf{Axiom 4}.
+    \item $\mathbf{\mid}$ (First): \textit{Solid-Liquid Phase Boundary}. Mandated by \textbf{Axiom 2} because the solid zinc electrode is in direct contact with the aqueous electrolyte solution.
+    \item $\mathbf{Zn^{2+}(aq,\, a_{\text{Zn}^{2+}})}$: \textit{Anolyte oxidized species}. Specifies the zinc cations dissolved in aqueous medium with explicit thermodynamic activity $a_{\text{Zn}^{2+}}$ per \textbf{Axiom 4}.
+    \item $\mathbf{\parallel}$: \textit{Eliminated Junction / Salt Bridge}. Mandated by \textbf{Axiom 2}. A potassium chloride or agar-agar bridge prevents physical mixing of bulk electrolytes while keeping liquid junction potential $E_j \approx 0$.
+    \item $\mathbf{Cu^{2+}(aq,\, a_{\text{Cu}^{2+}})}$: \textit{Catholyte reducible species}. Positioned directly to the right of the salt bridge, representing the aqueous ion undergoing reduction.
+    \item $\mathbf{\mid}$ (Second): \textit{Liquid-Solid Phase Boundary}. Mandated by \textbf{Axiom 2} between the aqueous catholyte and the solid copper electrode.
+    \item $\mathbf{Cu(s)}$: \textit{Terminal electronic conductor of the cathode}. Positioned at the extreme right per \textbf{Axiom 1} (cathode at right) and \textbf{Axiom 3} (terminal contact).
+\end{itemize}
+\end{examplebox}
+
+% -------------------------------------------------------------
+\subsection{Category 2: Metal--Insoluble Salt--Anion Electrodes (Second-Kind Electrodes)}
+These electrodes feature a metal in direct contact with a sparingly soluble salt of that metal, which is bathed in an electrolyte containing the salt's common anion.
+
+\begin{examplebox}{System 2.1: Silver--Silver Chloride Half-Cell Coupled with Standard Hydrogen Electrode}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Pt}(s) \mid \text{H}_2(g,\, p) \mid \text{H}^+(aq,\, a_{\text{H}^+}) \parallel \text{Cl}^-(aq,\, a_{\text{Cl}^-}) \mid \text{AgCl}(s) \mid \text{Ag}(s)
+\end{equation*}
+
+\textbf{Half-Cell and Overall Reactions:}
+\begin{align*}
+    \text{Anode:} \quad & \tfrac{1}{2}\text{H}_2(g) \longrightarrow \text{H}^+(aq) + e^- \\
+    \text{Cathode:} \quad & \text{AgCl}(s) + e^- \longrightarrow \text{Ag}(s) + \text{Cl}^-(aq) \\
+    \text{Net Cell:} \quad & \tfrac{1}{2}\text{H}_2(g) + \text{AgCl}(s) \longrightarrow \text{H}^+(aq) + \text{Cl}^-(aq) + \text{Ag}(s)
+\end{align*}
+
+\textbf{Bit-by-Bit IUPAC Rule Parsing (Cathode Focus):}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{\parallel}$: \textit{Salt Bridge} separating anolyte and catholyte.
+    \item $\mathbf{Cl^-(aq,\, a_{\text{Cl}^-})}$: \textit{Aqueous common anion phase}. Under \textbf{Axiom 3}, this solution faces the central cell junction.
+    \item $\mathbf{\mid}$: \textit{Solution-Solid Phase Boundary} separating dissolved chloride ions from crystalline solid $\text{AgCl}$.
+    \item $\mathbf{AgCl(s)}$: \textit{Intermediate sparingly soluble salt phase}. Placed between the common anion electrolyte and the base metal.
+    \item $\mathbf{\mid}$: \textit{Solid-Solid Interfacial Phase Boundary}. Separates the non-conducting/semiconducting $\text{AgCl}(s)$ crystal coat from metallic silver.
+    \item $\mathbf{Ag(s)}$: \textit{Metallic conductor / Terminal cathode contact}. Placed at the extreme right per \textbf{Axiom 1 \& 3}.
+\end{itemize}
+\end{examplebox}
+
+\begin{examplebox}{System 2.2: Saturated Calomel Electrode (SCE) as Anode}
+\textbf{IUPAC Half-Cell Notation (as Anode):}
+\begin{equation*}
+    \text{Hg}(l) \mid \text{Hg}_2\text{Cl}_2(s) \mid \text{Cl}^-(aq,\, \text{sat. KCl}) \parallel \dots
+\end{equation*}
+
+\textbf{Anodic Reaction:}
+\begin{equation*}
+    2\text{Hg}(l) + 2\text{Cl}^-(aq) \longrightarrow \text{Hg}_2\text{Cl}_2(s) + 2e^-
+\end{equation*}
+
+\textbf{Bit-by-Bit Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Hg(l)}$: \textit{Liquid metallic electron conductor}. Placed on the extreme left. Liquid state denoted by $(l)$ per \textbf{Axiom 4}.
+    \item $\mathbf{\mid}$: \textit{Liquid-Solid Phase Boundary} between liquid mercury pool and solid mercurous chloride paste.
+    \item $\mathbf{Hg_2Cl_2(s)}$: \textit{Insoluble salt layer (calomel)} resting over the mercury.
+    \item $\mathbf{\mid}$: \textit{Solid-Liquid Phase Boundary} between solid calomel paste and the potassium chloride electrolyte.
+    \item $\mathbf{Cl^-(aq,\, \text{sat. KCl})}$: \textit{Electrolyte solution with fixed chloride activity} saturated with potassium chloride.
+\end{itemize}
+\end{examplebox}
+
+% -------------------------------------------------------------
+\subsection{Category 3: Gas Electrodes}
+Gas electrodes require a catalytic, chemically inert solid phase (typically platinized platinum) to facilitate electron transfer.
+
+\begin{examplebox}{System 3.1: Standard Hydrogen Electrode (SHE) coupled with Chlorine Gas Cathode}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Pt}(s) \mid \text{H}_2(g,\, p_{\text{H}_2}) \mid \text{H}^+(aq,\, a_{\text{H}^+}) \parallel \text{Cl}^-(aq,\, a_{\text{Cl}^-}) \mid \text{Cl}_2(g,\, p_{\text{Cl}_2}) \mid \text{Pt}(s)
+\end{equation*}
+
+\textbf{Bit-by-Bit IUPAC Rule Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Pt(s)}$ (Far Left): \textit{Inert conductor}. Mandated by \textbf{Axiom 5} because $\text{H}_2(g)$ cannot serve as a rigid electron terminal.
+    \item $\mathbf{\mid}$: \textit{Solid-Gas Boundary} where platinum is bathed in hydrogen gas.
+    \item $\mathbf{H_2(g,\, p_{\text{H}_2})}$: \textit{Gaseous reactant} with defined partial pressure $p$ in bar.
+    \item $\mathbf{\mid}$: \textit{Gas-Liquid Boundary} where $\text{H}_2$ gas interfaces with aqueous hydronium ions.
+    \item $\mathbf{H^+(aq,\, a_{\text{H}^+})}$: \textit{Hydronium ion anolyte}.
+    \item $\mathbf{\parallel}$: \textit{Salt Bridge}.
+    \item $\mathbf{Cl^-(aq,\, a_{\text{Cl}^-})}$: \textit{Chloride ion catholyte}.
+    \item $\mathbf{\mid}$: \textit{Liquid-Gas Boundary}.
+    \item $\mathbf{Cl_2(g,\, p_{\text{Cl}_2})}$: \textit{Gaseous oxidant}.
+    \item $\mathbf{\mid}$: \textit{Gas-Solid Boundary}.
+    \item $\mathbf{Pt(s)}$ (Far Right): \textit{Inert cathode current collector}.
+\end{itemize}
+\end{examplebox}
+
+% -------------------------------------------------------------
+\subsection{Category 4: Homogeneous Redox Electrodes}
+Systems where both reduced and oxidized forms reside within the same homogeneous phase.
+
+\begin{examplebox}{System 4.1: Iron(II)/Iron(III) coupled with Cerium(IV)/Cerium(III)}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Pt}(s) \mid \text{Fe}^{2+}(aq),\, \text{Fe}^{3+}(aq) \parallel \text{Ce}^{4+}(aq),\, \text{Ce}^{3+}(aq) \mid \text{Pt}(s)
+\end{equation*}
+
+\textbf{Reactions:}
+\begin{align*}
+    \text{Anode:} \quad & \text{Fe}^{2+}(aq) \longrightarrow \text{Fe}^{3+}(aq) + e^- \\
+    \text{Cathode:} \quad & \text{Ce}^{4+}(aq) + e^- \longrightarrow \text{Ce}^{3+}(aq)
+\end{align*}
+
+\textbf{Bit-by-Bit IUPAC Rule Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Pt(s)}$: \textit{Inert electron sink}. Essential per \textbf{Axiom 5}.
+    \item $\mathbf{\mid}$: \textit{Phase boundary} between solid platinum and the single aqueous solution.
+    \item $\mathbf{Fe^{2+}(aq),\, Fe^{3+}(aq)}$: \textit{Homogeneous redox couple separated by a COMMA}. Mandated by \textbf{Axiom 2}; using a vertical line $\mid$ between $\text{Fe}^{2+}$ and $\text{Fe}^{3+}$ is strictly incorrect because both ions are co-dissolved in the exact same water phase.
+    \item $\mathbf{\parallel}$: \textit{Salt Bridge}.
+    \item $\mathbf{Ce^{4+}(aq),\, Ce^{3+}(aq)}$: \textit{Catholyte redox couple separated by a COMMA} for identical phase continuity reasons.
+    \item $\mathbf{\mid Pt(s)}$: \textit{Phase boundary} to inert platinum cathode collector.
+\end{itemize}
+\end{examplebox}
+
+\begin{examplebox}{System 4.2: Acidic Permanganate Multi-Species Redox System}
+\textbf{IUPAC Half-Cell Notation (Cathodic Reduction):}
+\begin{equation*}
+    \dots \parallel \text{MnO}_4^-(aq),\, \text{Mn}^{2+}(aq),\, \text{H}^+(aq) \mid \text{Pt}(s)
+\end{equation*}
+
+\textbf{Bit-by-Bit Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{MnO_4^-(aq),\, Mn^{2+}(aq),\, H^+(aq)}$: All three active chemical participants are co-present in the same aqueous solution. Under \textbf{Axiom 2}, all are separated by \textbf{commas}. Protons $\text{H}^+$ must be listed because they participate directly in the stoichiometry:
+    \begin{equation*}
+        \text{MnO}_4^- + 8\text{H}^+ + 5e^- \longrightarrow \text{Mn}^{2+} + 4\text{H}_2\text{O}
+    \end{equation*}
+\end{itemize}
+\end{examplebox}
+
+% -------------------------------------------------------------
+\subsection{Category 5: Metal Amalgam Electrodes}
+Amalgams consist of reactive metals dissolved in liquid mercury. They allow electrochemical interrogation of alkali/alkaline-earth metals without spontaneous explosive reactions with water.
+
+\begin{examplebox}{System 5.1: Sodium Amalgam Concentration Cell}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Na}(\text{amalgam},\, a_1) \mid \text{Na}^+(aq,\, c) \mid \text{Na}(\text{amalgam},\, a_2) \quad \text{with } a_1 > a_2
+\end{equation*}
+
+\textbf{Bit-by-Bit IUPAC Rule Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Na(\text{amalgam},\, a_1)}$: Solid/liquid alloy of sodium dissolved in mercury at activity $a_1$. Acts as its own conductor. Placed at the anode extremity.
+    \item $\mathbf{\mid}$: \textit{Phase boundary} between metal amalgam phase and aqueous electrolyte.
+    \item $\mathbf{Na^+(aq,\, c)}$: Common aqueous electrolyte uniting both half-cells. Notice: \textit{no salt bridge} ($\parallel$) is present because both amalgam electrodes dip into the \textbf{same} electrolyte solution.
+    \item $\mathbf{\mid}$: \textit{Phase boundary} from common electrolyte into cathodic amalgam.
+    \item $\mathbf{Na(\text{amalgam},\, a_2)}$: Cathodic sodium amalgam at lower thermodynamic activity $a_2$. Spontaneous transfer proceeds from high activity to low activity.
+\end{itemize}
+\end{examplebox}
+
+% -------------------------------------------------------------
+\subsection{Category 6: Insoluble Metal Oxide / Hydroxide Electrodes}
+\begin{examplebox}{System 6.1: Antimony pH-Sensing Electrode coupled with Saturated Calomel}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Sb}(s) \mid \text{Sb}_2\text{O}_3(s) \mid \text{H}^+(aq,\, a_{\text{H}^+}) \parallel \text{Cl}^-(aq,\, \text{sat.}) \mid \text{Hg}_2\text{Cl}_2(s) \mid \text{Hg}(l)
+\end{equation*}
+
+\textbf{Bit-by-Bit Parsing (Anode):}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Sb(s)}$: Pure metalloid antimony serving as structural base and electronic conductor.
+    \item $\mathbf{\mid}$: \textit{Phase boundary} between elemental antimony and its solid oxide crust.
+    \item $\mathbf{Sb_2O_3(s)}$: Insoluble oxide layer participating in the hydration/dissolution equilibrium:
+    \begin{equation*}
+        \text{Sb}_2\text{O}_3(s) + 6\text{H}^+(aq) + 6e^- \rightleftharpoons 2\text{Sb}(s) + 3\text{H}_2\text{O}(l)
+    \end{equation*}
+    \item $\mathbf{\mid}$: \textit{Solid-Liquid boundary} into the analyte solution whose $\text{pH}$ is being determined.
+\end{itemize}
+\end{examplebox}
+
+\begin{examplebox}{System 6.2: Complete Lead-Acid Secondary Cell (Discharge State)}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Pb}(s) \mid \text{PbSO}_4(s) \mid \text{H}_2\text{SO}_4(aq,\, m) \mid \text{PbSO}_4(s) \mid \text{PbO}_2(s) \mid \text{Pb}(s)
+\end{equation*}
+
+\textbf{Bit-by-Bit Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Pb(s)}$ (Left): Lead sponge anode current collector.
+    \item $\mathbf{\mid PbSO_4(s)}$: Insoluble lead sulfate formed on anode during oxidation.
+    \item $\mathbf{\mid H_2SO_4(aq,\, m)}$: Shared aqueous sulfuric acid electrolyte. Single lines on both sides because both electrodes share the same bulk liquid without a diaphragm.
+    \item $\mathbf{PbSO_4(s) \mid}$: Lead sulfate precipitation layer on cathode.
+    \item $\mathbf{PbO_2(s)}$: Insoluble lead(IV) oxide depolarizer.
+    \item $\mathbf{\mid Pb(s)}$ (Right): Supporting lead grid current collector serving as terminal cathode contact.
+\end{itemize}
+\end{examplebox}
+
+% -------------------------------------------------------------
+\subsection{Category 7: Concentration Cells}
+Concentration cells derive their electromotive force solely from differences in activity or partial pressure.
+
+\begin{examplebox}{System 7.1: Electrolyte Concentration Cell WITH Transference (Liquid Junction)}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Ag}(s) \mid \text{AgNO}_3(aq,\, a_1) : \text{AgNO}_3(aq,\, a_2) \mid \text{Ag}(s) \quad (a_2 > a_1)
+\end{equation*}
+
+\textbf{Bit-by-Bit Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Ag(s)}$ (Left): Anodic silver electrode undergoing dissolution ($\text{Ag} \rightarrow \text{Ag}^+ + e^-$).
+    \item $\mathbf{\mid AgNO_3(aq,\, a_1)}$: Anolyte of lower activity.
+    \item $\mathbf{:}$ (Colon / Dashed Line): \textit{Direct Liquid-Liquid Junction with Transference}. Mandated by \textbf{Axiom 2}. Ions freely migrate across this boundary governed by their transport numbers ($t_+, t_-$), establishing a finite liquid junction potential $E_j$.
+    \item $\mathbf{AgNO_3(aq,\, a_2)}$: Catholyte of higher activity.
+    \item $\mathbf{\mid Ag(s)}$ (Right): Cathodic silver electrode undergoing deposition ($\text{Ag}^+ + e^- \rightarrow \text{Ag}$).
+\end{itemize}
+\end{examplebox}
+
+\begin{examplebox}{System 7.2: Electrolyte Concentration Cell WITHOUT Transference}
+Two independent cells connected back-to-back in electrical series opposition:
+\begin{equation*}
+    \text{Pt}(s) \mid \text{H}_2(g,\, 1\text{ bar}) \mid \text{HCl}(aq,\, a_1) \mid \text{AgCl}(s) \mid \text{Ag}(s) - \text{Ag}(s) \mid \text{AgCl}(s) \mid \text{HCl}(aq,\, a_2) \mid \text{H}_2(g,\, 1\text{ bar}) \mid \text{Pt}(s)
+\end{equation*}
+Here, the physical hyphen ($-$) represents the direct metallic coupling between the two silver phases, completely preventing ionic mixing. Hence, $E_j = 0$ rigorously.
+\end{examplebox}
+
+% -------------------------------------------------------------
+\subsection{Category 8: Organic and Biological Redox Couples}
+\begin{examplebox}{System 8.1: The Quinhydrone Half-Cell (Coupled with Calomel)}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Pt}(s) \mid \text{Q}(s),\, \text{H}_2\text{Q}(s) \mid \text{H}^+(aq,\, a_{\text{H}^+}) \parallel \text{Cl}^-(aq,\, \text{sat.}) \mid \text{Hg}_2\text{Cl}_2(s) \mid \text{Hg}(l)
+\end{equation*}
+
+\textbf{Anodic Reaction:}
+\begin{equation*}
+    \text{H}_2\text{Q}(s) \rightleftharpoons \text{Q}(s) + 2\text{H}^+(aq) + 2e^-
+\end{equation*}
+
+\textbf{Bit-by-Bit Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Pt(s)}$: Inert terminal collector for electron exchange.
+    \item $\mathbf{\mid}$: Phase boundary to organic crystals.
+    \item $\mathbf{Q(s),\, H_2Q(s)}$: Benzoquinone ($\text{Q}$) and hydroquinone ($\text{H}_2\text{Q}$) present as equimolar solid adducts. Separated by a \textbf{comma} because they co-exist intimately in the same solid crystalline phase (the $1:1$ quinhydrone molecular complex).
+    \item $\mathbf{\mid}$: Phase boundary to aqueous buffer containing the hydronium ion species.
+\end{itemize}
+\end{examplebox}
+
+% -------------------------------------------------------------
+\subsection{Category 9: Membrane and Ion-Selective Electrodes (ISE)}
+\begin{examplebox}{System 9.1: Complete Glass-Electrode pH Measurement Cell}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Ag}(s) \mid \text{AgCl}(s) \mid \text{HCl}(aq,\, 0.1\text{ M}) \mid \text{Glass Membrane} \mid \text{Analyte Solution}(\text{pH}_x) \parallel \text{SCE}(\text{reference})
+\end{equation*}
+
+\textbf{Bit-by-Bit Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Ag(s) \mid AgCl(s) \mid HCl(aq,\, 0.1\text{ M})}$: Internal primary reference electrode with fixed chloride activity.
+    \item $\mathbf{\mid \text{Glass Membrane} \mid}$: The hydrated aluminosilicate or lithia glass matrix. The two vertical lines flanking the membrane represent the two distinct phase boundaries on the inner and outer surfaces where cation exchange ($\text{Na}^+ \rightleftharpoons \text{H}^+$) occurs.
+    \item $\mathbf{\text{Analyte Solution}(\text{pH}_x)}$: The unmeasured sample solution possessing unknown hydronium ion activity.
+    \item $\mathbf{\parallel \text{SCE}}$: Porous ceramic junction and saturated calomel external reference completing the measurement circuit.
+\end{itemize}
+\end{examplebox}
+
+% -------------------------------------------------------------
+\subsection{Category 10: Advanced Solid-State \& Molten Industrial Systems}
+\begin{examplebox}{System 10.1: Modern Lithium-Ion Battery (Intercalation Cell in Charged State)}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Cu}(s) \mid \text{Li}_x\text{C}_6(s) \mid \text{LiPF}_6(\text{EC:DMC}) \mid \text{Li}_{1-x}\text{CoO}_2(s) \mid \text{Al}(s)
+\end{equation*}
+
+\textbf{Bit-by-Bit Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Cu(s)}$: Copper negative current collector terminal.
+    \item $\mathbf{\mid}$: Phase boundary between Cu foil and graphitic anode coating.
+    \item $\mathbf{Li_xC_6(s)}$: Lithiated graphite intercalation compound.
+    \item $\mathbf{\mid}$: Solid-Liquid phase boundary into non-aqueous electrolyte.
+    \item $\mathbf{LiPF_6(\text{EC:DMC})}$: Lithium hexafluorophosphate dissolved in ethylene carbonate / dimethyl carbonate organic blend.
+    \item $\mathbf{\mid}$: Liquid-Solid phase boundary into cathode coating.
+    \item $\mathbf{Li_{1-x}CoO_2(s)}$: Delithiated lithium cobalt oxide intercalation material.
+    \item $\mathbf{\mid}$: Cathode coating to aluminum foil boundary.
+    \item $\mathbf{Al(s)}$: Aluminum positive current collector terminal.
+\end{itemize}
+\end{examplebox}
+
+\begin{examplebox}{System 10.2: Solid Oxide Fuel Cell (SOFC)}
+\textbf{IUPAC Cell Notation:}
+\begin{equation*}
+    \text{Ni-YSZ}(s) \mid \text{H}_2(g),\, \text{H}_2\text{O}(g) \mid \text{YSZ}(s) \mid \text{O}_2(g) \mid \text{LSM}(s)
+\end{equation*}
+
+\textbf{Bit-by-Bit Parsing:}
+\begin{itemize}[leftmargin=*]
+    \item $\mathbf{Ni-YSZ(s)}$: Porous nickel--yttria-stabilized zirconia cermet serving as both anode catalyst and electronic conductor.
+    \item $\mathbf{\mid}$: Solid-Gas boundary where fuel gas streams over the porous anode.
+    \item $\mathbf{H_2(g),\, H_2O(g)}$: Gaseous fuel and combustion product coexisting in the anode flow channel (separated by a \textbf{comma}).
+    \item $\mathbf{\mid}$: Anode gas channel to solid electrolyte phase boundary.
+    \item $\mathbf{YSZ(s)}$: Dense Yttria-Stabilized Zirconia ceramic operating as a purely $\text{O}^{2-}$ oxygen-ion conducting solid electrolyte.
+    \item $\mathbf{\mid}$: Solid electrolyte to cathode gas chamber boundary.
+    \item $\mathbf{O_2(g)}$: Oxygen/air oxidant stream.
+    \item $\mathbf{\mid}$: Gas to porous solid cathode boundary.
+    \item $\mathbf{LSM(s)}$: Strontium-doped Lanthanum Manganite ($\text{La}_{1-x}\text{Sr}_x\text{MnO}_3$) ceramic cathode current collector.
+\end{itemize}
+\end{examplebox}
+
+\newpage
+\section{Master Reference Summary Matrix}
+
+\begin{table}[htbp]
+\centering
+\small
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{p{3.2cm} p{4.2cm} p{7.5cm}}
+\toprule
+\textbf{Electrode Category} & \textbf{Structural Scheme} & \textbf{Canonical Example Notation} \\
+\midrule
+\textbf{Metal/Metal Ion} & $\text{M}(s) \mid \text{M}^{n+}(aq)$ & $\text{Zn}(s) \mid \text{Zn}^{2+}(aq) \parallel \text{Cu}^{2+}(aq) \mid \text{Cu}(s)$ \\
+\textbf{Insoluble Salt} & $\text{M}(s) \mid \text{MX}(s) \mid \text{X}^-(aq)$ & $\text{Ag}(s) \mid \text{AgCl}(s) \mid \text{Cl}^-(aq) \parallel \dots$ \\
+\textbf{Gas Electrode} & $\text{Pt}(s) \mid \text{Gas}(g) \mid \text{Ion}(aq)$ & $\text{Pt}(s) \mid \text{H}_2(g,\, p) \mid \text{H}^+(aq,\, a)$ \\
+\textbf{Soluble Redox} & $\text{Pt}(s) \mid \text{Red}(aq),\, \text{Ox}(aq)$ & $\text{Pt}(s) \mid \text{Fe}^{2+}(aq),\, \text{Fe}^{3+}(aq)$ \\
+\textbf{Amalgam} & $\text{M}(\text{Hg}) \mid \text{M}^{n+}(aq)$ & $\text{Na}(\text{Hg},\, a_1) \mid \text{Na}^+(aq) \mid \text{Na}(\text{Hg},\, a_2)$ \\
+\textbf{Insoluble Oxide} & $\text{M}(s) \mid \text{MO}_x(s) \mid \text{H}^+(aq)$ & $\text{Sb}(s) \mid \text{Sb}_2\text{O}_3(s) \mid \text{H}^+(aq)$ \\
+\textbf{Liquid Junction} & $\text{Soln}_1 : \text{Soln}_2$ & $\text{Ag}(s) \mid \text{AgNO}_3(a_1) : \text{AgNO}_3(a_2) \mid \text{Ag}(s)$ \\
+\textbf{ISE Membrane} & $\text{Soln}_{\text{int}} \mid \text{Membrane} \mid \text{Soln}_{\text{ext}}$ & $\text{HCl}(0.1\text{ M}) \mid \text{Glass} \mid \text{Analyte}(\text{pH}_x)$ \\
+\textbf{Solid-State Intercal.} & $\text{Collector} \mid \text{Host}(s) \mid \text{Electrolyte}$ & $\text{Cu}(s) \mid \text{Li}_x\text{C}_6(s) \mid \text{LiPF}_6 \mid \text{Li}_{1-x}\text{CoO}_2(s) \mid \text{Al}(s)$ \\
+\bottomrule
+\end{tabular}
+\caption{Comprehensive IUPAC Electrochemical System Classification Matrix.}
+\end{table}
+
+\newpage
+\section{Bidirectional Translation Heuristics: Reaction $\longleftrightarrow$ Notation}
+
+Students frequently stumble when moving between chemical equations and IUPAC cell notation because they attempt to memorize individual cells rather than applying a systematic, mechanical algorithm. Even for unfamiliar, non-stoichiometric, or intricate systems (e.g., lithium intercalation or multi-electron fuel cells), the exact IUPAC cell notation can be deduced using two deterministic conversion algorithms.
+
+% -------------------------------------------------------------
+\subsection{Algorithm 1: Net Cell Reaction $\longrightarrow$ IUPAC Cell Notation}
+
+Given an overall balanced reaction:
+\begin{equation*}
+    \alpha\,\text{A} + \beta\,\text{B} \longrightarrow \gamma\,\text{C} + \delta\,\text{D}
+\end{equation*}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Assign Oxidation Numbers and Bisect the Reaction:}
+    Identify which elements increase in oxidation state (oxidation / anode) and which decrease (reduction / cathode). Separate into two independent half-cell equations:
+    \begin{align*}
+        \text{Anodic Half-Reaction (Left):} \quad & \text{Red}_1 \longrightarrow \text{Ox}_1 + n\,e^- \\
+        \text{Cathodic Half-Reaction (Right):} \quad & \text{Ox}_2 + n\,e^- \longrightarrow \text{Red}_2
+    \end{align*}
+    
+    \item \textbf{Identify Physical Phases and Terminal Conductors:}
+    Check each half-reaction for the presence of an electrically conductive solid metal ($\text{M}(s)$):
+    \begin{itemize}
+        \item If a metallic solid is present, it serves as the terminal current collector at the extremity.
+        \item If all species are fluid (aqueous ions, gases, liquid organics) or non-conductive solids/semiconductors, introduce an inert current collector (typically $\text{Pt}(s)$ or $\text{C}(\text{graphite})$) at that half-cell's outer edge.
+    \end{itemize}
+
+    \item \textbf{Construct Spatial Sequences (Anode at Left, Cathode at Right):}
+    \begin{itemize}
+        \item \textbf{Left Half-Cell (Oxidation):} Write the terminal conductor on the far left. Move rightward toward the bridge/interface:
+        $$\text{Terminal Conductor} \mid \text{Intermediate Solid/Gas Phases} \mid \text{Electrolyte Phase}$$
+        \item \textbf{Right Half-Cell (Reduction):} Move from the central bridge outward to the far right:
+        $$\text{Electrolyte Phase} \mid \text{Intermediate Solid/Gas Phases} \mid \text{Terminal Conductor}$$
+    \end{itemize}
+
+    \item \textbf{Apply IUPAC Delimiter Rules Strictly:}
+    \begin{itemize}
+        \item Use $\mid$ only across distinct phases (e.g., solid/solution, solid/gas).
+        \item Use a comma ($,$) between species sharing the identical continuous phase (e.g., ions in common solution).
+        \item Use $\parallel$ for a salt bridge, or a single shared phase if no membrane separates them (e.g., secondary batteries sharing a common acid/base bath).
+    \end{itemize}
+\end{enumerate}
+
+% -------------------------------------------------------------
+\subsection{Algorithm 2: IUPAC Cell Notation $\longrightarrow$ Half-Reactions \& Net Cell Reaction}
+
+Given a cell notation string:
+\begin{equation*}
+    \text{Phase 1} \mid \text{Phase 2} \parallel \text{Phase 3} \mid \text{Phase 4}
+\end{equation*}
+
+\begin{enumerate}[leftmargin=*]
+    \item \textbf{Split at the Central Junction:} Everything to the left of $\parallel$ (or the central electrolyte) constitutes the \textbf{Anode} ($e^-$ produced). Everything to the right constitutes the \textbf{Cathode} ($e^-$ consumed).
+    
+    \item \textbf{Ignore Inert Conductors in Mass Balance:} If $\text{Pt}(s)$, $\text{Au}(s)$, or $\text{C}(s)$ is present solely as an electron sink, cross it out from stoichiometric mass balancing; it transfers electrons without appearing in the chemical formula equation.
+    
+    \item \textbf{Formulate Anodic Half-Reaction:} Write the species on the far left transforming into the species toward the center. Balance mass, oxygen/hydrogen (using $\text{H}_2\text{O}$, $\text{H}^+$, or $\text{OH}^-$ depending on medium), and add $n\,e^-$ to the product (right) side.
+    
+    \item \textbf{Formulate Cathodic Half-Reaction:} Write the species near the center transforming into the species toward the far right. Balance mass, oxygen/hydrogen, and add $n\,e^-$ to the reactant (left) side.
+    
+    \item \textbf{Equalize Electrons and Sum:} Multiply half-reactions by suitable integers such that $n\,e^-$ cancels out completely, yielding the net cell reaction.
+\end{enumerate}
+
+\newpage
+\section{Comprehensive Graded Practice Problem Set}
+
+% -------------------------------------------------------------
+\subsection{Part I: Deducing IUPAC Cell Notation from Net Reactions}
+
+\begin{examplebox}{Problem 1.1: Vanadium Redox Flow Battery (All-Liquid Soluble Ions)}
+\textbf{Given Reaction:}
+The positive and negative electrolytes of a vanadium flow battery undergo the following net discharge reaction in an acidic aqueous medium ($\text{H}_2\text{SO}_4$):
+\begin{equation*}
+    \text{V}^{2+}(aq) + \text{VO}_2^+(aq) + 2\,\text{H}^+(aq) \longrightarrow \text{V}^{3+}(aq) + \text{VO}^{2+}(aq) + \text{H}_2\text{O}(l)
+\end{equation*}
+Deduce the complete IUPAC cell notation, assuming an ion-exchange membrane acts as the central separator.
+
+\vspace{0.3cm}\hrule\vspace{0.3cm}
+\textbf{Step-by-Step Derivation:}
+\begin{enumerate}
+    \item \textit{Oxidation States \& Half-Reactions:}
+    \begin{align*}
+        \text{Anode:} \quad & \text{V}^{2+}(aq) \longrightarrow \text{V}^{3+}(aq) + e^- \quad (\text{V increases from } +2 \rightarrow +3) \\
+        \text{Cathode:} \quad & \text{VO}_2^+(aq) + 2\,\text{H}^+(aq) + e^- \longrightarrow \text{VO}^{2+}(aq) + \text{H}_2\text{O}(l) \quad (\text{V decreases from } +5 \rightarrow +4)
+    \end{align*}
+    \item \textit{Conductor Requirements:} All active vanadium and proton species are dissolved in water. Neither side contains solid metal. Therefore, both electrodes require an inert conductor: $\text{C}(\text{graphite})$ or $\text{Pt}(s)$.
+    \item \textit{Phase Boundaries \& Commas:}
+    \begin{itemize}
+        \item Anode solution contains $\text{V}^{2+}$ and $\text{V}^{3+}$. Since they are in the same phase, separate by a \textbf{comma}: $\text{V}^{2+}(aq),\, \text{V}^{3+}(aq)$.
+        \item Cathode solution contains $\text{VO}_2^+$, $\text{H}^+$, and $\text{VO}^{2+}$. Co-dissolved in one phase, separated by \textbf{commas}: $\text{VO}_2^+(aq),\, \text{VO}^{2+}(aq),\, \text{H}^+(aq)$.
+    \end{itemize}
+    \item \textit{Final IUPAC Notation:}
+    $$\text{Pt}(s) \mid \text{V}^{2+}(aq),\, \text{V}^{3+}(aq) \parallel \text{VO}_2^+(aq),\, \text{VO}^{2+}(aq),\, \text{H}^+(aq) \mid \text{Pt}(s)$$
+\end{enumerate}
+\end{examplebox}
+
+\begin{examplebox}{Problem 1.2: Complex Non-Stoichiometric Lithium-Ion Intercalation Cell}
+\textbf{Given Reaction:}
+During discharge of a commercial lithium-ion battery, lithium ions de-intercalate from a layered graphite host and intercalate into a cobalt oxide lattice:
+\begin{equation*}
+    \text{Li}_x\text{C}_6(s) + \text{Li}_{1-x}\text{CoO}_2(s) \longrightarrow \text{C}_6(s) + \text{LiCoO}_2(s)
+\end{equation*}
+The cell operates using a non-aqueous electrolyte containing dissolved $\text{Li}^+$ ions (e.g., $\text{LiPF}_6$ in organic carbonate). The negative terminal uses copper foil ($\text{Cu}$), and the positive terminal uses aluminum foil ($\text{Al}$). Deduce the IUPAC notation.
+
+\vspace{0.3cm}\hrule\vspace{0.3cm}
+\textbf{Step-by-Step Derivation:}
+\begin{enumerate}
+    \item \textit{Oxidation States \& Half-Reactions:}
+    \begin{align*}
+        \text{Anode:} \quad & \text{Li}_x\text{C}_6(s) \longrightarrow \text{C}_6(s) + x\,\text{Li}^+(\text{org}) + x\,e^- \\
+        \text{Cathode:} \quad & \text{Li}_{1-x}\text{CoO}_2(s) + x\,\text{Li}^+(\text{org}) + x\,e^- \longrightarrow \text{LiCoO}_2(s)
+    \end{align*}
+    \item \textit{Spatial Arrangement:}
+    \begin{itemize}
+        \item Far Left (Anode Terminal): $\text{Cu}(s)$ current collector.
+        \item Anode Active Layer: Solid mixture of lithiated graphite $\text{Li}_x\text{C}_6(s)$ and de-lithiated $\text{C}_6(s)$ (separated by a comma or written as the active intercalation solid phase).
+        \item Electrolyte: Non-aqueous liquid containing $\text{Li}^+(\text{org})$.
+        \item Cathode Active Layer: Intercalation oxide $\text{Li}_{1-x}\text{CoO}_2(s),\, \text{LiCoO}_2(s)$.
+        \item Far Right (Cathode Terminal): $\text{Al}(s)$ current collector.
+    \end{itemize}
+    \item \textit{Final IUPAC Notation:}
+    $$\text{Cu}(s) \mid \text{Li}_x\text{C}_6(s),\, \text{C}_6(s) \mid \text{Li}^+(\text{org}) \mid \text{Li}_{1-x}\text{CoO}_2(s),\, \text{LiCoO}_2(s) \mid \text{Al}(s)$$
+\end{enumerate}
+\end{examplebox}
+
+\begin{examplebox}{Problem 1.3: Alkaline Fuel Cell (AFC) Consuming Gas Phases}
+\textbf{Given Reaction:}
+Gaseous hydrogen and oxygen react in a concentrated aqueous potassium hydroxide electrolyte:
+\begin{equation*}
+    2\,\text{H}_2(g) + \text{O}_2(g) \longrightarrow 2\,\text{H}_2\text{O}(l)
+\end{equation*}
+Deduce the IUPAC representation.
+
+\vspace{0.3cm}\hrule\vspace{0.3cm}
+\textbf{Step-by-Step Derivation:}
+\begin{enumerate}
+    \item \textit{Alkaline Half-Reactions:}
+    \begin{align*}
+        \text{Anode:} \quad & \text{H}_2(g) + 2\,\text{OH}^-(aq) \longrightarrow 2\,\text{H}_2\text{O}(l) + 2e^- \\
+        \text{Cathode:} \quad & \text{O}_2(g) + 2\,\text{H}_2\text{O}(l) + 4e^- \longrightarrow 4\,\text{OH}^-(aq)
+    \end{align*}
+    \item \textit{Electrode Boundaries:} Both gases require porous catalytic inert substrates (e.g., $\text{Pt}(s)$ or $\text{Ni}(s)$). Both half-cells contact the same bulk aqueous alkaline solution ($\text{OH}^-$).
+    \item \textit{Final IUPAC Notation:}
+    $$\text{Pt}(s) \mid \text{H}_2(g) \mid \text{OH}^-(aq),\, \text{H}_2\text{O}(l) \mid \text{O}_2(g) \mid \text{Pt}(s)$$
+    *(Alternatively, with a porous matrix separating chambers: $\text{Pt}(s) \mid \text{H}_2(g) \mid \text{OH}^-(aq) \parallel \text{OH}^-(aq) \mid \text{O}_2(g) \mid \text{Pt}(s)$)*
+\end{enumerate}
+\end{examplebox}
+
+% -------------------------------------------------------------
+\subsection{Part II: Deducing Half-Reactions and Net Reactions from Cell Notation}
+
+\begin{examplebox}{Problem 2.1: Mercury--Mercurous Sulfate Reference Cell}
+\textbf{Given Cell Notation:}
+\begin{equation*}
+    \text{Zn}(s) \mid \text{ZnSO}_4(aq,\, 1\text{ M}) \parallel \text{SO}_4^{2-}(aq,\, 1\text{ M}) \mid \text{Hg}_2\text{SO}_4(s) \mid \text{Hg}(l) \mid \text{Pt}(s)
+\end{equation*}
+Deduce: (i) The anodic half-reaction, (ii) The cathodic half-reaction, and (iii) The net cell reaction.
+
+\vspace{0.3cm}\hrule\vspace{0.3cm}
+\textbf{Step-by-Step Derivation:}
+\begin{enumerate}
+    \item \textit{Anode (Left of $\parallel$):}
+    Species present: $\text{Zn}(s)$ and $\text{Zn}^{2+}(aq)$. Oxidation of zinc metal:
+    $$\text{Anode:} \quad \text{Zn}(s) \longrightarrow \text{Zn}^{2+}(aq) + 2e^-$$
+    \item \textit{Cathode (Right of $\parallel$):}
+    Species present: $\text{SO}_4^{2-}(aq)$, solid $\text{Hg}_2\text{SO}_4(s)$, and liquid mercury $\text{Hg}(l)$. Note that $\text{Pt}(s)$ is merely a contact lead dipping into the mercury pool. Reduction converts the mercurous salt into elemental mercury:
+    $$\text{Cathode:} \quad \text{Hg}_2\text{SO}_4(s) + 2e^- \longrightarrow 2\,\text{Hg}(l) + \text{SO}_4^{2-}(aq)$$
+    \item \textit{Sum of Half-Reactions ($2e^-$ cancel directly):}
+    $$\text{Net Cell Reaction:} \quad \text{Zn}(s) + \text{Hg}_2\text{SO}_4(s) \longrightarrow \text{Zn}^{2+}(aq) + \text{SO}_4^{2-}(aq) + 2\,\text{Hg}(l)$$
+\end{enumerate}
+\end{examplebox}
+
+\begin{examplebox}{Problem 2.2: Dichromate--Halide Mixed Phase Redox System}
+\textbf{Given Cell Notation:}
+\begin{equation*}
+    \text{Pt}(s) \mid \text{I}^-(aq),\, \text{I}_3^-(aq) \parallel \text{Cr}_2\text{O}_7^{2-}(aq),\, \text{Cr}^{3+}(aq),\, \text{H}^+(aq) \mid \text{Pt}(s)
+\end{equation*}
+Deduce the balanced half-reactions and the stoichiometric overall cell reaction.
+
+\vspace{0.3cm}\hrule\vspace{0.3cm}
+\textbf{Step-by-Step Derivation:}
+\begin{enumerate}
+    \item \textit{Anode Half-Reaction (Left):}
+    Iodide ions ($\text{I}^-$) are oxidized to triiodide ions ($\text{I}_3^-$):
+    $$3\,\text{I}^-(aq) \longrightarrow \text{I}_3^-(aq) + 2e^-$$
+    \item \textit{Cathode Half-Reaction (Right):}
+    Dichromate ($\text{Cr}_2\text{O}_7^{2-}$) is reduced to chromium(III) ($\text{Cr}^{3+}$) in an acidic solution:
+    $$\text{Cr}_2\text{O}_7^{2-}(aq) + 14\,\text{H}^+(aq) + 6e^- \longrightarrow 2\,\text{Cr}^{3+}(aq) + 7\,\text{H}_2\text{O}(l)$$
+    \item \textit{Equalizing Electrons \& Net Reaction:}
+    Multiply the anodic equation by $3$ to balance $6e^-$:
+    $$9\,\text{I}^-(aq) \longrightarrow 3\,\text{I}_3^-(aq) + 6e^-$$
+    Adding the equations yields:
+    $$\text{Net Cell Reaction:} \quad \text{Cr}_2\text{O}_7^{2-}(aq) + 14\,\text{H}^+(aq) + 9\,\text{I}^-(aq) \longrightarrow 2\,\text{Cr}^{3+}(aq) + 3\,\text{I}_3^-(aq) + 7\,\text{H}_2\text{O}(l)$$
+\end{enumerate}
+\end{examplebox}
+
+\begin{examplebox}{Problem 2.3: Alkaline Zinc-Air Battery System}
+\textbf{Given Cell Notation:}
+\begin{equation*}
+    \text{Zn}(s) \mid \text{ZnO}(s) \mid \text{OH}^-(aq,\, \text{conc.}) \mid \text{O}_2(g,\, p) \mid \text{C}(\text{porous})
+\end{equation*}
+Deduce the half-reactions and determine whether the overall cell consumption involves water.
+
+\vspace{0.3cm}\hrule\vspace{0.3cm}
+\textbf{Step-by-Step Derivation:}
+\begin{enumerate}
+    \item \textit{Anode Half-Reaction (Left):}
+    Zinc metal oxidizes in presence of hydroxide to form solid zinc oxide precipitate:
+    $$\text{Zn}(s) + 2\,\text{OH}^-(aq) \longrightarrow \text{ZnO}(s) + \text{H}_2\text{O}(l) + 2e^-$$
+    \item \textit{Cathode Half-Reaction (Right):}
+    Atmospheric oxygen is reduced at the porous carbon gas-diffusion electrode:
+    $$\tfrac{1}{2}\,\text{O}_2(g) + \text{H}_2\text{O}(l) + 2e^- \longrightarrow 2\,\text{OH}^-(aq)$$
+    \item \textit{Summation ($2e^-$, $2\,\text{OH}^-$, and $\text{H}_2\text{O}$ cancel completely):}
+    $$\text{Net Cell Reaction:} \quad \text{Zn}(s) + \tfrac{1}{2}\,\text{O}_2(g) \longrightarrow \text{ZnO}(s)$$
+    \textit{Conclusion:} Water acts as an internal intermediate but does not appear in the net reaction!
+\end{enumerate}
+\end{examplebox}
+
+\end{document}
