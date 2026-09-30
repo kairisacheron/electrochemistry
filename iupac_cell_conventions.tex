@@ -62,6 +62,24 @@
     boxrule=1pt
 }
 
+\newtcolorbox{exercisebox}[1]{
+    colback=white,
+    colframe=rulecolor,
+    fonttitle=\bfseries\color{white},
+    title=#1,
+    arc=2mm,
+    boxrule=1pt
+}
+
+\newtcolorbox{solutionbox}[1]{
+    colback=boxbg,
+    colframe=boxframe,
+    fonttitle=\bfseries\color{primaryblue},
+    title=#1,
+    arc=2mm,
+    boxrule=1pt
+}
+
 \title{\textbf{\LARGE Comprehensive Treatise on IUPAC Electrochemical Cell Conventions, Notations, and Morphological Taxonomy}}
 \author{\textbf{Rigorous Chemical Nomenclature \& Physical Electrochemistry Compendium}}
 \date{\today}
@@ -190,15 +208,17 @@ These electrodes feature a metal in direct contact with a sparingly soluble salt
 \end{examplebox}
 
 \begin{examplebox}{System 2.2: Saturated Calomel Electrode (SCE) as Anode}
-\textbf{IUPAC Half-Cell Notation (as Anode):}
+\textbf{IUPAC Half-Cell Notation (Coupled with Standard Silver-Chloride Cathode):}
 \begin{equation*}
-    \text{Hg}(l) \mid \text{Hg}_2\text{Cl}_2(s) \mid \text{Cl}^-(aq,\, \text{sat. KCl}) \parallel \dots
+    \text{Hg}(l) \mid \text{Hg}_2\text{Cl}_2(s) \mid \text{Cl}^-(aq,\, \text{sat. KCl}) \parallel \text{Cl}^-(aq,\, 1\text{ M}) \mid \text{AgCl}(s) \mid \text{Ag}(s)
 \end{equation*}
 
-\textbf{Anodic Reaction:}
-\begin{equation*}
-    2\text{Hg}(l) + 2\text{Cl}^-(aq) \longrightarrow \text{Hg}_2\text{Cl}_2(s) + 2e^-
-\end{equation*}
+\textbf{Half-Cell and Overall Reactions:}
+\begin{align*}
+    \text{Anode (Oxidation):} \quad & 2\,\text{Hg}(l) + 2\,\text{Cl}^-(aq) \longrightarrow \text{Hg}_2\text{Cl}_2(s) + 2e^- \\
+    \text{Cathode (Reduction):} \quad & 2\,\text{AgCl}(s) + 2e^- \longrightarrow 2\,\text{Ag}(s) + 2\,\text{Cl}^-(aq) \\
+    \text{Net Cell Reaction:} \quad & 2\,\text{Hg}(l) + 2\,\text{AgCl}(s) \longrightarrow \text{Hg}_2\text{Cl}_2(s) + 2\,\text{Ag}(s)
+\end{align*}
 
 \textbf{Bit-by-Bit Parsing:}
 \begin{itemize}[leftmargin=*]
@@ -219,6 +239,13 @@ Gas electrodes require a catalytic, chemically inert solid phase (typically plat
 \begin{equation*}
     \text{Pt}(s) \mid \text{H}_2(g,\, p_{\text{H}_2}) \mid \text{H}^+(aq,\, a_{\text{H}^+}) \parallel \text{Cl}^-(aq,\, a_{\text{Cl}^-}) \mid \text{Cl}_2(g,\, p_{\text{Cl}_2}) \mid \text{Pt}(s)
 \end{equation*}
+
+\textbf{Half-Cell and Overall Reactions:}
+\begin{align*}
+    \text{Anode (Oxidation):} \quad & \text{H}_2(g) \longrightarrow 2\,\text{H}^+(aq) + 2e^- \\
+    \text{Cathode (Reduction):} \quad & \text{Cl}_2(g) + 2e^- \longrightarrow 2\,\text{Cl}^-(aq) \\
+    \text{Net Cell Reaction:} \quad & \text{H}_2(g) + \text{Cl}_2(g) \longrightarrow 2\,\text{H}^+(aq) + 2\,\text{Cl}^-(aq)
+\end{align*}
 
 \textbf{Bit-by-Bit IUPAC Rule Parsing:}
 \begin{itemize}[leftmargin=*]
@@ -246,10 +273,11 @@ Systems where both reduced and oxidized forms reside within the same homogeneous
     \text{Pt}(s) \mid \text{Fe}^{2+}(aq),\, \text{Fe}^{3+}(aq) \parallel \text{Ce}^{4+}(aq),\, \text{Ce}^{3+}(aq) \mid \text{Pt}(s)
 \end{equation*}
 
-\textbf{Reactions:}
+\textbf{Half-Cell and Overall Reactions:}
 \begin{align*}
-    \text{Anode:} \quad & \text{Fe}^{2+}(aq) \longrightarrow \text{Fe}^{3+}(aq) + e^- \\
-    \text{Cathode:} \quad & \text{Ce}^{4+}(aq) + e^- \longrightarrow \text{Ce}^{3+}(aq)
+    \text{Anode (Oxidation):} \quad & \text{Fe}^{2+}(aq) \longrightarrow \text{Fe}^{3+}(aq) + e^- \\
+    \text{Cathode (Reduction):} \quad & \text{Ce}^{4+}(aq) + e^- \longrightarrow \text{Ce}^{3+}(aq) \\
+    \text{Net Cell Reaction:} \quad & \text{Fe}^{2+}(aq) + \text{Ce}^{4+}(aq) \longrightarrow \text{Fe}^{3+}(aq) + \text{Ce}^{3+}(aq)
 \end{align*}
 
 \textbf{Bit-by-Bit IUPAC Rule Parsing:}
@@ -263,11 +291,18 @@ Systems where both reduced and oxidized forms reside within the same homogeneous
 \end{itemize}
 \end{examplebox}
 
-\begin{examplebox}{System 4.2: Acidic Permanganate Multi-Species Redox System}
-\textbf{IUPAC Half-Cell Notation (Cathodic Reduction):}
+\begin{examplebox}{System 4.2: Acidic Permanganate Multi-Species Redox System (Coupled with Iron(II))}
+\textbf{IUPAC Cell Notation:}
 \begin{equation*}
-    \dots \parallel \text{MnO}_4^-(aq),\, \text{Mn}^{2+}(aq),\, \text{H}^+(aq) \mid \text{Pt}(s)
+    \text{Pt}(s) \mid \text{Fe}^{2+}(aq),\, \text{Fe}^{3+}(aq) \parallel \text{MnO}_4^-(aq),\, \text{Mn}^{2+}(aq),\, \text{H}^+(aq) \mid \text{Pt}(s)
 \end{equation*}
+
+\textbf{Half-Cell and Overall Reactions:}
+\begin{align*}
+    \text{Anode (Oxidation):} \quad & 5\,\text{Fe}^{2+}(aq) \longrightarrow 5\,\text{Fe}^{3+}(aq) + 5e^- \\
+    \text{Cathode (Reduction):} \quad & \text{MnO}_4^-(aq) + 8\,\text{H}^+(aq) + 5e^- \longrightarrow \text{Mn}^{2+}(aq) + 4\,\text{H}_2\text{O}(l) \\
+    \text{Net Cell Reaction:} \quad & \text{MnO}_4^-(aq) + 5\,\text{Fe}^{2+}(aq) + 8\,\text{H}^+(aq) \longrightarrow \text{Mn}^{2+}(aq) + 5\,\text{Fe}^{3+}(aq) + 4\,\text{H}_2\text{O}(l)
+\end{align*}
 
 \textbf{Bit-by-Bit Parsing:}
 \begin{itemize}[leftmargin=*]
@@ -288,6 +323,13 @@ Amalgams consist of reactive metals dissolved in liquid mercury. They allow elec
     \text{Na}(\text{amalgam},\, a_1) \mid \text{Na}^+(aq,\, c) \mid \text{Na}(\text{amalgam},\, a_2) \quad \text{with } a_1 > a_2
 \end{equation*}
 
+\textbf{Half-Cell and Overall Reactions:}
+\begin{align*}
+    \text{Anode (Oxidation):} \quad & \text{Na}(\text{amalgam},\, a_1) \longrightarrow \text{Na}^+(aq) + e^- \\
+    \text{Cathode (Reduction):} \quad & \text{Na}^+(aq) + e^- \longrightarrow \text{Na}(\text{amalgam},\, a_2) \\
+    \text{Net Cell Reaction:} \quad & \text{Na}(\text{amalgam},\, a_1) \longrightarrow \text{Na}(\text{amalgam},\, a_2)
+\end{align*}
+
 \textbf{Bit-by-Bit IUPAC Rule Parsing:}
 \begin{itemize}[leftmargin=*]
     \item $\mathbf{Na(\text{amalgam},\, a_1)}$: Solid/liquid alloy of sodium dissolved in mercury at activity $a_1$. Acts as its own conductor. Placed at the anode extremity.
@@ -306,6 +348,13 @@ Amalgams consist of reactive metals dissolved in liquid mercury. They allow elec
     \text{Sb}(s) \mid \text{Sb}_2\text{O}_3(s) \mid \text{H}^+(aq,\, a_{\text{H}^+}) \parallel \text{Cl}^-(aq,\, \text{sat.}) \mid \text{Hg}_2\text{Cl}_2(s) \mid \text{Hg}(l)
 \end{equation*}
 
+\textbf{Half-Cell and Overall Reactions:}
+\begin{align*}
+    \text{Anode (Oxidation):} \quad & 2\,\text{Sb}(s) + 3\,\text{H}_2\text{O}(l) \longrightarrow \text{Sb}_2\text{O}_3(s) + 6\,\text{H}^+(aq) + 6e^- \\
+    \text{Cathode (Reduction):} \quad & 3\,\text{Hg}_2\text{Cl}_2(s) + 6e^- \longrightarrow 6\,\text{Hg}(l) + 6\,\text{Cl}^-(aq) \\
+    \text{Net Cell Reaction:} \quad & 2\,\text{Sb}(s) + 3\,\text{Hg}_2\text{Cl}_2(s) + 3\,\text{H}_2\text{O}(l) \longrightarrow \text{Sb}_2\text{O}_3(s) + 6\,\text{Hg}(l) + 6\,\text{H}^+(aq) + 6\,\text{Cl}^-(aq)
+\end{align*}
+
 \textbf{Bit-by-Bit Parsing (Anode):}
 \begin{itemize}[leftmargin=*]
     \item $\mathbf{Sb(s)}$: Pure metalloid antimony serving as structural base and electronic conductor.
@@ -323,6 +372,13 @@ Amalgams consist of reactive metals dissolved in liquid mercury. They allow elec
 \begin{equation*}
     \text{Pb}(s) \mid \text{PbSO}_4(s) \mid \text{H}_2\text{SO}_4(aq,\, m) \mid \text{PbSO}_4(s) \mid \text{PbO}_2(s) \mid \text{Pb}(s)
 \end{equation*}
+
+\textbf{Half-Cell and Overall Reactions (Galvanic Discharge):}
+\begin{align*}
+    \text{Anode (Oxidation):} \quad & \text{Pb}(s) + \text{HSO}_4^-(aq) \longrightarrow \text{PbSO}_4(s) + \text{H}^+(aq) + 2e^- \\
+    \text{Cathode (Reduction):} \quad & \text{PbO}_2(s) + \text{HSO}_4^-(aq) + 3\,\text{H}^+(aq) + 2e^- \longrightarrow \text{PbSO}_4(s) + 2\,\text{H}_2\text{O}(l) \\
+    \text{Net Cell Reaction:} \quad & \text{Pb}(s) + \text{PbO}_2(s) + 2\,\text{H}_2\text{SO}_4(aq) \longrightarrow 2\,\text{PbSO}_4(s) + 2\,\text{H}_2\text{O}(l)
+\end{align*}
 
 \textbf{Bit-by-Bit Parsing:}
 \begin{itemize}[leftmargin=*]
@@ -345,6 +401,14 @@ Concentration cells derive their electromotive force solely from differences in 
     \text{Ag}(s) \mid \text{AgNO}_3(aq,\, a_1) : \text{AgNO}_3(aq,\, a_2) \mid \text{Ag}(s) \quad (a_2 > a_1)
 \end{equation*}
 
+\textbf{Half-Cell and Overall Reactions:}
+\begin{align*}
+    \text{Anode (Oxidation):} \quad & \text{Ag}(s) \longrightarrow \text{Ag}^+(aq,\, a_1) + e^- \\
+    \text{Cathode (Reduction):} \quad & \text{Ag}^+(aq,\, a_2) + e^- \longrightarrow \text{Ag}(s) \\
+    \text{Ionic Transference across } (:): \quad & t_+\,\text{Ag}^+(a_1 \rightarrow a_2) \quad \text{and} \quad t_-\,\text{NO}_3^-(a_2 \rightarrow a_1) \\
+    \text{Net Cell Process ($1\text{ F}$):} \quad & t_-\,\text{AgNO}_3(aq,\, a_2) \longrightarrow t_-\,\text{AgNO}_3(aq,\, a_1)
+\end{align*}
+
 \textbf{Bit-by-Bit Parsing:}
 \begin{itemize}[leftmargin=*]
     \item $\mathbf{Ag(s)}$ (Left): Anodic silver electrode undergoing dissolution ($\text{Ag} \rightarrow \text{Ag}^+ + e^-$).
@@ -360,6 +424,15 @@ Two independent cells connected back-to-back in electrical series opposition:
 \begin{equation*}
     \text{Pt}(s) \mid \text{H}_2(g,\, 1\text{ bar}) \mid \text{HCl}(aq,\, a_1) \mid \text{AgCl}(s) \mid \text{Ag}(s) - \text{Ag}(s) \mid \text{AgCl}(s) \mid \text{HCl}(aq,\, a_2) \mid \text{H}_2(g,\, 1\text{ bar}) \mid \text{Pt}(s)
 \end{equation*}
+
+\textbf{Half-Cell and Overall Reactions:}
+\begin{align*}
+    \text{Cell 1 Anode (Oxidation):} \quad & \tfrac{1}{2}\,\text{H}_2(g) \longrightarrow \text{H}^+(aq,\, a_1) + e^- \\
+    \text{Cell 1 Cathode (Reduction):} \quad & \text{AgCl}(s) + e^- \longrightarrow \text{Ag}(s) + \text{Cl}^-(aq,\, a_1) \\
+    \text{Cell 2 Anode (Oxidation):} \quad & \text{Ag}(s) + \text{Cl}^-(aq,\, a_2) \longrightarrow \text{AgCl}(s) + e^- \\
+    \text{Cell 2 Cathode (Reduction):} \quad & \text{H}^+(aq,\, a_2) + e^- \longrightarrow \tfrac{1}{2}\,\text{H}_2(g) \\
+    \text{Net Cell Reaction:} \quad & \text{HCl}(aq,\, a_2) \longrightarrow \text{HCl}(aq,\, a_1) \quad (\text{Pure chemical transfer without } E_j)
+\end{align*}
 Here, the physical hyphen ($-$) represents the direct metallic coupling between the two silver phases, completely preventing ionic mixing. Hence, $E_j = 0$ rigorously.
 \end{examplebox}
 
@@ -371,10 +444,12 @@ Here, the physical hyphen ($-$) represents the direct metallic coupling between 
     \text{Pt}(s) \mid \text{Q}(s),\, \text{H}_2\text{Q}(s) \mid \text{H}^+(aq,\, a_{\text{H}^+}) \parallel \text{Cl}^-(aq,\, \text{sat.}) \mid \text{Hg}_2\text{Cl}_2(s) \mid \text{Hg}(l)
 \end{equation*}
 
-\textbf{Anodic Reaction:}
-\begin{equation*}
-    \text{H}_2\text{Q}(s) \rightleftharpoons \text{Q}(s) + 2\text{H}^+(aq) + 2e^-
-\end{equation*}
+\textbf{Half-Cell and Overall Reactions:}
+\begin{align*}
+    \text{Anode (Oxidation):} \quad & \text{H}_2\text{Q}(s) \longrightarrow \text{Q}(s) + 2\,\text{H}^+(aq) + 2e^- \\
+    \text{Cathode (Reduction):} \quad & \text{Hg}_2\text{Cl}_2(s) + 2e^- \longrightarrow 2\,\text{Hg}(l) + 2\,\text{Cl}^-(aq) \\
+    \text{Net Cell Reaction:} \quad & \text{H}_2\text{Q}(s) + \text{Hg}_2\text{Cl}_2(s) \longrightarrow \text{Q}(s) + 2\,\text{Hg}(l) + 2\,\text{H}^+(aq) + 2\,\text{Cl}^-(aq)
+\end{align*}
 
 \textbf{Bit-by-Bit Parsing:}
 \begin{itemize}[leftmargin=*]
@@ -393,6 +468,14 @@ Here, the physical hyphen ($-$) represents the direct metallic coupling between 
     \text{Ag}(s) \mid \text{AgCl}(s) \mid \text{HCl}(aq,\, 0.1\text{ M}) \mid \text{Glass Membrane} \mid \text{Analyte Solution}(\text{pH}_x) \parallel \text{SCE}(\text{reference})
 \end{equation*}
 
+\textbf{Half-Cell, Membrane, and Overall Potential Processes:}
+\begin{align*}
+    \text{Internal Reference (Anode):} \quad & \text{Ag}(s) + \text{Cl}^-(aq,\, 0.1\text{ M}) \longrightarrow \text{AgCl}(s) + e^- \\
+    \text{External Reference (Cathode):} \quad & \tfrac{1}{2}\,\text{Hg}_2\text{Cl}_2(s) + e^- \longrightarrow \text{Hg}(l) + \text{Cl}^-(aq,\, \text{sat.}) \\
+    \text{Membrane Boundary Potential ($E_M$):} \quad & \text{H}^+(\text{analyte},\, a_x) \rightleftharpoons \text{H}^+(\text{internal},\, 0.1\text{ M}) \implies E_M = \frac{RT}{F}\ln\frac{a_{\text{H}^+,\text{analyte}}}{a_{\text{H}^+,\text{internal}}} \\
+    \text{Net Cell Potential:} \quad & E_{\text{cell}} = E_{\text{SCE}} - E_{\text{Ag/AgCl}} + E_M + E_{\text{asymmetry}} = \text{const} - 0.05916\,\text{pH}_x \quad (\text{at } 298\text{ K})
+\end{align*}
+
 \textbf{Bit-by-Bit Parsing:}
 \begin{itemize}[leftmargin=*]
     \item $\mathbf{Ag(s) \mid AgCl(s) \mid HCl(aq,\, 0.1\text{ M})}$: Internal primary reference electrode with fixed chloride activity.
@@ -409,6 +492,13 @@ Here, the physical hyphen ($-$) represents the direct metallic coupling between 
 \begin{equation*}
     \text{Cu}(s) \mid \text{Li}_x\text{C}_6(s) \mid \text{LiPF}_6(\text{EC:DMC}) \mid \text{Li}_{1-x}\text{CoO}_2(s) \mid \text{Al}(s)
 \end{equation*}
+
+\textbf{Half-Cell and Overall Reactions (Galvanic Discharge):}
+\begin{align*}
+    \text{Anode (Oxidation / De-intercalation):} \quad & \text{Li}_x\text{C}_6(s) \longrightarrow x\,\text{Li}^+(\text{electrolyte}) + \text{C}_6(s) + x\,e^- \\
+    \text{Cathode (Reduction / Intercalation):} \quad & \text{Li}_{1-x}\text{CoO}_2(s) + x\,\text{Li}^+(\text{electrolyte}) + x\,e^- \longrightarrow \text{LiCoO}_2(s) \\
+    \text{Net Cell Reaction:} \quad & \text{Li}_x\text{C}_6(s) + \text{Li}_{1-x}\text{CoO}_2(s) \longrightarrow \text{C}_6(s) + \text{LiCoO}_2(s)
+\end{align*}
 
 \textbf{Bit-by-Bit Parsing:}
 \begin{itemize}[leftmargin=*]
@@ -429,6 +519,13 @@ Here, the physical hyphen ($-$) represents the direct metallic coupling between 
 \begin{equation*}
     \text{Ni-YSZ}(s) \mid \text{H}_2(g),\, \text{H}_2\text{O}(g) \mid \text{YSZ}(s) \mid \text{O}_2(g) \mid \text{LSM}(s)
 \end{equation*}
+
+\textbf{Half-Cell and Overall Reactions:}
+\begin{align*}
+    \text{Anode (Oxidation):} \quad & \text{H}_2(g) + \text{O}^{2-}(\text{YSZ lattice}) \longrightarrow \text{H}_2\text{O}(g) + 2e^- \\
+    \text{Cathode (Reduction):} \quad & \tfrac{1}{2}\,\text{O}_2(g) + 2e^- \longrightarrow \text{O}^{2-}(\text{YSZ lattice}) \\
+    \text{Net Cell Reaction:} \quad & \text{H}_2(g) + \tfrac{1}{2}\,\text{O}_2(g) \longrightarrow \text{H}_2\text{O}(g)
+\end{align*}
 
 \textbf{Bit-by-Bit Parsing:}
 \begin{itemize}[leftmargin=*]
@@ -688,4 +785,264 @@ Deduce the half-reactions and determine whether the overall cell consumption inv
 \end{enumerate}
 \end{examplebox}
 
+\newpage
+\section{Unsolved \& Graded Practice Problem Corpus (With Complete Solutions)}
+
+This section expands the pedagogical utility of this monograph with 10 multi-concept, Olympiad and JEE Advanced level practice problems across diverse non-trivial electrochemical topologies.
+
+% -------------------------------------------------------------
+\subsection{Exercise Set A: Deducing IUPAC Notations from Complex Chemical Systems}
+
+\begin{exercisebox}{Practice Problem 1: Direct Methanol Fuel Cell (DMFC)}
+\textbf{System Description:}
+In a direct methanol fuel cell operating with an acidic proton-exchange membrane (PEM), liquid aqueous methanol ($\text{CH}_3\text{OH}$) is electro-oxidized at a platinum-ruthenium ($\text{Pt-Ru}$) catalytic anode to carbon dioxide gas ($\text{CO}_2$), protons, and electrons. At the cathode, atmospheric gaseous oxygen ($\text{O}_2$) is catalytically reduced at a platinum ($\text{Pt}$) mesh to liquid water. The solid polymer electrolyte (Nafion) selectively conducts hydronium ions ($\text{H}^+$).
+\begin{enumerate}[label=(\alph*)]
+    \item Formulate the balanced anodic, cathodic, and net cell chemical reactions.
+    \item Deduce the rigorous IUPAC shorthand notation for the complete cell.
+\end{enumerate}
+\end{exercisebox}
+
+\begin{solutionbox}{Solution to Practice Problem 1}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Electrode Half-Reactions \& Net Cell Reaction:}
+    \begin{align*}
+        \text{Anode (Oxidation):} \quad & \text{CH}_3\text{OH}(aq) + \text{H}_2\text{O}(l) \longrightarrow \text{CO}_2(g) + 6\,\text{H}^+(aq) + 6e^- \\
+        \text{Cathode (Reduction):} \quad & \tfrac{3}{2}\,\text{O}_2(g) + 6\,\text{H}^+(aq) + 6e^- \longrightarrow 3\,\text{H}_2\text{O}(l) \\
+        \text{Net Cell Reaction:} \quad & \text{CH}_3\text{OH}(aq) + \tfrac{3}{2}\,\text{O}_2(g) \longrightarrow \text{CO}_2(g) + 2\,\text{H}_2\text{O}(l)
+    \end{align*}
+    \item \textbf{IUPAC Cell Representation:}
+    The anode requires $\text{Pt-Ru}(s)$ as terminal collector; the aqueous anolyte contains both dissolved methanol and carbon dioxide gas; Nafion acts as a solid polymer membrane ($(\text{PEM})$); the cathode current collector is $\text{Pt}(s)$:
+    $$\text{Pt-Ru}(s) \mid \text{CH}_3\text{OH}(aq),\, \text{CO}_2(g),\, \text{H}^+(aq) \mid \text{Nafion}(\text{PEM}) \mid \text{H}^+(aq),\, \text{O}_2(g) \mid \text{Pt}(s)$$
+\end{enumerate}
+\end{solutionbox}
+
+\begin{exercisebox}{Practice Problem 2: Nickel--Cadmium (Nicad) Alkaline Rechargeable Cell}
+\textbf{System Description:}
+During galvanic discharge of a sealed nickel--cadmium secondary battery, cadmium metal is oxidized in a concentrated $\text{KOH}(aq)$ electrolyte to solid cadmium hydroxide ($\text{Cd(OH)}_2$). Concurrently, nickel(III) oxyhydroxide ($\text{NiO(OH)}$) on the positive plate is reduced to solid nickel(II) hydroxide ($\text{Ni(OH)}_2$). Both electrodes share a common alkaline bath.
+\begin{enumerate}[label=(\alph*)]
+    \item Write the oxidation, reduction, and net cell discharge reactions.
+    \item Write the IUPAC cell diagram for this cell during galvanic discharge.
+\end{enumerate}
+\end{exercisebox}
+
+\begin{solutionbox}{Solution to Practice Problem 2}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Half-Reactions and Net Discharge Reaction:}
+    \begin{align*}
+        \text{Anode (Oxidation):} \quad & \text{Cd}(s) + 2\,\text{OH}^-(aq) \longrightarrow \text{Cd(OH)}_2(s) + 2e^- \\
+        \text{Cathode (Reduction):} \quad & 2\,\text{NiO(OH)}(s) + 2\,\text{H}_2\text{O}(l) + 2e^- \longrightarrow 2\,\text{Ni(OH)}_2(s) + 2\,\text{OH}^-(aq) \\
+        \text{Net Cell Reaction:} \quad & \text{Cd}(s) + 2\,\text{NiO(OH)}(s) + 2\,\text{H}_2\text{O}(l) \longrightarrow \text{Cd(OH)}_2(s) + 2\,\text{Ni(OH)}_2(s)
+    \end{align*}
+    \item \textbf{IUPAC Cell Representation:}
+    Both electrodes contact the same continuous aqueous electrolyte without a salt bridge:
+    $$\text{Cd}(s) \mid \text{Cd(OH)}_2(s) \mid \text{KOH}(aq,\, m) \mid \text{NiO(OH)}(s),\, \text{Ni(OH)}_2(s) \mid \text{Ni}(s)$$
+\end{enumerate}
+\end{solutionbox}
+
+\begin{exercisebox}{Practice Problem 3: Multi-Electron Polyatomic Bromate--Bromide Galvanic Couple}
+\textbf{System Description:}
+A galvanic cell couples the oxidation of bromide ions to liquid elemental bromine with the cathodic reduction of acidic bromate ions ($\text{BrO}_3^-$) to liquid bromine in aqueous perchloric acid medium, using platinized platinum contacts and an eliminated-junction salt bridge. Deduce:
+\begin{enumerate}[label=(\alph*)]
+    \item The stoichiometric half-cell and overall cell reactions.
+    \item The exact IUPAC notation.
+\end{enumerate}
+\end{exercisebox}
+
+\begin{solutionbox}{Solution to Practice Problem 3}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Half-Reactions \& Stoichiometric Comproportionation:}
+    \begin{align*}
+        \text{Anode (Oxidation):} \quad & 10\,\text{Br}^-(aq) \longrightarrow 5\,\text{Br}_2(l) + 10e^- \\
+        \text{Cathode (Reduction):} \quad & 2\,\text{BrO}_3^-(aq) + 12\,\text{H}^+(aq) + 10e^- \longrightarrow \text{Br}_2(l) + 6\,\text{H}_2\text{O}(l) \\
+        \text{Net Cell Reaction:} \quad & 2\,\text{BrO}_3^-(aq) + 10\,\text{Br}^-(aq) + 12\,\text{H}^+(aq) \longrightarrow 6\,\text{Br}_2(l) + 6\,\text{H}_2\text{O}(l) \\
+        \text{Simplified ($/2$):} \quad & \text{BrO}_3^-(aq) + 5\,\text{Br}^-(aq) + 6\,\text{H}^+(aq) \longrightarrow 3\,\text{Br}_2(l) + 3\,\text{H}_2\text{O}(l)
+    \end{align*}
+    \item \textbf{IUPAC Cell Notation:}
+    $$\text{Pt}(s) \mid \text{Br}^-(aq),\, \text{Br}_2(l) \parallel \text{BrO}_3^-(aq),\, \text{H}^+(aq),\, \text{Br}_2(l) \mid \text{Pt}(s)$$
+\end{enumerate}
+\end{solutionbox}
+
+\begin{exercisebox}{Practice Problem 4: Thallium--Thallous Chloride Second-Kind Electrode Cell}
+\textbf{System Description:}
+Metallic thallium coated with sparingly soluble thallous chloride ($\text{TlCl}$) is immersed in $0.05\text{ M }\text{KCl}(aq)$ and coupled via a saturated $\text{KNO}_3$ salt bridge with a standard copper-copper(II) sulfate cathode ($a_{\text{Cu}^{2+}} = 0.1$).
+\begin{enumerate}[label=(\alph*)]
+    \item Construct the IUPAC representation.
+    \item Formulate the half-cell and overall reactions.
+\end{enumerate}
+\end{exercisebox}
+
+\begin{solutionbox}{Solution to Practice Problem 4}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{IUPAC Cell Notation:}
+    $$\text{Tl}(s) \mid \text{TlCl}(s) \mid \text{Cl}^-(aq,\, 0.05\text{ M}) \parallel \text{Cu}^{2+}(aq,\, 0.1\text{ M}) \mid \text{Cu}(s)$$
+    \item \textbf{Reactions:}
+    \begin{align*}
+        \text{Anode (Oxidation):} \quad & 2\,\text{Tl}(s) + 2\,\text{Cl}^-(aq) \longrightarrow 2\,\text{TlCl}(s) + 2e^- \\
+        \text{Cathode (Reduction):} \quad & \text{Cu}^{2+}(aq) + 2e^- \longrightarrow \text{Cu}(s) \\
+        \text{Net Cell Reaction:} \quad & 2\,\text{Tl}(s) + 2\,\text{Cl}^-(aq) + \text{Cu}^{2+}(aq) \longrightarrow 2\,\text{TlCl}(s) + \text{Cu}(s)
+    \end{align*}
+\end{enumerate}
+\end{solutionbox}
+
+\begin{exercisebox}{Practice Problem 5: High-Temperature Molten Salt Down's Cell Representation}
+\textbf{System Description:}
+In an industrial electrochemical cell for sodium extraction, molten $\text{NaCl}-\text{CaCl}_2$ at $600^\circ\text{C}$ undergoes electrolysis using an inert carbon (graphite) anode and a liquid molten iron/steel cathode where liquid metallic sodium is deposited.
+\begin{enumerate}[label=(\alph*)]
+    \item Deduce the IUPAC representation for this molten electrolytic system.
+    \item Write the corresponding anodic, cathodic, and net processes.
+\end{enumerate}
+\end{exercisebox}
+
+\begin{solutionbox}{Solution to Practice Problem 5}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{IUPAC Cell Notation:}
+    $$\text{C}(\text{graphite}) \mid \text{Cl}_2(g) \mid \text{NaCl}-\text{CaCl}_2(l) \mid \text{Na}(l) \mid \text{Fe}(s)$$
+    \item \textbf{Reactions:}
+    \begin{align*}
+        \text{Anode (Oxidation):} \quad & 2\,\text{Cl}^-(l) \longrightarrow \text{Cl}_2(g) + 2e^- \\
+        \text{Cathode (Reduction):} \quad & 2\,\text{Na}^+(l) + 2e^- \longrightarrow 2\,\text{Na}(l) \\
+        \text{Net Cell Reaction:} \quad & 2\,\text{NaCl}(l) \longrightarrow 2\,\text{Na}(l) + \text{Cl}_2(g)
+    \end{align*}
+\end{enumerate}
+\end{solutionbox}
+
+% -------------------------------------------------------------
+\subsection{Exercise Set B: Deconstructing IUPAC Notations into Complete Reaction Chemistry}
+
+\begin{exercisebox}{Practice Problem 6: Silver--Silver Chromate Analytical Sensor}
+\textbf{Given Cell Notation:}
+\begin{equation*}
+    \text{Pt}(s) \mid \text{H}_2(g,\, 1\text{ bar}) \mid \text{H}^+(aq,\, 1\text{ M}) \parallel \text{CrO}_4^{2-}(aq,\, a) \mid \text{Ag}_2\text{CrO}_4(s) \mid \text{Ag}(s)
+\end{equation*}
+\begin{enumerate}[label=(\alph*)]
+    \item Identify the specific electrode category of the cathode.
+    \item Derive the balanced anode, cathode, and net cell reactions.
+    \item State the expression for the cell EMF as a function of $a_{\text{CrO}_4^{2-}}$ and $K_{sp}(\text{Ag}_2\text{CrO}_4)$.
+\end{enumerate}
+\end{exercisebox}
+
+\begin{solutionbox}{Solution to Practice Problem 6}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Electrode Category:} Metal--Insoluble Salt--Anion electrode (Second-Kind Electrode).
+    \item \textbf{Half-Reactions \& Net Cell Reaction:}
+    \begin{align*}
+        \text{Anode (Oxidation):} \quad & \text{H}_2(g) \longrightarrow 2\,\text{H}^+(aq) + 2e^- \\
+        \text{Cathode (Reduction):} \quad & \text{Ag}_2\text{CrO}_4(s) + 2e^- \longrightarrow 2\,\text{Ag}(s) + \text{CrO}_4^{2-}(aq) \\
+        \text{Net Cell Reaction:} \quad & \text{H}_2(g) + \text{Ag}_2\text{CrO}_4(s) \longrightarrow 2\,\text{Ag}(s) + 2\,\text{H}^+(aq) + \text{CrO}_4^{2-}(aq)
+    \end{align*}
+    \item \textbf{EMF Expression:}
+    $$E_{\text{cell}} = E^\circ_{\text{Ag}_2\text{CrO}_4/\text{Ag},\text{CrO}_4^{2-}} - \frac{RT}{2F}\ln\left(a_{\text{H}^+}^2 \cdot a_{\text{CrO}_4^{2-}}\right)$$
+    Since $E^\circ_{\text{Ag}_2\text{CrO}_4/\text{Ag}} = E^\circ_{\text{Ag}^+/\text{Ag}} + \frac{RT}{2F}\ln K_{sp}$, the cell potential directly yields the solubility product $K_{sp}$.
+\end{enumerate}
+\end{solutionbox}
+
+\begin{exercisebox}{Practice Problem 7: Zinc Amalgam Gas Concentration Double Half-Cell}
+\textbf{Given Cell Notation:}
+\begin{equation*}
+    \text{Zn}(\text{Hg},\, c_1) \mid \text{Zn}^{2+}(aq,\, 0.1\text{ M}) \mid \text{Zn}(\text{Hg},\, c_2) \quad \text{where } c_1 = 0.05\text{ wt\%},\, c_2 = 0.005\text{ wt\%}
+\end{equation*}
+\begin{enumerate}[label=(\alph*)]
+    \item Formulate the half-cell reactions and the net cell process.
+    \item Is this cell an electrolyte concentration cell or an electrode concentration cell? Does it possess a liquid junction potential?
+    \item Calculate the spontaneous cell EMF at $298\text{ K}$ assuming ideal amalgam solutions.
+\end{enumerate}
+\end{exercisebox}
+
+\begin{solutionbox}{Solution to Practice Problem 7}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Reactions:}
+    \begin{align*}
+        \text{Anode:} \quad & \text{Zn}(\text{Hg},\, c_1) \longrightarrow \text{Zn}^{2+}(aq) + 2e^- \\
+        \text{Cathode:} \quad & \text{Zn}^{2+}(aq) + 2e^- \longrightarrow \text{Zn}(\text{Hg},\, c_2) \\
+        \text{Net Cell Reaction:} \quad & \text{Zn}(\text{Hg},\, c_1) \longrightarrow \text{Zn}(\text{Hg},\, c_2)
+    \end{align*}
+    \item \textbf{Classification:} It is an \textbf{electrode concentration cell without transference}. Because both amalgam electrodes dip into the exact same aqueous $\text{Zn}^{2+}$ solution, there is no liquid-liquid interface; hence $E_j = 0$ identically.
+    \item \textbf{EMF Calculation:}
+    $$E_{\text{cell}} = -\frac{RT}{2F}\ln\left(\frac{c_2}{c_1}\right) = \frac{0.05916}{2}\log_{10}\left(\frac{0.05}{0.005}\right) = 0.02958\text{ V}$$
+\end{enumerate}
+\end{solutionbox}
+
+\begin{exercisebox}{Practice Problem 8: Biochemical Cytochrome c / Ascorbate Electron Transport Cell}
+\textbf{Given Cell Notation:}
+\begin{equation*}
+    \text{Pt}(s) \mid \text{Ascorbate}(aq),\, \text{Dehydroascorbate}(aq),\, \text{H}^+(aq) \parallel \text{Cyt } c(\text{Fe}^{3+})(aq),\, \text{Cyt } c(\text{Fe}^{2+})(aq) \mid \text{Au}(s)
+\end{equation*}
+\begin{enumerate}[label=(\alph*)]
+    \item Write the half-reactions and the net biochemical redox reaction.
+    \item Explain why gold ($\text{Au}$) and platinum ($\text{Pt}$) are used at the extremities.
+\end{enumerate}
+\end{exercisebox}
+
+\begin{solutionbox}{Solution to Practice Problem 8}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Half-Reactions \& Net Metabolic Reaction:}
+    \begin{align*}
+        \text{Anode:} \quad & \text{Ascorbate}(aq) \longrightarrow \text{Dehydroascorbate}(aq) + 2\,\text{H}^+(aq) + 2e^- \\
+        \text{Cathode:} \quad & 2\,\text{Cyt } c(\text{Fe}^{3+})(aq) + 2e^- \longrightarrow 2\,\text{Cyt } c(\text{Fe}^{2+})(aq) \\
+        \text{Net Reaction:} \quad & \text{Ascorbate} + 2\,\text{Cyt } c(\text{Fe}^{3+}) \longrightarrow \text{Dehydroascorbate} + 2\,\text{Cyt } c(\text{Fe}^{2+}) + 2\,\text{H}^+
+    \end{align*}
+    \item \textbf{Role of $\text{Pt}(s)$ and $\text{Au}(s)$:} Both the organic ascorbate couple and the metalloprotein heme core of cytochrome $c$ are non-metallic fluid phases. In accordance with \textbf{Axiom 5}, inert electronic conductors ($\text{Pt}$ and self-assembled-monolayer modified $\text{Au}$) are mandatory as terminal contacts to collect and inject electrons without participating chemically in the reaction.
+\end{enumerate}
+\end{solutionbox}
+
+\begin{exercisebox}{Practice Problem 9: Concentration Cell with Transference vs. Without Transference}
+\textbf{Given Cell Notations:}
+\begin{align*}
+    \text{Cell A:} \quad & \text{Pt}(s) \mid \text{H}_2(g,\, 1\text{ bar}) \mid \text{HCl}(aq,\, a_1) : \text{HCl}(aq,\, a_2) \mid \text{H}_2(g,\, 1\text{ bar}) \mid \text{Pt}(s) \\
+    \text{Cell B:} \quad & \text{Pt}(s) \mid \text{H}_2(g,\, 1\text{ bar}) \mid \text{HCl}(aq,\, a_1) \parallel \text{HCl}(aq,\, a_2) \mid \text{H}_2(g,\, 1\text{ bar}) \mid \text{Pt}(s)
+\end{align*}
+\begin{enumerate}[label=(\alph*)]
+    \item Formulate the anodic, cathodic, and net processes for both cells when $1\text{ Farad}$ of electricity passes.
+    \item Express the cell potential of Cell A ($E_A$) in terms of transport number of chloride ion ($t_-$) and activity ratio $a_2/a_1$.
+    \item Deduce an exact algebraic relationship for the liquid junction potential $E_j = E_A - E_B$.
+\end{enumerate}
+\end{exercisebox}
+
+\begin{solutionbox}{Solution to Practice Problem 9}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Electrode and Migration Processes ($1\text{ F}$ charge passed):}
+    \begin{itemize}
+        \item At Anode: $\tfrac{1}{2}\text{H}_2 \longrightarrow \text{H}^+(a_1) + e^-$ (for both cells).
+        \item At Cathode: $\text{H}^+(a_2) + e^- \longrightarrow \tfrac{1}{2}\text{H}_2$ (for both cells).
+        \item \textbf{In Cell A (with transference):} Across the liquid junction $(:)$, $t_+$ moles of $\text{H}^+$ migrate from $a_1 \to a_2$, and $t_-$ moles of $\text{Cl}^-$ migrate from $a_2 \to a_1$.
+        \item Net process in Cell A: $t_-\,\text{HCl}(a_2) \longrightarrow t_-\,\text{HCl}(a_1)$.
+        \item Net process in Cell B (salt bridge eliminates ionic migration): $\text{H}^+(a_2) \longrightarrow \text{H}^+(a_1)$.
+    \end{itemize}
+    \item \textbf{Cell Potential $E_A$:}
+    $$E_A = 2\,t_-\,\frac{RT}{F}\ln\left(\frac{a_2}{a_1}\right)$$
+    \item \textbf{Liquid Junction Potential $E_j$:}
+    Since $E_B = \frac{RT}{F}\ln\left(\frac{a_2}{a_1}\right)$, subtracting yields:
+    $$E_j = E_A - E_B = (2t_- - 1)\frac{RT}{F}\ln\left(\frac{a_2}{a_1}\right) = (t_- - t_+)\frac{RT}{F}\ln\left(\frac{a_2}{a_1}\right)$$
+    Notice that if $t_+ = t_- = 0.5$ (e.g., in a $\text{KCl}$ salt bridge), $E_j = 0$ exactly!
+\end{enumerate}
+\end{solutionbox}
+
+\begin{exercisebox}{Practice Problem 10: Non-Aqueous Lithium--Thionyl Chloride High-Energy Primary Cell}
+\textbf{Given Cell Notation:}
+\begin{equation*}
+    \text{Li}(s) \mid \text{LiAlCl}_4(\text{in } \text{SOCl}_2,\, l) \mid \text{C}(\text{porous carbon cathode})
+\end{equation*}
+During high-rate discharge, lithium metal dissolves at the anode, while liquid thionyl chloride ($\text{SOCl}_2$) is cathodically reduced at the porous carbon cathode surface to sulfur dioxide gas ($\text{SO}_2$), elemental solid sulfur ($\text{S}$), and lithium chloride precipitate ($\text{LiCl}(s)$).
+\begin{enumerate}[label=(\alph*)]
+    \item Deduce the oxidation state changes for all sulfur species.
+    \item Write the balanced half-cell reactions and the net stoichiometric discharge reaction.
+    \item Explain the anatomical purpose of the porous carbon current collector.
+\end{enumerate}
+\end{exercisebox}
+
+\begin{solutionbox}{Solution to Practice Problem 10}
+\begin{enumerate}[label=(\alph*)]
+    \item \textbf{Oxidation States:}
+    In $\text{SOCl}_2$, sulfur is in the $+4$ oxidation state. It undergoes simultaneous reduction to $+4$ in $\text{SO}_2(g)$ and $0$ in $\text{S}(s)$ (redox comproportionation/cleavage).
+    \item \textbf{Half-Cell Reactions \& Net Stoichiometry:}
+    \begin{align*}
+        \text{Anode (Oxidation):} \quad & 4\,\text{Li}(s) \longrightarrow 4\,\text{Li}^+(\text{solv}) + 4e^- \\
+        \text{Cathode (Reduction):} \quad & 2\,\text{SOCl}_2(l) + 4e^- + 4\,\text{Li}^+(\text{solv}) \longrightarrow 4\,\text{LiCl}(s) + \text{SO}_2(g) + \text{S}(s) \\
+        \text{Net Cell Reaction:} \quad & 4\,\text{Li}(s) + 2\,\text{SOCl}_2(l) \longrightarrow 4\,\text{LiCl}(s) + \text{SO}_2(g) + \text{S}(s)
+    \end{align*}
+    \item \textbf{Role of Porous Carbon Collector:} Liquid $\text{SOCl}_2$ acts as both the solvent/depolarizer and active cathode reactant. Because it is non-conductive, an inert, high-surface-area porous carbon matrix is mandatory to supply electrons and accommodate insoluble $\text{LiCl}(s)$ precipitation without premature passivation.
+\end{enumerate}
+\end{solutionbox}
+
 \end{document}
+
