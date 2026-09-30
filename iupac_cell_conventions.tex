@@ -1,97 +1,132 @@
-\documentclass[11pt,a4paper]{article}
+\documentclass[10pt,a4paper]{article}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{lmodern}
 \usepackage{textcomp}
-\usepackage[margin=1in,headheight=14pt]{geometry}
-\usepackage{amsmath,amssymb,amsfonts}
+\usepackage[margin=0.55in, top=0.85in, bottom=0.75in, headheight=14pt, headsep=0.2in]{geometry}
+\usepackage{amsmath,amssymb,amsfonts,amsthm,mathtools}
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{xcolor}
 \usepackage{tcolorbox}
+\tcbuselibrary{skins,breakable}
 \usepackage{hyperref}
 \usepackage{fancyhdr}
 \usepackage{microtype}
 \usepackage{enumitem}
+\usepackage{titlesec}
 
-\definecolor{primaryblue}{RGB}{20, 50, 110}
-\definecolor{rulecolor}{RGB}{30, 90, 160}
-\definecolor{boxbg}{RGB}{245, 248, 253}
-\definecolor{boxframe}{RGB}{180, 205, 235}
-\definecolor{alertred}{RGB}{170, 30, 30}
+% --- Mathectomy Core Brand Palette ---
+\definecolor{primary}{RGB}{15, 32, 67}           % Deep Mathectomy Navy
+\definecolor{secondary}{RGB}{40, 85, 154}        % Mathectomy Cobalt Blue
+\definecolor{sweetparchment}{RGB}{247, 241, 230} % Warm Theory / Axiom Cream
+\definecolor{anscolor}{RGB}{140, 20, 20}         % Rich Crimson
+\definecolor{boxbg}{RGB}{252, 250, 245}          % Clean Light Tint
+\definecolor{tipbg}{RGB}{239, 246, 255}          % Ice Blue Tint
+\definecolor{tipborder}{RGB}{30, 64, 175}        % Saturated Blue Border
+\definecolor{solbg}{RGB}{254, 251, 243}          % Amber Solution Background
+\definecolor{solborder}{RGB}{195, 125, 25}       % Gold/Amber Solution Border
 
 \hypersetup{
     colorlinks=true,
-    linkcolor=primaryblue,
-    urlcolor=primaryblue,
-    citecolor=primaryblue
+    linkcolor=secondary,
+    urlcolor=secondary,
+    citecolor=secondary,
+    pdfauthor={Tahmidul Yeasin Abid | Mathectomy},
+    pdftitle={IUPAC Electrochemical Cell Representation & Conventions}
 }
 
+% --- Mathectomy Signature Header & Footer Configuration ---
 \pagestyle{fancy}
 \fancyhf{}
-\lhead{\textbf{IUPAC Electrochemical Cell Representation \& Conventions}}
-\rhead{\thepage}
-\renewcommand{\headrulewidth}{0.6pt}
+\fancyhead[L]{\color{primary}\small\bfseries MATHECTOMY BY ABID BHAIYA}
+\fancyhead[R]{\color{secondary}\small\bfseries Electrochemistry: IUPAC Cell Conventions}
+\fancyfoot[C]{\color{primary}\small\bfseries Tahmidul Yeasin Abid \quad|\quad BUET CSE '22 \quad|\quad 01533424165}
 
-\tcolorboxenvironment{definitionbox}{
-    colback=boxbg,
-    colframe=boxframe,
-    arc=3mm,
-    boxrule=1pt,
-    left=10pt,
-    right=10pt,
-    top=8pt,
-    bottom=8pt
-}
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+\renewcommand{\headrule}{\color{secondary}\hrule width\headwidth height\headrulewidth}
+\renewcommand{\footrule}{\color{secondary}\hrule width\headwidth height\footrulewidth}
 
+% --- Mathectomy Compact Typography ---
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{4pt}
+\setlist[enumerate]{leftmargin=*, itemsep=2pt, parsep=0pt, topsep=2pt}
+\setlist[itemize]{leftmargin=*, itemsep=2pt, parsep=0pt, topsep=2pt}
+
+\titleformat{\section}{\color{primary}\large\bfseries}{\thesection}{0.5em}{}[\color{secondary}\titlerule]
+\titleformat{\subsection}{\color{secondary}\normalsize\bfseries}{\thesubsection}{0.5em}{}
+\titlespacing*{\section}{0pt}{10pt}{5pt}
+\titlespacing*{\subsection}{0pt}{8pt}{3pt}
+
+% --- Mathectomy Branded Environments ---
 \newtcolorbox{rulebox}[1]{
-    colback=boxbg,
-    colframe=rulecolor,
-    fonttitle=\bfseries\color{white},
-    title=#1,
-    arc=2mm,
-    boxrule=1pt
+    enhanced,
+    colback=sweetparchment,
+    colframe=primary,
+    fonttitle=\bfseries\small\color{white},
+    title={#1},
+    arc=1.5mm,
+    boxrule=0.9pt,
+    left=6pt, right=6pt, top=5pt, bottom=5pt,
+    before skip=6pt, after skip=6pt,
+    breakable
 }
 
 \newtcolorbox{examplebox}[1]{
+    enhanced,
     colback=white,
-    colframe=primaryblue,
-    fonttitle=\bfseries\color{white},
-    title=#1,
-    arc=2mm,
-    boxrule=1pt
+    colframe=secondary,
+    fonttitle=\bfseries\small\color{white},
+    title={#1},
+    arc=1.5mm,
+    boxrule=0.8pt,
+    left=6pt, right=6pt, top=5pt, bottom=5pt,
+    before skip=7pt, after skip=7pt,
+    breakable
 }
 
 \newtcolorbox{exercisebox}[1]{
-    colback=white,
-    colframe=rulecolor,
-    fonttitle=\bfseries\color{white},
-    title=#1,
-    arc=2mm,
-    boxrule=1pt
+    enhanced,
+    colback=tipbg,
+    colframe=tipborder,
+    fonttitle=\bfseries\small\color{white},
+    title={#1},
+    arc=1.5mm,
+    boxrule=0.85pt,
+    left=6pt, right=6pt, top=5pt, bottom=5pt,
+    before skip=7pt, after skip=7pt,
+    breakable
 }
 
 \newtcolorbox{solutionbox}[1]{
-    colback=boxbg,
-    colframe=boxframe,
-    fonttitle=\bfseries\color{primaryblue},
-    title=#1,
-    arc=2mm,
-    boxrule=1pt
+    enhanced,
+    colback=solbg,
+    colframe=solborder,
+    fonttitle=\bfseries\small\color{white},
+    colbacktitle=solborder,
+    title={#1},
+    arc=1.5mm,
+    boxrule=0.85pt,
+    left=6pt, right=6pt, top=5pt, bottom=5pt,
+    before skip=6pt, after skip=7pt,
+    breakable
 }
-
-\title{\textbf{\LARGE Comprehensive Treatise on IUPAC Electrochemical Cell Conventions, Notations, and Morphological Taxonomy}}
-\author{\textbf{Rigorous Chemical Nomenclature \& Physical Electrochemistry Compendium}}
-\date{\today}
 
 \begin{document}
 
-\maketitle
+\begin{center}
+    {\color{primary}\Large\bfseries PHYSICAL CHEMISTRY: ELECTROCHEMICAL CELLS}\\[3pt]
+    {\color{secondary}\small\bfseries COMPREHENSIVE TREATISE ON IUPAC CELL CONVENTIONS, NOTATIONS \& MORPHOLOGICAL TAXONOMY}\\[3pt]
+    {\footnotesize\color{gray}\textbf{Mathectomy Advanced Admission \& Olympiad Master Series \quad$\bullet$\quad BUET $\bullet$ JEE Advanced $\bullet$ Olympiad Standards}}
+\end{center}
+\vspace{-2pt}
 
 \begin{abstract}
-This monograph presents the formal IUPAC (International Union of Pure and Applied Chemistry) standards governing electrochemical cell notation, boundary typologies, and half-cell representations. Every standard, non-standard, and unconventional electrochemical system---spanning metal--ion, insoluble salt, gas, soluble redox, amalgam, insoluble oxide, concentration, membrane/ion-selective, organic redox, and solid-state/molten systems---is cataloged. Crucially, each representation is dissected via a microscopic, bit-by-bit anatomical parsing that explicitly links every vertical line, comma, phase marker, concentration term, and electrode conductor to its underlying IUPAC mandate.
+\noindent This monograph presents the formal IUPAC (International Union of Pure and Applied Chemistry) standards governing electrochemical cell notation, boundary typologies, and half-cell representations. Every standard, non-standard, and unconventional electrochemical system---spanning metal--ion, insoluble salt, gas, soluble redox, amalgam, insoluble oxide, concentration, membrane/ion-selective, organic redox, and solid-state/molten systems---is cataloged. Crucially, each representation is dissected via a microscopic, bit-by-bit anatomical parsing that explicitly links every vertical line, comma, phase marker, concentration term, and electrode conductor to its underlying IUPAC mandate, accompanied by complete half-cell/net chemical reactions and a graded practice corpus.
 \end{abstract}
 
+\vspace{-2pt}
 \tableofcontents
 \newpage
 
